@@ -1,0 +1,7 @@
+# Redirects for Netlify
+
+# Redirect default Netlify subdomain to primary domain (update with your actual domain)
+# https://gideoncodeworks.netlify.app/* https://www.gideoncode.com/:splat 301!
+
+# SPA fallback (in case you add client-side routing later)
+# /* /index.html 200

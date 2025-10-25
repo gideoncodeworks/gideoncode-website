@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Meta Tags -->
+  <title>Services & Pricing | Websites, Mobile Apps, Web Apps, Branding | Gideon Code Works</title>
+  <meta name="description" content="Full-service digital agency pricing: Websites from $212.50/mo, Mobile Apps from $14,997, Web Applications from $14,997, Branding from $997. Custom solutions for growing businesses.">
+  <meta name="keywords" content="web development pricing, mobile app cost, branding packages, website pricing, app development rates, custom software pricing, brand identity cost, full service agency pricing">
+  <meta name="author" content="Gideon Code Works">
+  <link rel="canonical" href="https://gideoncode.com/services.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Website Services & Pricing | Gideon Code Works">
+  <meta property="og:description" content="Affordable monthly website management from $212.50/mo. Professional design, hosting, updates, and support included.">
+  <meta property="og:image" content="https://gideoncode.com/images/og-image.jpg">
+  <meta property="og:url" content="https://gideoncode.com/services.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gideon Code Works">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Affordable Website Services & Pricing">
+  <meta name="twitter:description" content="Monthly plans from $212.50/mo with hosting, updates, and ongoing support.">
+  <meta name="twitter:image" content="https://gideoncode.com/images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Structured Data - Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Website Design and Monthly Management",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Gideon Code Works",
+      "url": "https://gideoncode.com"
+    },
+    "areaServed": "United States",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Website Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Starter Monthly Plan",
+            "description": "Up to 5 pages with monthly management"
+          },
+          "price": "212.50",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "212.50",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Growth Monthly Plan",
+            "description": "Up to 10 pages with enhanced SEO and monthly management"
+          },
+          "price": "212.50",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "212.50",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Domination Monthly Plan",
+            "description": "Unlimited pages with premium SEO and monthly management"
+          },
+          "price": "252.50",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "252.50",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex-shrink-0 flex items-center">
+            <a href="index.html" aria-label="Gideon Code Works Home" class="flex items-center">
+              <img src="images/gcw-logo.png" alt="Gideon Code Works" width="200" height="60">
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link text-white hover:text-cyan-400">Home</a>
+            <a href="services.html" class="nav-link text-white hover:text-cyan-400" aria-current="page">Services</a>
+            <a href="portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
+            <a href="about.html" class="nav-link text-white hover:text-cyan-400">About</a>
+            <a href="careers.html" class="nav-link text-white hover:text-cyan-400">Careers</a>
+            <a href="contact.html" class="nav-link text-white hover:text-cyan-400">Contact</a>
+            <a href="contact.html" class="neon-button text-sm py-2 px-4">Get Started</a>
+          </div>
+          <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu" aria-expanded="false">
+              <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden fixed right-0 top-20 w-64 h-full bg-black border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
+        <div class="flex flex-col p-6 space-y-6">
+          <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
+          <a href="services.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Services</a>
+          <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
+          <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
+          <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Careers</a>
+          <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
+          <a href="contact.html" class="neon-button text-sm py-2 px-4 text-center" role="menuitem">Get Started</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 scanline" aria-labelledby="services-heading">
+      <div class="max-w-5xl mx-auto text-center">
+        <h1 id="services-heading" class="text-5xl sm:text-6xl font-bold gradient-text mb-6 fade-in">
+          Services & Pricing
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto fade-in leading-relaxed">
+          Websites, mobile apps, web applications, and branding. Transparent pricing, no hidden fees.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1: One-Time Builds -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="one-time-heading">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 id="one-time-heading" class="text-4xl font-bold text-white mb-4 fade-in">One-Time Builds</h2>
+          <p class="text-gray-400 text-sm fade-in">Pay once, you're on your own after launch</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-4">
+
+          <!-- Starter -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Starter</h3>
+            <div class="text-4xl font-bold text-white mb-6">$2,497</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Up to 5 pages</li>
+              <li>✓ Mobile responsive</li>
+              <li>✓ Contact form</li>
+              <li>✓ Basic SEO setup</li>
+              <li>✓ 30 days support</li>
+              <li class="text-gray-500">✗ Ongoing updates</li>
+              <li class="text-gray-500">✗ Monthly management</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Growth -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Growth</h3>
+            <div class="text-4xl font-bold text-white mb-6">$3,497</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Up to 10 pages</li>
+              <li>✓ Mobile responsive</li>
+              <li>✓ Advanced forms</li>
+              <li>✓ Enhanced SEO</li>
+              <li>✓ Blog setup</li>
+              <li>✓ 60 days support</li>
+              <li class="text-gray-500">✗ Ongoing updates</li>
+              <li class="text-gray-500">✗ Monthly management</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Domination -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Domination</h3>
+            <div class="text-4xl font-bold text-white mb-6">$4,997</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Unlimited pages</li>
+              <li>✓ Mobile responsive</li>
+              <li>✓ Custom features</li>
+              <li>✓ Premium SEO</li>
+              <li>✓ E-commerce ready</li>
+              <li>✓ Blog + CMS</li>
+              <li>✓ 90 days support</li>
+              <li class="text-gray-500">✗ Ongoing updates</li>
+              <li class="text-gray-500">✗ Monthly management</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Get Started</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Build + Monthly Management (THE SMART CHOICE) -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="monthly-heading">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Big Attention Banner -->
+        <div class="text-center mb-12 fade-in">
+          <div class="inline-block bg-gradient-to-r from-cyan-400 to-magenta-400 text-white font-extrabold text-2xl sm:text-3xl px-8 py-4 mb-6 transform -rotate-1 shadow-2xl border-2 border-white">
+            THE SMART CHOICE
+          </div>
+          <h2 id="monthly-heading" class="text-4xl font-bold text-white mb-4">Build + Monthly Management</h2>
+          <p class="text-gray-300">Lower upfront costs + ongoing support and updates = long-term success</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+          <!-- Starter Monthly -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Starter</h3>
+            <div class="mb-6">
+              <div class="text-3xl font-bold text-white mb-2">$497 setup</div>
+              <div class="border-t border-cyan-500 border-opacity-30 pt-4 mt-4">
+                <div class="text-2xl font-bold text-cyan-400 mb-1">$250/mo</div>
+                <div class="text-sm text-gray-400">12-month contract</div>
+              </div>
+              <div class="border-t border-magenta-500 border-opacity-30 pt-4 mt-4 relative">
+                <div class="best-value-badge">BEST VALUE</div>
+                <div class="text-2xl font-bold text-magenta-400 mb-1">$212.50/mo</div>
+                <div class="text-sm text-gray-400">24-month contract</div>
+                <div class="text-xs text-green-400 mt-2">Save $900!</div>
+              </div>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Up to 5 pages</li>
+              <li>✓ Mobile responsive</li>
+              <li>✓ Contact form</li>
+              <li>✓ Basic SEO setup</li>
+              <li>✓ Hosting included</li>
+              <li>✓ Monthly updates</li>
+              <li>✓ Security monitoring</li>
+              <li>✓ Ongoing support</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Growth Monthly -->
+          <article class="cyber-card pricing-card fade-in border-2 border-cyan-500">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Growth</h3>
+            <div class="mb-6">
+              <div class="text-3xl font-bold text-white mb-2">$697 setup</div>
+              <div class="border-t border-cyan-500 border-opacity-30 pt-4 mt-4">
+                <div class="text-2xl font-bold text-cyan-400 mb-1">$250/mo</div>
+                <div class="text-sm text-gray-400">12-month contract</div>
+              </div>
+              <div class="border-t border-magenta-500 border-opacity-30 pt-4 mt-4 relative">
+                <div class="best-value-badge">BEST VALUE</div>
+                <div class="text-2xl font-bold text-magenta-400 mb-1">$212.50/mo</div>
+                <div class="text-sm text-gray-400">24-month contract</div>
+                <div class="text-xs text-green-400 mt-2">Save $900!</div>
+              </div>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Up to 10 pages</li>
+              <li>✓ Mobile responsive</li>
+              <li>✓ Advanced forms</li>
+              <li>✓ Enhanced SEO</li>
+              <li>✓ Blog setup</li>
+              <li>✓ Hosting included</li>
+              <li>✓ Weekly updates</li>
+              <li>✓ Security monitoring</li>
+              <li>✓ Priority support</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Domination Monthly -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Domination</h3>
+            <div class="mb-6">
+              <div class="text-3xl font-bold text-white mb-2">$997 setup</div>
+              <div class="border-t border-cyan-500 border-opacity-30 pt-4 mt-4">
+                <div class="text-2xl font-bold text-cyan-400 mb-1">$297/mo</div>
+                <div class="text-sm text-gray-400">12-month contract</div>
+              </div>
+              <div class="border-t border-magenta-500 border-opacity-30 pt-4 mt-4 relative">
+                <div class="best-value-badge">BEST VALUE</div>
+                <div class="text-2xl font-bold text-magenta-400 mb-1">$252.50/mo</div>
+                <div class="text-sm text-gray-400">24-month contract</div>
+                <div class="text-xs text-green-400 mt-2">Save $1,068!</div>
+              </div>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Unlimited pages</li>
+              <li>✓ Mobile responsive</li>
+              <li>✓ Custom features</li>
+              <li>✓ Premium SEO</li>
+              <li>✓ E-commerce ready</li>
+              <li>✓ Blog + CMS</li>
+              <li>✓ Hosting included</li>
+              <li>✓ Daily monitoring</li>
+              <li>✓ 24/7 support</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Get Started</a>
+          </article>
+
+        </div>
+
+        <!-- Why Monthly Is Better -->
+        <aside class="cyber-card fade-in text-center max-w-4xl mx-auto">
+          <h3 class="text-2xl font-bold gradient-text mb-6">Why Monthly Management Is The Smart Choice</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
+            <div>
+              <div class="text-4xl mb-2" aria-hidden="true">💸</div>
+              <h4 class="font-bold text-cyan-400 mb-2">Lower Entry Cost</h4>
+              <p class="text-sm">Get a professional site for a fraction of the upfront cost</p>
+            </div>
+            <div>
+              <div class="text-4xl mb-2" aria-hidden="true">🔒</div>
+              <h4 class="font-bold text-cyan-400 mb-2">Always Protected</h4>
+              <p class="text-sm">Security updates, backups, and monitoring included</p>
+            </div>
+            <div>
+              <div class="text-4xl mb-2" aria-hidden="true">📈</div>
+              <h4 class="font-bold text-cyan-400 mb-2">Continuous Growth</h4>
+              <p class="text-sm">We optimize and improve your site over time</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Add-Ons -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="addons-heading">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 id="addons-heading" class="text-4xl font-bold text-white mb-4 fade-in">Add-On Services</h2>
+          <p class="text-gray-300 fade-in">Supercharge your online presence with these optional services</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- Social Media Management -->
+          <article class="cyber-card fade-in">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-cyan-400 mb-2">Social Media Management</h3>
+                <div class="text-3xl font-bold text-white">$250/mo</div>
+              </div>
+              <div class="text-5xl" aria-hidden="true">📱</div>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-6">
+              <li>✓ 12 posts per month</li>
+              <li>✓ Content creation</li>
+              <li>✓ Scheduling & posting</li>
+              <li>✓ Community engagement</li>
+              <li>✓ Monthly analytics report</li>
+              <li>✓ Platform: Facebook, Instagram, or LinkedIn</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Add to Plan</a>
+          </article>
+
+          <!-- Google SEO/Ads Management -->
+          <article class="cyber-card fade-in">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-cyan-400 mb-2">Google SEO/Ads Management</h3>
+                <div class="text-3xl font-bold text-white">$297/mo</div>
+              </div>
+              <div class="text-5xl" aria-hidden="true">🎯</div>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-6">
+              <li>✓ Keyword research</li>
+              <li>✓ Google Ads campaign setup</li>
+              <li>✓ Ad copy creation</li>
+              <li>✓ Ongoing optimization</li>
+              <li>✓ Monthly performance report</li>
+              <li>✓ ROI tracking</li>
+              <li class="text-sm text-gray-500">* Ad budget paid separately to Google</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Add to Plan</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile App Development -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950 bg-opacity-20" aria-labelledby="mobile-apps-heading">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 id="mobile-apps-heading" class="text-4xl font-bold text-white mb-4 fade-in">Mobile App Development</h2>
+          <p class="text-gray-300 fade-in">Native iOS & Android apps built for performance and user experience</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-4">
+
+          <!-- Basic App -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-magenta-400 mb-2">Basic App</h3>
+            <div class="text-4xl font-bold text-white mb-6">$14,997</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ iOS OR Android (single platform)</li>
+              <li>✓ Up to 5 screens/views</li>
+              <li>✓ User authentication</li>
+              <li>✓ Basic API integration</li>
+              <li>✓ Push notifications</li>
+              <li>✓ App store submission</li>
+              <li>✓ 60 days support</li>
+              <li class="text-gray-500">✗ Backend/database</li>
+            </ul>
+            <a href="contact.html" class="neon-button neon-button-magenta w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Pro App -->
+          <article class="cyber-card pricing-card fade-in border-2 border-magenta-500">
+            <h3 class="text-2xl font-bold text-magenta-400 mb-2">Pro App</h3>
+            <div class="text-4xl font-bold text-white mb-6">$24,997</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ iOS AND Android (both platforms)</li>
+              <li>✓ Up to 10 screens/views</li>
+              <li>✓ User authentication & profiles</li>
+              <li>✓ Custom backend/database</li>
+              <li>✓ Advanced API integrations</li>
+              <li>✓ Push notifications</li>
+              <li>✓ In-app purchases (optional)</li>
+              <li>✓ App store submission</li>
+              <li>✓ 90 days support</li>
+            </ul>
+            <a href="contact.html" class="neon-button neon-button-magenta w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Enterprise App -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-magenta-400 mb-2">Enterprise App</h3>
+            <div class="text-4xl font-bold text-white mb-6">Custom</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ iOS AND Android + Web</li>
+              <li>✓ Unlimited screens/features</li>
+              <li>✓ Complex user flows</li>
+              <li>✓ Scalable backend infrastructure</li>
+              <li>✓ Third-party integrations</li>
+              <li>✓ Analytics & reporting</li>
+              <li>✓ Admin dashboard</li>
+              <li>✓ App store submission</li>
+              <li>✓ 6 months support</li>
+            </ul>
+            <a href="contact.html" class="neon-button neon-button-magenta w-full text-center block">Contact Us</a>
+          </article>
+
+        </div>
+
+        <aside class="cyber-card fade-in text-center max-w-4xl mx-auto bg-gradient-to-r from-magenta-900 to-cyan-900 bg-opacity-20 border-2 border-magenta-400">
+          <h3 class="text-2xl font-bold text-white mb-4">App Maintenance & Updates</h3>
+          <p class="text-gray-300 mb-4">Keep your app running smoothly with ongoing maintenance, updates, and feature additions.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <div class="text-3xl font-bold text-magenta-400 mb-2">$497/month</div>
+              <p class="text-sm text-gray-400">Basic maintenance & bug fixes</p>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-cyan-400 mb-2">$997/month</div>
+              <p class="text-sm text-gray-400">Full support + feature development</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Web Applications -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="web-apps-heading">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 id="web-apps-heading" class="text-4xl font-bold text-white mb-4 fade-in">Web Applications</h2>
+          <p class="text-gray-300 fade-in">Custom dashboards, SaaS products, CRMs, and internal tools</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- SaaS/Dashboard -->
+          <article class="cyber-card fade-in">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-cyan-400 mb-2">SaaS / Dashboard</h3>
+                <div class="text-3xl font-bold text-white">Starting at $19,997</div>
+              </div>
+              <div class="text-5xl" aria-hidden="true">📊</div>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-6">
+              <li>✓ Custom user dashboards</li>
+              <li>✓ Data visualization & reporting</li>
+              <li>✓ User authentication & roles</li>
+              <li>✓ Database design & setup</li>
+              <li>✓ API development</li>
+              <li>✓ Responsive web design</li>
+              <li>✓ 90 days support</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Contact Us</a>
+          </article>
+
+          <!-- Custom CRM / Internal Tools -->
+          <article class="cyber-card fade-in">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-cyan-400 mb-2">CRM / Internal Tools</h3>
+                <div class="text-3xl font-bold text-white">Starting at $14,997</div>
+              </div>
+              <div class="text-5xl" aria-hidden="true">🛠️</div>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-6">
+              <li>✓ Custom workflow automation</li>
+              <li>✓ Sales pipeline management</li>
+              <li>✓ Contact & lead tracking</li>
+              <li>✓ Reporting & analytics</li>
+              <li>✓ Email integrations</li>
+              <li>✓ User permissions & security</li>
+              <li>✓ 90 days support</li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Contact Us</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Branding & Design -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950 bg-opacity-20" aria-labelledby="branding-heading">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 id="branding-heading" class="text-4xl font-bold text-white mb-4 fade-in">Branding & Design</h2>
+          <p class="text-gray-300 fade-in">Complete brand identity systems that make you stand out</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Logo Only -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-magenta-400 mb-2">Logo Design</h3>
+            <div class="text-4xl font-bold text-white mb-6">$997</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ 3 logo concepts</li>
+              <li>✓ 2 revision rounds</li>
+              <li>✓ Final files (PNG, SVG, PDF)</li>
+              <li>✓ Black & white versions</li>
+              <li>✓ Social media formats</li>
+              <li class="text-gray-500">✗ Brand guidelines</li>
+              <li class="text-gray-500">✗ Color palette</li>
+            </ul>
+            <a href="contact.html" class="neon-button neon-button-magenta w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Brand Identity Kit -->
+          <article class="cyber-card pricing-card fade-in border-2 border-magenta-500">
+            <h3 class="text-2xl font-bold text-magenta-400 mb-2">Brand Identity Kit</h3>
+            <div class="text-4xl font-bold text-white mb-6">$2,497</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Custom logo design</li>
+              <li>✓ Color palette (5-7 colors)</li>
+              <li>✓ Typography system</li>
+              <li>✓ Brand style guide (PDF)</li>
+              <li>✓ Business card design</li>
+              <li>✓ Social media templates</li>
+              <li>✓ All file formats</li>
+              <li>✓ 3 revision rounds</li>
+            </ul>
+            <a href="contact.html" class="neon-button neon-button-magenta w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Complete Brand System -->
+          <article class="cyber-card pricing-card fade-in">
+            <h3 class="text-2xl font-bold text-magenta-400 mb-2">Complete Brand System</h3>
+            <div class="text-4xl font-bold text-white mb-6">$4,997</div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li>✓ Everything in Identity Kit</li>
+              <li>✓ Comprehensive brand guidelines</li>
+              <li>✓ Marketing materials (flyers, etc)</li>
+              <li>✓ Email signature templates</li>
+              <li>✓ PowerPoint/Keynote templates</li>
+              <li>✓ Social media brand kit</li>
+              <li>✓ Icon & graphic library</li>
+              <li>✓ Unlimited revisions</li>
+            </ul>
+            <a href="contact.html" class="neon-button neon-button-magenta w-full text-center block">Get Started</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="comparison-heading">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="comparison-heading" class="text-4xl font-bold text-center gradient-text mb-12 fade-in">Feature Comparison</h2>
+
+        <div class="overflow-x-auto fade-in">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-cyan-500 border-opacity-30">
+                <th scope="col" class="py-4 px-4 text-gray-300">Feature</th>
+                <th scope="col" class="py-4 px-4 text-center text-cyan-400">Starter</th>
+                <th scope="col" class="py-4 px-4 text-center text-cyan-400">Growth</th>
+                <th scope="col" class="py-4 px-4 text-center text-cyan-400">Domination</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-300">
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">Number of Pages</td>
+                <td class="py-3 px-4 text-center">Up to 5</td>
+                <td class="py-3 px-4 text-center">Up to 10</td>
+                <td class="py-3 px-4 text-center">Unlimited</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">Mobile Responsive</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">Contact Forms</td>
+                <td class="py-3 px-4 text-center">Basic</td>
+                <td class="py-3 px-4 text-center">Advanced</td>
+                <td class="py-3 px-4 text-center">Custom</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">SEO Optimization</td>
+                <td class="py-3 px-4 text-center">Basic</td>
+                <td class="py-3 px-4 text-center">Enhanced</td>
+                <td class="py-3 px-4 text-center">Premium</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">Blog/CMS</td>
+                <td class="py-3 px-4 text-center text-red-400">✗</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">E-commerce Ready</td>
+                <td class="py-3 px-4 text-center text-red-400">✗</td>
+                <td class="py-3 px-4 text-center text-red-400">✗</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">Custom Features</td>
+                <td class="py-3 px-4 text-center text-red-400">✗</td>
+                <td class="py-3 px-4 text-center text-red-400">✗</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">Hosting (Monthly Plans)</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+                <td class="py-3 px-4 text-center text-green-400">✓</td>
+              </tr>
+              <tr class="border-b border-cyan-500 border-opacity-10">
+                <td class="py-3 px-4">Updates (Monthly Plans)</td>
+                <td class="py-3 px-4 text-center">Monthly</td>
+                <td class="py-3 px-4 text-center">Weekly</td>
+                <td class="py-3 px-4 text-center">Daily</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4">Support (Monthly Plans)</td>
+                <td class="py-3 px-4 text-center">Standard</td>
+                <td class="py-3 px-4 text-center">Priority</td>
+                <td class="py-3 px-4 text-center">24/7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-black text-center" aria-labelledby="cta-heading">
+      <div class="max-w-4xl mx-auto fade-in">
+        <h2 id="cta-heading" class="text-4xl font-bold gradient-text mb-6">
+          Ready to Get Started?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Let's build a website that grows your business. Contact us for a free consultation.
+        </p>
+        <a href="contact.html" class="neon-button neon-button-magenta text-lg">Get Your Free Quote</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-cyan-500 border-opacity-30 py-12 px-4 sm:px-6 lg:px-8" role="contentinfo">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="col-span-1 md:col-span-2">
+          <img src="images/gcw-logo.png" alt="Gideon Code Works" width="200" height="60" loading="lazy">
+          <p class="text-gray-400 mb-4">
+            Websites that make you money. Affordable monthly management for small businesses.
+          </p>
+          <div class="flex space-x-4">
+            <!-- INSERT TWITTER URL HERE: Replace href="#" with your Twitter URL -->
+            <a href="#" class="text-cyan-400 hover:text-cyan-300 transition" aria-label="Follow us on Twitter">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" width="24" height="24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+            </a>
+            <a href="https://github.com/gideoncode" class="text-cyan-400 hover:text-cyan-300 transition" aria-label="Visit our GitHub" target="_blank" rel="noopener noreferrer">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" width="24" height="24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+            </a>
+            <!-- INSERT LINKEDIN URL HERE: Replace href="#" with your LinkedIn company page URL -->
+            <a href="#" class="text-cyan-400 hover:text-cyan-300 transition" aria-label="Connect on LinkedIn">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+        <nav aria-label="Footer navigation">
+          <h3 class="text-cyan-400 font-bold mb-4 uppercase tracking-wider">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-cyan-400 transition">Services & Pricing</a></li>
+            <li><a href="portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-cyan-400 transition">About Us</a></li>
+            <li><a href="careers.html" class="text-gray-400 hover:text-cyan-400 transition">Career Opportunities</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-cyan-400 transition">Contact Us</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 class="text-cyan-400 font-bold mb-4 uppercase tracking-wider">Contact</h3>
+          <address class="not-italic space-y-2 text-gray-400">
+            <div><a href="mailto:josh@gideoncode.com" class="hover:text-cyan-400 transition">josh@gideoncode.com</a></div>
+            <div><a href="mailto:info@gideoncode.com" class="hover:text-cyan-400 transition">info@gideoncode.com</a></div>
+          </address>
+        </div>
+      </div>
+      <div class="border-t border-cyan-500 border-opacity-30 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Gideon Code Works. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript - Deferred for Performance -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

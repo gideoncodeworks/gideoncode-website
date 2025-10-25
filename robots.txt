@@ -1,0 +1,14 @@
+# robots.txt for Gideon Code Works
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://gideoncode.com/sitemap.xml
+
+# Crawl-delay (optional, adjust if needed)
+# Crawl-delay: 10
+
+# Disallow admin or private directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
