@@ -163,14 +163,30 @@
   <main>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 scanline" aria-labelledby="services-heading">
-      <div class="max-w-5xl mx-auto text-center">
-        <h1 id="services-heading" class="text-5xl sm:text-6xl font-bold gradient-text mb-6 fade-in">
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 scanline relative overflow-hidden" aria-labelledby="services-heading">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-magenta-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        <h1 id="services-heading" class="text-5xl sm:text-6xl lg:text-7xl font-bold gradient-text mb-8 fade-in leading-tight">
           Services & Pricing
         </h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto fade-in leading-relaxed">
-          Websites, mobile apps, web applications, and branding. Transparent pricing, no hidden fees.
+        <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto fade-in leading-relaxed mb-6">
+          Transparent pricing. No surprises. Choose what works for your business.
         </p>
+        <div class="flex items-center justify-center gap-4 text-sm text-gray-400 fade-in">
+          <span class="flex items-center gap-2">
+            <span class="text-cyan-400">✓</span> No Hidden Fees
+          </span>
+          <span class="flex items-center gap-2">
+            <span class="text-cyan-400">✓</span> Cancel Anytime
+          </span>
+          <span class="flex items-center gap-2">
+            <span class="text-cyan-400">✓</span> 100% Transparent
+          </span>
+        </div>
       </div>
     </section>
 
@@ -367,6 +383,105 @@
           </div>
         </aside>
 
+      </div>
+    </section>
+
+    <!-- Featured: CRM Platform -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-900 via-black to-blue-900 relative overflow-hidden" aria-labelledby="crm-featured-heading">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12">
+          <div class="inline-block bg-cyan-500 text-black px-4 py-2 rounded-full text-sm font-bold mb-4">
+            SAAS PRODUCT
+          </div>
+          <h2 id="crm-featured-heading" class="text-4xl sm:text-5xl font-bold gradient-text mb-6">
+            Ready-to-Deploy CRM Platform
+          </h2>
+          <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+            White-label CRM built for agencies and sales teams. Buy it, rent it, or customize it.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <!-- Purchase Option -->
+          <div class="cyber-card border-2 border-cyan-400 bg-black bg-opacity-80 backdrop-blur-sm p-8">
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-cyan-400 mb-2">Purchase</h3>
+              <div class="text-4xl font-bold text-white mb-2">Custom Pricing</div>
+              <p class="text-sm text-gray-400">Own it forever</p>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li class="flex items-start">
+                <span class="text-cyan-400 mr-2">✓</span>
+                <span>Full source code ownership</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-cyan-400 mr-2">✓</span>
+                <span>White-label ready</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-cyan-400 mr-2">✓</span>
+                <span>Custom domain setup</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-cyan-400 mr-2">✓</span>
+                <span>Deployment assistance</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-cyan-400 mr-2">✓</span>
+                <span>30 days post-launch support</span>
+              </li>
+            </ul>
+            <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="neon-button w-full text-center block">
+              Explore Platform
+            </a>
+          </div>
+
+          <!-- Rental Option -->
+          <div class="cyber-card border-2 border-magenta-400 bg-black bg-opacity-80 backdrop-blur-sm p-8">
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-magenta-400 mb-2">Monthly Rental</h3>
+              <div class="text-4xl font-bold text-white mb-2">Custom Pricing</div>
+              <p class="text-sm text-gray-400">Pay as you grow</p>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8">
+              <li class="flex items-start">
+                <span class="text-magenta-400 mr-2">✓</span>
+                <span>Hosted & managed for you</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-magenta-400 mr-2">✓</span>
+                <span>White-label customization</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-magenta-400 mr-2">✓</span>
+                <span>Automatic updates</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-magenta-400 mr-2">✓</span>
+                <span>Security & backups included</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-magenta-400 mr-2">✓</span>
+                <span>Ongoing support</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="neon-button neon-button-magenta w-full text-center block">
+              Get Pricing
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p class="text-gray-400 mb-4">Includes: Sales Pipeline • Commission Tracking • Team Management • Real-Time Analytics</p>
+          <a href="portfolio.html" class="text-cyan-400 hover:text-cyan-300 transition font-semibold">
+            View Live Demo in Portfolio →
+          </a>
+        </div>
       </div>
     </section>
 
