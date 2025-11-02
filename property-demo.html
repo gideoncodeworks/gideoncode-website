@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summit Properties - Property Management Portal | Gideon Code Works Demo</title>
+  <meta name="description" content="Sample property management website for landlords with rental listings, tenant portal, and maintenance tracking. Built by Gideon Code Works.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .property-card {
+      transition: all 0.3s ease;
+    }
+    .property-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Demo Banner -->
+  <div class="bg-blue-600 text-white text-center py-3 px-4 font-bold">
+    🏠 DEMO SITE - Sample property management portal built by Gideon Code Works - <a href="contact.html" class="underline">Get Your Site Today</a>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <div class="text-3xl">🏢</div>
+          <div class="text-2xl font-bold text-blue-600">Summit Properties</div>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-gray-700 hover:text-blue-600 transition font-semibold">Home</a>
+          <a href="#properties" class="text-gray-700 hover:text-blue-600 transition font-semibold">Properties</a>
+          <a href="#services" class="text-gray-700 hover:text-blue-600 transition font-semibold">Services</a>
+          <a href="#tenant-portal" class="text-gray-700 hover:text-blue-600 transition font-semibold">Tenant Portal</a>
+          <a href="#contact" class="text-gray-700 hover:text-blue-600 transition font-semibold">Contact</a>
+        </div>
+        <a href="#tenant-portal" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
+          Login
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative py-24 px-4 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        Professional Property Management<br/>
+        <span class="text-blue-200">You Can Trust</span>
+      </h1>
+      <p class="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
+        From tenant screening to maintenance coordination, we handle every aspect of property management so you can focus on growing your portfolio.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#properties" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition">
+          View Available Properties
+        </a>
+        <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition">
+          Owner Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="py-12 px-4 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">250+</div>
+          <p class="text-gray-600 font-semibold">Properties Managed</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">98%</div>
+          <p class="text-gray-600 font-semibold">Occupancy Rate</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+          <p class="text-gray-600 font-semibold">Tenant Support</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+          <p class="text-gray-600 font-semibold">Years Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Available Properties -->
+  <section id="properties" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Available Properties</h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">Find your next home in Cleveland</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Property 1 -->
+        <div class="property-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="bg-gradient-to-br from-blue-500 to-cyan-600 h-48 flex items-center justify-center">
+            <span class="text-7xl">🏠</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-2xl font-bold text-blue-600">$1,250/mo</span>
+              <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Available Now</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">2BR Apartment - Lakewood</h3>
+            <p class="text-gray-600 mb-4 text-sm">
+              Modern 2-bedroom apartment with updated kitchen, in-unit laundry, and parking. Pet-friendly building.
+            </p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+              <span>🛏️ 2 bed</span>
+              <span>🚿 1 bath</span>
+              <span>📏 950 sqft</span>
+            </div>
+            <a href="#" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+              Schedule Tour
+            </a>
+          </div>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="property-card bg-white rounded-xl overflow-hidden shadow-md border-2 border-blue-500">
+          <div class="bg-gradient-to-br from-purple-500 to-pink-600 h-48 flex items-center justify-center relative">
+            <span class="text-7xl">🏡</span>
+            <span class="absolute top-4 right-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">FEATURED</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-2xl font-bold text-blue-600">$2,100/mo</span>
+              <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Available Now</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">3BR House - Cleveland Heights</h3>
+            <p class="text-gray-600 mb-4 text-sm">
+              Charming single-family home with finished basement, fenced yard, and 2-car garage. Near schools and parks.
+            </p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+              <span>🛏️ 3 bed</span>
+              <span>🚿 2 bath</span>
+              <span>📏 1,500 sqft</span>
+            </div>
+            <a href="#" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+              Schedule Tour
+            </a>
+          </div>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="property-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="bg-gradient-to-br from-green-500 to-teal-600 h-48 flex items-center justify-center">
+            <span class="text-7xl">🏢</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-2xl font-bold text-blue-600">$1,800/mo</span>
+              <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">Jan 15</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">2BR Condo - Downtown</h3>
+            <p class="text-gray-600 mb-4 text-sm">
+              Luxury condo with city views, fitness center, rooftop deck, and concierge service. Walk to restaurants.
+            </p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+              <span>🛏️ 2 bed</span>
+              <span>🚿 2 bath</span>
+              <span>📏 1,100 sqft</span>
+            </div>
+            <a href="#" class="block text-center border-2 border-blue-600 text-blue-600 px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
+              Join Waitlist
+            </a>
+          </div>
+        </div>
+
+        <!-- Property 4 -->
+        <div class="property-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="bg-gradient-to-br from-orange-500 to-red-600 h-48 flex items-center justify-center">
+            <span class="text-7xl">🏘️</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-2xl font-bold text-blue-600">$950/mo</span>
+              <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Available Now</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">1BR Studio - University Circle</h3>
+            <p class="text-gray-600 mb-4 text-sm">
+              Cozy studio perfect for students or young professionals. Close to transit, museums, and nightlife.
+            </p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+              <span>🛏️ Studio</span>
+              <span>🚿 1 bath</span>
+              <span>📏 550 sqft</span>
+            </div>
+            <a href="#" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+              Schedule Tour
+            </a>
+          </div>
+        </div>
+
+        <!-- Property 5 -->
+        <div class="property-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="bg-gradient-to-br from-indigo-500 to-purple-600 h-48 flex items-center justify-center">
+            <span class="text-7xl">🏠</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-2xl font-bold text-blue-600">$1,400/mo</span>
+              <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Available Now</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">2BR Townhouse - Tremont</h3>
+            <p class="text-gray-600 mb-4 text-sm">
+              Renovated townhouse with exposed brick, hardwood floors, and private patio. Trendy neighborhood.
+            </p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+              <span>🛏️ 2 bed</span>
+              <span>🚿 1.5 bath</span>
+              <span>📏 1,200 sqft</span>
+            </div>
+            <a href="#" class="block text-center bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+              Schedule Tour
+            </a>
+          </div>
+        </div>
+
+        <!-- Property 6 -->
+        <div class="property-card bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="bg-gradient-to-br from-yellow-500 to-orange-600 h-48 flex items-center justify-center">
+            <span class="text-7xl">🏡</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-2xl font-bold text-blue-600">$2,500/mo</span>
+              <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">Feb 1</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">4BR House - Shaker Heights</h3>
+            <p class="text-gray-600 mb-4 text-sm">
+              Spacious family home with large backyard, updated appliances, and top-rated school district.
+            </p>
+            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+              <span>🛏️ 4 bed</span>
+              <span>🚿 2.5 bath</span>
+              <span>📏 2,200 sqft</span>
+            </div>
+            <a href="#" class="block text-center border-2 border-blue-600 text-blue-600 px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
+              Join Waitlist
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services for Property Owners -->
+  <section id="services" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Services for Property Owners</h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">Let us maximize your rental income</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+          <div class="text-5xl mb-4">🔍</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Tenant Screening</h3>
+          <p class="text-gray-600 mb-4">
+            Comprehensive background checks, credit reports, employment verification, and rental history to find quality tenants.
+          </p>
+          <ul class="text-sm text-gray-500 space-y-2">
+            <li>✓ Criminal background check</li>
+            <li>✓ Credit & income verification</li>
+            <li>✓ Previous landlord references</li>
+          </ul>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+          <div class="text-5xl mb-4">💰</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Rent Collection</h3>
+          <p class="text-gray-600 mb-4">
+            Automated rent collection with online payment portal. We handle late fees and enforce lease terms professionally.
+          </p>
+          <ul class="text-sm text-gray-500 space-y-2">
+            <li>✓ Online tenant payment portal</li>
+            <li>✓ Automatic late fee tracking</li>
+            <li>✓ Monthly owner statements</li>
+          </ul>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+          <div class="text-5xl mb-4">🔧</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Maintenance Coordination</h3>
+          <p class="text-gray-600 mb-4">
+            24/7 maintenance hotline with vetted contractors. We handle repairs quickly to protect your investment and keep tenants happy.
+          </p>
+          <ul class="text-sm text-gray-500 space-y-2">
+            <li>✓ 24/7 emergency hotline</li>
+            <li>✓ Network of licensed contractors</li>
+            <li>✓ Preventive maintenance programs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white text-center">
+        <h3 class="text-3xl font-bold mb-4">Need a Full Property Management System?</h3>
+        <p class="text-blue-100 text-lg mb-6 max-w-3xl mx-auto">
+          Our white-label CRM platform can be customized for property managers and landlords. Track tenants, maintenance requests, rent payments, and more - all in one place.
+        </p>
+        <a href="crm-demo.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition">
+          View CRM Demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tenant Portal -->
+  <section id="tenant-portal" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Tenant Portal</h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">Manage your rental 24/7 online</p>
+
+      <div class="bg-white rounded-xl shadow-lg p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">💳</div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Pay Rent Online</h3>
+              <p class="text-gray-600 text-sm">Set up auto-pay or pay manually with credit card, debit, or ACH transfer.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">🔧</div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Submit Maintenance Requests</h3>
+              <p class="text-gray-600 text-sm">Report issues and track repair status in real-time through your dashboard.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">📄</div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Access Documents</h3>
+              <p class="text-gray-600 text-sm">View your lease, payment history, and important notices anytime.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">💬</div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Message Management</h3>
+              <p class="text-gray-600 text-sm">Direct communication with property management for quick responses.</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="border-t border-gray-200 pt-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-6">Tenant Login</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-gray-700 font-semibold mb-2">Email Address</label>
+              <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600" required>
+            </div>
+            <div>
+              <label class="block text-gray-700 font-semibold mb-2">Password</label>
+              <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition">
+              Login to Portal
+            </button>
+          </div>
+          <p class="text-center text-gray-500 text-sm mt-4">
+            <a href="#" class="text-blue-600 hover:underline">Forgot password?</a> • <a href="#" class="text-blue-600 hover:underline">First time? Register here</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">Get In Touch</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div>
+          <div class="text-4xl mb-3">📍</div>
+          <h3 class="text-xl font-bold mb-2">Office</h3>
+          <p class="text-gray-600">789 Property Lane<br>Cleveland, OH 44115</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-3">📞</div>
+          <h3 class="text-xl font-bold mb-2">Phone</h3>
+          <p class="text-gray-600">(216) 555-RENT</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-3">⏰</div>
+          <h3 class="text-xl font-bold mb-2">Hours</h3>
+          <p class="text-gray-600">Mon-Fri: 9am-6pm<br>Sat: 10am-2pm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 px-4 text-center">
+    <p class="text-gray-400 mb-4">&copy; 2025 Summit Properties. All rights reserved.</p>
+    <p class="text-sm text-gray-500">
+      This is a demo website built by <a href="index.html" class="text-blue-400 hover:text-blue-300">Gideon Code Works</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>

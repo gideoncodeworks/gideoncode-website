@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron Peak Fitness - Transform Your Life | Gideon Code Works Demo</title>
+  <meta name="description" content="Sample fitness gym website with class schedules, membership packages, and trainer profiles. Built by Gideon Code Works.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .font-display {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.05em;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #FF6B00 0%, #FF3D00 100%);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Demo Banner -->
+  <div class="gradient-bg text-white text-center py-3 px-4 font-bold">
+    💪 DEMO SITE - Sample fitness gym website built by Gideon Code Works - <a href="contact.html" class="underline">Get Your Site Today</a>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-black shadow-2xl sticky top-0 z-50 border-b border-orange-500">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="text-5xl">💪</div>
+          <div class="text-3xl font-display text-orange-500">Iron Peak Fitness</div>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-white hover:text-orange-500 transition font-semibold">Home</a>
+          <a href="#classes" class="text-white hover:text-orange-500 transition font-semibold">Classes</a>
+          <a href="#trainers" class="text-white hover:text-orange-500 transition font-semibold">Trainers</a>
+          <a href="#membership" class="text-white hover:text-orange-500 transition font-semibold">Membership</a>
+          <a href="#contact" class="text-white hover:text-orange-500 transition font-semibold">Contact</a>
+        </div>
+        <a href="#membership" class="gradient-bg text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition transform">
+          Join Now
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative py-32 px-4 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600');">
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+    <div class="relative max-w-6xl mx-auto">
+      <div class="max-w-2xl">
+        <h1 class="text-7xl md:text-8xl font-display font-bold mb-6 text-orange-500">
+          UNLEASH YOUR POTENTIAL
+        </h1>
+        <p class="text-2xl mb-8 text-gray-200">
+          Transform your body, elevate your mind, and conquer your goals at Northeast Ohio's premier fitness facility.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#membership" class="gradient-bg text-white px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 transition transform text-center">
+            Start Free Trial
+          </a>
+          <a href="#classes" class="border-2 border-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-500 transition text-center">
+            View Schedule
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="gradient-bg py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">5000+</div>
+          <p class="text-white/90 font-semibold">Active Members</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">50+</div>
+          <p class="text-white/90 font-semibold">Expert Trainers</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">100+</div>
+          <p class="text-white/90 font-semibold">Weekly Classes</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">24/7</div>
+          <p class="text-white/90 font-semibold">Access Available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Classes Section -->
+  <section id="classes" class="py-20 px-4 bg-gray-900">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-6xl font-display font-bold text-center mb-4">
+        <span class="text-orange-500">CLASSES</span> & PROGRAMS
+      </h2>
+      <p class="text-center text-gray-400 mb-12 text-lg">Find your perfect workout</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Class Card 1 -->
+        <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+          <div class="gradient-bg h-48 flex items-center justify-center">
+            <span class="text-8xl">🏋️</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-display text-orange-500 mb-2">STRENGTH TRAINING</h3>
+            <p class="text-gray-400 mb-4">
+              Build lean muscle and increase power with our expert-led strength programs. Free weights, machines, and functional training.
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <span>⏱️ 45-60 min</span>
+              <span>•</span>
+              <span>🔥 High Intensity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Card 2 -->
+        <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-orange-500 border-2">
+          <div class="bg-gradient-to-br from-orange-500 to-red-600 h-48 flex items-center justify-center">
+            <span class="text-8xl">🥊</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-display text-orange-500">BOXING & HIIT</h3>
+              <span class="text-xs bg-orange-500 text-white px-2 py-1 rounded-full">MOST POPULAR</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Explosive cardio workouts combining boxing techniques with high-intensity interval training for maximum calorie burn.
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <span>⏱️ 30-45 min</span>
+              <span>•</span>
+              <span>🔥 Extreme</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Card 3 -->
+        <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+          <div class="bg-gradient-to-br from-green-500 to-teal-600 h-48 flex items-center justify-center">
+            <span class="text-8xl">🧘</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-display text-orange-500 mb-2">YOGA & PILATES</h3>
+            <p class="text-gray-400 mb-4">
+              Improve flexibility, balance, and mental clarity with our mindful movement classes. Perfect for recovery days.
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <span>⏱️ 60 min</span>
+              <span>•</span>
+              <span>🔥 Low-Moderate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Card 4 -->
+        <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+          <div class="bg-gradient-to-br from-purple-500 to-pink-600 h-48 flex items-center justify-center">
+            <span class="text-8xl">🚴</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-display text-orange-500 mb-2">SPIN CYCLING</h3>
+            <p class="text-gray-400 mb-4">
+              High-energy group cycling classes with motivating instructors and heart-pumping music. All fitness levels welcome.
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <span>⏱️ 45 min</span>
+              <span>•</span>
+              <span>🔥 High Intensity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Card 5 -->
+        <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+          <div class="bg-gradient-to-br from-blue-500 to-cyan-600 h-48 flex items-center justify-center">
+            <span class="text-8xl">🏊</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-display text-orange-500 mb-2">AQUA FITNESS</h3>
+            <p class="text-gray-400 mb-4">
+              Low-impact cardio in our heated pool. Perfect for joint-friendly workouts and active recovery sessions.
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <span>⏱️ 45 min</span>
+              <span>•</span>
+              <span>🔥 Low-Moderate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Card 6 -->
+        <div class="card-hover bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+          <div class="bg-gradient-to-br from-yellow-500 to-orange-600 h-48 flex items-center justify-center">
+            <span class="text-8xl">⚡</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-display text-orange-500 mb-2">BOOTCAMP</h3>
+            <p class="text-gray-400 mb-4">
+              Military-style training combining cardio, strength, and agility drills. Push your limits and see real results.
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <span>⏱️ 60 min</span>
+              <span>•</span>
+              <span>🔥 Extreme</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#" class="gradient-bg text-white px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 transition transform inline-block">
+          View Full Schedule
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainers Section -->
+  <section id="trainers" class="py-20 px-4 bg-black">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-6xl font-display font-bold text-center mb-4">
+        MEET YOUR <span class="text-orange-500">TRAINERS</span>
+      </h2>
+      <p class="text-center text-gray-400 mb-12 text-lg">Certified experts dedicated to your success</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Trainer 1 -->
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-orange-500 to-red-600 w-48 h-48 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-7xl">👨‍🦱</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1">Marcus Johnson</h3>
+          <p class="text-orange-500 font-semibold mb-2">Head Strength Coach</p>
+          <p class="text-gray-400 text-sm">NASM CPT, 10+ years experience</p>
+        </div>
+
+        <!-- Trainer 2 -->
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-pink-500 to-purple-600 w-48 h-48 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-7xl">👩</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1">Sarah Chen</h3>
+          <p class="text-orange-500 font-semibold mb-2">Yoga & Wellness</p>
+          <p class="text-gray-400 text-sm">RYT-500, Nutrition Specialist</p>
+        </div>
+
+        <!-- Trainer 3 -->
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-blue-500 to-cyan-600 w-48 h-48 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-7xl">👨</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1">David Rodriguez</h3>
+          <p class="text-orange-500 font-semibold mb-2">Boxing Instructor</p>
+          <p class="text-gray-400 text-sm">Former Pro Boxer, ACE Certified</p>
+        </div>
+
+        <!-- Trainer 4 -->
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-green-500 to-teal-600 w-48 h-48 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-7xl">👩‍🦰</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1">Emily Thompson</h3>
+          <p class="text-orange-500 font-semibold mb-2">Spin & HIIT Coach</p>
+          <p class="text-gray-400 text-sm">ISSA Certified, Marathon Runner</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Section -->
+  <section id="membership" class="py-20 px-4 bg-gray-900">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-6xl font-display font-bold text-center mb-4">
+        <span class="text-orange-500">MEMBERSHIP</span> OPTIONS
+      </h2>
+      <p class="text-center text-gray-400 mb-12 text-lg">Choose the plan that fits your lifestyle</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Basic Plan -->
+        <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+          <h3 class="text-2xl font-display text-white mb-2">BASIC</h3>
+          <div class="text-5xl font-display text-orange-500 mb-6">
+            $39<span class="text-2xl text-gray-400">/mo</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">Gym access during off-peak hours</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">Cardio & strength equipment</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">Locker room access</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-600">✗</span>
+              <span class="text-gray-500">Group classes</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-gray-600">✗</span>
+              <span class="text-gray-500">Personal training</span>
+            </li>
+          </ul>
+          <a href="#" class="block text-center border-2 border-orange-500 text-orange-500 px-6 py-3 rounded-lg font-bold hover:bg-orange-500 hover:text-white transition">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="bg-gradient-to-br from-orange-600 to-red-600 rounded-xl p-8 border-4 border-orange-400 transform scale-105">
+          <div class="text-center mb-2">
+            <span class="bg-white text-orange-600 px-3 py-1 rounded-full text-xs font-bold">MOST POPULAR</span>
+          </div>
+          <h3 class="text-2xl font-display text-white mb-2">PREMIUM</h3>
+          <div class="text-5xl font-display text-white mb-6">
+            $79<span class="text-2xl text-white/80">/mo</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <span class="text-white">✓</span>
+              <span class="text-white">24/7 gym access</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-white">✓</span>
+              <span class="text-white">All equipment & facilities</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-white">✓</span>
+              <span class="text-white">Unlimited group classes</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-white">✓</span>
+              <span class="text-white">Guest privileges (2/month)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-white/60">✗</span>
+              <span class="text-white/80">Personal training</span>
+            </li>
+          </ul>
+          <a href="#" class="block text-center bg-white text-orange-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+            Join Premium
+          </a>
+        </div>
+
+        <!-- Elite Plan -->
+        <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+          <h3 class="text-2xl font-display text-white mb-2">ELITE</h3>
+          <div class="text-5xl font-display text-orange-500 mb-6">
+            $129<span class="text-2xl text-gray-400">/mo</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">Everything in Premium</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">4 personal training sessions/month</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">Nutrition consultation</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">Massage therapy discount</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span>
+              <span class="text-gray-300">Priority class booking</span>
+            </li>
+          </ul>
+          <a href="#" class="block text-center gradient-bg text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition transform">
+            Go Elite
+          </a>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 mt-8 text-sm">
+        No contracts. Cancel anytime. First week free for all new members.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 bg-black">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-6xl font-display font-bold mb-6">
+        READY TO <span class="text-orange-500">START</span>?
+      </h2>
+      <p class="text-gray-400 text-lg mb-12">
+        Visit us today for a free tour and consultation
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-5xl mb-3">📍</div>
+          <h3 class="text-xl font-bold mb-2">Location</h3>
+          <p class="text-gray-400">4567 Fitness Ave<br>Cleveland, OH 44115</p>
+        </div>
+        <div>
+          <div class="text-5xl mb-3">📞</div>
+          <h3 class="text-xl font-bold mb-2">Phone</h3>
+          <p class="text-gray-400">(216) 555-IRON</p>
+        </div>
+        <div>
+          <div class="text-5xl mb-3">⏰</div>
+          <h3 class="text-xl font-bold mb-2">Hours</h3>
+          <p class="text-gray-400">Mon-Fri: 5am-11pm<br>Sat-Sun: 7am-9pm</p>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <a href="#membership" class="gradient-bg text-white px-12 py-4 rounded-lg font-bold text-lg hover:scale-105 transition transform inline-block">
+          Start Your Free Trial
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="gradient-bg py-8 px-4 text-center text-white">
+    <p class="mb-4">&copy; 2025 Iron Peak Fitness. All rights reserved.</p>
+    <p class="text-sm text-white/80">
+      This is a demo website built by <a href="index.html" class="underline font-bold">Gideon Code Works</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>

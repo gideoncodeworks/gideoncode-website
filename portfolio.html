@@ -165,18 +165,18 @@
 
         <!-- Category Filters -->
         <div class="flex flex-wrap justify-center gap-3 fade-in">
-          <span class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyan-900 to-black border border-cyan-500 border-opacity-30 rounded-full text-sm font-semibold text-cyan-400 hover:border-opacity-100 transition cursor-pointer">
-            <span>🌐</span> Websites
-          </span>
-          <span class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-magenta-900 to-black border border-magenta-500 border-opacity-30 rounded-full text-sm font-semibold text-magenta-400 hover:border-opacity-100 transition cursor-pointer">
-            <span>📱</span> Mobile Apps
-          </span>
-          <span class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyan-900 to-black border border-cyan-500 border-opacity-30 rounded-full text-sm font-semibold text-cyan-400 hover:border-opacity-100 transition cursor-pointer">
+          <button data-filter="all" class="filter-btn active inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyan-900 to-black border border-cyan-500 border-opacity-100 rounded-full text-sm font-semibold text-cyan-400 hover:border-opacity-100 transition cursor-pointer">
+            <span>✨</span> All Projects
+          </button>
+          <button data-filter="client" class="filter-btn inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-green-900 to-black border border-green-500 border-opacity-30 rounded-full text-sm font-semibold text-green-400 hover:border-opacity-100 transition cursor-pointer">
+            <span>🚀</span> Live Client Sites
+          </button>
+          <button data-filter="saas" class="filter-btn inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyan-900 to-black border border-cyan-500 border-opacity-30 rounded-full text-sm font-semibold text-cyan-400 hover:border-opacity-100 transition cursor-pointer">
             <span>💼</span> SaaS Products
-          </span>
-          <span class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-magenta-900 to-black border border-magenta-500 border-opacity-30 rounded-full text-sm font-semibold text-magenta-400 hover:border-opacity-100 transition cursor-pointer">
-            <span>🎨</span> Branding
-          </span>
+          </button>
+          <button data-filter="demo" class="filter-btn inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-magenta-900 to-black border border-magenta-500 border-opacity-30 rounded-full text-sm font-semibold text-magenta-400 hover:border-opacity-100 transition cursor-pointer">
+            <span>🎨</span> Demo Templates
+          </button>
         </div>
       </div>
     </section>
@@ -189,9 +189,9 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           <!-- Project 1: Gideon Code Works -->
-          <article class="cyber-card fade-in group">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-cyan-900 to-magenta-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">🌐</div>
+          <article class="cyber-card fade-in group portfolio-item" data-category="client">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/gcw-site.jpg" alt="Homepage for Gideon Code Works website" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
               <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span class="text-cyan-400 font-bold">You're Here!</span>
               </div>
@@ -215,9 +215,10 @@
           </article>
 
           <!-- Project 2: DinnerDice -->
-          <article class="cyber-card fade-in group">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-purple-900 to-pink-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">🎲</div>
+          <article class="cyber-card fade-in group portfolio-item" data-category="saas">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/dinnerdice-app.jpg" alt="DinnerDice recipe app mobile screens" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-20"></div>
               <div class="absolute top-4 right-4">
                 <span class="text-xs bg-yellow-500 text-black px-2 py-1 rounded font-bold">APP STORE</span>
               </div>
@@ -241,13 +242,14 @@
           </article>
 
           <!-- Project 3: CRM Platform - SaaS Product -->
-          <article class="cyber-card fade-in group border-2 border-cyan-400 border-opacity-50">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-cyan-900 to-blue-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">💼</div>
+          <article class="cyber-card fade-in group border-2 border-cyan-400 border-opacity-50 portfolio-item" data-category="saas">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/crm-platform.jpg" alt="Dashboard screens from the Gideon Code Works CRM platform" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-30"></div>
               <div class="absolute top-4 right-4">
                 <span class="text-xs bg-cyan-500 text-black px-2 py-1 rounded font-bold">SAAS PRODUCT</span>
               </div>
-              <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span class="text-cyan-400 font-bold">Available Now</span>
               </div>
             </div>
@@ -256,7 +258,7 @@
               <span class="text-xs bg-cyan-500 bg-opacity-20 text-cyan-400 px-2 py-1 rounded">For Sale/Rent</span>
             </div>
             <p class="text-gray-400 text-sm mb-4">
-              White-label CRM with sales pipeline, commission tracking, and analytics. Perfect for agencies and sales teams. Available for purchase or monthly rental.
+              White-label CRM with sales pipeline, commission tracking, and analytics. Perfect for sales teams, agencies, and property managers. Fully customizable for any business. Available for purchase or monthly rental.
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span class="text-xs bg-gray-800 text-cyan-400 px-2 py-1 rounded">Vue.js</span>
@@ -275,10 +277,10 @@
           </article>
 
           <!-- Project 4: Teasers CLE -->
-          <article class="cyber-card fade-in group border border-green-500 border-opacity-30">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-green-900 to-emerald-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">🎭</div>
-              <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <article class="cyber-card fade-in group border border-green-500 border-opacity-30 portfolio-item" data-category="client">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/teasers-cle.jpg" alt="Teasers CLE nightlife website hero section" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span class="text-green-400 font-bold">Live Site</span>
               </div>
             </div>
@@ -301,10 +303,10 @@
           </article>
 
           <!-- Project 5: iTrackerAFS -->
-          <article class="cyber-card fade-in group border border-orange-500 border-opacity-30">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-orange-900 to-red-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">📦</div>
-              <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <article class="cyber-card fade-in group border border-orange-500 border-opacity-30 portfolio-item" data-category="client">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/itracker-afs.jpg" alt="Inventory tracking dashboard for iTrackerAFS" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span class="text-orange-400 font-bold">Client Success</span>
               </div>
             </div>
@@ -327,9 +329,9 @@
           </article>
 
           <!-- Project 6: VidForge -->
-          <article class="cyber-card fade-in group border-2 border-purple-400 border-opacity-50">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-indigo-900 to-purple-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">🎬</div>
+          <article class="cyber-card fade-in group border-2 border-purple-400 border-opacity-50 portfolio-item" data-category="saas">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/vidforge.jpg" alt="VidForge AI video builder interface mockup" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
               <div class="absolute top-4 right-4">
                 <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded font-bold">COMING SOON</span>
               </div>
@@ -356,10 +358,10 @@
           </article>
 
           <!-- Project 7: BuyGeogrid -->
-          <article class="cyber-card fade-in group border border-teal-500 border-opacity-30">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-teal-900 to-emerald-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">🏗️</div>
-              <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <article class="cyber-card fade-in group border border-teal-500 border-opacity-30 portfolio-item" data-category="client">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/buygeogrid.jpg" alt="BuyGeogrid ecommerce storefront design" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span class="text-teal-400 font-bold">Live Site</span>
               </div>
             </div>
@@ -382,10 +384,10 @@
           </article>
 
           <!-- Project 8: Contractor Portfolio Sample -->
-          <article class="cyber-card fade-in group">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-yellow-900 to-orange-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">🔨</div>
-              <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <article class="cyber-card fade-in group portfolio-item" data-category="demo">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/contractor-portfolio.jpg" alt="Contractor portfolio website concept" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span class="text-yellow-400 font-bold">View Demo</span>
               </div>
             </div>
@@ -406,32 +408,135 @@
             </a>
           </article>
 
-          <!-- Project 9: Salon Booking Sample -->
-          <article class="cyber-card fade-in group">
-            <div class="relative overflow-hidden mb-4 bg-gradient-to-br from-pink-900 to-rose-900 h-48 flex items-center justify-center rounded">
-              <div class="text-6xl" aria-hidden="true">💇</div>
-              <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span class="text-pink-400 font-bold">View Demo</span>
+          <!-- Project 9: Restaurant Demo -->
+          <article class="cyber-card fade-in group portfolio-item" data-category="demo">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <div class="bg-gradient-to-br from-amber-500 to-orange-600 h-48 flex items-center justify-center">
+                <span class="text-7xl">🍝</span>
+              </div>
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-amber-400 font-bold">View Demo</span>
               </div>
             </div>
             <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-bold text-pink-400">Salon Booking Sample</h3>
-              <span class="text-xs bg-pink-500 bg-opacity-20 text-pink-400 px-2 py-1 rounded">Demo</span>
+              <h3 class="text-xl font-bold text-amber-400">Restaurant Demo</h3>
+              <span class="text-xs bg-amber-500 bg-opacity-20 text-amber-400 px-2 py-1 rounded">Demo</span>
             </div>
             <p class="text-gray-400 text-sm mb-4">
-              Example booking platform for salons and spas. Appointment scheduling, service menus, stylist profiles, and payment integration. (Your Logo Here)
+              Full-featured restaurant website with menu system, reservation booking, photo gallery, and contact forms.
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="text-xs bg-gray-800 text-pink-400 px-2 py-1 rounded">React</span>
-              <span class="text-xs bg-gray-800 text-pink-400 px-2 py-1 rounded">Firebase</span>
-              <span class="text-xs bg-gray-800 text-pink-400 px-2 py-1 rounded">Stripe</span>
+              <span class="text-xs bg-gray-800 text-amber-400 px-2 py-1 rounded">HTML5</span>
+              <span class="text-xs bg-gray-800 text-amber-400 px-2 py-1 rounded">CSS3</span>
+              <span class="text-xs bg-gray-800 text-amber-400 px-2 py-1 rounded">Responsive</span>
             </div>
-            <a href="salon-demo.html" class="text-pink-400 hover:text-pink-300 transition text-sm font-semibold">
+            <a href="restaurant-demo.html" class="text-amber-400 hover:text-amber-300 transition text-sm font-semibold">
+              View Demo →
+            </a>
+          </article>
+
+          <!-- Project 10: Fitness Gym Demo -->
+          <article class="cyber-card fade-in group portfolio-item" data-category="demo">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <div class="bg-gradient-to-br from-orange-500 to-red-600 h-48 flex items-center justify-center">
+                <span class="text-7xl">💪</span>
+              </div>
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-orange-400 font-bold">View Demo</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-orange-400">Fitness Gym Demo</h3>
+              <span class="text-xs bg-orange-500 bg-opacity-20 text-orange-400 px-2 py-1 rounded">Demo</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">
+              Gym/fitness center site with class schedules, trainer profiles, membership tiers, and online signup.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">HTML5</span>
+              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">TailwindCSS</span>
+              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">Responsive</span>
+            </div>
+            <a href="fitness-demo.html" class="text-orange-400 hover:text-orange-300 transition text-sm font-semibold">
+              View Demo →
+            </a>
+          </article>
+
+          <!-- Project 11: Property Management Demo -->
+          <article class="cyber-card fade-in group portfolio-item" data-category="demo">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-48 flex items-center justify-center">
+                <span class="text-7xl">🏠</span>
+              </div>
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-blue-400 font-bold">View Demo</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-blue-400">Property Management Demo</h3>
+              <span class="text-xs bg-blue-500 bg-opacity-20 text-blue-400 px-2 py-1 rounded">Demo</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">
+              Landlord/property manager portal with rental listings, tenant portal, maintenance tracking, and payment processing.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">HTML5</span>
+              <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">TailwindCSS</span>
+              <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Responsive</span>
+            </div>
+            <a href="property-demo.html" class="text-blue-400 hover:text-blue-300 transition text-sm font-semibold">
               View Demo →
             </a>
           </article>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Filter Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+
+            // Update active button
+            filterBtns.forEach(b => {
+              b.classList.remove('active');
+              b.classList.remove('border-opacity-100');
+              b.classList.add('border-opacity-30');
+            });
+            this.classList.add('active');
+            this.classList.remove('border-opacity-30');
+            this.classList.add('border-opacity-100');
+
+            // Filter portfolio items
+            portfolioItems.forEach(item => {
+              if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.style.display = 'block';
+                // Re-trigger fade-in animation
+                item.classList.remove('fade-in');
+                setTimeout(() => item.classList.add('fade-in'), 10);
+              } else {
+                item.style.display = 'none';
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <!-- Separate Demo Templates Section -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-bold gradient-text mb-4">Demo Templates Explained</h2>
+        <p class="text-gray-400 max-w-3xl mx-auto mb-8">
+          These demo sites showcase different industries and use cases. Each can be customized with your branding, content, and features. Use our <a href="crm-demo.html" class="text-cyan-400 hover:text-cyan-300 underline">CRM platform</a> to manage your business operations.
+        </p>
+        <a href="contact.html" class="neon-button text-sm">Request Custom Demo</a>
       </div>
     </section>
 
