@@ -224,6 +224,22 @@ h4, h5, h6 {
   opacity: 1;
 }
 
+.neon-button-outline {
+  background: transparent;
+  border-color: var(--primary-cyan);
+  color: var(--primary-cyan);
+}
+
+.neon-button-outline:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 20px var(--primary-cyan),
+              0 0 40px var(--primary-cyan);
+}
+
+.neon-button-outline::before {
+  display: none;
+}
+
 /* Card Styles */
 .cyber-card {
   background: var(--card-bg);
