@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Salon & Spa - Sample Demo Site | Gideon Code Works</title>
+  <meta name="description" content="Sample salon booking website with appointment scheduling. Professional showcase for beauty and wellness businesses. Built by Gideon Code Works.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Demo Banner -->
+  <div class="bg-pink-500 text-white text-center py-3 px-4 font-bold">
+    💇 DEMO SITE - This is a sample salon booking platform built by Gideon Code Works - <a href="contact.html" class="underline">Get Yours Today</a>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">[Your Salon Logo Here]</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-gray-700 hover:text-pink-500 transition">Home</a>
+          <a href="#services" class="text-gray-700 hover:text-pink-500 transition">Services</a>
+          <a href="#stylists" class="text-gray-700 hover:text-pink-500 transition">Our Team</a>
+          <a href="#gallery" class="text-gray-700 hover:text-pink-500 transition">Gallery</a>
+          <a href="#booking" class="text-gray-700 hover:text-pink-500 transition">Book Now</a>
+        </div>
+        <a href="#booking" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-2 rounded-full font-bold hover:shadow-lg transition">
+          Book Appointment
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative py-32 px-4 bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50">
+    <div class="max-w-5xl mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+        Elevate Your Beauty<br/>
+        <span class="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Experience Luxury</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Award-winning salon and spa offering premium hair, nail, and skincare services in a relaxing atmosphere. Cleveland's premier destination for beauty and wellness.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#booking" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition">
+          Book Online Now
+        </a>
+        <a href="#services" class="border-2 border-pink-500 text-pink-500 px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-500 hover:text-white transition">
+          View Services & Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-12">Our Services</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Hair Services -->
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+          <div class="text-5xl mb-4">💇‍♀️</div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Hair Services</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between">
+              <span>Haircut & Style</span>
+              <span class="font-semibold">$60+</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Color Services</span>
+              <span class="font-semibold">$95+</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Highlights/Balayage</span>
+              <span class="font-semibold">$150+</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Keratin Treatment</span>
+              <span class="font-semibold">$250+</span>
+            </li>
+          </ul>
+          <button class="mt-6 w-full bg-pink-500 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-600 transition">
+            Book Hair Service
+          </button>
+        </div>
+
+        <!-- Nail Services -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+          <div class="text-5xl mb-4">💅</div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Nail Services</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between">
+              <span>Classic Manicure</span>
+              <span class="font-semibold">$35</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Gel Manicure</span>
+              <span class="font-semibold">$50</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Spa Pedicure</span>
+              <span class="font-semibold">$60</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Acrylic/Dip Powder</span>
+              <span class="font-semibold">$65+</span>
+            </li>
+          </ul>
+          <button class="mt-6 w-full bg-purple-500 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-600 transition">
+            Book Nail Service
+          </button>
+        </div>
+
+        <!-- Spa Services -->
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+          <div class="text-5xl mb-4">✨</div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Spa Services</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between">
+              <span>Facial Treatment</span>
+              <span class="font-semibold">$85+</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Waxing Services</span>
+              <span class="font-semibold">$20+</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Massage Therapy</span>
+              <span class="font-semibold">$95+</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Makeup Application</span>
+              <span class="font-semibold">$75</span>
+            </li>
+          </ul>
+          <button class="mt-6 w-full bg-pink-500 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-600 transition">
+            Book Spa Service
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stylists Section -->
+  <section id="stylists" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-12">Meet Our Expert Team</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Stylist 1 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+          <div class="w-32 h-32 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-4xl">
+            👩
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">[Stylist Name]</h3>
+          <p class="text-pink-500 font-semibold mb-3">Senior Stylist</p>
+          <p class="text-gray-600 text-sm mb-4">
+            15+ years experience specializing in color and cutting techniques. Master colorist certified.
+          </p>
+          <button class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-2 rounded-full font-bold hover:shadow-lg transition">
+            Book with [Name]
+          </button>
+        </div>
+
+        <!-- Stylist 2 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+          <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-4xl">
+            👩
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">[Stylist Name]</h3>
+          <p class="text-purple-500 font-semibold mb-3">Nail Specialist</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Expert in nail art and extensions. Gel and acrylic specialist with artistic flair.
+          </p>
+          <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-bold hover:shadow-lg transition">
+            Book with [Name]
+          </button>
+        </div>
+
+        <!-- Stylist 3 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+          <div class="w-32 h-32 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-4xl">
+            👩
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">[Stylist Name]</h3>
+          <p class="text-pink-500 font-semibold mb-3">Esthetician</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Licensed esthetician specializing in skincare and facial treatments. Certified massage therapist.
+          </p>
+          <button class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-2 rounded-full font-bold hover:shadow-lg transition">
+            Book with [Name]
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-12">Our Work</h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gradient-to-br from-pink-300 to-purple-300 h-48 rounded-xl flex items-center justify-center text-white text-4xl">
+          💇‍♀️
+        </div>
+        <div class="bg-gradient-to-br from-purple-300 to-pink-300 h-48 rounded-xl flex items-center justify-center text-white text-4xl">
+          💅
+        </div>
+        <div class="bg-gradient-to-br from-pink-300 to-purple-300 h-48 rounded-xl flex items-center justify-center text-white text-4xl">
+          ✨
+        </div>
+        <div class="bg-gradient-to-br from-purple-300 to-pink-300 h-48 rounded-xl flex items-center justify-center text-white text-4xl">
+          💆‍♀️
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 mt-8">[Client Before/After Photos Would Go Here]</p>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking" class="py-20 px-4 bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-4xl font-bold text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-6">Book Your Appointment</h2>
+      <p class="text-center text-gray-600 mb-8">
+        Select your preferred service, stylist, and time. We'll confirm your appointment within 2 hours.
+      </p>
+
+      <form class="space-y-4 bg-white p-8 rounded-2xl shadow-lg">
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Name *</label>
+          <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500" required>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Email *</label>
+          <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500" required>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Phone *</label>
+          <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500" required>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Service *</label>
+          <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500">
+            <option>Select a Service</option>
+            <option>Haircut & Style</option>
+            <option>Hair Color</option>
+            <option>Highlights/Balayage</option>
+            <option>Manicure</option>
+            <option>Pedicure</option>
+            <option>Facial Treatment</option>
+            <option>Massage</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Preferred Stylist</label>
+          <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500">
+            <option>No Preference</option>
+            <option>[Stylist Name 1]</option>
+            <option>[Stylist Name 2]</option>
+            <option>[Stylist Name 3]</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Preferred Date *</label>
+            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500" required>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Preferred Time *</label>
+            <input type="time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500" required>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Special Requests</label>
+          <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition">
+          Request Appointment
+        </button>
+
+        <p class="text-center text-gray-500 text-sm">
+          You will receive a confirmation email within 2 hours
+        </p>
+      </form>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-2">Or call us directly:</p>
+        <a href="tel:4401234567" class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">(440) 123-4567</a>
+        <p class="text-gray-500 mt-4">[Your Salon Name] | 123 Main St, Cleveland, OH 44101</p>
+        <p class="text-gray-500">Hours: Mon-Sat 9AM-7PM | Sun 10AM-5PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <div>
+        <h3 class="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">[Your Salon Name]</h3>
+        <p class="text-gray-400">Cleveland's premier destination for beauty and wellness.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#services" class="hover:text-pink-400">Services</a></li>
+          <li><a href="#stylists" class="hover:text-pink-400">Our Team</a></li>
+          <li><a href="#booking" class="hover:text-pink-400">Book Now</a></li>
+          <li><a href="#" class="hover:text-pink-400">Gift Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white mb-4">Contact</h4>
+        <p class="text-gray-400">123 Main Street<br/>Cleveland, OH 44101</p>
+        <p class="text-gray-400 mt-2">(440) 123-4567</p>
+        <p class="text-gray-400">info@yoursalon.com</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-700 text-center">
+      <p class="text-gray-400">&copy; 2025 [Your Salon Name]. All rights reserved.</p>
+      <p class="text-sm text-gray-500 mt-2">
+        This is a demo website built by <a href="index.html" class="text-pink-400 hover:text-pink-300">Gideon Code Works</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=4" defer></script>
+</body>
+</html>
