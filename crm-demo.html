@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Platform Demo - Interactive Preview | Gideon Code Works</title>
+  <meta name="description" content="Interactive demo of our white-label CRM platform. View admin and salesperson dashboards, commission tracking, and sales management.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .demo-screen { display: none; }
+    .demo-screen.active { display: block; }
+    .stat-card { transition: all 0.3s ease; }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 255, 255, 0.2); }
+    .demo-nav-btn { transition: all 0.3s ease; }
+    .demo-nav-btn.active { background: linear-gradient(135deg, #00FFFF, #FF00FF); color: #000; font-weight: 700; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Demo Banner -->
+  <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-center py-3 px-4 font-bold sticky top-0 z-50">
+    💼 INTERACTIVE CRM DEMO - Click around to explore the platform - <a href="contact.html" class="underline">Get Your Own CRM</a>
+  </div>
+
+  <!-- Demo Container -->
+  <div class="min-h-screen bg-gray-900">
+
+    <!-- Header -->
+    <header class="border-b border-gray-700 bg-black bg-opacity-50 sticky top-12 z-40">
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-2xl font-bold gradient-text">CRM Platform Demo</h1>
+            <p class="text-sm text-gray-400">Interactive preview of commission tracking & sales management</p>
+          </div>
+
+          <!-- View Switcher -->
+          <div class="flex items-center gap-2 bg-gray-800 rounded-lg p-1">
+            <button onclick="switchView('admin')" id="adminViewBtn" class="px-4 py-2 rounded text-sm font-semibold transition bg-gradient-to-r from-cyan-500 to-blue-500 text-black">
+              Admin View
+            </button>
+            <button onclick="switchView('salesperson')" id="salespersonViewBtn" class="px-4 py-2 rounded text-sm font-semibold transition text-gray-400 hover:text-white">
+              Salesperson View
+            </button>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="mt-4 flex gap-2 overflow-x-auto pb-2">
+          <button onclick="showScreen('dashboard')" class="demo-nav-btn active px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap bg-gray-800 text-gray-300">
+            📊 Dashboard
+          </button>
+          <button onclick="showScreen('sales')" class="demo-nav-btn px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap bg-gray-800 text-gray-300">
+            💰 Sales
+          </button>
+          <button onclick="showScreen('commissions')" class="demo-nav-btn px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap bg-gray-800 text-gray-300">
+            💵 Commissions
+          </button>
+          <button onclick="showScreen('clients')" class="demo-nav-btn px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap bg-gray-800 text-gray-300">
+            👥 Clients
+          </button>
+          <button onclick="showScreen('team')" class="demo-nav-btn px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap bg-gray-800 text-gray-300">
+            🏢 Team
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Demo Area -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+      <!-- Dashboard Screen -->
+      <div id="dashboard" class="demo-screen active">
+        <div class="mb-6">
+          <h2 class="text-3xl font-bold text-cyan-400 mb-2">Dashboard</h2>
+          <p class="text-gray-400">Real-time earnings, stats, and recent activity</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="stat-card bg-gradient-to-br from-cyan-900 to-blue-900 p-6 rounded-lg border border-cyan-500 border-opacity-30">
+            <div class="text-sm text-gray-400 mb-2">Total Earnings</div>
+            <div class="text-3xl font-bold text-cyan-400 mb-1">$12,450.75</div>
+            <div class="text-xs text-green-400">↑ 23% from last month</div>
+          </div>
+
+          <div class="stat-card bg-gradient-to-br from-green-900 to-emerald-900 p-6 rounded-lg border border-green-500 border-opacity-30">
+            <div class="text-sm text-gray-400 mb-2">Pending</div>
+            <div class="text-3xl font-bold text-green-400 mb-1">$3,275.00</div>
+            <div class="text-xs text-gray-400">7 pending commissions</div>
+          </div>
+
+          <div class="stat-card bg-gradient-to-br from-purple-900 to-pink-900 p-6 rounded-lg border border-purple-500 border-opacity-30">
+            <div class="text-sm text-gray-400 mb-2">Active Clients</div>
+            <div class="text-3xl font-bold text-purple-400 mb-1">47</div>
+            <div class="text-xs text-green-400">+5 this month</div>
+          </div>
+
+          <div class="stat-card bg-gradient-to-br from-orange-900 to-red-900 p-6 rounded-lg border border-orange-500 border-opacity-30">
+            <div class="text-sm text-gray-400 mb-2">Team Size</div>
+            <div class="text-3xl font-bold text-orange-400 mb-1">12</div>
+            <div class="text-xs text-gray-400">3 levels deep</div>
+          </div>
+        </div>
+
+        <!-- Chart Area -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6 mb-8">
+          <h3 class="text-xl font-bold text-white mb-4">6-Month Earnings</h3>
+          <div class="h-64 flex items-end justify-between gap-2">
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style="height: 45%"></div>
+              <span class="text-xs text-gray-400">Jun</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style="height: 60%"></div>
+              <span class="text-xs text-gray-400">Jul</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style="height: 75%"></div>
+              <span class="text-xs text-gray-400">Aug</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style="height: 55%"></div>
+              <span class="text-xs text-gray-400">Sep</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style="height: 85%"></div>
+              <span class="text-xs text-gray-400">Oct</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-gradient-to-t from-cyan-600 to-cyan-400 rounded-t" style="height: 100%"></div>
+              <span class="text-xs text-gray-400">Nov</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Sales Table -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+          <h3 class="text-xl font-bold text-white mb-4">Recent Sales</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="border-b border-gray-700">
+                <tr class="text-gray-400 text-left">
+                  <th class="pb-3">Client</th>
+                  <th class="pb-3">Tier</th>
+                  <th class="pb-3">Setup</th>
+                  <th class="pb-3">Monthly</th>
+                  <th class="pb-3">Your Commission</th>
+                  <th class="pb-3">Status</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-300">
+                <tr class="border-b border-gray-700">
+                  <td class="py-3">Smith Plumbing</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-cyan-500 bg-opacity-20 text-cyan-400 rounded text-xs">Growth</span></td>
+                  <td class="py-3">$697</td>
+                  <td class="py-3">$250/mo</td>
+                  <td class="py-3 font-bold text-green-400">$259.10</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-xs">Active</span></td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-3">Jones Bakery</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded text-xs">Domination</span></td>
+                  <td class="py-3">$997</td>
+                  <td class="py-3">$297/mo</td>
+                  <td class="py-3 font-bold text-green-400">$358.50</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-xs">Active</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3">Miller Auto</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded text-xs">Starter</span></td>
+                  <td class="py-3">$497</td>
+                  <td class="py-3">$212.50/mo</td>
+                  <td class="py-3 font-bold text-green-400">$191.60</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-xs">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Screen -->
+      <div id="sales" class="demo-screen">
+        <div class="mb-6">
+          <h2 class="text-3xl font-bold text-cyan-400 mb-2">Sales Management</h2>
+          <p class="text-gray-400">Track all sales and create new ones</p>
+        </div>
+
+        <!-- Sales Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Total Sales</div>
+            <div class="text-3xl font-bold text-white">142</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Active</div>
+            <div class="text-3xl font-bold text-green-400">127</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Setup Revenue</div>
+            <div class="text-3xl font-bold text-cyan-400">$95.7K</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Monthly Recurring</div>
+            <div class="text-3xl font-bold text-purple-400">$32.4K/mo</div>
+          </div>
+        </div>
+
+        <!-- New Sale Form Preview -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6 mb-8">
+          <h3 class="text-xl font-bold text-white mb-4">Create New Sale</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Client</label>
+              <select class="w-full bg-gray-900 border border-gray-700 rounded px-4 py-2 text-white">
+                <option>Select client...</option>
+                <option>New Client ABC Corp</option>
+                <option>Smith Plumbing</option>
+                <option>Jones Bakery</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Package Tier</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button class="px-4 py-2 bg-blue-500 bg-opacity-20 border border-blue-500 rounded text-blue-400 hover:bg-opacity-30 transition">
+                  Starter
+                </button>
+                <button class="px-4 py-2 bg-cyan-500 bg-opacity-20 border border-cyan-500 rounded text-cyan-400 hover:bg-opacity-30 transition">
+                  Growth
+                </button>
+                <button class="px-4 py-2 bg-purple-500 bg-opacity-20 border border-purple-500 rounded text-purple-400 hover:bg-opacity-30 transition">
+                  Domination
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 p-4 bg-gradient-to-br from-green-900 to-emerald-900 border border-green-500 border-opacity-30 rounded">
+            <div class="text-sm text-gray-400 mb-1">Your Commission Preview</div>
+            <div class="text-2xl font-bold text-green-400">$209.10 setup + $50.00/mo</div>
+          </div>
+        </div>
+
+        <!-- Sales List -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+          <h3 class="text-xl font-bold text-white mb-4">All Sales</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded border border-gray-700">
+              <div>
+                <div class="font-semibold text-white">Smith Plumbing</div>
+                <div class="text-sm text-gray-400">Growth • 24-month • Oct 15, 2024</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold text-green-400">$697 + $250/mo</div>
+                <div class="text-xs text-gray-400">Commission: $259.10</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded border border-gray-700">
+              <div>
+                <div class="font-semibold text-white">Jones Bakery</div>
+                <div class="text-sm text-gray-400">Domination • Monthly • Oct 12, 2024</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold text-green-400">$997 + $297/mo</div>
+                <div class="text-xs text-gray-400">Commission: $358.50</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commissions Screen -->
+      <div id="commissions" class="demo-screen">
+        <div class="mb-6">
+          <h2 class="text-3xl font-bold text-cyan-400 mb-2">Commission Tracking</h2>
+          <p class="text-gray-400">View your earnings breakdown with 3-level MLM structure</p>
+        </div>
+
+        <!-- Commission Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Total Commissions</div>
+            <div class="text-3xl font-bold text-cyan-400">$12,450.75</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Paid Out</div>
+            <div class="text-3xl font-bold text-green-400">$9,175.75</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Pending</div>
+            <div class="text-3xl font-bold text-orange-400">$3,275.00</div>
+          </div>
+        </div>
+
+        <!-- Commission Types Breakdown -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6 mb-8">
+          <h3 class="text-xl font-bold text-white mb-4">Earnings by Type</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-400">Setup Commissions (30%)</span>
+                <span class="font-bold text-cyan-400">$5,420.00</span>
+              </div>
+              <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500" style="width: 44%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-400">Monthly Recurring (20%)</span>
+                <span class="font-bold text-green-400">$4,850.00</span>
+              </div>
+              <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-green-500 to-emerald-500" style="width: 39%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-400">Override Level 1 (5%)</span>
+                <span class="font-bold text-purple-400">$1,580.75</span>
+              </div>
+              <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500" style="width: 13%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-400">Override Level 2 (3%)</span>
+                <span class="font-bold text-orange-400">$420.00</span>
+              </div>
+              <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-orange-500 to-red-500" style="width: 3%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-400">Override Level 3 (2%)</span>
+                <span class="font-bold text-yellow-400">$180.00</span>
+              </div>
+              <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-yellow-500 to-amber-500" style="width: 1%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Commissions Table -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+          <h3 class="text-xl font-bold text-white mb-4">Recent Commissions</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="border-b border-gray-700">
+                <tr class="text-gray-400 text-left">
+                  <th class="pb-3">Type</th>
+                  <th class="pb-3">Client</th>
+                  <th class="pb-3">Base Amount</th>
+                  <th class="pb-3">Rate</th>
+                  <th class="pb-3">Commission</th>
+                  <th class="pb-3">Status</th>
+                  <th class="pb-3">Date</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-300">
+                <tr class="border-b border-gray-700">
+                  <td class="py-3"><span class="px-2 py-1 bg-cyan-500 bg-opacity-20 text-cyan-400 rounded text-xs">Setup</span></td>
+                  <td class="py-3">Smith Plumbing</td>
+                  <td class="py-3">$697</td>
+                  <td class="py-3">30%</td>
+                  <td class="py-3 font-bold text-green-400">$209.10</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-xs">Paid</span></td>
+                  <td class="py-3 text-gray-400">Oct 15</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-3"><span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-xs">Monthly</span></td>
+                  <td class="py-3">Smith Plumbing</td>
+                  <td class="py-3">$250</td>
+                  <td class="py-3">20%</td>
+                  <td class="py-3 font-bold text-green-400">$50.00</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-orange-500 bg-opacity-20 text-orange-400 rounded text-xs">Pending</span></td>
+                  <td class="py-3 text-gray-400">Nov 1</td>
+                </tr>
+                <tr class="border-b border-gray-700">
+                  <td class="py-3"><span class="px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded text-xs">Override L1</span></td>
+                  <td class="py-3">Jones Bakery</td>
+                  <td class="py-3">$297</td>
+                  <td class="py-3">5%</td>
+                  <td class="py-3 font-bold text-green-400">$14.85</td>
+                  <td class="py-3"><span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-xs">Paid</span></td>
+                  <td class="py-3 text-gray-400">Oct 12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clients Screen -->
+      <div id="clients" class="demo-screen">
+        <div class="mb-6">
+          <h2 class="text-3xl font-bold text-cyan-400 mb-2">Client Management</h2>
+          <p class="text-gray-400">CRM for tracking leads, prospects, and active clients</p>
+        </div>
+
+        <!-- Client Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Total Clients</div>
+            <div class="text-3xl font-bold text-white">92</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Active</div>
+            <div class="text-3xl font-bold text-green-400">47</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Prospects</div>
+            <div class="text-3xl font-bold text-yellow-400">28</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Leads</div>
+            <div class="text-3xl font-bold text-blue-400">17</div>
+          </div>
+        </div>
+
+        <!-- Client List -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+          <h3 class="text-xl font-bold text-white mb-4">Clients</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded border border-gray-700">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-cyan-500 bg-opacity-20 rounded-full flex items-center justify-center text-cyan-400 font-bold text-lg">
+                  SP
+                </div>
+                <div>
+                  <div class="font-semibold text-white">Smith Plumbing</div>
+                  <div class="text-sm text-gray-400">john@smithplumbing.com • (555) 123-4567</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-sm font-semibold">Active</span>
+                <div class="text-xs text-gray-400 mt-1">Since Oct 15, 2024</div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded border border-gray-700">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-purple-500 bg-opacity-20 rounded-full flex items-center justify-center text-purple-400 font-bold text-lg">
+                  JB
+                </div>
+                <div>
+                  <div class="font-semibold text-white">Jones Bakery</div>
+                  <div class="text-sm text-gray-400">sarah@jonesbakery.com • (555) 987-6543</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded text-sm font-semibold">Active</span>
+                <div class="text-xs text-gray-400 mt-1">Since Oct 12, 2024</div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded border border-gray-700">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-yellow-500 bg-opacity-20 rounded-full flex items-center justify-center text-yellow-400 font-bold text-lg">
+                  AC
+                </div>
+                <div>
+                  <div class="font-semibold text-white">ABC Corp</div>
+                  <div class="text-sm text-gray-400">contact@abccorp.com • (555) 456-7890</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded text-sm font-semibold">Prospect</span>
+                <div class="text-xs text-gray-400 mt-1">Since Nov 1, 2024</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Screen -->
+      <div id="team" class="demo-screen">
+        <div class="mb-6">
+          <h2 class="text-3xl font-bold text-cyan-400 mb-2">Team Management</h2>
+          <p class="text-gray-400">View your downline and team performance (3-level MLM structure)</p>
+        </div>
+
+        <!-- Team Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Total Team Members</div>
+            <div class="text-3xl font-bold text-white">12</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Level 1 (Direct)</div>
+            <div class="text-3xl font-bold text-cyan-400">5</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Level 2</div>
+            <div class="text-3xl font-bold text-purple-400">4</div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+            <div class="text-sm text-gray-400 mb-2">Level 3</div>
+            <div class="text-3xl font-bold text-orange-400">3</div>
+          </div>
+        </div>
+
+        <!-- Team Hierarchy -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6 mb-8">
+          <h3 class="text-xl font-bold text-white mb-4">Team Hierarchy</h3>
+
+          <!-- Level 1 -->
+          <div class="space-y-4">
+            <div class="pl-0">
+              <div class="flex items-center gap-3 p-3 bg-cyan-500 bg-opacity-10 border-l-4 border-cyan-500 rounded">
+                <div class="w-10 h-10 bg-cyan-500 bg-opacity-20 rounded-full flex items-center justify-center text-cyan-400 font-bold">
+                  MD
+                </div>
+                <div class="flex-1">
+                  <div class="font-semibold text-white">Michael Davis</div>
+                  <div class="text-sm text-gray-400">Level 1 • 8 sales • $2,450 generated</div>
+                </div>
+                <span class="px-2 py-1 bg-cyan-500 bg-opacity-20 text-cyan-400 rounded text-xs">5% Override</span>
+              </div>
+
+              <!-- Level 2 -->
+              <div class="pl-8 mt-3 space-y-3">
+                <div class="flex items-center gap-3 p-3 bg-purple-500 bg-opacity-10 border-l-4 border-purple-500 rounded">
+                  <div class="w-10 h-10 bg-purple-500 bg-opacity-20 rounded-full flex items-center justify-center text-purple-400 font-bold">
+                    JW
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-semibold text-white">Jennifer Wilson</div>
+                    <div class="text-sm text-gray-400">Level 2 • 5 sales • $1,820 generated</div>
+                  </div>
+                  <span class="px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded text-xs">3% Override</span>
+                </div>
+
+                <!-- Level 3 -->
+                <div class="pl-8">
+                  <div class="flex items-center gap-3 p-3 bg-orange-500 bg-opacity-10 border-l-4 border-orange-500 rounded">
+                    <div class="w-10 h-10 bg-orange-500 bg-opacity-20 rounded-full flex items-center justify-center text-orange-400 font-bold">
+                      DT
+                    </div>
+                    <div class="flex-1">
+                      <div class="font-semibold text-white">David Thompson</div>
+                      <div class="text-sm text-gray-400">Level 3 • 3 sales • $950 generated</div>
+                    </div>
+                    <span class="px-2 py-1 bg-orange-500 bg-opacity-20 text-orange-400 rounded text-xs">2% Override</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Performance -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+          <h3 class="text-xl font-bold text-white mb-4">Team Performance This Month</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded">
+              <div>
+                <div class="font-semibold text-white">Michael Davis</div>
+                <div class="text-sm text-gray-400">3 sales this month</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold text-green-400">$875.00</div>
+                <div class="text-xs text-gray-400">Your override earnings</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-900 rounded">
+              <div>
+                <div class="font-semibold text-white">Jennifer Wilson</div>
+                <div class="text-sm text-gray-400">2 sales this month</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold text-green-400">$420.50</div>
+                <div class="text-xs text-gray-400">Your override earnings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-700 bg-black bg-opacity-50 py-8 mt-12">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-gray-400 mb-4">
+          This is an interactive demo of our white-label CRM platform
+        </p>
+        <div class="flex gap-4 justify-center">
+          <a href="https://platform.gideoncode.com" target="_blank" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-black font-bold rounded-lg hover:shadow-lg transition">
+            Explore Live Platform
+          </a>
+          <a href="contact.html" class="px-6 py-3 border-2 border-cyan-500 text-cyan-500 font-bold rounded-lg hover:bg-cyan-500 hover:text-black transition">
+            Get Your Own CRM
+          </a>
+        </div>
+        <p class="text-sm text-gray-500 mt-6">
+          Built by <a href="index.html" class="text-cyan-400 hover:text-cyan-300">Gideon Code Works</a>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentView = 'admin';
+    let currentScreen = 'dashboard';
+
+    function switchView(view) {
+      currentView = view;
+
+      // Update button styles
+      document.getElementById('adminViewBtn').className = view === 'admin'
+        ? 'px-4 py-2 rounded text-sm font-semibold transition bg-gradient-to-r from-cyan-500 to-blue-500 text-black'
+        : 'px-4 py-2 rounded text-sm font-semibold transition text-gray-400 hover:text-white';
+
+      document.getElementById('salespersonViewBtn').className = view === 'salesperson'
+        ? 'px-4 py-2 rounded text-sm font-semibold transition bg-gradient-to-r from-cyan-500 to-blue-500 text-black'
+        : 'px-4 py-2 rounded text-sm font-semibold transition text-gray-400 hover:text-white';
+
+      // You could adjust data shown based on view here
+      // For demo purposes, both views show similar data
+    }
+
+    function showScreen(screen) {
+      // Hide all screens
+      document.querySelectorAll('.demo-screen').forEach(s => s.classList.remove('active'));
+
+      // Show selected screen
+      document.getElementById(screen).classList.add('active');
+
+      // Update nav buttons
+      document.querySelectorAll('.demo-nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.add('bg-gray-800', 'text-gray-300');
+        btn.classList.remove('bg-gradient-to-r', 'from-cyan-400', 'to-magenta-400', 'text-black');
+      });
+
+      event.target.classList.add('active');
+      event.target.classList.remove('bg-gray-800', 'text-gray-300');
+
+      currentScreen = screen;
+    }
+
+    // Smooth scroll to top when changing screens
+    document.querySelectorAll('.demo-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>
