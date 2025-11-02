@@ -83,28 +83,43 @@
       </div>
 
       <nav class="flex-1 space-y-1 px-4 py-6" id="main-nav">
-        <!-- Dashboard Mode Switcher -->
+        <!-- Role & View Mode Switcher -->
         <div class="mb-6 rounded-xl border-2 border-accent-300/30 bg-gradient-to-br from-primary-500/10 to-accent-300/10 p-4 shadow-brand">
+          <!-- Role Switcher -->
           <div class="flex items-center gap-2 mb-3">
             <svg class="w-5 h-5 text-accent-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
             <div>
-              <p class="text-xs uppercase tracking-wide text-accent-200 font-semibold">🎯 Demo Feature</p>
-              <p class="text-sm font-medium text-white">Switch Between Views</p>
+              <p class="text-xs uppercase tracking-wide text-accent-200/80">User Role</p>
+              <p class="text-sm font-medium text-white">Select perspective</p>
             </div>
           </div>
-          <p class="text-xs text-slate-300/70 mb-3">See how the CRM adapts for different roles:</p>
-          <div class="flex gap-2">
-            <button onclick="switchView('admin')" id="btn-admin" class="flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand hover:bg-white/25 transition">
-              <div class="text-xs text-accent-200 mb-0.5">Full View</div>
+          <div class="flex gap-2 mb-4">
+            <button onclick="switchRole('admin')" id="btn-role-admin" class="flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand">
               Admin
             </button>
-            <button onclick="switchView('salesperson')" id="btn-salesperson" class="flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15 transition">
-              <div class="text-xs text-slate-400 mb-0.5">Simplified</div>
-              Sales
+            <button onclick="switchRole('salesperson')" id="btn-role-salesperson" class="flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15">
+              Salesperson
             </button>
           </div>
+
+          <!-- View Mode Switcher (changes based on role) -->
+          <div class="flex items-center gap-2 mb-3 pt-3 border-t border-white/10">
+            <svg class="w-5 h-5 text-accent-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            <div>
+              <p class="text-xs uppercase tracking-wide text-accent-200/80">Dashboard Mode</p>
+              <p class="text-sm font-medium text-white" id="view-mode-label">Switch complexity</p>
+            </div>
+          </div>
+          <div class="flex gap-2" id="view-mode-buttons">
+            <!-- Buttons will be dynamically inserted here -->
+          </div>
+          <p class="mt-2 text-xs text-slate-300/70" id="view-mode-description">
+            Different views for different needs
+          </p>
         </div>
 
         <!-- Navigation will be inserted here by JavaScript -->
@@ -518,7 +533,8 @@
   </div>
 
   <script>
-    let currentView = 'admin';
+    let currentRole = 'admin';
+    let currentViewMode = 'simplified'; // admin: 'simplified' or 'detailed', salesperson: 'simplified' or 'advanced'
 
     // Navigation configuration matching the real CRM
     const navConfig = {
@@ -1335,7 +1351,7 @@
 
     function renderNavigation() {
       const nav = document.getElementById('main-nav');
-      const items = navConfig[currentView];
+      const items = navConfig[currentRole];
 
       // Clear existing nav items (except the switcher)
       const switcher = nav.querySelector('.mb-6');
@@ -1365,66 +1381,110 @@
       });
     }
 
-    function switchView(view) {
-      currentView = view;
+    function renderViewModeButtons() {
+      const buttonsContainer = document.getElementById('view-mode-buttons');
+      const description = document.getElementById('view-mode-description');
 
-      // Update buttons
-      document.getElementById('btn-admin').className = view === 'admin'
-        ? 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand hover:bg-white/25 transition'
-        : 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15 transition';
+      if (currentRole === 'admin') {
+        buttonsContainer.innerHTML = `
+          <button onclick="switchViewMode('simplified')" id="btn-view-simplified" class="${currentViewMode === 'simplified' ? 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand' : 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15'}">
+            Simple
+          </button>
+          <button onclick="switchViewMode('detailed')" id="btn-view-detailed" class="${currentViewMode === 'detailed' ? 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand' : 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15'}">
+            Analytics
+          </button>
+        `;
+        description.textContent = currentViewMode === 'simplified' ? 'Key metrics at a glance' : 'Full charts and detailed analytics';
+      } else {
+        buttonsContainer.innerHTML = `
+          <button onclick="switchViewMode('simplified')" id="btn-view-simplified" class="${currentViewMode === 'simplified' ? 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand' : 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15'}">
+            Simplified
+          </button>
+          <button onclick="switchViewMode('advanced')" id="btn-view-advanced" class="${currentViewMode === 'advanced' ? 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand' : 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15'}">
+            Pipeline
+          </button>
+        `;
+        description.textContent = currentViewMode === 'simplified' ? 'Streamlined metrics for individual reps' : 'Full pipeline, tasks, and activity boards';
+      }
+    }
 
-      document.getElementById('btn-salesperson').className = view === 'salesperson'
-        ? 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand hover:bg-white/25 transition'
-        : 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15 transition';
+    function switchRole(role) {
+      currentRole = role;
+      currentViewMode = 'simplified'; // Reset to simplified when switching roles
+
+      // Update role buttons
+      document.getElementById('btn-role-admin').className = role === 'admin'
+        ? 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand'
+        : 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15';
+
+      document.getElementById('btn-role-salesperson').className = role === 'salesperson'
+        ? 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand'
+        : 'flex-1 rounded-lg px-3 py-2 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15';
 
       // Show notification
       const notification = document.getElementById('view-notification');
       const notificationTitle = document.getElementById('notification-title');
       const notificationDescription = document.getElementById('notification-description');
 
-      if (view === 'admin') {
-        notificationTitle.textContent = '👔 Viewing as Admin (Full View)';
-        notificationDescription.textContent = 'All 14 navigation items visible - full access to analytics, team management, payouts, and admin tools';
-      } else {
-        notificationTitle.textContent = '💼 Viewing as Salesperson (Simplified View)';
-        notificationDescription.textContent = 'Streamlined to 8 essential items - focused on sales activities without admin complexity';
-      }
+      if (role === 'admin') {
+        notificationTitle.textContent = '👔 Switched to Admin Role';
+        notificationDescription.textContent = '14 navigation items • Can toggle between Simple and Analytics dashboard views';
 
-      notification.classList.remove('hidden');
-
-      // Auto-hide notification after 5 seconds
-      setTimeout(() => {
-        notification.classList.add('hidden');
-      }, 5000);
-
-      // Update content based on view
-      if (view === 'admin') {
         document.getElementById('user-name').textContent = 'James Smith';
         document.getElementById('user-role').textContent = 'Admin';
         document.getElementById('user-initial').textContent = 'J';
         document.getElementById('hero-title').textContent = 'Pipeline health is strong, James.';
         document.getElementById('hero-description').textContent = 'Monitor recurring earnings, push setup commissions across the finish line, and keep your team operating at peak cadence. You\'re 12 people away from a fully leveraged network.';
-        if (document.getElementById('team-title')) {
-          document.getElementById('team-title').textContent = 'Team Management';
-          document.getElementById('team-description').textContent = '3-level MLM hierarchy with override percentages';
-        }
       } else {
+        notificationTitle.textContent = '💼 Switched to Salesperson Role';
+        notificationDescription.textContent = '8 navigation items • Can toggle between Simplified and Pipeline dashboard views';
+
         document.getElementById('user-name').textContent = 'Sarah Chen';
         document.getElementById('user-role').textContent = 'Salesperson';
         document.getElementById('user-initial').textContent = 'S';
         document.getElementById('hero-title').textContent = 'Great work this month, Sarah.';
         document.getElementById('hero-description').textContent = 'You\'re tracking ahead of target with 9 active clients. Keep the momentum going and focus on closing those pending deals in your pipeline.';
-        if (document.getElementById('team-title')) {
-          document.getElementById('team-title').textContent = 'My Team';
-          document.getElementById('team-description').textContent = 'Your downline and override earnings';
+      }
+
+      notification.classList.remove('hidden');
+      setTimeout(() => notification.classList.add('hidden'), 5000);
+
+      // Update view mode buttons and navigation
+      renderViewModeButtons();
+      renderNavigation();
+      showScreen('dashboard');
+    }
+
+    function switchViewMode(mode) {
+      currentViewMode = mode;
+
+      // Show notification
+      const notification = document.getElementById('view-notification');
+      const notificationTitle = document.getElementById('notification-title');
+      const notificationDescription = document.getElementById('notification-description');
+
+      if (currentRole === 'admin') {
+        if (mode === 'simplified') {
+          notificationTitle.textContent = '📊 Simple View Active';
+          notificationDescription.textContent = 'Clean dashboard with key metrics and quick actions';
+        } else {
+          notificationTitle.textContent = '📈 Analytics View Active';
+          notificationDescription.textContent = 'Detailed charts, graphs, and comprehensive business intelligence';
+        }
+      } else {
+        if (mode === 'simplified') {
+          notificationTitle.textContent = '✨ Simplified View Active';
+          notificationDescription.textContent = 'Streamlined dashboard focused on your personal sales metrics';
+        } else {
+          notificationTitle.textContent = '🎯 Pipeline View Active';
+          notificationDescription.textContent = 'Full sales pipeline with tasks, activities, and deal tracking';
         }
       }
 
-      // Re-render navigation
-      renderNavigation();
+      notification.classList.remove('hidden');
+      setTimeout(() => notification.classList.add('hidden'), 5000);
 
-      // Show dashboard by default
-      showScreen('dashboard');
+      renderViewModeButtons();
     }
 
     function showScreen(screenId) {
