@@ -114,50 +114,86 @@
 <body>
 
   <!-- Header & Navigation -->
+    <!-- Header & Navigation -->
   <header>
-    <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <div class="flex-shrink-0 flex items-center">
-            <a href="index.html" aria-label="Gideon Code Works Home" class="flex items-center">
-              <img src="images/gcw-logo.png" alt="Gideon Code Works" width="200" height="60">
-            </a>
-          </div>
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="index.html" class="nav-link text-white hover:text-cyan-400">Home</a>
-            <a href="services.html" class="nav-link text-white hover:text-cyan-400" aria-current="page">Services</a>
-            <a href="portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
-            <a href="about.html" class="nav-link text-white hover:text-cyan-400">About</a>
-            <a href="careers.html" class="nav-link text-white hover:text-cyan-400">Careers</a>
-            <a href="contact.html" class="nav-link text-white hover:text-cyan-400">Contact</a>
-            <a href="contact.html" class="neon-button text-sm py-2 px-4">Get Started</a>
-          </div>
-          <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu" aria-expanded="false">
-              <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </button>
+    <div class="fixed w-full top-0 z-50">
+      <div class="bg-gradient-to-r from-cyan-500/40 via-black/60 to-magenta-500/40 border-b border-cyan-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-2 text-xs sm:text-sm text-gray-200 uppercase tracking-wide">
+            <span class="flex items-center gap-2"><span class="text-cyan-400">🚀</span>Latest Site Launch: +212% Leads in 30 Days</span>
+            <span class="hidden sm:inline text-gray-500">•</span>
+            <span class="flex items-center gap-2"><span class="text-magenta-400">💼</span>CRM Seats Available This Month: 12</span>
+            <span class="hidden sm:inline text-gray-500">•</span>
+            <span class="flex items-center gap-2"><span class="text-cyan-400">🔥</span>Top Rep Earned $12k Recurring Last Quarter</span>
           </div>
         </div>
       </div>
+      <nav class="bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0 flex items-center">
+              <a href="index.html" aria-label="Gideon Code Works Home" class="flex items-center">
+                <img src="images/gcw-logo.png" alt="Gideon Code Works" width="200" height="60">
+              </a>
+            </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="mobile-menu md:hidden fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
-        <div class="flex flex-col p-6 space-y-6">
-          <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
-          <a href="services.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Services</a>
-          <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
-          <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
-          <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Careers</a>
-          <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
-          <a href="contact.html" class="neon-button text-sm py-2 px-4 text-center" role="menuitem">Get Started</a>
+            <div class="hidden md:flex items-center space-x-6">
+              <a href="services.html#web" class="nav-link text-white hover:text-cyan-400">Web Services</a>
+              <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="nav-link text-white hover:text-cyan-400">CRM Platform</a>
+              <a href="careers.html" class="nav-link text-white hover:text-cyan-400">Join Sales Team</a>
+              <div class="relative group">
+                <button class="nav-link text-white hover:text-cyan-400 flex items-center gap-1">
+                  More
+                  <svg class="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="absolute right-0 top-full pt-3 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+                  <div class="bg-black border border-cyan-500/40 rounded shadow-xl">
+                    <div class="flex flex-col py-3">
+                      <a href="portfolio.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">Portfolio</a>
+                      <a href="about.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">About</a>
+                      <a href="contact.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">Contact</a>
+                      <a href="services.html#faq" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">FAQ</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="contact.html" class="neon-button text-sm py-2 px-4" aria-label="Get started with your website project">Get Started</a>
+            </div>
+
+            <div class="md:hidden">
+              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu" aria-expanded="false">
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
+          <div class="flex flex-col p-6 space-y-6">
+            <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
+            <a href="services.html#web" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Web Services</a>
+            <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">CRM Platform</a>
+            <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Join Sales Team</a>
+            <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
+            <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
+            <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
+            <a href="services.html#faq" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">FAQ</a>
+            <a href="contact.html" class="neon-button text-sm py-2 px-4 text-center" role="menuitem">Get Started</a>
+          </div>
+        </div>
+      </nav>
+    </div>
   </header>
+
+
+
 
   <!-- Main Content -->
   <main>
@@ -171,21 +207,30 @@
 
       <div class="max-w-5xl mx-auto text-center relative z-10">
         <h1 id="services-heading" class="text-5xl sm:text-6xl lg:text-7xl font-bold gradient-text mb-8 fade-in leading-tight">
-          Services & Pricing
+          Build Your Revenue Engine
         </h1>
         <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto fade-in leading-relaxed mb-6">
-          Transparent pricing. No surprises. Choose what works for your business.
+          Choose the lever you need right now: subscription websites, our white-label CRM, or a sales team that keeps the pipeline full.
         </p>
-        <div class="flex items-center justify-center gap-4 text-sm text-gray-400 fade-in">
-          <span class="flex items-center gap-2">
-            <span class="text-cyan-400">✓</span> No Hidden Fees
-          </span>
-          <span class="flex items-center gap-2">
-            <span class="text-cyan-400">✓</span> Cancel Anytime
-          </span>
-          <span class="flex items-center gap-2">
-            <span class="text-cyan-400">✓</span> 100% Transparent
-          </span>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-in">
+          <a href="#web" class="neon-button w-full sm:w-auto" aria-label="Jump to Web-as-a-Service pricing">Web-as-a-Service Plans</a>
+          <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="neon-button neon-button-outline w-full sm:w-auto" aria-label="Open the Gideon Code Works CRM platform">CRM Platform</a>
+          <a href="careers.html" class="neon-button neon-button-magenta w-full sm:w-auto" aria-label="Recruit top salespeople with Gideon Code Works">Recruit Sales Talent</a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-300 fade-in">
+          <div class="bg-black/40 border border-cyan-500/40 rounded-lg px-4 py-3">
+            <p class="font-semibold text-cyan-300 uppercase tracking-widest">Web Clients</p>
+            <p>Monthly plans from $212.50 with hosting, SEO, and unlimited updates.</p>
+          </div>
+          <div class="bg-black/40 border border-cyan-500/40 rounded-lg px-4 py-3">
+            <p class="font-semibold text-cyan-300 uppercase tracking-widest">CRM Platform</p>
+            <p>Buy or rent the sales engine that runs our own team.</p>
+          </div>
+          <div class="bg-black/40 border border-cyan-500/40 rounded-lg px-4 py-3">
+            <p class="font-semibold text-cyan-300 uppercase tracking-widest">Sales Team</p>
+            <p>Onboard closers into your ecosystem with lifetime residuals.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -202,6 +247,9 @@
 
           <!-- Starter -->
           <article class="cyber-card pricing-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/services-page.jpg" alt="Starter website build preview" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-cyan-400 mb-2">Starter</h3>
             <div class="text-4xl font-bold text-white mb-6">$2,497</div>
             <ul class="space-y-3 text-gray-300 mb-8">
@@ -218,6 +266,9 @@
 
           <!-- Growth -->
           <article class="cyber-card pricing-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/buygeogrid.jpg" alt="Growth tier website design" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-cyan-400 mb-2">Growth</h3>
             <div class="text-4xl font-bold text-white mb-6">$3,497</div>
             <ul class="space-y-3 text-gray-300 mb-8">
@@ -235,6 +286,9 @@
 
           <!-- Domination -->
           <article class="cyber-card pricing-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/vidforge.jpg" alt="Custom domination package visuals" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-cyan-400 mb-2">Domination</h3>
             <div class="text-4xl font-bold text-white mb-6">$4,997</div>
             <ul class="space-y-3 text-gray-300 mb-8">
@@ -256,7 +310,7 @@
     </section>
 
     <!-- Section 2: Build + Monthly Management (THE SMART CHOICE) -->
-    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="monthly-heading">
+    <section id="web" class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="monthly-heading">
       <div class="max-w-7xl mx-auto">
 
         <!-- Big Attention Banner -->
@@ -272,6 +326,9 @@
 
           <!-- Starter Monthly -->
           <article class="cyber-card pricing-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/gcw-site.jpg" alt="Starter website subscription experience" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-cyan-400 mb-2">Starter</h3>
             <div class="mb-6">
               <div class="text-3xl font-bold text-white mb-2">$497 setup</div>
@@ -301,6 +358,9 @@
 
           <!-- Growth Monthly -->
           <article class="cyber-card pricing-card fade-in border-2 border-cyan-500">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/contractor-demo.jpg" alt="Growth plan website features" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-cyan-400 mb-2">Growth</h3>
             <div class="mb-6">
               <div class="text-3xl font-bold text-white mb-2">$697 setup</div>
@@ -331,6 +391,9 @@
 
           <!-- Domination Monthly -->
           <article class="cyber-card pricing-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/vidforge.jpg" alt="Domination plan custom build preview" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-cyan-400 mb-2">Domination</h3>
             <div class="mb-6">
               <div class="text-3xl font-bold text-white mb-2">$997 setup</div>
@@ -387,7 +450,7 @@
     </section>
 
     <!-- Featured: CRM Platform -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-900 via-black to-blue-900 relative overflow-hidden" aria-labelledby="crm-featured-heading">
+    <section id="crm" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-900 via-black to-blue-900 relative overflow-hidden" aria-labelledby="crm-featured-heading">
       <div class="absolute inset-0 opacity-10">
         <div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
@@ -497,6 +560,9 @@
 
           <!-- Social Media Management -->
           <article class="cyber-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/auto-demo.jpg" alt="Social media content calendar preview" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <div class="flex items-start justify-between mb-4">
               <div>
                 <h3 class="text-2xl font-bold text-cyan-400 mb-2">Social Media Management</h3>
@@ -517,6 +583,9 @@
 
           <!-- Google SEO/Ads Management -->
           <article class="cyber-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-cyan-500 border-opacity-20">
+              <img src="images/portfolio/restaurant-demo.jpg" alt="SEO and ads performance dashboard" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <div class="flex items-start justify-between mb-4">
               <div>
                 <h3 class="text-2xl font-bold text-cyan-400 mb-2">Google SEO/Ads Management</h3>
@@ -679,7 +748,7 @@
     </section>
 
     <!-- Branding & Design -->
-    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950 bg-opacity-20" aria-labelledby="branding-heading">
+    <section id="brand" class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950 bg-opacity-20" aria-labelledby="branding-heading">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
           <h2 id="branding-heading" class="text-4xl font-bold text-white mb-4 fade-in">Branding & Design</h2>
@@ -690,6 +759,9 @@
 
           <!-- Logo Only -->
           <article class="cyber-card pricing-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-magenta-500 border-opacity-20">
+              <img src="images/portfolio/professional-demo.jpg" alt="Logo design concepts" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-magenta-400 mb-2">Logo Design</h3>
             <div class="text-4xl font-bold text-white mb-6">$997</div>
             <ul class="space-y-3 text-gray-300 mb-8">
@@ -706,6 +778,9 @@
 
           <!-- Brand Identity Kit -->
           <article class="cyber-card pricing-card fade-in border-2 border-magenta-500">
+            <div class="mb-6 overflow-hidden rounded-lg border border-magenta-500 border-opacity-20">
+              <img src="images/portfolio/education-demo.jpg" alt="Brand identity guidelines spread" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-magenta-400 mb-2">Brand Identity Kit</h3>
             <div class="text-4xl font-bold text-white mb-6">$2,497</div>
             <ul class="space-y-3 text-gray-300 mb-8">
@@ -723,6 +798,9 @@
 
           <!-- Complete Brand System -->
           <article class="cyber-card pricing-card fade-in">
+            <div class="mb-6 overflow-hidden rounded-lg border border-magenta-500 border-opacity-20">
+              <img src="images/portfolio/musician-demo.jpg" alt="Comprehensive brand system collateral" class="w-full h-40 object-cover" loading="lazy" width="1280" height="720">
+            </div>
             <h3 class="text-2xl font-bold text-magenta-400 mb-2">Complete Brand System</h3>
             <div class="text-4xl font-bold text-white mb-6">$4,997</div>
             <ul class="space-y-3 text-gray-300 mb-8">
@@ -820,6 +898,30 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services FAQ -->
+    <section id="faq" class="py-16 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="faq-heading">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 id="faq-heading" class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Quick Answers</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">Fast clarity on how we work, when we launch, and what makes our model different.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="cyber-card">
+            <h3 class="text-xl font-semibold text-cyan-300 mb-3">How fast can we launch?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Web-as-a-Service sites ship in 21 days or less with content, automations, and analytics ready. Need it sooner? We stack extra sprints at no extra cost.</p>
+          </article>
+          <article class="cyber-card">
+            <h3 class="text-xl font-semibold text-cyan-300 mb-3">What’s included monthly?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Strategy, design, hosting, SEO, unlimited updates, CRO experiments, and a direct line to the builders actually doing the work.</p>
+          </article>
+          <article class="cyber-card">
+            <h3 class="text-xl font-semibold text-cyan-300 mb-3">Can we start with the CRM only?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Absolutely. Buy or rent the platform, plug in your team, and we’ll optionally bolt on our Web-as-a-Service plans or sales recruiting support later.</p>
+          </article>
         </div>
       </div>
     </section>

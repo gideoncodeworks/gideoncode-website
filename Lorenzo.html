@@ -45,55 +45,86 @@
 <body>
 
   <!-- Header & Navigation -->
+    <!-- Header & Navigation -->
   <header>
-    <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <!-- Logo -->
-          <div class="flex-shrink-0 flex items-center">
-            <a href="index.html" aria-label="Gideon Code Works Home" class="flex items-center">
-              <img src="images/gcw-logo.png" alt="Gideon Code Works logo - cyberpunk tech design with cyan to magenta gradient" width="200" height="60">
-            </a>
+    <div class="fixed w-full top-0 z-50">
+      <div class="bg-gradient-to-r from-cyan-500/40 via-black/60 to-magenta-500/40 border-b border-cyan-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-2 text-xs sm:text-sm text-gray-200 uppercase tracking-wide">
+            <span class="flex items-center gap-2"><span class="text-cyan-400">🚀</span>Latest Site Launch: +212% Leads in 30 Days</span>
+            <span class="hidden sm:inline text-gray-500">•</span>
+            <span class="flex items-center gap-2"><span class="text-magenta-400">💼</span>CRM Seats Available This Month: 12</span>
+            <span class="hidden sm:inline text-gray-500">•</span>
+            <span class="flex items-center gap-2"><span class="text-cyan-400">🔥</span>Top Rep Earned $12k Recurring Last Quarter</span>
           </div>
+        </div>
+      </div>
+      <nav class="bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0 flex items-center">
+              <a href="index.html" aria-label="Gideon Code Works Home" class="flex items-center">
+                <img src="images/gcw-logo.png" alt="Gideon Code Works" width="200" height="60">
+              </a>
+            </div>
 
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="index.html" class="nav-link text-white hover:text-cyan-400">Home</a>
-            <a href="services.html" class="nav-link text-white hover:text-cyan-400">Services</a>
-            <a href="portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
-            <a href="about.html" class="nav-link text-white hover:text-cyan-400">About</a>
-            <a href="careers.html" class="nav-link text-white hover:text-cyan-400">Careers</a>
-            <a href="contact.html" class="nav-link text-white hover:text-cyan-400">Contact</a>
-            <a href="contact.html" class="neon-button text-sm py-2 px-4" aria-label="Get started with your project">Get Started</a>
-          </div>
-
-          <!-- Mobile Menu Button -->
-          <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu" aria-expanded="false">
-              <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="hidden md:flex items-center space-x-6">
+              <a href="services.html#web" class="nav-link text-white hover:text-cyan-400">Web Services</a>
+              <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="nav-link text-white hover:text-cyan-400">CRM Platform</a>
+              <a href="careers.html" class="nav-link text-white hover:text-cyan-400">Join Sales Team</a>
+              <div class="relative group">
+                <button class="nav-link text-white hover:text-cyan-400 flex items-center gap-1">
+                  More
+                  <svg class="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="absolute right-0 top-full pt-3 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+                  <div class="bg-black border border-cyan-500/40 rounded shadow-xl">
+                    <div class="flex flex-col py-3">
+                      <a href="portfolio.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">Portfolio</a>
+                      <a href="about.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">About</a>
+                      <a href="contact.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">Contact</a>
+                      <a href="services.html#faq" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">FAQ</a>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </button>
+              <a href="contact.html" class="neon-button text-sm py-2 px-4" aria-label="Get started with your website project">Get Started</a>
+            </div>
+
+            <div class="md:hidden">
+              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu" aria-expanded="false">
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="mobile-menu md:hidden fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
-        <div class="flex flex-col p-6 space-y-6">
-          <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
-          <a href="services.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Services</a>
-          <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
-          <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
-          <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Careers</a>
-          <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
-          <a href="contact.html" class="neon-button text-center" role="menuitem">Get Started</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
+          <div class="flex flex-col p-6 space-y-6">
+            <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
+            <a href="services.html#web" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Web Services</a>
+            <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">CRM Platform</a>
+            <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Join Sales Team</a>
+            <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
+            <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
+            <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
+            <a href="services.html#faq" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">FAQ</a>
+            <a href="contact.html" class="neon-button text-sm py-2 px-4 text-center" role="menuitem">Get Started</a>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
+
+
+
 
   <main class="pt-24">
     <!-- Hero -->
