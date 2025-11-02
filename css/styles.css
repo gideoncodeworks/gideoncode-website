@@ -296,6 +296,9 @@ img[src*="logo" i] {
   overflow-y: auto;
   width: min(18rem, 100vw);
   padding-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(6px);
+  z-index: 60;
 }
 
 #mobile-menu .mobile-menu-link {
@@ -304,6 +307,22 @@ img[src*="logo" i] {
 
 body.menu-open {
   overflow: hidden;
+}
+
+/* Backdrop for mobile navigation */
+#mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 40;
+}
+
+body.menu-open #mobile-menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 640px) {

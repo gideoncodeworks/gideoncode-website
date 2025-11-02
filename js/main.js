@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
   if (mobileMenuButton && mobileMenu) {
+    let mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    if (!mobileMenuOverlay) {
+      mobileMenuOverlay = document.createElement('div');
+      mobileMenuOverlay.id = 'mobile-menu-overlay';
+      document.body.appendChild(mobileMenuOverlay);
+    }
+
     const setMobileMenuState = (shouldOpen) => {
       mobileMenu.classList.toggle('active', shouldOpen);
       if (hamburger) {
@@ -17,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const closeMobileMenu = () => setMobileMenuState(false);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
     mobileMenuButton.addEventListener('click', function() {
       const isOpen = mobileMenu.classList.contains('active');
