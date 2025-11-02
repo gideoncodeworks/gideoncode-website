@@ -174,79 +174,110 @@
     <section class="relative min-h-screen flex items-center justify-center pt-20 scanline overflow-hidden" aria-labelledby="hero-heading">
       <!-- Background Effects -->
       <div class="absolute inset-0 bg-gradient-to-br from-cyan-900 via-black to-magenta-900 opacity-30" aria-hidden="true"></div>
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-magenta-500 rounded-full blur-3xl"></div>
+      </div>
 
-      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-        <h1 id="hero-heading" class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 hero-slide-in">
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+        <h1 id="hero-heading" class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 hero-slide-in leading-tight">
           <span class="gradient-text">
-            We Build Digital Products That Make You Money
+            Digital Products<br/>That Drive Revenue
           </span>
         </h1>
 
-        <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto hero-slide-in-delayed">
-          Websites, mobile apps, web applications, and branding. Full-service digital solutions for growing businesses.
+        <p class="text-xl sm:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto hero-slide-in-delayed leading-relaxed">
+          From websites to SaaS platforms, we build solutions that scale your business. Premium quality without premium prices.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 hero-slide-in-delayed-more">
-          <a href="services.html" class="neon-button w-full sm:w-auto" aria-label="View our website design services and pricing">View Services</a>
-          <a href="careers.html" class="neon-button neon-button-magenta w-full sm:w-auto" aria-label="Join our sales team with unlimited income potential">Join Our Team</a>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center hero-slide-in-delayed-more">
+          <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="neon-button w-full sm:w-auto" aria-label="Explore our CRM platform">
+            Explore CRM Platform
+          </a>
+          <a href="services.html" class="neon-button neon-button-outline w-full sm:w-auto" aria-label="View our services and pricing">
+            View Services
+          </a>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto hero-slide-in-delayed-more">
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">7+</div>
+            <div class="text-sm text-gray-400 uppercase tracking-wider">Live Projects</div>
+          </div>
+          <div class="text-center border-l border-r border-gray-700">
+            <div class="text-3xl sm:text-4xl font-bold text-magenta-400 mb-2">2</div>
+            <div class="text-sm text-gray-400 uppercase tracking-wider">SaaS Products</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">100%</div>
+            <div class="text-sm text-gray-400 uppercase tracking-wider">Client Success</div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Services Overview -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="services-overview-heading">
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="services-overview-heading">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 id="services-overview-heading" class="text-4xl sm:text-5xl font-bold gradient-text mb-4 fade-in">Full-Service Digital Solutions</h2>
-          <p class="text-xl text-gray-300 fade-in">From websites to mobile apps to branding, we build it all.</p>
+        <div class="text-center mb-20">
+          <h2 id="services-overview-heading" class="text-4xl sm:text-5xl font-bold gradient-text mb-6 fade-in">What We Build</h2>
+          <p class="text-xl text-gray-400 fade-in max-w-2xl mx-auto">
+            Full-stack solutions designed to scale your business and generate revenue.
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
           <!-- Websites -->
-          <article class="cyber-card text-center fade-in hover:border-cyan-400">
-            <div class="text-5xl mb-4" aria-hidden="true">🌐</div>
-            <h3 class="text-2xl font-bold text-cyan-400 mb-4">Websites</h3>
-            <p class="text-gray-400 mb-4">
-              Recurring revenue websites with monthly management, hosting, and ongoing support.
+          <article class="cyber-card text-center fade-in hover:border-cyan-400 transition-all duration-300 group cursor-pointer">
+            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform" aria-hidden="true">🌐</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3 uppercase tracking-wider">Websites</h3>
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+              Managed websites with hosting, updates, and support included.
             </p>
-            <p class="text-sm text-cyan-400 font-semibold">From $212.50/mo</p>
+            <div class="text-cyan-400 font-bold text-lg mb-2">$212.50/mo</div>
+            <div class="text-gray-500 text-xs uppercase tracking-wider">Recurring Model</div>
           </article>
 
           <!-- Mobile Apps -->
-          <article class="cyber-card text-center fade-in hover:border-magenta-400">
-            <div class="text-5xl mb-4" aria-hidden="true">📱</div>
-            <h3 class="text-2xl font-bold text-magenta-400 mb-4">Mobile Apps</h3>
-            <p class="text-gray-400 mb-4">
-              Native iOS & Android apps. Built for performance, designed for your users.
+          <article class="cyber-card text-center fade-in hover:border-magenta-400 transition-all duration-300 group cursor-pointer">
+            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform" aria-hidden="true">📱</div>
+            <h3 class="text-xl font-bold text-magenta-400 mb-3 uppercase tracking-wider">Mobile Apps</h3>
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+              Native iOS & Android apps built for performance and user experience.
             </p>
-            <p class="text-sm text-magenta-400 font-semibold">Custom Pricing</p>
+            <div class="text-magenta-400 font-bold text-lg mb-2">Custom</div>
+            <div class="text-gray-500 text-xs uppercase tracking-wider">Project-Based</div>
           </article>
 
-          <!-- Web Applications -->
-          <article class="cyber-card text-center fade-in hover:border-cyan-400">
-            <div class="text-5xl mb-4" aria-hidden="true">⚡</div>
-            <h3 class="text-2xl font-bold text-cyan-400 mb-4">Web Apps</h3>
-            <p class="text-gray-400 mb-4">
-              Custom dashboards, SaaS products, CRMs, and internal tools built to scale.
+          <!-- SaaS Products -->
+          <article class="cyber-card text-center fade-in hover:border-cyan-400 transition-all duration-300 group cursor-pointer border-2 border-cyan-500 border-opacity-30">
+            <div class="inline-block bg-cyan-500 text-black px-2 py-1 rounded text-xs font-bold mb-2">FEATURED</div>
+            <div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform" aria-hidden="true">💼</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3 uppercase tracking-wider">SaaS Platform</h3>
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+              White-label CRM ready to deploy for your business.
             </p>
-            <p class="text-sm text-cyan-400 font-semibold">Custom Pricing</p>
+            <div class="text-cyan-400 font-bold text-lg mb-2">Buy or Rent</div>
+            <div class="text-gray-500 text-xs uppercase tracking-wider">Ready Now</div>
           </article>
 
           <!-- Branding -->
-          <article class="cyber-card text-center fade-in hover:border-magenta-400">
-            <div class="text-5xl mb-4" aria-hidden="true">🎨</div>
-            <h3 class="text-2xl font-bold text-magenta-400 mb-4">Branding</h3>
-            <p class="text-gray-400 mb-4">
-              Complete brand identity kits: logos, color palettes, typography, and style guides.
+          <article class="cyber-card text-center fade-in hover:border-magenta-400 transition-all duration-300 group cursor-pointer">
+            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform" aria-hidden="true">🎨</div>
+            <h3 class="text-xl font-bold text-magenta-400 mb-3 uppercase tracking-wider">Branding</h3>
+            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+              Complete brand identity: logos, colors, typography, guidelines.
             </p>
-            <p class="text-sm text-magenta-400 font-semibold">Starting at $2,497</p>
+            <div class="text-magenta-400 font-bold text-lg mb-2">$2,497+</div>
+            <div class="text-gray-500 text-xs uppercase tracking-wider">One-Time</div>
           </article>
 
         </div>
 
-        <div class="text-center mt-12 fade-in">
-          <a href="services.html" class="neon-button text-lg">View All Services & Pricing</a>
+        <div class="text-center mt-16 fade-in">
+          <a href="services.html" class="neon-button text-lg px-8 py-4">View Full Pricing</a>
         </div>
       </div>
     </section>
@@ -348,36 +379,45 @@
     </section>
 
     <!-- Value Propositions -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950 bg-opacity-20" aria-labelledby="value-props-heading">
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="value-props-heading">
       <div class="max-w-7xl mx-auto">
-        <h2 id="value-props-heading" class="text-4xl font-bold text-center gradient-text mb-12 fade-in">Why Choose Gideon Code Works</h2>
+        <h2 id="value-props-heading" class="text-4xl sm:text-5xl font-bold text-center gradient-text mb-6 fade-in">Why Work With Us</h2>
+        <p class="text-xl text-center text-gray-400 mb-16 fade-in max-w-2xl mx-auto">
+          We're not just developers. We're business builders who code.
+        </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           <!-- Value Prop 1 -->
-          <article class="cyber-card text-center fade-in">
-            <div class="text-5xl mb-4" aria-hidden="true">💼</div>
-            <h3 class="text-2xl font-bold gradient-text mb-4">Full-Service Agency</h3>
-            <p class="text-gray-400">
-              One partner for all your digital needs. Websites, apps, branding, and ongoing support.
+          <article class="cyber-card fade-in hover:border-cyan-400 transition-all duration-300 group">
+            <div class="text-center mb-6">
+              <div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform inline-block" aria-hidden="true">⚡</div>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-4 text-center uppercase tracking-wider">Fast & Focused</h3>
+            <p class="text-gray-400 text-center leading-relaxed">
+              Ship in weeks, not months. We build with speed without cutting corners on quality.
             </p>
           </article>
 
           <!-- Value Prop 2 -->
-          <article class="cyber-card text-center fade-in">
-            <div class="text-5xl mb-4" aria-hidden="true">🚀</div>
-            <h3 class="text-2xl font-bold gradient-text mb-4">Fast Delivery</h3>
-            <p class="text-gray-400">
-              Ship in weeks, not months. We move fast without sacrificing quality or results.
+          <article class="cyber-card fade-in hover:border-magenta-400 transition-all duration-300 group">
+            <div class="text-center mb-6">
+              <div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform inline-block" aria-hidden="true">💎</div>
+            </div>
+            <h3 class="text-xl font-bold text-magenta-400 mb-4 text-center uppercase tracking-wider">Premium Quality</h3>
+            <p class="text-gray-400 text-center leading-relaxed">
+              Enterprise-level code and design without the enterprise price tag. Get more, pay less.
             </p>
           </article>
 
           <!-- Value Prop 3 -->
-          <article class="cyber-card text-center fade-in">
-            <div class="text-5xl mb-4" aria-hidden="true">📈</div>
-            <h3 class="text-2xl font-bold gradient-text mb-4">Built for Growth</h3>
-            <p class="text-gray-400">
-              Every project is designed to scale with your business and drive real revenue.
+          <article class="cyber-card fade-in hover:border-cyan-400 transition-all duration-300 group">
+            <div class="text-center mb-6">
+              <div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform inline-block" aria-hidden="true">📈</div>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-4 text-center uppercase tracking-wider">Revenue-Driven</h3>
+            <p class="text-gray-400 text-center leading-relaxed">
+              Every line of code is built to scale your business and generate real, measurable results.
             </p>
           </article>
 
