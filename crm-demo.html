@@ -84,21 +84,24 @@
 
       <nav class="flex-1 space-y-1 px-4 py-6" id="main-nav">
         <!-- Dashboard Mode Switcher -->
-        <div class="mb-6 rounded-xl border border-white/10 bg-white/5 p-4">
+        <div class="mb-6 rounded-xl border-2 border-accent-300/30 bg-gradient-to-br from-primary-500/10 to-accent-300/10 p-4 shadow-brand">
           <div class="flex items-center gap-2 mb-3">
             <svg class="w-5 h-5 text-accent-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
             </svg>
             <div>
-              <p class="text-xs uppercase tracking-wide text-accent-200/80">Dashboard View</p>
-              <p class="text-sm font-medium text-white">Choose your perspective</p>
+              <p class="text-xs uppercase tracking-wide text-accent-200 font-semibold">🎯 Demo Feature</p>
+              <p class="text-sm font-medium text-white">Switch Between Views</p>
             </div>
           </div>
+          <p class="text-xs text-slate-300/70 mb-3">See how the CRM adapts for different roles:</p>
           <div class="flex gap-2">
-            <button onclick="switchView('admin')" id="btn-admin" class="flex-1 rounded-lg px-3 py-2 text-sm font-medium bg-white/20 text-white border border-white/30 shadow-brand">
+            <button onclick="switchView('admin')" id="btn-admin" class="flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand hover:bg-white/25 transition">
+              <div class="text-xs text-accent-200 mb-0.5">Full View</div>
               Admin
             </button>
-            <button onclick="switchView('salesperson')" id="btn-salesperson" class="flex-1 rounded-lg px-3 py-2 text-sm font-medium bg-white/10 text-slate-200 border border-white/10 hover:bg-white/15">
+            <button onclick="switchView('salesperson')" id="btn-salesperson" class="flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15 transition">
+              <div class="text-xs text-slate-400 mb-0.5">Simplified</div>
               Sales
             </button>
           </div>
@@ -129,6 +132,19 @@
           <h2 class="text-sm font-semibold text-white lg:text-lg">Gideon Code Command Center</h2>
         </div>
       </header>
+
+      <!-- View Switch Notification -->
+      <div id="view-notification" class="hidden mx-8 mt-6 rounded-xl border-2 border-accent-300/50 bg-gradient-to-r from-primary-500/20 to-accent-300/20 p-4 shadow-brand">
+        <div class="flex items-center gap-3">
+          <svg class="w-6 h-6 text-accent-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-white" id="notification-title">Viewing as Admin</p>
+            <p class="text-xs text-slate-300/80" id="notification-description">Full access to all features and navigation items</p>
+          </div>
+        </div>
+      </div>
 
       <!-- Content Area -->
       <div class="p-10" id="content">
@@ -1354,12 +1370,32 @@
 
       // Update buttons
       document.getElementById('btn-admin').className = view === 'admin'
-        ? 'flex-1 rounded-lg px-3 py-2 text-sm font-medium bg-white/20 text-white border border-white/30 shadow-brand'
-        : 'flex-1 rounded-lg px-3 py-2 text-sm font-medium bg-white/10 text-slate-200 border border-white/10 hover:bg-white/15';
+        ? 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand hover:bg-white/25 transition'
+        : 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15 transition';
 
       document.getElementById('btn-salesperson').className = view === 'salesperson'
-        ? 'flex-1 rounded-lg px-3 py-2 text-sm font-medium bg-white/20 text-white border border-white/30 shadow-brand'
-        : 'flex-1 rounded-lg px-3 py-2 text-sm font-medium bg-white/10 text-slate-200 border border-white/10 hover:bg-white/15';
+        ? 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/20 text-white border-2 border-white/30 shadow-brand hover:bg-white/25 transition'
+        : 'flex-1 rounded-lg px-3 py-3 text-sm font-semibold bg-white/10 text-slate-200 border-2 border-white/10 hover:bg-white/15 transition';
+
+      // Show notification
+      const notification = document.getElementById('view-notification');
+      const notificationTitle = document.getElementById('notification-title');
+      const notificationDescription = document.getElementById('notification-description');
+
+      if (view === 'admin') {
+        notificationTitle.textContent = '👔 Viewing as Admin (Full View)';
+        notificationDescription.textContent = 'All 14 navigation items visible - full access to analytics, team management, payouts, and admin tools';
+      } else {
+        notificationTitle.textContent = '💼 Viewing as Salesperson (Simplified View)';
+        notificationDescription.textContent = 'Streamlined to 8 essential items - focused on sales activities without admin complexity';
+      }
+
+      notification.classList.remove('hidden');
+
+      // Auto-hide notification after 5 seconds
+      setTimeout(() => {
+        notification.classList.add('hidden');
+      }, 5000);
 
       // Update content based on view
       if (view === 'admin') {
