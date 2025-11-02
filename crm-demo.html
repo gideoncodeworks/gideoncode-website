@@ -60,6 +60,11 @@
     .hero-section {
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
     }
+    .nav-link.active {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.4);
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
@@ -71,13 +76,13 @@
 
   <div class="flex min-h-screen">
     <!-- Sidebar Navigation -->
-    <aside class="w-72 glassmorphism fixed inset-y-0 left-0 z-40 flex flex-col border-r border-white/10 mt-12">
+    <aside class="w-72 glassmorphism fixed inset-y-0 left-0 z-40 flex flex-col border-r border-white/10 mt-12 overflow-y-auto">
       <div class="flex-shrink-0 border-b border-white/10 px-6 py-4">
         <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Gideon Code</p>
         <h1 class="text-xl font-semibold text-white">Revenue Command</h1>
       </div>
 
-      <nav class="flex-1 space-y-1 overflow-y-auto px-4 py-6">
+      <nav class="flex-1 space-y-1 px-4 py-6" id="main-nav">
         <!-- Dashboard Mode Switcher -->
         <div class="mb-6 rounded-xl border border-white/10 bg-white/5 p-4">
           <div class="flex items-center gap-2 mb-3">
@@ -99,36 +104,7 @@
           </div>
         </div>
 
-        <a href="#" onclick="showScreen('dashboard'); return false;" class="nav-link active flex items-center rounded-xl px-4 py-3 text-sm font-medium bg-white/15 text-white shadow-brand">
-          <svg class="mr-3 h-5 w-5 text-accent-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-          Dashboard
-        </a>
-        <a href="#" onclick="showScreen('sales'); return false;" class="nav-link flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white">
-          <svg class="mr-3 h-5 w-5 text-accent-300/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-          </svg>
-          Sales Pipeline
-        </a>
-        <a href="#" onclick="showScreen('commissions'); return false;" class="nav-link flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white">
-          <svg class="mr-3 h-5 w-5 text-accent-300/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          Commissions
-        </a>
-        <a href="#" onclick="showScreen('clients'); return false;" class="nav-link flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white">
-          <svg class="mr-3 h-5 w-5 text-accent-300/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-          Clients
-        </a>
-        <a href="#" onclick="showScreen('team'); return false;" class="nav-link flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white">
-          <svg class="mr-3 h-5 w-5 text-accent-300/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <span id="team-label">Team</span>
-        </a>
+        <!-- Navigation will be inserted here by JavaScript -->
       </nav>
 
       <div class="border-t border-white/10 p-5">
@@ -137,7 +113,7 @@
             <span id="user-initial">J</span>
           </div>
           <div class="min-w-0">
-            <p class="truncate text-sm font-semibold text-white" id="user-name">Joshua Stone</p>
+            <p class="truncate text-sm font-semibold text-white" id="user-name">James Smith</p>
             <p class="truncate text-xs text-slate-300/80" id="user-role">Admin</p>
           </div>
         </div>
@@ -165,24 +141,24 @@
               <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                 <div class="space-y-4">
                   <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Revenue Command</p>
-                  <h1 class="text-3xl font-semibold text-white sm:text-4xl" id="hero-title">Pipeline health is strong, Josh.</h1>
+                  <h1 class="text-3xl font-semibold text-white sm:text-4xl" id="hero-title">Pipeline health is strong, James.</h1>
                   <p class="max-w-xl text-sm text-slate-200/80" id="hero-description">
                     Monitor recurring earnings, push setup commissions across the finish line, and keep your team operating at peak cadence. You're 12 people away from a fully leveraged network.
                   </p>
                   <div class="flex flex-wrap gap-3">
-                    <button class="inline-flex items-center gap-2 rounded-full bg-primary-500/90 px-5 py-2 text-sm font-semibold text-white shadow-brand hover:bg-primary-500">
+                    <button onclick="showScreen('sales')" class="inline-flex items-center gap-2 rounded-full bg-primary-500/90 px-5 py-2 text-sm font-semibold text-white shadow-brand hover:bg-primary-500">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                       </svg>
                       Log New Sale
                     </button>
-                    <button class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold text-white hover:bg-white/15">
+                    <button onclick="showScreen('clients')" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold text-white hover:bg-white/15">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                       </svg>
                       Add Client
                     </button>
-                    <button class="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-accent-100 hover:bg-white/10">
+                    <button onclick="showScreen('lead-intake')" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-accent-100 hover:bg-white/10">
                       Rapid Intake
                     </button>
                   </div>
@@ -205,16 +181,16 @@
             <section class="grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
               <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-accent-200/80">Command Shortcuts</h2>
               <div class="space-y-3 text-sm text-slate-200/80">
-                <button class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                <button onclick="showScreen('commissions')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
                   • Trigger monthly commission simulation
                 </button>
-                <button class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                <button onclick="showScreen('team')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
                   • Share top performer dashboard with leadership
                 </button>
-                <button class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                <button onclick="showScreen('payouts')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
                   • Export payout batch for finance
                 </button>
-                <button class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                <button onclick="showScreen('settings')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
                   • Invite new rep to onboarding workspace
                 </button>
               </div>
@@ -440,7 +416,7 @@
                 <p class="text-xs uppercase tracking-[0.35em] text-accent-200/80">Recent Wins</p>
                 <h2 class="mt-1 text-xl font-semibold text-white">Sales velocity snapshot</h2>
               </div>
-              <button class="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-white/10">
+              <button onclick="showScreen('sales')" class="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-white/10">
                 View pipeline
               </button>
             </div>
@@ -506,68 +482,269 @@
           </section>
         </div>
 
-        <!-- Sales Screen -->
-        <div id="sales" class="screen hidden space-y-6">
-          <div>
-            <h1 class="text-3xl font-bold text-white">Sales Pipeline</h1>
-            <p class="mt-2 text-slate-300">Manage your sales funnel and track deals from lead to close</p>
-          </div>
+        <!-- All other screens will be dynamically generated -->
+        <div id="lead-intake" class="screen hidden"></div>
+        <div id="clients" class="screen hidden"></div>
+        <div id="calendar" class="screen hidden"></div>
+        <div id="activity" class="screen hidden"></div>
+        <div id="commissions" class="screen hidden"></div>
+        <div id="sales" class="screen hidden"></div>
+        <div id="tasks" class="screen hidden"></div>
+        <div id="tickets" class="screen hidden"></div>
+        <div id="change-requests" class="screen hidden"></div>
+        <div id="team" class="screen hidden"></div>
+        <div id="payouts" class="screen hidden"></div>
+        <div id="documents" class="screen hidden"></div>
+        <div id="settings" class="screen hidden"></div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
-              <h2 class="text-lg font-semibold text-white mb-4">Recent Sales</h2>
-              <div class="space-y-3">
-                <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
-                  <div>
-                    <p class="font-semibold text-white">Acme Corporation</p>
-                    <p class="text-xs text-accent-200">Growth Tier • $250/mo</p>
-                  </div>
-                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
-                </div>
-                <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
-                  <div>
-                    <p class="font-semibold text-white">TechStart Inc</p>
-                    <p class="text-xs text-accent-200">Domination Tier • $297/mo</p>
-                  </div>
-                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
-                </div>
-                <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
-                  <div>
-                    <p class="font-semibold text-white">Global Ventures LLC</p>
-                    <p class="text-xs text-accent-200">Starter Tier • $250/mo</p>
-                  </div>
-                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-400/20 text-yellow-200">PENDING</span>
-                </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let currentView = 'admin';
+
+    // Navigation configuration matching the real CRM
+    const navConfig = {
+      admin: [
+        { id: 'dashboard', name: 'Dashboard', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+        { id: 'lead-intake', name: 'Lead Intake', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' },
+        { id: 'clients', name: 'Clients', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' },
+        { id: 'calendar', name: 'Calendar', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+        { id: 'activity', name: 'Activity', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+        { id: 'commissions', name: 'Commissions', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+        { id: 'sales', name: 'Sales Pipeline', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+        { id: 'tasks', name: 'Tasks', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2m-6 9l2 2 4-4' },
+        { id: 'tickets', name: 'Tickets', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
+        { id: 'change-requests', name: 'Change Requests', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+        { id: 'team', name: 'Team', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
+        { id: 'payouts', name: 'Payouts', icon: 'M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z' },
+        { id: 'documents', name: 'Documents', icon: 'M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z' },
+        { id: 'settings', name: 'Settings', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z' }
+      ],
+      salesperson: [
+        { id: 'dashboard', name: 'Dashboard', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+        { id: 'lead-intake', name: 'Lead Intake', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' },
+        { id: 'clients', name: 'Clients', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' },
+        { id: 'calendar', name: 'Calendar', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+        { id: 'activity', name: 'Activity', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+        { id: 'sales', name: 'Sales Pipeline', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+        { id: 'tasks', name: 'Tasks', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2m-6 9l2 2 4-4' },
+        { id: 'team', name: 'My Team', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' }
+      ]
+    };
+
+    // Screen content templates - simplified placeholders for all screens
+    const screenTemplates = {
+      'lead-intake': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Lead Intake</h1>
+            <p class="mt-2 text-slate-300">Rapid lead capture for fast follow-up</p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-8 glassmorphism">
+            <h2 class="text-xl font-semibold text-white mb-6">Quick Intake Form</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="text-sm text-slate-300 mb-2 block">Contact Name</label>
+                <input type="text" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-400" placeholder="John Doe">
+              </div>
+              <div>
+                <label class="text-sm text-slate-300 mb-2 block">Phone Number</label>
+                <input type="tel" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-400" placeholder="(555) 123-4567">
+              </div>
+              <div>
+                <label class="text-sm text-slate-300 mb-2 block">Email</label>
+                <input type="email" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-400" placeholder="john@example.com">
+              </div>
+              <div>
+                <label class="text-sm text-slate-300 mb-2 block">Lead Source</label>
+                <select class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white">
+                  <option>Referral</option>
+                  <option>Website</option>
+                  <option>Cold Call</option>
+                  <option>Event</option>
+                </select>
+              </div>
+              <div class="md:col-span-2">
+                <label class="text-sm text-slate-300 mb-2 block">Notes</label>
+                <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-400" placeholder="Additional notes..."></textarea>
               </div>
             </div>
-
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
-              <h2 class="text-lg font-semibold text-white mb-4">Pipeline Stats</h2>
-              <div class="space-y-4">
-                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
-                  <p class="text-sm text-slate-300">Total Sales (MTD)</p>
-                  <p class="text-2xl font-bold text-white mt-1">8</p>
+            <button class="mt-6 inline-flex items-center gap-2 rounded-full bg-primary-500/90 px-6 py-3 text-sm font-semibold text-white shadow-brand hover:bg-primary-500">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+              Capture Lead
+            </button>
+          </div>
+        </div>
+      `,
+      'clients': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Client Management</h1>
+            <p class="mt-2 text-slate-300">Track and manage your client relationships</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Total Clients</p>
+              <p class="text-3xl font-bold text-white mt-2">62</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Active</p>
+              <p class="text-3xl font-bold text-emerald-300 mt-2">47</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Prospects</p>
+              <p class="text-3xl font-bold text-yellow-300 mt-2">12</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Inactive</p>
+              <p class="text-3xl font-bold text-slate-400 mt-2">3</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+            <h2 class="text-xl font-semibold text-white mb-4">Client List</h2>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">Acme Corporation</p>
+                  <p class="text-xs text-slate-400">Growth Tier • Since Jun 2025</p>
                 </div>
-                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
-                  <p class="text-sm text-slate-300">Revenue Generated</p>
-                  <p class="text-2xl font-bold text-accent-100 mt-1">$2,194</p>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
+              </div>
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">TechStart Inc</p>
+                  <p class="text-xs text-slate-400">Domination Tier • Since Jun 2025</p>
                 </div>
-                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
-                  <p class="text-sm text-slate-300">Avg Deal Size</p>
-                  <p class="text-2xl font-bold text-white mt-1">$274</p>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
+              </div>
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">Global Ventures LLC</p>
+                  <p class="text-xs text-slate-400">Starter Tier • Since Jun 2025</p>
+                </div>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-400/20 text-yellow-200">PROSPECT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      'calendar': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Calendar</h1>
+            <p class="mt-2 text-slate-300">Schedule and track appointments</p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-8 glassmorphism">
+            <div class="grid grid-cols-7 gap-4 text-center mb-6">
+              <div class="text-xs uppercase tracking-wide text-accent-200">Sun</div>
+              <div class="text-xs uppercase tracking-wide text-accent-200">Mon</div>
+              <div class="text-xs uppercase tracking-wide text-accent-200">Tue</div>
+              <div class="text-xs uppercase tracking-wide text-accent-200">Wed</div>
+              <div class="text-xs uppercase tracking-wide text-accent-200">Thu</div>
+              <div class="text-xs uppercase tracking-wide text-accent-200">Fri</div>
+              <div class="text-xs uppercase tracking-wide text-accent-200">Sat</div>
+            </div>
+            <div class="grid grid-cols-7 gap-4">
+              ${Array.from({length: 35}, (_, i) => `
+                <div class="aspect-square p-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer">
+                  <div class="text-sm text-white">${i > 27 ? '' : i + 1}</div>
+                  ${i === 15 ? '<div class="mt-1 h-1 w-1 rounded-full bg-accent-400 mx-auto"></div>' : ''}
+                  ${i === 22 ? '<div class="mt-1 h-1 w-1 rounded-full bg-primary-400 mx-auto"></div>' : ''}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+            <h2 class="text-xl font-semibold text-white mb-4">Upcoming Events</h2>
+            <div class="space-y-3">
+              <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-400/20 flex items-center justify-center">
+                  <p class="text-accent-100 font-bold text-sm">15</p>
+                </div>
+                <div>
+                  <p class="font-semibold text-white">Client Demo - Acme Corp</p>
+                  <p class="text-xs text-slate-400">Tomorrow at 2:00 PM</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Commissions Screen -->
-        <div id="commissions" class="screen hidden space-y-6">
+      `,
+      'activity': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Activity Log</h1>
+            <p class="mt-2 text-slate-300">Track interactions and touchpoints</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+              <h2 class="text-lg font-semibold text-white mb-4">Recent Activity</h2>
+              <div class="space-y-4">
+                <div class="flex gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex-shrink-0 p-2 rounded-lg bg-blue-400/20">
+                    <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-white">Called Acme Corporation</p>
+                    <p class="text-sm text-slate-400">Discussed contract renewal • 2 hours ago</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex-shrink-0 p-2 rounded-lg bg-purple-400/20">
+                    <svg class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-white">Emailed TechStart Inc</p>
+                    <p class="text-sm text-slate-400">Follow-up on proposal • Yesterday</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex-shrink-0 p-2 rounded-lg bg-green-400/20">
+                    <svg class="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-white">Meeting with Global Ventures</p>
+                    <p class="text-sm text-slate-400">Initial discovery call • 2 days ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+              <h2 class="text-lg font-semibold text-white mb-4">Activity Stats</h2>
+              <div class="space-y-4">
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Calls This Week</p>
+                  <p class="text-2xl font-bold text-white mt-1">23</p>
+                </div>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Emails Sent</p>
+                  <p class="text-2xl font-bold text-accent-100 mt-1">47</p>
+                </div>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Meetings Held</p>
+                  <p class="text-2xl font-bold text-white mt-1">8</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      'commissions': `
+        <div class="space-y-6">
           <div>
             <h1 class="text-3xl font-bold text-white">Commission Tracking</h1>
             <p class="mt-2 text-slate-300">Breakdown of your earnings by commission type</p>
           </div>
-
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="rounded-2xl border border-white/10 bg-white/10 p-6 glassmorphism">
               <p class="text-xs uppercase tracking-[0.25em] text-slate-300">Total Earned</p>
@@ -582,7 +759,6 @@
               <p class="text-3xl font-bold text-yellow-300 mt-2">$3,275.00</p>
             </div>
           </div>
-
           <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
             <h2 class="text-xl font-semibold text-white mb-6">Earnings by Type</h2>
             <div class="space-y-4">
@@ -634,99 +810,225 @@
             </div>
           </div>
         </div>
-
-        <!-- Clients Screen -->
-        <div id="clients" class="screen hidden space-y-6">
+      `,
+      'sales': `
+        <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Client Management</h1>
-            <p class="mt-2 text-slate-300">Track and manage your client relationships</p>
+            <h1 class="text-3xl font-bold text-white">Sales Pipeline</h1>
+            <p class="mt-2 text-slate-300">Manage your sales funnel and track deals from lead to close</p>
           </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
-              <p class="text-sm text-slate-300">Total Clients</p>
-              <p class="text-3xl font-bold text-white mt-2">62</p>
-            </div>
-            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
-              <p class="text-sm text-slate-300">Active</p>
-              <p class="text-3xl font-bold text-emerald-300 mt-2">47</p>
-            </div>
-            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
-              <p class="text-sm text-slate-300">Prospects</p>
-              <p class="text-3xl font-bold text-yellow-300 mt-2">12</p>
-            </div>
-            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
-              <p class="text-sm text-slate-300">Inactive</p>
-              <p class="text-3xl font-bold text-slate-400 mt-2">3</p>
-            </div>
-          </div>
-
-          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
-            <h2 class="text-xl font-semibold text-white mb-4">Client List</h2>
-            <div class="space-y-3">
-              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
-                <div>
-                  <p class="font-semibold text-white">Acme Corporation</p>
-                  <p class="text-xs text-slate-400">Growth Tier • Since Jun 2025</p>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+              <h2 class="text-lg font-semibold text-white mb-4">Recent Sales</h2>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div>
+                    <p class="font-semibold text-white">Acme Corporation</p>
+                    <p class="text-xs text-accent-200">Growth Tier • $250/mo</p>
+                  </div>
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
                 </div>
-                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
+                <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div>
+                    <p class="font-semibold text-white">TechStart Inc</p>
+                    <p class="text-xs text-accent-200">Domination Tier • $297/mo</p>
+                  </div>
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
+                </div>
+                <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div>
+                    <p class="font-semibold text-white">Global Ventures LLC</p>
+                    <p class="text-xs text-accent-200">Starter Tier • $250/mo</p>
+                  </div>
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-400/20 text-yellow-200">PENDING</span>
+                </div>
               </div>
-              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
-                <div>
-                  <p class="font-semibold text-white">TechStart Inc</p>
-                  <p class="text-xs text-slate-400">Domination Tier • Since Jun 2025</p>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+              <h2 class="text-lg font-semibold text-white mb-4">Pipeline Stats</h2>
+              <div class="space-y-4">
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Total Sales (MTD)</p>
+                  <p class="text-2xl font-bold text-white mt-1">8</p>
                 </div>
-                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
-              </div>
-              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
-                <div>
-                  <p class="font-semibold text-white">Global Ventures LLC</p>
-                  <p class="text-xs text-slate-400">Starter Tier • Since Jun 2025</p>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Revenue Generated</p>
+                  <p class="text-2xl font-bold text-accent-100 mt-1">$2,194</p>
                 </div>
-                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-400/20 text-yellow-200">PROSPECT</span>
-              </div>
-              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
-                <div>
-                  <p class="font-semibold text-white">Summit Solutions</p>
-                  <p class="text-xs text-slate-400">Growth Tier • Since May 2025</p>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Avg Deal Size</p>
+                  <p class="text-2xl font-bold text-white mt-1">$274</p>
                 </div>
-                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">ACTIVE</span>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Team Screen -->
-        <div id="team" class="screen hidden space-y-6">
+      `,
+      'tasks': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Tasks</h1>
+            <p class="mt-2 text-slate-300">Manage your to-do list and workflow</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+              <h2 class="text-lg font-semibold text-white mb-4">Active Tasks</h2>
+              <div class="space-y-3">
+                <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <input type="checkbox" class="w-5 h-5 rounded border-white/20">
+                  <div class="flex-1">
+                    <p class="font-semibold text-white">Follow up with Acme Corp</p>
+                    <p class="text-xs text-slate-400">Due today</p>
+                  </div>
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-red-400/20 text-red-200">HIGH</span>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <input type="checkbox" class="w-5 h-5 rounded border-white/20">
+                  <div class="flex-1">
+                    <p class="font-semibold text-white">Prepare proposal for TechStart</p>
+                    <p class="text-xs text-slate-400">Due tomorrow</p>
+                  </div>
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-400/20 text-yellow-200">MEDIUM</span>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <input type="checkbox" class="w-5 h-5 rounded border-white/20">
+                  <div class="flex-1">
+                    <p class="font-semibold text-white">Review contract with legal</p>
+                    <p class="text-xs text-slate-400">Due in 3 days</p>
+                  </div>
+                  <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-400/20 text-blue-200">LOW</span>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+              <h2 class="text-lg font-semibold text-white mb-4">Task Summary</h2>
+              <div class="space-y-4">
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Open Tasks</p>
+                  <p class="text-2xl font-bold text-white mt-1">12</p>
+                </div>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Due Today</p>
+                  <p class="text-2xl font-bold text-red-300 mt-1">3</p>
+                </div>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <p class="text-sm text-slate-300">Completed This Week</p>
+                  <p class="text-2xl font-bold text-emerald-300 mt-1">18</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      'tickets': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Support Tickets</h1>
+            <p class="mt-2 text-slate-300">Manage customer support requests</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Open Tickets</p>
+              <p class="text-3xl font-bold text-white mt-2">8</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">In Progress</p>
+              <p class="text-3xl font-bold text-yellow-300 mt-2">5</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Resolved Today</p>
+              <p class="text-3xl font-bold text-emerald-300 mt-2">12</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Avg Response Time</p>
+              <p class="text-3xl font-bold text-accent-300 mt-2">2.3h</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+            <h2 class="text-xl font-semibold text-white mb-4">Recent Tickets</h2>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">#TKT-1024 - Login Issue</p>
+                  <p class="text-xs text-slate-400">Acme Corporation • Opened 2 hours ago</p>
+                </div>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-red-400/20 text-red-200">URGENT</span>
+              </div>
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">#TKT-1023 - Feature Request</p>
+                  <p class="text-xs text-slate-400">TechStart Inc • Opened yesterday</p>
+                </div>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-400/20 text-blue-200">NORMAL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      'change-requests': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Change Requests</h1>
+            <p class="mt-2 text-slate-300">Track project modifications and updates</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Pending Review</p>
+              <p class="text-3xl font-bold text-yellow-300 mt-2">6</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Approved</p>
+              <p class="text-3xl font-bold text-emerald-300 mt-2">14</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">In Progress</p>
+              <p class="text-3xl font-bold text-accent-300 mt-2">8</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+            <h2 class="text-xl font-semibold text-white mb-4">Recent Requests</h2>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">Add Custom Dashboard Widget</p>
+                  <p class="text-xs text-slate-400">Acme Corporation • Submitted 1 day ago</p>
+                </div>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-400/20 text-yellow-200">PENDING</span>
+              </div>
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">Integration with Salesforce</p>
+                  <p class="text-xs text-slate-400">TechStart Inc • Submitted 3 days ago</p>
+                </div>
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">APPROVED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      'team': `
+        <div class="space-y-6">
           <div>
             <h1 class="text-3xl font-bold text-white" id="team-title">Team Management</h1>
             <p class="mt-2 text-slate-300" id="team-description">3-level MLM hierarchy with override percentages</p>
           </div>
-
           <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
             <h2 class="text-xl font-semibold text-white mb-6">Network Structure</h2>
             <div class="space-y-6">
-              <!-- Level 0 (You) -->
               <div class="p-6 rounded-2xl border-2 border-primary-400 bg-primary-400/10">
                 <div class="flex items-center gap-4">
-                  <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary-500 text-white text-xl font-bold">
-                    J
-                  </div>
+                  <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary-500 text-white text-xl font-bold">J</div>
                   <div>
-                    <p class="text-lg font-bold text-white">Joshua Stone (You)</p>
+                    <p class="text-lg font-bold text-white">James Smith (You)</p>
                     <p class="text-sm text-accent-200">Admin • Direct Sales: 8</p>
                   </div>
                 </div>
               </div>
-
-              <!-- Level 1 -->
               <div class="ml-8 space-y-3">
                 <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-400/40 text-white font-semibold">
-                        M
-                      </div>
+                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-400/40 text-white font-semibold">M</div>
                       <div>
                         <p class="font-semibold text-white">Michael Rodriguez</p>
                         <p class="text-xs text-slate-400">Level 1 • Sales: 12</p>
@@ -738,9 +1040,7 @@
                 <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-400/40 text-white font-semibold">
-                        S
-                      </div>
+                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-400/40 text-white font-semibold">S</div>
                       <div>
                         <p class="font-semibold text-white">Sarah Chen</p>
                         <p class="text-xs text-slate-400">Level 1 • Sales: 9</p>
@@ -750,15 +1050,11 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Level 2 -->
               <div class="ml-16 space-y-3">
                 <div class="p-4 rounded-2xl border border-white/10 bg-white/5 opacity-90">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400/30 text-white font-semibold">
-                        D
-                      </div>
+                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400/30 text-white font-semibold">D</div>
                       <div>
                         <p class="font-semibold text-white">David Kim</p>
                         <p class="text-xs text-slate-400">Level 2 • Sales: 6</p>
@@ -770,9 +1066,7 @@
                 <div class="p-4 rounded-2xl border border-white/10 bg-white/5 opacity-90">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400/30 text-white font-semibold">
-                        L
-                      </div>
+                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400/30 text-white font-semibold">L</div>
                       <div>
                         <p class="font-semibold text-white">Lisa Thompson</p>
                         <p class="text-xs text-slate-400">Level 2 • Sales: 8</p>
@@ -782,15 +1076,11 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Level 3 -->
               <div class="ml-24 space-y-3">
                 <div class="p-4 rounded-2xl border border-white/10 bg-white/5 opacity-75">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-400/20 text-white font-semibold">
-                        J
-                      </div>
+                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-400/20 text-white font-semibold">J</div>
                       <div>
                         <p class="font-semibold text-white">James Wilson</p>
                         <p class="text-xs text-slate-400">Level 3 • Sales: 4</p>
@@ -803,13 +1093,261 @@
             </div>
           </div>
         </div>
+      `,
+      'payouts': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Payouts</h1>
+            <p class="mt-2 text-slate-300">Manage commission payouts and disbursements</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-5 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-xs uppercase tracking-[0.25em] text-slate-300">Ready for Payout</p>
+              <p class="text-3xl font-bold text-emerald-300 mt-2">$9,175.75</p>
+              <p class="text-xs text-slate-400 mt-1">23 team members</p>
+            </div>
+            <div class="p-5 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-xs uppercase tracking-[0.25em] text-slate-300">Pending Approval</p>
+              <p class="text-3xl font-bold text-yellow-300 mt-2">$3,275.00</p>
+              <p class="text-xs text-slate-400 mt-1">8 pending</p>
+            </div>
+            <div class="p-5 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-xs uppercase tracking-[0.25em] text-slate-300">Paid This Month</p>
+              <p class="text-3xl font-bold text-accent-300 mt-2">$18,450.25</p>
+              <p class="text-xs text-slate-400 mt-1">45 disbursements</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-semibold text-white">Payout Queue</h2>
+              <button class="inline-flex items-center gap-2 rounded-full bg-primary-500/90 px-5 py-2 text-sm font-semibold text-white shadow-brand hover:bg-primary-500">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                Process Batch
+              </button>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">Michael Rodriguez</p>
+                  <p class="text-xs text-slate-400">Setup + Monthly + Overrides</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-emerald-300">$1,245.50</p>
+                  <p class="text-xs text-slate-400">Ready to pay</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div>
+                  <p class="font-semibold text-white">Sarah Chen</p>
+                  <p class="text-xs text-slate-400">Setup + Monthly + Overrides</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-emerald-300">$987.25</p>
+                  <p class="text-xs text-slate-400">Ready to pay</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      'documents': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Documents</h1>
+            <p class="mt-2 text-slate-300">Manage contracts, proposals, and files</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Total Documents</p>
+              <p class="text-3xl font-bold text-white mt-2">248</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Contracts</p>
+              <p class="text-3xl font-bold text-accent-300 mt-2">47</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Proposals</p>
+              <p class="text-3xl font-bold text-emerald-300 mt-2">23</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-white/10 bg-white/5 glassmorphism">
+              <p class="text-sm text-slate-300">Templates</p>
+              <p class="text-3xl font-bold text-primary-300 mt-2">12</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+            <h2 class="text-xl font-semibold text-white mb-4">Recent Documents</h2>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-lg bg-blue-400/20">
+                    <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-white">Acme_Contract_2025.pdf</p>
+                    <p class="text-xs text-slate-400">Modified 2 hours ago • 245 KB</p>
+                  </div>
+                </div>
+                <button class="text-accent-300 hover:text-accent-200">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </button>
+              </div>
+              <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-lg bg-green-400/20">
+                    <svg class="w-6 h-6 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-white">TechStart_Proposal_Q2.pdf</p>
+                    <p class="text-xs text-slate-400">Modified yesterday • 1.2 MB</p>
+                  </div>
+                </div>
+                <button class="text-accent-300 hover:text-accent-200">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      'settings': `
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-white">Settings</h1>
+            <p class="mt-2 text-slate-300">Configure system preferences and options</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 space-y-6">
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+                <h2 class="text-lg font-semibold text-white mb-4">Company Settings</h2>
+                <div class="space-y-4">
+                  <div>
+                    <label class="text-sm text-slate-300 mb-2 block">Company Name</label>
+                    <input type="text" value="Gideon Code Works" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white">
+                  </div>
+                  <div>
+                    <label class="text-sm text-slate-300 mb-2 block">Support Email</label>
+                    <input type="email" value="support@gideoncode.com" class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white">
+                  </div>
+                  <div>
+                    <label class="text-sm text-slate-300 mb-2 block">Time Zone</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white">
+                      <option>Eastern Time (ET)</option>
+                      <option>Central Time (CT)</option>
+                      <option>Mountain Time (MT)</option>
+                      <option>Pacific Time (PT)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+                <h2 class="text-lg font-semibold text-white mb-4">Commission Structure</h2>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                    <span class="text-white">Setup Commission Rate</span>
+                    <span class="font-bold text-accent-100">30%</span>
+                  </div>
+                  <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                    <span class="text-white">Monthly Commission Rate</span>
+                    <span class="font-bold text-accent-100">20%</span>
+                  </div>
+                  <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                    <span class="text-white">Override Level 1</span>
+                    <span class="font-bold text-accent-100">5%</span>
+                  </div>
+                  <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                    <span class="text-white">Override Level 2</span>
+                    <span class="font-bold text-accent-100">3%</span>
+                  </div>
+                  <div class="flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/5">
+                    <span class="text-white">Override Level 3</span>
+                    <span class="font-bold text-accent-100">2%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+                <h2 class="text-lg font-semibold text-white mb-4">Notifications</h2>
+                <div class="space-y-4">
+                  <label class="flex items-center justify-between cursor-pointer">
+                    <span class="text-sm text-slate-300">Email Notifications</span>
+                    <input type="checkbox" checked class="w-5 h-5 rounded">
+                  </label>
+                  <label class="flex items-center justify-between cursor-pointer">
+                    <span class="text-sm text-slate-300">New Sale Alerts</span>
+                    <input type="checkbox" checked class="w-5 h-5 rounded">
+                  </label>
+                  <label class="flex items-center justify-between cursor-pointer">
+                    <span class="text-sm text-slate-300">Commission Updates</span>
+                    <input type="checkbox" checked class="w-5 h-5 rounded">
+                  </label>
+                  <label class="flex items-center justify-between cursor-pointer">
+                    <span class="text-sm text-slate-300">Task Reminders</span>
+                    <input type="checkbox" class="w-5 h-5 rounded">
+                  </label>
+                </div>
+              </div>
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
+                <h2 class="text-lg font-semibold text-white mb-4">Account</h2>
+                <div class="space-y-3">
+                  <button class="w-full text-left px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10">
+                    Change Password
+                  </button>
+                  <button class="w-full text-left px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10">
+                    Two-Factor Auth
+                  </button>
+                  <button class="w-full text-left px-4 py-3 rounded-xl border border-red-400/30 bg-red-400/10 text-red-300 hover:bg-red-400/20">
+                    Sign Out
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    };
 
-      </div>
-    </main>
-  </div>
+    function renderNavigation() {
+      const nav = document.getElementById('main-nav');
+      const items = navConfig[currentView];
 
-  <script>
-    let currentView = 'admin';
+      // Clear existing nav items (except the switcher)
+      const switcher = nav.querySelector('.mb-6');
+      nav.innerHTML = '';
+      nav.appendChild(switcher);
+
+      // Render navigation items
+      items.forEach(item => {
+        const link = document.createElement('a');
+        link.href = '#';
+        link.className = item.id === 'dashboard' ?
+          'nav-link active flex items-center rounded-xl px-4 py-3 text-sm font-medium text-white shadow-brand' :
+          'nav-link flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white';
+        link.onclick = (e) => {
+          e.preventDefault();
+          showScreen(item.id);
+        };
+
+        link.innerHTML = `
+          <svg class="mr-3 h-5 w-5 ${item.id === 'dashboard' ? 'text-accent-200' : 'text-accent-300/70'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${item.icon}" />
+          </svg>
+          ${item.name}
+        `;
+
+        nav.appendChild(link);
+      });
+    }
 
     function switchView(view) {
       currentView = view;
@@ -825,24 +1363,32 @@
 
       // Update content based on view
       if (view === 'admin') {
-        document.getElementById('user-name').textContent = 'Joshua Stone';
+        document.getElementById('user-name').textContent = 'James Smith';
         document.getElementById('user-role').textContent = 'Admin';
         document.getElementById('user-initial').textContent = 'J';
-        document.getElementById('hero-title').textContent = 'Pipeline health is strong, Josh.';
+        document.getElementById('hero-title').textContent = 'Pipeline health is strong, James.';
         document.getElementById('hero-description').textContent = 'Monitor recurring earnings, push setup commissions across the finish line, and keep your team operating at peak cadence. You\'re 12 people away from a fully leveraged network.';
-        document.getElementById('team-label').textContent = 'Team';
-        document.getElementById('team-title').textContent = 'Team Management';
-        document.getElementById('team-description').textContent = '3-level MLM hierarchy with override percentages';
+        if (document.getElementById('team-title')) {
+          document.getElementById('team-title').textContent = 'Team Management';
+          document.getElementById('team-description').textContent = '3-level MLM hierarchy with override percentages';
+        }
       } else {
         document.getElementById('user-name').textContent = 'Sarah Chen';
         document.getElementById('user-role').textContent = 'Salesperson';
         document.getElementById('user-initial').textContent = 'S';
         document.getElementById('hero-title').textContent = 'Great work this month, Sarah.';
         document.getElementById('hero-description').textContent = 'You\'re tracking ahead of target with 9 active clients. Keep the momentum going and focus on closing those pending deals in your pipeline.';
-        document.getElementById('team-label').textContent = 'My Team';
-        document.getElementById('team-title').textContent = 'My Team';
-        document.getElementById('team-description').textContent = 'Your downline and override earnings';
+        if (document.getElementById('team-title')) {
+          document.getElementById('team-title').textContent = 'My Team';
+          document.getElementById('team-description').textContent = 'Your downline and override earnings';
+        }
       }
+
+      // Re-render navigation
+      renderNavigation();
+
+      // Show dashboard by default
+      showScreen('dashboard');
     }
 
     function showScreen(screenId) {
@@ -851,8 +1397,12 @@
         screen.classList.add('hidden');
       });
 
-      // Show selected screen
-      document.getElementById(screenId).classList.remove('hidden');
+      // Get or create screen
+      let screen = document.getElementById(screenId);
+      if (screenTemplates[screenId] && !screen.innerHTML) {
+        screen.innerHTML = screenTemplates[screenId];
+      }
+      screen.classList.remove('hidden');
 
       // Update nav links
       document.querySelectorAll('.nav-link').forEach(link => {
@@ -867,16 +1417,26 @@
         }
       });
 
-      // Activate clicked link
-      event.target.closest('.nav-link').classList.add('active', 'bg-white/15', 'text-white', 'shadow-brand');
-      event.target.closest('.nav-link').classList.remove('text-slate-300', 'hover:bg-white/5', 'hover:text-white');
+      // Activate clicked link - find the link that corresponds to this screen
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(link => {
+        if (link.onclick && link.onclick.toString().includes(`'${screenId}'`)) {
+          link.classList.add('active', 'bg-white/15', 'text-white', 'shadow-brand');
+          link.classList.remove('text-slate-300', 'hover:bg-white/5', 'hover:text-white');
 
-      const activeIcon = event.target.closest('.nav-link').querySelector('svg');
-      if (activeIcon) {
-        activeIcon.classList.add('text-accent-200');
-        activeIcon.classList.remove('text-accent-300/70');
-      }
+          const activeIcon = link.querySelector('svg');
+          if (activeIcon) {
+            activeIcon.classList.add('text-accent-200');
+            activeIcon.classList.remove('text-accent-300/70');
+          }
+        }
+      });
     }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderNavigation();
+    });
   </script>
 
 </body>
