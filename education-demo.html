@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Hub - Free Educational Resources | Gideon Code Works Demo</title>
+  <meta name="description" content="Sample educational resource library with downloadable materials and donation features. Built by Gideon Code Works.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Merriweather', serif;
+    }
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(14, 116, 144, 0.9) 0%, rgba(21, 94, 117, 0.85) 100%);
+    }
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .category-badge:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+
+  <!-- Demo Banner -->
+  <div class="bg-teal-600 text-white text-center py-3 px-4 font-semibold">
+    DEMO SITE - This is a sample learning library built by Gideon Code Works - <a href="contact.html" class="underline font-bold">Get Your Site Today</a>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <div class="text-3xl">📚</div>
+          <div class="text-2xl font-display font-bold text-teal-700">[Your Organization Name]</div>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-slate-700 hover:text-teal-600 transition font-semibold">Home</a>
+          <a href="#resources" class="text-slate-700 hover:text-teal-600 transition font-semibold">Resources</a>
+          <a href="#categories" class="text-slate-700 hover:text-teal-600 transition font-semibold">Categories</a>
+          <a href="#donate" class="text-slate-700 hover:text-teal-600 transition font-semibold">Donate</a>
+          <a href="#contact" class="text-slate-700 hover:text-teal-600 transition font-semibold">Contact</a>
+        </div>
+        <a href="#donate" class="bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition">
+          Support Us
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-[600px] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1600');">
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="relative h-full max-w-6xl mx-auto px-4 flex flex-col justify-center items-center text-center text-white">
+      <h1 class="text-6xl md:text-7xl font-display font-bold mb-6">
+        Sample Learning Library
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl">
+        Free Educational Resources for Everyone. Access quality learning materials across all subjects, completely free of charge.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#resources" class="bg-white text-teal-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-slate-100 transition">
+          Browse Resources
+        </a>
+        <a href="#categories" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-teal-700 transition">
+          View Categories
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="py-12 px-4 bg-teal-700 text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-bold mb-2">1,200+</div>
+          <p class="text-teal-100">Free Resources</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">15</div>
+          <p class="text-teal-100">Subject Areas</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">50K+</div>
+          <p class="text-teal-100">Downloads</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">100%</div>
+          <p class="text-teal-100">Free Forever</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section id="categories" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-display font-bold text-center text-slate-900 mb-4">Resource Categories</h2>
+      <p class="text-center text-slate-600 mb-12 text-lg">Explore our comprehensive collection</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="category-badge bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">📐</div>
+          <h3 class="text-xl font-bold">Mathematics</h3>
+          <p class="text-sm text-blue-100 mt-2">250+ resources</p>
+        </div>
+
+        <div class="category-badge bg-gradient-to-br from-green-500 to-green-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">🔬</div>
+          <h3 class="text-xl font-bold">Science</h3>
+          <p class="text-sm text-green-100 mt-2">180+ resources</p>
+        </div>
+
+        <div class="category-badge bg-gradient-to-br from-purple-500 to-purple-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">🏛️</div>
+          <h3 class="text-xl font-bold">History</h3>
+          <p class="text-sm text-purple-100 mt-2">160+ resources</p>
+        </div>
+
+        <div class="category-badge bg-gradient-to-br from-pink-500 to-pink-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">📝</div>
+          <h3 class="text-xl font-bold">Language Arts</h3>
+          <p class="text-sm text-pink-100 mt-2">200+ resources</p>
+        </div>
+
+        <div class="category-badge bg-gradient-to-br from-orange-500 to-orange-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">🌍</div>
+          <h3 class="text-xl font-bold">Geography</h3>
+          <p class="text-sm text-orange-100 mt-2">120+ resources</p>
+        </div>
+
+        <div class="category-badge bg-gradient-to-br from-teal-500 to-teal-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">💻</div>
+          <h3 class="text-xl font-bold">Technology</h3>
+          <p class="text-sm text-teal-100 mt-2">90+ resources</p>
+        </div>
+
+        <div class="category-badge bg-gradient-to-br from-yellow-500 to-yellow-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">🎨</div>
+          <h3 class="text-xl font-bold">Arts</h3>
+          <p class="text-sm text-yellow-100 mt-2">110+ resources</p>
+        </div>
+
+        <div class="category-badge bg-gradient-to-br from-red-500 to-red-600 p-8 rounded-xl text-white text-center cursor-pointer transition-transform">
+          <div class="text-6xl mb-3">💼</div>
+          <h3 class="text-xl font-bold">Business</h3>
+          <p class="text-sm text-red-100 mt-2">85+ resources</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Resources Section -->
+  <section id="resources" class="py-20 px-4 bg-slate-100">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-display font-bold text-center text-slate-900 mb-4">Featured Resources</h2>
+      <p class="text-center text-slate-600 mb-12 text-lg">Recently added and most popular downloads</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Resource Card 1 -->
+        <div class="resource-card bg-white rounded-xl shadow-md overflow-hidden transition-all">
+          <div class="bg-gradient-to-br from-blue-500 to-blue-600 h-40 flex items-center justify-center">
+            <span class="text-7xl">📊</span>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Mathematics</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Algebra Fundamentals Workbook</h3>
+            <p class="text-slate-600 mb-4">
+              Comprehensive guide covering linear equations, quadratic functions, and polynomial expressions. Perfect for high school students.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-slate-500">PDF • 45 pages</span>
+              <a href="#" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition text-sm">
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource Card 2 -->
+        <div class="resource-card bg-white rounded-xl shadow-md overflow-hidden transition-all border-2 border-teal-500">
+          <div class="bg-gradient-to-br from-green-500 to-green-600 h-40 flex items-center justify-center">
+            <span class="text-7xl">🧬</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Science</span>
+              <span class="bg-teal-600 text-white text-xs px-2 py-1 rounded-full font-bold">NEW</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Biology Study Guide</h3>
+            <p class="text-slate-600 mb-4">
+              Complete overview of cellular biology, genetics, and human anatomy. Includes diagrams and practice questions.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-slate-500">PDF • 68 pages</span>
+              <a href="#" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition text-sm">
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource Card 3 -->
+        <div class="resource-card bg-white rounded-xl shadow-md overflow-hidden transition-all">
+          <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-40 flex items-center justify-center">
+            <span class="text-7xl">⚔️</span>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">History</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">World War II Timeline</h3>
+            <p class="text-slate-600 mb-4">
+              Detailed chronological overview of major events, battles, and turning points throughout the Second World War.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-slate-500">PDF • 32 pages</span>
+              <a href="#" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition text-sm">
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource Card 4 -->
+        <div class="resource-card bg-white rounded-xl shadow-md overflow-hidden transition-all">
+          <div class="bg-gradient-to-br from-pink-500 to-pink-600 h-40 flex items-center justify-center">
+            <span class="text-7xl">✍️</span>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-pink-100 text-pink-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Language Arts</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Essay Writing Templates</h3>
+            <p class="text-slate-600 mb-4">
+              Professional templates and frameworks for persuasive, narrative, and analytical essays with examples.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-slate-500">PDF • 28 pages</span>
+              <a href="#" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition text-sm">
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource Card 5 -->
+        <div class="resource-card bg-white rounded-xl shadow-md overflow-hidden transition-all">
+          <div class="bg-gradient-to-br from-orange-500 to-orange-600 h-40 flex items-center justify-center">
+            <span class="text-7xl">🗺️</span>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-orange-100 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Geography</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">US State Capitals Quiz Pack</h3>
+            <p class="text-slate-600 mb-4">
+              Interactive quiz materials covering all 50 state capitals with maps, memory aids, and practice tests.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-slate-500">PDF • 20 pages</span>
+              <a href="#" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition text-sm">
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource Card 6 -->
+        <div class="resource-card bg-white rounded-xl shadow-md overflow-hidden transition-all">
+          <div class="bg-gradient-to-br from-teal-500 to-teal-600 h-40 flex items-center justify-center">
+            <span class="text-7xl">⌨️</span>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Technology</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Intro to Programming Basics</h3>
+            <p class="text-slate-600 mb-4">
+              Beginner-friendly introduction to coding concepts, logic, and problem-solving with practical examples.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-slate-500">PDF • 52 pages</span>
+              <a href="#" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-teal-700 transition text-sm">
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#" class="inline-block bg-teal-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-teal-700 transition">
+          Browse All Resources
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Section -->
+  <section id="donate" class="py-20 px-4 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-5xl font-display font-bold text-slate-900 mb-4">Support Our Mission</h2>
+      <p class="text-slate-600 mb-12 text-lg">
+        Help us keep education free and accessible for everyone. Your donation directly supports resource creation and platform maintenance.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-slate-50 p-8 rounded-xl border-2 border-slate-200 hover:border-teal-600 transition cursor-pointer">
+          <div class="text-4xl font-bold text-teal-700 mb-2">$25</div>
+          <p class="text-slate-600">Supporter</p>
+        </div>
+        <div class="bg-gradient-to-br from-teal-600 to-teal-700 p-8 rounded-xl text-white transform scale-105">
+          <div class="text-4xl font-bold mb-2">$50</div>
+          <p>Advocate</p>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-xl border-2 border-slate-200 hover:border-teal-600 transition cursor-pointer">
+          <div class="text-4xl font-bold text-teal-700 mb-2">$100</div>
+          <p class="text-slate-600">Champion</p>
+        </div>
+      </div>
+
+      <a href="#" class="inline-block bg-teal-600 text-white px-12 py-4 rounded-lg font-semibold text-lg hover:bg-teal-700 transition">
+        Make a Donation
+      </a>
+      <p class="text-sm text-slate-500 mt-4">100% of donations go toward educational resources</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 bg-slate-100">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-5xl font-display font-bold text-center text-slate-900 mb-4">Get In Touch</h2>
+      <p class="text-center text-slate-600 mb-8 text-lg">Questions, suggestions, or resource requests?</p>
+
+      <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
+        <p class="text-yellow-800 font-semibold">
+          DEMO MODE - Forms Disabled
+        </p>
+        <p class="text-yellow-700 text-sm">
+          In your live site, this form will connect to your email or CRM.
+        </p>
+      </div>
+
+      <form class="bg-white p-8 rounded-lg shadow-lg space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-slate-700 font-semibold mb-2">First Name</label>
+            <input type="text" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-teal-600" disabled>
+          </div>
+          <div>
+            <label class="block text-slate-700 font-semibold mb-2">Last Name</label>
+            <input type="text" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-teal-600" disabled>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-700 font-semibold mb-2">Email Address</label>
+          <input type="email" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-teal-600" disabled>
+        </div>
+
+        <div>
+          <label class="block text-slate-700 font-semibold mb-2">Subject</label>
+          <select class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-teal-600" disabled>
+            <option>General Inquiry</option>
+            <option>Resource Request</option>
+            <option>Partnership Opportunity</option>
+            <option>Technical Support</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-slate-700 font-semibold mb-2">Message</label>
+          <textarea rows="5" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-teal-600" disabled></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-slate-400 text-white px-8 py-4 rounded-lg font-semibold text-lg cursor-not-allowed" disabled>
+          Send Message (Demo Mode)
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-8 px-4 text-center">
+    <p class="text-slate-400 mb-4">&copy; 2025 Learning Hub. All rights reserved.</p>
+    <p class="text-sm text-slate-500">
+      This is a demo website built by <a href="index.html" class="text-teal-400 hover:text-teal-300">Gideon Code Works</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>

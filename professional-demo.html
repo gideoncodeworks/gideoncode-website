@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thompson & Associates - Professional Legal Services | Gideon Code Works Demo</title>
+  <meta name="description" content="Sample professional services website for law firms with practice areas and team profiles. Built by Gideon Code Works.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    }
+    .practice-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+
+  <!-- Demo Banner -->
+  <div class="bg-amber-600 text-white text-center py-3 px-4 font-semibold">
+    ⚖️ DEMO SITE - This is a sample professional services site built by Gideon Code Works - <a href="contact.html" class="underline font-bold">Get Your Site Today</a>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-slate-900 shadow-xl sticky top-0 z-50 border-b-2 border-amber-600">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <div class="flex justify-between items-center">
+        <div class="text-3xl font-display font-bold text-amber-500">[Your Firm Name]</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-white hover:text-amber-500 transition font-medium">Home</a>
+          <a href="#practice" class="text-white hover:text-amber-500 transition font-medium">Practice Areas</a>
+          <a href="#team" class="text-white hover:text-amber-500 transition font-medium">Team</a>
+          <a href="#cases" class="text-white hover:text-amber-500 transition font-medium">Case Results</a>
+          <a href="#contact" class="text-white hover:text-amber-500 transition font-medium">Contact</a>
+        </div>
+        <a href="#contact" class="bg-amber-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-amber-700 transition">
+          Free Consultation
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-[600px] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600');">
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="relative h-full max-w-6xl mx-auto px-4 flex flex-col justify-center">
+      <h1 class="text-6xl md:text-7xl font-display font-bold mb-6 text-white">
+        Sample Law Firm
+      </h1>
+      <p class="text-2xl md:text-3xl mb-8 text-amber-500 font-display">
+        Experienced. Professional. Results-Driven.
+      </p>
+      <p class="text-xl text-gray-300 mb-8 max-w-2xl">
+        With over 50 years of combined experience, our attorneys provide exceptional legal representation across multiple practice areas.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="bg-amber-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-amber-700 transition text-center">
+          Schedule Consultation
+        </a>
+        <a href="#practice" class="border-2 border-amber-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-amber-600 transition text-center">
+          Our Practice Areas
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Indicators -->
+  <section class="py-12 px-4 bg-slate-900 text-white border-b border-amber-600">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-display font-bold text-amber-500 mb-2">50+</div>
+          <p class="text-gray-300">Years Combined Experience</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold text-amber-500 mb-2">1,000+</div>
+          <p class="text-gray-300">Cases Won</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold text-amber-500 mb-2">$50M+</div>
+          <p class="text-gray-300">Recovered for Clients</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold text-amber-500 mb-2">98%</div>
+          <p class="text-gray-300">Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas Section -->
+  <section id="practice" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-display font-bold text-center text-slate-900 mb-4">Practice Areas</h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">Comprehensive legal services tailored to your needs</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Practice Area 1 -->
+        <div class="practice-card bg-slate-50 p-8 rounded-lg border-2 border-slate-200 hover:border-amber-600 transition-all">
+          <div class="text-5xl mb-4 text-amber-600">⚖️</div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-3">Personal Injury</h3>
+          <p class="text-gray-600 mb-4">
+            Aggressive representation for accident victims. We fight to ensure you receive the compensation you deserve for medical bills, lost wages, and pain and suffering.
+          </p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• Car & Truck Accidents</li>
+            <li>• Slip and Fall</li>
+            <li>• Medical Malpractice</li>
+            <li>• Wrongful Death</li>
+          </ul>
+        </div>
+
+        <!-- Practice Area 2 -->
+        <div class="practice-card bg-slate-50 p-8 rounded-lg border-2 border-amber-600 transition-all">
+          <div class="text-5xl mb-4 text-amber-600">👔</div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-3">Business Law</h3>
+          <p class="text-gray-600 mb-4">
+            Strategic counsel for businesses of all sizes. From formation to complex transactions, we protect your interests and facilitate growth.
+          </p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• Contract Drafting & Review</li>
+            <li>• Business Formation</li>
+            <li>• Mergers & Acquisitions</li>
+            <li>• Employment Law</li>
+          </ul>
+        </div>
+
+        <!-- Practice Area 3 -->
+        <div class="practice-card bg-slate-50 p-8 rounded-lg border-2 border-slate-200 hover:border-amber-600 transition-all">
+          <div class="text-5xl mb-4 text-amber-600">🏠</div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-3">Real Estate Law</h3>
+          <p class="text-gray-600 mb-4">
+            Expert guidance through property transactions and disputes. We ensure smooth closings and protect your real estate investments.
+          </p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• Residential Transactions</li>
+            <li>• Commercial Leasing</li>
+            <li>• Title Disputes</li>
+            <li>• Zoning & Land Use</li>
+          </ul>
+        </div>
+
+        <!-- Practice Area 4 -->
+        <div class="practice-card bg-slate-50 p-8 rounded-lg border-2 border-slate-200 hover:border-amber-600 transition-all">
+          <div class="text-5xl mb-4 text-amber-600">👨‍👩‍👧</div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-3">Family Law</h3>
+          <p class="text-gray-600 mb-4">
+            Compassionate representation during difficult times. We guide families through legal challenges with sensitivity and expertise.
+          </p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• Divorce & Separation</li>
+            <li>• Child Custody</li>
+            <li>• Spousal Support</li>
+            <li>• Adoption</li>
+          </ul>
+        </div>
+
+        <!-- Practice Area 5 -->
+        <div class="practice-card bg-slate-50 p-8 rounded-lg border-2 border-slate-200 hover:border-amber-600 transition-all">
+          <div class="text-5xl mb-4 text-amber-600">📄</div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-3">Estate Planning</h3>
+          <p class="text-gray-600 mb-4">
+            Protect your legacy and provide for your loved ones. Comprehensive estate planning services tailored to your unique situation.
+          </p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• Wills & Trusts</li>
+            <li>• Power of Attorney</li>
+            <li>• Probate Administration</li>
+            <li>• Asset Protection</li>
+          </ul>
+        </div>
+
+        <!-- Practice Area 6 -->
+        <div class="practice-card bg-slate-50 p-8 rounded-lg border-2 border-slate-200 hover:border-amber-600 transition-all">
+          <div class="text-5xl mb-4 text-amber-600">🛡️</div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-3">Criminal Defense</h3>
+          <p class="text-gray-600 mb-4">
+            Vigorous defense of your rights and freedom. Experienced trial lawyers who won't back down when facing criminal charges.
+          </p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• DUI/OVI Defense</li>
+            <li>• Drug Offenses</li>
+            <li>• White Collar Crimes</li>
+            <li>• Assault & Battery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-20 px-4 bg-slate-100">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-display font-bold text-center text-slate-900 mb-4">Our Attorneys</h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">Experienced advocates committed to your success</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- Attorney 1 -->
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-amber-500 to-amber-600 w-64 h-64 rounded-lg mx-auto mb-6 flex items-center justify-center shadow-xl">
+            <span class="text-8xl">👨‍💼</span>
+          </div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-2">Robert Thompson</h3>
+          <p class="text-amber-600 font-semibold mb-3">Senior Partner</p>
+          <p class="text-gray-600 text-sm mb-3">
+            J.D., Harvard Law School<br>
+            35+ years experience<br>
+            Personal Injury & Business Law
+          </p>
+          <p class="text-gray-700 text-sm">
+            Board Certified Trial Advocate with a proven track record of securing multi-million dollar verdicts for clients.
+          </p>
+        </div>
+
+        <!-- Attorney 2 -->
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-slate-600 to-slate-700 w-64 h-64 rounded-lg mx-auto mb-6 flex items-center justify-center shadow-xl">
+            <span class="text-8xl">👩‍💼</span>
+          </div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-2">Jennifer Martinez</h3>
+          <p class="text-amber-600 font-semibold mb-3">Managing Partner</p>
+          <p class="text-gray-600 text-sm mb-3">
+            J.D., Yale Law School<br>
+            20+ years experience<br>
+            Family Law & Estate Planning
+          </p>
+          <p class="text-gray-700 text-sm">
+            Recognized by Ohio Super Lawyers for five consecutive years. Compassionate advocate for families in transition.
+          </p>
+        </div>
+
+        <!-- Attorney 3 -->
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-slate-700 to-slate-800 w-64 h-64 rounded-lg mx-auto mb-6 flex items-center justify-center shadow-xl">
+            <span class="text-8xl">👨‍⚖️</span>
+          </div>
+          <h3 class="text-2xl font-display font-bold text-slate-900 mb-2">David Chen</h3>
+          <p class="text-amber-600 font-semibold mb-3">Associate Partner</p>
+          <p class="text-gray-600 text-sm mb-3">
+            J.D., Columbia Law School<br>
+            15+ years experience<br>
+            Criminal Defense & Litigation
+          </p>
+          <p class="text-gray-700 text-sm">
+            Former Assistant Prosecutor with extensive courtroom experience. Aggressive defender of clients' rights.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Results Section -->
+  <section id="cases" class="py-20 px-4 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-5xl font-display font-bold text-center mb-4">Recent Case Results</h2>
+      <p class="text-center text-gray-400 mb-12 text-lg">A track record of success for our clients</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-slate-800 p-8 rounded-lg border-l-4 border-amber-600">
+          <div class="text-4xl font-display font-bold text-amber-500 mb-3">$3.2 Million</div>
+          <h4 class="text-xl font-bold mb-2">Motor Vehicle Accident</h4>
+          <p class="text-gray-400">
+            Secured substantial settlement for client with severe injuries from truck collision. Negotiated full compensation for medical expenses and future care.
+          </p>
+        </div>
+
+        <div class="bg-slate-800 p-8 rounded-lg border-l-4 border-amber-600">
+          <div class="text-4xl font-display font-bold text-amber-500 mb-3">Case Dismissed</div>
+          <h4 class="text-xl font-bold mb-2">Criminal Defense</h4>
+          <p class="text-gray-400">
+            Successfully defended client against felony drug charges. All charges dismissed due to constitutional violations in search and seizure.
+          </p>
+        </div>
+
+        <div class="bg-slate-800 p-8 rounded-lg border-l-4 border-amber-600">
+          <div class="text-4xl font-display font-bold text-amber-500 mb-3">$1.8 Million</div>
+          <h4 class="text-xl font-bold mb-2">Medical Malpractice</h4>
+          <p class="text-gray-400">
+            Verdict in favor of patient harmed by surgical error. Full accountability for medical negligence and ongoing treatment costs.
+          </p>
+        </div>
+
+        <div class="bg-slate-800 p-8 rounded-lg border-l-4 border-amber-600">
+          <div class="text-4xl font-display font-bold text-amber-500 mb-3">Favorable Settlement</div>
+          <h4 class="text-xl font-bold mb-2">Business Dispute</h4>
+          <p class="text-gray-400">
+            Resolved complex partnership dissolution with terms exceeding client expectations. Protected business interests and future earnings.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 mt-12 text-sm">
+        Past results do not guarantee future outcomes. Each case is unique and must be evaluated on its own merits.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 bg-white">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-5xl font-display font-bold text-center text-slate-900 mb-4">Request a Consultation</h2>
+      <p class="text-center text-gray-600 mb-8 text-lg">
+        Free initial consultation for new clients
+      </p>
+
+      <div class="bg-amber-50 border-l-4 border-amber-600 p-4 mb-8">
+        <p class="text-amber-900 font-semibold">DEMO MODE - Forms Disabled</p>
+        <p class="text-amber-800 text-sm">
+          In your live site, this form will securely connect to your case management system and email.
+        </p>
+      </div>
+
+      <form class="bg-slate-50 p-8 rounded-lg shadow-lg space-y-6 border-2 border-slate-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-slate-700 font-semibold mb-2">First Name</label>
+            <input type="text" class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:border-amber-600" disabled>
+          </div>
+          <div>
+            <label class="block text-slate-700 font-semibold mb-2">Last Name</label>
+            <input type="text" class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:border-amber-600" disabled>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-slate-700 font-semibold mb-2">Email</label>
+            <input type="email" class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:border-amber-600" disabled>
+          </div>
+          <div>
+            <label class="block text-slate-700 font-semibold mb-2">Phone</label>
+            <input type="tel" class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:border-amber-600" disabled>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-700 font-semibold mb-2">Practice Area</label>
+          <select class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:border-amber-600" disabled>
+            <option>Personal Injury</option>
+            <option>Business Law</option>
+            <option>Real Estate Law</option>
+            <option>Family Law</option>
+            <option>Estate Planning</option>
+            <option>Criminal Defense</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-slate-700 font-semibold mb-2">Briefly Describe Your Legal Matter</label>
+          <textarea rows="5" class="w-full px-4 py-3 border border-slate-300 rounded-md focus:outline-none focus:border-amber-600" disabled></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-slate-400 text-white px-8 py-4 rounded-md font-semibold text-lg cursor-not-allowed" disabled>
+          Submit Request (Demo Mode)
+        </button>
+      </form>
+
+      <div class="mt-12 text-center">
+        <h3 class="text-2xl font-display font-bold text-slate-900 mb-6">Visit Our Office</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <div class="text-4xl mb-2">📍</div>
+            <p class="text-gray-700">
+              789 Legal Plaza<br>
+              Suite 400<br>
+              Cleveland, OH 44115
+            </p>
+          </div>
+          <div>
+            <div class="text-4xl mb-2">📞</div>
+            <p class="text-gray-700">
+              Phone: (216) 555-LAWS<br>
+              Fax: (216) 555-0199
+            </p>
+          </div>
+          <div>
+            <div class="text-4xl mb-2">⏰</div>
+            <p class="text-gray-700">
+              Mon-Fri: 8:30am - 5:30pm<br>
+              Evening & Weekend<br>
+              Appointments Available
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="border-t border-slate-700 pt-8 text-center">
+        <p class="text-gray-400 mb-2">&copy; 2025 Thompson & Associates. All rights reserved.</p>
+        <p class="text-sm text-gray-500 mb-4">
+          Attorney Advertising. This website is for informational purposes only and does not constitute legal advice.
+        </p>
+        <p class="text-sm text-gray-500">
+          This is a demo website built by <a href="index.html" class="text-amber-500 hover:text-amber-400">Gideon Code Works</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>

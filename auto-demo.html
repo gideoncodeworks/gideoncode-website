@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision Auto Repair - Quality Service You Can Trust | Gideon Code Works Demo</title>
+  <meta name="description" content="Sample auto repair shop website with services, gallery, and appointment booking. Built by Gideon Code Works.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .font-display {
+      font-family: 'Russo One', sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .gradient-orange {
+      background: linear-gradient(135deg, #FF6B00 0%, #FF3D00 100%);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(255, 107, 0, 0.3);
+    }
+    .gallery-item {
+      transition: all 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Demo Banner -->
+  <div class="gradient-orange text-white text-center py-3 px-4 font-bold">
+    🔧 DEMO SITE - This is a sample auto shop built by Gideon Code Works - <a href="contact.html" class="underline">Get Your Site Today</a>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-black shadow-2xl sticky top-0 z-50 border-b-4 border-orange-600">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="text-4xl">🔧</div>
+          <div class="text-2xl font-display text-orange-500">[Your Shop Name]</div>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-white hover:text-orange-500 transition font-bold">Home</a>
+          <a href="#services" class="text-white hover:text-orange-500 transition font-bold">Services</a>
+          <a href="#gallery" class="text-white hover:text-orange-500 transition font-bold">Gallery</a>
+          <a href="#reviews" class="text-white hover:text-orange-500 transition font-bold">Reviews</a>
+          <a href="#contact" class="text-white hover:text-orange-500 transition font-bold">Contact</a>
+        </div>
+        <a href="#appointment" class="gradient-orange text-white px-6 py-3 rounded-md font-bold hover:scale-105 transition transform">
+          Book Now
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative py-32 px-4 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1600');">
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/60"></div>
+    <div class="relative max-w-6xl mx-auto">
+      <div class="max-w-2xl">
+        <h1 class="text-7xl md:text-8xl font-display font-bold mb-6 text-orange-500">
+          SAMPLE AUTO REPAIR
+        </h1>
+        <p class="text-3xl mb-8 text-white font-display">
+          Quality Service You Can Trust
+        </p>
+        <p class="text-xl text-gray-300 mb-8">
+          Family-owned and operated since 1995. ASE-certified technicians, honest pricing, and a lifetime warranty on most repairs.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#appointment" class="gradient-orange text-white px-8 py-4 rounded-md font-bold text-lg hover:scale-105 transition transform text-center">
+            Schedule Service
+          </a>
+          <a href="#services" class="border-2 border-orange-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-orange-500 transition text-center">
+            View Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section class="gradient-orange py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">25+</div>
+          <p class="font-semibold">Years in Business</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">15K+</div>
+          <p class="font-semibold">Vehicles Serviced</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">4.9★</div>
+          <p class="font-semibold">Average Rating</p>
+        </div>
+        <div>
+          <div class="text-5xl font-display font-bold mb-2">100%</div>
+          <p class="font-semibold">Satisfaction Guaranteed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-6xl font-display font-bold text-center mb-4">
+        OUR <span class="text-orange-600">SERVICES</span>
+      </h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">Full-service auto repair and maintenance</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-orange-500 to-red-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">🛢️</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">OIL CHANGES</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Quick and professional oil changes with synthetic or conventional oil. Includes filter replacement and multi-point inspection.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Starting at $39.95</p>
+            <p class="text-sm text-gray-500">20-30 minutes</p>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-red-500 to-red-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">🛑</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">BRAKE SERVICE</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Complete brake system inspection and repair. Pads, rotors, calipers, and fluid service. Your safety is our priority.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Starting at $129.95</p>
+            <p class="text-sm text-gray-500">1-2 hours</p>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-orange-600 to-orange-700 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">🔧</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">ENGINE REPAIR</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Expert diagnostics and engine repair for all makes and models. From tune-ups to major overhauls, we handle it all.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Free Diagnosis</p>
+            <p class="text-sm text-gray-500">Varies by service</p>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">❄️</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">A/C SERVICE</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Air conditioning diagnosis, repair, and recharge. Stay cool all summer with properly functioning climate control.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Starting at $89.95</p>
+            <p class="text-sm text-gray-500">1-2 hours</p>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-purple-500 to-purple-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">⚡</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">ELECTRICAL</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Battery testing and replacement, alternator and starter service, electrical system diagnostics and repair.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Free Battery Test</p>
+            <p class="text-sm text-gray-500">30 min - 2 hours</p>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">🚗</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">TRANSMISSION</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Transmission fluid service, repair, and rebuild. Automatic and manual transmission specialists.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Starting at $149.95</p>
+            <p class="text-sm text-gray-500">Varies by service</p>
+          </div>
+        </div>
+
+        <!-- Service 7 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">🔩</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">SUSPENSION</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Struts, shocks, ball joints, tie rods. Complete suspension system diagnosis and repair for a smooth ride.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Free Inspection</p>
+            <p class="text-sm text-gray-500">2-4 hours</p>
+          </div>
+        </div>
+
+        <!-- Service 8 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-gray-600 to-gray-700 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">⭕</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">TIRE SERVICE</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Tire rotation, balance, repair, and replacement. Wide selection of quality brands at competitive prices.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">Starting at $19.95</p>
+            <p class="text-sm text-gray-500">30 min - 1 hour</p>
+          </div>
+        </div>
+
+        <!-- Service 9 -->
+        <div class="service-card bg-gray-50 rounded-xl p-8 border-2 border-gray-200 hover:border-orange-600 transition-all">
+          <div class="bg-gradient-to-br from-pink-500 to-pink-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <span class="text-4xl">✅</span>
+          </div>
+          <h3 class="text-2xl font-display text-center mb-3 text-black">STATE INSPECTIONS</h3>
+          <p class="text-gray-600 text-center mb-4">
+            Official state safety and emissions inspections. Fast, thorough service to get you back on the road legally.
+          </p>
+          <div class="text-center">
+            <p class="text-orange-600 font-bold text-lg">$45.00</p>
+            <p class="text-sm text-gray-500">30-45 minutes</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-gray-600 mb-6">All major credit cards accepted. Senior & military discounts available.</p>
+        <a href="#appointment" class="inline-block gradient-orange text-white px-8 py-4 rounded-md font-bold text-lg hover:scale-105 transition transform">
+          Schedule Your Service
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 px-4 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-6xl font-display font-bold text-center mb-4">
+        BEFORE & <span class="text-orange-500">AFTER</span>
+      </h2>
+      <p class="text-center text-gray-400 mb-12 text-lg">See the quality of our work</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="gallery-item bg-gradient-to-br from-red-600 to-orange-600 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">🚙</span>
+            <p class="text-sm font-bold">BEFORE</p>
+          </div>
+        </div>
+        <div class="gallery-item bg-gradient-to-br from-green-500 to-emerald-600 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">✨</span>
+            <p class="text-sm font-bold">AFTER</p>
+          </div>
+        </div>
+        <div class="gallery-item bg-gradient-to-br from-gray-700 to-gray-800 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">🔧</span>
+            <p class="text-sm font-bold">ENGINE WORK</p>
+          </div>
+        </div>
+        <div class="gallery-item bg-gradient-to-br from-blue-600 to-blue-700 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">💨</span>
+            <p class="text-sm font-bold">PERFORMANCE</p>
+          </div>
+        </div>
+        <div class="gallery-item bg-gradient-to-br from-purple-600 to-purple-700 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">🛠️</span>
+            <p class="text-sm font-bold">RESTORATION</p>
+          </div>
+        </div>
+        <div class="gallery-item bg-gradient-to-br from-yellow-500 to-yellow-600 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">⚙️</span>
+            <p class="text-sm font-bold">DIAGNOSTICS</p>
+          </div>
+        </div>
+        <div class="gallery-item bg-gradient-to-br from-pink-600 to-pink-700 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">🔩</span>
+            <p class="text-sm font-bold">CUSTOM WORK</p>
+          </div>
+        </div>
+        <div class="gallery-item bg-gradient-to-br from-orange-600 to-red-600 h-64 rounded-lg flex items-center justify-center">
+          <div class="text-center">
+            <span class="text-6xl block mb-2">🏁</span>
+            <p class="text-sm font-bold">FINISHED</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 mt-8 text-sm">[Your professional work photos here]</p>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-6xl font-display font-bold text-center mb-4">
+        CUSTOMER <span class="text-orange-600">REVIEWS</span>
+      </h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">What our clients say about us</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+          <div class="flex items-center gap-1 mb-4 text-orange-500 text-2xl">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "Best auto shop in Cleveland! They diagnosed my engine issue quickly and had me back on the road the same day. Honest pricing and excellent service."
+          </p>
+          <p class="font-bold text-black">- Michael R.</p>
+          <p class="text-sm text-gray-500">Google Review</p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+          <div class="flex items-center gap-1 mb-4 text-orange-500 text-2xl">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "I've been coming here for 5 years. They always explain what needs to be done and never try to upsell unnecessary services. Trustworthy team!"
+          </p>
+          <p class="font-bold text-black">- Sarah T.</p>
+          <p class="text-sm text-gray-500">Yelp Review</p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+          <div class="flex items-center gap-1 mb-4 text-orange-500 text-2xl">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "Fair prices, quality work, and friendly staff. They fit me in for an emergency brake repair when other shops said it would be days. Highly recommend!"
+          </p>
+          <p class="font-bold text-black">- James L.</p>
+          <p class="text-sm text-gray-500">Facebook Review</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-gray-600 mb-4">Over 500+ five-star reviews across all platforms</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="bg-gray-100 px-6 py-2 rounded-full text-sm font-semibold text-gray-700">Google: 4.9/5</span>
+          <span class="bg-gray-100 px-6 py-2 rounded-full text-sm font-semibold text-gray-700">Yelp: 5/5</span>
+          <span class="bg-gray-100 px-6 py-2 rounded-full text-sm font-semibold text-gray-700">Facebook: 4.8/5</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Section -->
+  <section id="appointment" class="py-20 px-4 bg-gray-100">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-6xl font-display font-bold text-center mb-4">
+        BOOK YOUR <span class="text-orange-600">APPOINTMENT</span>
+      </h2>
+      <p class="text-center text-gray-600 mb-8 text-lg">
+        Fast scheduling, convenient hours, same-day service available
+      </p>
+
+      <div class="bg-orange-50 border-l-4 border-orange-600 p-4 mb-8">
+        <p class="text-orange-900 font-bold">DEMO MODE - Forms Disabled</p>
+        <p class="text-orange-800 text-sm">
+          In your live site, this form will integrate with your scheduling system or send appointments directly to your email.
+        </p>
+      </div>
+
+      <form class="bg-white p-8 rounded-xl shadow-xl space-y-6 border-2 border-gray-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-700 font-bold mb-2">First Name</label>
+            <input type="text" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-bold mb-2">Last Name</label>
+            <input type="text" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-700 font-bold mb-2">Phone</label>
+            <input type="tel" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-bold mb-2">Email</label>
+            <input type="email" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-bold mb-2">Vehicle Information</label>
+          <input type="text" placeholder="Year, Make, Model" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-700 font-bold mb-2">Preferred Date</label>
+            <input type="date" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-bold mb-2">Preferred Time</label>
+            <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+              <option>8:00 AM</option>
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-bold mb-2">Service Needed</label>
+          <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled>
+            <option>Oil Change</option>
+            <option>Brake Service</option>
+            <option>Engine Repair</option>
+            <option>A/C Service</option>
+            <option>Electrical Service</option>
+            <option>Transmission Service</option>
+            <option>Suspension Service</option>
+            <option>Tire Service</option>
+            <option>State Inspection</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-bold mb-2">Additional Notes</label>
+          <textarea rows="4" placeholder="Describe the issue or service needed..." class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-orange-600" disabled></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-gray-400 text-white px-8 py-4 rounded-lg font-bold text-lg cursor-not-allowed" disabled>
+          Book Appointment (Demo Mode)
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 bg-black text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-6xl font-display font-bold mb-6">
+        VISIT <span class="text-orange-500">OUR SHOP</span>
+      </h2>
+      <p class="text-gray-400 text-lg mb-12">
+        Stop by anytime during business hours. Walk-ins welcome!
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-5xl mb-3">📍</div>
+          <h3 class="text-xl font-bold mb-2">Location</h3>
+          <p class="text-gray-400">
+            321 Mechanic Street<br>
+            Cleveland, OH 44115
+          </p>
+        </div>
+        <div>
+          <div class="text-5xl mb-3">📞</div>
+          <h3 class="text-xl font-bold mb-2">Phone</h3>
+          <p class="text-gray-400">
+            (216) 555-AUTO<br>
+            Call for quotes & scheduling
+          </p>
+        </div>
+        <div>
+          <div class="text-5xl mb-3">⏰</div>
+          <h3 class="text-xl font-bold mb-2">Hours</h3>
+          <p class="text-gray-400">
+            Mon-Fri: 7am-6pm<br>
+            Sat: 8am-4pm<br>
+            Sun: Closed
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <a href="#appointment" class="gradient-orange text-white px-12 py-4 rounded-md font-bold text-lg hover:scale-105 transition transform inline-block">
+          Schedule Service Today
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="gradient-orange py-8 px-4 text-center text-white">
+    <p class="mb-4">&copy; 2025 Precision Auto Repair. All rights reserved.</p>
+    <p class="text-sm text-white/80">
+      This is a demo website built by <a href="index.html" class="underline font-bold">Gideon Code Works</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>

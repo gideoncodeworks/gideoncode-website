@@ -1408,6 +1408,436 @@
       }
     }
 
+    function renderDashboardContent() {
+      const dashboardEl = document.getElementById('dashboard');
+      dashboardEl.className = 'screen space-y-10';
+
+      if (currentRole === 'admin' && currentViewMode === 'simplified') {
+        // Admin Simple View - Clean layout with key metrics
+        dashboardEl.innerHTML = `
+          <!-- Hero Section -->
+          <div class="rounded-3xl border border-white/10 p-8 glassmorphism shadow-brand">
+            <div class="space-y-4">
+              <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Admin Overview</p>
+              <h1 class="text-3xl font-semibold text-white sm:text-4xl">Pipeline health is strong, James.</h1>
+              <p class="max-w-2xl text-sm text-slate-200/80">
+                Your organization is performing well. Monitor key metrics and take quick actions to keep momentum going.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats Cards -->
+          <section class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">Total Revenue</p>
+              <p class="text-3xl font-semibold text-white mt-3">$47,850</p>
+              <p class="text-xs text-slate-300 mt-2">All-time organization revenue</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">Active Clients</p>
+              <p class="text-3xl font-semibold text-emerald-300 mt-3">62</p>
+              <p class="text-xs text-slate-300 mt-2">Current paying customers</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">Team Size</p>
+              <p class="text-3xl font-semibold text-accent-300 mt-3">12</p>
+              <p class="text-xs text-slate-300 mt-2">Active sales representatives</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">Avg Deal Size</p>
+              <p class="text-3xl font-semibold text-white mt-3">$274</p>
+              <p class="text-xs text-slate-300 mt-2">Per customer monthly value</p>
+            </div>
+          </section>
+
+          <!-- Revenue Breakdown -->
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+            <h2 class="text-xl font-semibold text-white mb-6">Revenue Breakdown</h2>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-slate-300">Monthly Recurring Revenue</span>
+                  <span class="text-sm font-semibold text-white">$28,450</span>
+                </div>
+                <div class="h-3 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-400/80" style="width: 59%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-slate-300">Setup Fees</span>
+                  <span class="text-sm font-semibold text-white">$14,200</span>
+                </div>
+                <div class="h-3 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-accent-300/80" style="width: 30%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-slate-300">Commission Overrides</span>
+                  <span class="text-sm font-semibold text-white">$5,200</span>
+                </div>
+                <div class="h-3 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-primary-400/80" style="width: 11%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (currentRole === 'admin' && currentViewMode === 'detailed') {
+        // Admin Analytics View - Detailed charts and comprehensive analytics
+        dashboardEl.innerHTML = `
+          <!-- Hero Section -->
+          <div class="rounded-3xl border border-white/10 p-8 glassmorphism shadow-brand">
+            <div class="space-y-4">
+              <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Analytics Dashboard</p>
+              <h1 class="text-3xl font-semibold text-white sm:text-4xl">Comprehensive Business Intelligence</h1>
+              <p class="max-w-2xl text-sm text-slate-200/80">
+                Detailed analytics across all business metrics, team performance, and revenue trends.
+              </p>
+            </div>
+          </div>
+
+          <!-- Detailed Stats Grid -->
+          <section class="grid grid-cols-1 gap-6 md:grid-cols-3 xl:grid-cols-6">
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 glassmorphism">
+              <p class="text-xs text-slate-300">Total Revenue</p>
+              <p class="text-2xl font-bold text-white mt-2">$47.8K</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 glassmorphism">
+              <p class="text-xs text-slate-300">MRR</p>
+              <p class="text-2xl font-bold text-emerald-300 mt-2">$28.4K</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 glassmorphism">
+              <p class="text-xs text-slate-300">Clients</p>
+              <p class="text-2xl font-bold text-white mt-2">62</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 glassmorphism">
+              <p class="text-xs text-slate-300">Team</p>
+              <p class="text-2xl font-bold text-accent-300 mt-2">12</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 glassmorphism">
+              <p class="text-xs text-slate-300">Churn Rate</p>
+              <p class="text-2xl font-bold text-white mt-2">2.3%</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 glassmorphism">
+              <p class="text-xs text-slate-300">LTV</p>
+              <p class="text-2xl font-bold text-white mt-2">$4.2K</p>
+            </div>
+          </section>
+
+          <!-- Charts Grid -->
+          <div class="grid gap-6 lg:grid-cols-2">
+            <!-- Revenue Trend Chart -->
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+              <h2 class="text-lg font-semibold text-white mb-6">Revenue Trend (6 Months)</h2>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-slate-300">January</span>
+                  <span class="text-sm font-semibold text-white">$6,850</span>
+                </div>
+                <div class="h-6 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary-400 to-accent-300" style="width: 60%"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-slate-300">February</span>
+                  <span class="text-sm font-semibold text-white">$7,200</span>
+                </div>
+                <div class="h-6 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary-400 to-accent-300" style="width: 65%"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-slate-300">March</span>
+                  <span class="text-sm font-semibold text-white">$7,950</span>
+                </div>
+                <div class="h-6 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary-400 to-accent-300" style="width: 73%"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-slate-300">April</span>
+                  <span class="text-sm font-semibold text-white">$8,420</span>
+                </div>
+                <div class="h-6 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary-400 to-accent-300" style="width: 78%"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-slate-300">May</span>
+                  <span class="text-sm font-semibold text-white">$9,180</span>
+                </div>
+                <div class="h-6 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary-400 to-accent-300" style="width: 86%"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-slate-300">June</span>
+                  <span class="text-sm font-semibold text-white">$10,250</span>
+                </div>
+                <div class="h-6 bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary-400 to-accent-300" style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Performance Chart -->
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+              <h2 class="text-lg font-semibold text-white mb-6">Top Performers (MTD)</h2>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent-400 text-slate-900 font-bold">1</div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-white">Michael Rodriguez</p>
+                    <p class="text-xs text-slate-400">$3,450 closed</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-300 text-slate-900 font-bold">2</div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-white">Sarah Chen</p>
+                    <p class="text-xs text-slate-400">$2,940 closed</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-600 text-white font-bold">3</div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-white">James Thompson</p>
+                    <p class="text-xs text-slate-400">$2,120 closed</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pipeline Analysis -->
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+            <h2 class="text-xl font-semibold text-white mb-6">Pipeline Analysis</h2>
+            <div class="grid gap-6 md:grid-cols-4">
+              <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                <p class="text-sm text-slate-300">New Leads</p>
+                <p class="text-2xl font-bold text-white mt-2">24</p>
+                <p class="text-xs text-emerald-300 mt-1">↑ 18% vs last month</p>
+              </div>
+              <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                <p class="text-sm text-slate-300">Qualified Leads</p>
+                <p class="text-2xl font-bold text-white mt-2">18</p>
+                <p class="text-xs text-emerald-300 mt-1">↑ 12% vs last month</p>
+              </div>
+              <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                <p class="text-sm text-slate-300">Active Deals</p>
+                <p class="text-2xl font-bold text-white mt-2">14</p>
+                <p class="text-xs text-emerald-300 mt-1">↑ 8% vs last month</p>
+              </div>
+              <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                <p class="text-sm text-slate-300">Closed Won</p>
+                <p class="text-2xl font-bold text-emerald-300 mt-2">11</p>
+                <p class="text-xs text-emerald-300 mt-1">↑ 22% vs last month</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (currentRole === 'salesperson' && currentViewMode === 'simplified') {
+        // Salesperson Simplified View - Personal metrics with command shortcuts
+        dashboardEl.innerHTML = `
+          <!-- Hero Section -->
+          <div class="grid gap-8 lg:grid-cols-[2fr,1fr]">
+            <section class="hero-section relative overflow-hidden rounded-3xl border border-white/10 p-8 glassmorphism shadow-brand">
+              <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div class="space-y-4">
+                  <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Personal Dashboard</p>
+                  <h1 class="text-3xl font-semibold text-white sm:text-4xl">Great work this month, Sarah.</h1>
+                  <p class="max-w-xl text-sm text-slate-200/80">
+                    You're tracking ahead of target with 9 active clients. Keep the momentum going and focus on closing those pending deals in your pipeline.
+                  </p>
+                  <div class="flex flex-wrap gap-3">
+                    <button onclick="showScreen('sales')" class="inline-flex items-center gap-2 rounded-full bg-primary-500/90 px-5 py-2 text-sm font-semibold text-white shadow-brand hover:bg-primary-500">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                      </svg>
+                      Log New Sale
+                    </button>
+                    <button onclick="showScreen('lead-intake')" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-accent-100 hover:bg-white/10">
+                      Rapid Intake
+                    </button>
+                  </div>
+                </div>
+                <div class="grid w-full max-w-xs gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.25em] text-accent-200/90">Monthly Recurring</p>
+                    <p class="mt-2 text-2xl font-semibold text-white">$2,940.00</p>
+                    <p class="text-xs text-slate-300/80">Your active contracts</p>
+                  </div>
+                  <div class="border-t border-white/10 pt-3">
+                    <p class="text-xs uppercase tracking-[0.25em] text-accent-200/90">Setup Fees Won</p>
+                    <p class="mt-2 text-xl font-semibold text-accent-100">$1,450.00</p>
+                    <p class="text-xs text-slate-300/80">Month-to-date</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+              <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-accent-200/80">Quick Actions</h2>
+              <div class="space-y-3 text-sm text-slate-200/80">
+                <button onclick="showScreen('commissions')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                  • View my commission breakdown
+                </button>
+                <button onclick="showScreen('clients')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                  • Manage my client list
+                </button>
+                <button onclick="showScreen('calendar')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                  • Check my calendar
+                </button>
+                <button onclick="showScreen('activity')" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10">
+                  • Log activity
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <!-- Personal Stats -->
+          <section class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">My Earnings (MTD)</p>
+              <p class="text-3xl font-semibold text-white mt-3">$1,875.50</p>
+              <p class="text-xs text-slate-300 mt-2">Commission earned this month</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">Active Clients</p>
+              <p class="text-3xl font-semibold text-emerald-300 mt-3">9</p>
+              <p class="text-xs text-slate-300 mt-2">Currently paying customers</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">Pending Deals</p>
+              <p class="text-3xl font-semibold text-yellow-300 mt-3">4</p>
+              <p class="text-xs text-slate-300 mt-2">In your pipeline</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism shadow-brand">
+              <p class="text-xs uppercase tracking-[0.35em] text-slate-200/70">Closed (MTD)</p>
+              <p class="text-3xl font-semibold text-accent-300 mt-3">6</p>
+              <p class="text-xs text-slate-300 mt-2">Deals won this month</p>
+            </div>
+          </section>
+        `;
+      } else if (currentRole === 'salesperson' && currentViewMode === 'advanced') {
+        // Salesperson Pipeline View - Full pipeline with activity feed and tasks
+        dashboardEl.innerHTML = `
+          <!-- Hero Section -->
+          <div class="rounded-3xl border border-white/10 p-8 glassmorphism shadow-brand">
+            <div class="space-y-4">
+              <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Pipeline Dashboard</p>
+              <h1 class="text-3xl font-semibold text-white sm:text-4xl">Your Full Sales Pipeline</h1>
+              <p class="max-w-2xl text-sm text-slate-200/80">
+                Track all your deals, tasks, and activities in one comprehensive view.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pipeline Overview -->
+          <div class="grid gap-6 lg:grid-cols-4">
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism">
+              <p class="text-xs text-slate-300">New Leads</p>
+              <p class="text-3xl font-bold text-white mt-2">8</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism">
+              <p class="text-xs text-slate-300">Qualified</p>
+              <p class="text-3xl font-bold text-blue-300 mt-2">5</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism">
+              <p class="text-xs text-slate-300">Proposal Sent</p>
+              <p class="text-3xl font-bold text-yellow-300 mt-2">4</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-5 glassmorphism">
+              <p class="text-xs text-slate-300">Negotiating</p>
+              <p class="text-3xl font-bold text-emerald-300 mt-2">3</p>
+            </div>
+          </div>
+
+          <!-- Main Content Grid -->
+          <div class="grid gap-6 lg:grid-cols-[2fr,1fr]">
+            <!-- Active Deals -->
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+              <h2 class="text-xl font-semibold text-white mb-6">Active Deals</h2>
+              <div class="space-y-3">
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex items-center justify-between mb-2">
+                    <p class="font-semibold text-white">Acme Corp - Growth Tier</p>
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-400/20 text-emerald-200">NEGOTIATING</span>
+                  </div>
+                  <p class="text-sm text-slate-300">Expected value: $250/mo</p>
+                  <p class="text-xs text-slate-400 mt-1">Last contact: 2 days ago</p>
+                </div>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex items-center justify-between mb-2">
+                    <p class="font-semibold text-white">TechStart Inc - Starter</p>
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-400/20 text-yellow-200">PROPOSAL SENT</span>
+                  </div>
+                  <p class="text-sm text-slate-300">Expected value: $150/mo</p>
+                  <p class="text-xs text-slate-400 mt-1">Last contact: 5 days ago</p>
+                </div>
+                <div class="p-4 rounded-2xl border border-white/10 bg-white/5">
+                  <div class="flex items-center justify-between mb-2">
+                    <p class="font-semibold text-white">Global Ventures - Premium</p>
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-400/20 text-blue-200">QUALIFIED</span>
+                  </div>
+                  <p class="text-sm text-slate-300">Expected value: $297/mo</p>
+                  <p class="text-xs text-slate-400 mt-1">Last contact: 1 day ago</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity & Tasks Sidebar -->
+            <div class="space-y-6">
+              <!-- Upcoming Tasks -->
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+                <h2 class="text-lg font-semibold text-white mb-4">Upcoming Tasks</h2>
+                <div class="space-y-3">
+                  <div class="p-3 rounded-2xl border border-white/10 bg-white/5">
+                    <p class="text-sm font-semibold text-white">Follow up with Acme</p>
+                    <p class="text-xs text-red-300 mt-1">Due today</p>
+                  </div>
+                  <div class="p-3 rounded-2xl border border-white/10 bg-white/5">
+                    <p class="text-sm font-semibold text-white">Send proposal to TechStart</p>
+                    <p class="text-xs text-yellow-300 mt-1">Due tomorrow</p>
+                  </div>
+                  <div class="p-3 rounded-2xl border border-white/10 bg-white/5">
+                    <p class="text-sm font-semibold text-white">Call Global Ventures</p>
+                    <p class="text-xs text-slate-400 mt-1">Due in 3 days</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Activity -->
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism shadow-brand">
+                <h2 class="text-lg font-semibold text-white mb-4">Recent Activity</h2>
+                <div class="space-y-3">
+                  <div class="flex gap-3">
+                    <div class="flex-shrink-0 p-2 rounded-lg bg-blue-400/20">
+                      <svg class="w-4 h-4 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm text-white font-semibold">Called Acme Corp</p>
+                      <p class="text-xs text-slate-400">2 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-3">
+                    <div class="flex-shrink-0 p-2 rounded-lg bg-purple-400/20">
+                      <svg class="w-4 h-4 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm text-white font-semibold">Emailed TechStart</p>
+                      <p class="text-xs text-slate-400">Yesterday</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
     function switchRole(role) {
       currentRole = role;
       currentViewMode = 'simplified'; // Reset to simplified when switching roles
@@ -1433,8 +1863,6 @@
         document.getElementById('user-name').textContent = 'James Smith';
         document.getElementById('user-role').textContent = 'Admin';
         document.getElementById('user-initial').textContent = 'J';
-        document.getElementById('hero-title').textContent = 'Pipeline health is strong, James.';
-        document.getElementById('hero-description').textContent = 'Monitor recurring earnings, push setup commissions across the finish line, and keep your team operating at peak cadence. You\'re 12 people away from a fully leveraged network.';
       } else {
         notificationTitle.textContent = '💼 Switched to Salesperson Role';
         notificationDescription.textContent = '8 navigation items • Can toggle between Simplified and Pipeline dashboard views';
@@ -1442,8 +1870,6 @@
         document.getElementById('user-name').textContent = 'Sarah Chen';
         document.getElementById('user-role').textContent = 'Salesperson';
         document.getElementById('user-initial').textContent = 'S';
-        document.getElementById('hero-title').textContent = 'Great work this month, Sarah.';
-        document.getElementById('hero-description').textContent = 'You\'re tracking ahead of target with 9 active clients. Keep the momentum going and focus on closing those pending deals in your pipeline.';
       }
 
       notification.classList.remove('hidden');
@@ -1453,6 +1879,9 @@
       renderViewModeButtons();
       renderNavigation();
       showScreen('dashboard');
+
+      // Regenerate dashboard content
+      renderDashboardContent();
     }
 
     function switchViewMode(mode) {
@@ -1485,6 +1914,9 @@
       setTimeout(() => notification.classList.add('hidden'), 5000);
 
       renderViewModeButtons();
+
+      // Regenerate dashboard content
+      renderDashboardContent();
     }
 
     function showScreen(screenId) {
@@ -1533,6 +1965,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       renderViewModeButtons();
       renderNavigation();
+      renderDashboardContent();
     });
   </script>
 
