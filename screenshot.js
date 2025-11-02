@@ -18,6 +18,18 @@ const VIEWPORT = {
 
 const SCREENSHOTS = [
   {
+    url: 'file://' + path.join(__dirname, 'index.html'),
+    output: 'images/portfolio/gcw-site.jpg',
+    name: 'Gideon Code Works Homepage',
+    waitFor: 2000,
+  },
+  {
+    url: 'file://' + path.join(__dirname, 'services.html'),
+    output: 'images/portfolio/services-page.jpg',
+    name: 'Services Page',
+    waitFor: 1500,
+  },
+  {
     url: 'file://' + path.join(__dirname, 'contractor-demo.html'),
     output: 'images/portfolio/contractor-demo.jpg',
     name: 'Contractor Portfolio Demo',
