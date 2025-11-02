@@ -1,5 +1,7 @@
 /* Gideon Code Works - Custom Styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap');
+
 /* CSS Variables */
 :root {
   --primary-cyan: #00FFFF;
@@ -10,6 +12,7 @@
   --text-white: #FFFFFF;
   --card-bg: rgba(0, 255, 255, 0.05);
   --border-glow: rgba(0, 255, 255, 0.3);
+  --heading-font: 'Orbitron', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Global Styles */
@@ -30,6 +33,16 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0.1em;
 }
 
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 /* Gradient Text */
 .gradient-text {
   background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--primary-magenta) 100%);
@@ -39,6 +52,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0.2em;
   display: inline-block;
   line-height: 1.2;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
 }
 
 /* Hero Slide-In Animation */
