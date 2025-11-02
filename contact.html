@@ -32,13 +32,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
   <!-- Preload Critical Resources -->
-  <link rel="preload" href="css/styles.css?v=4" as="style">
+  <link rel="preload" href="css/styles.css?v=5" as="style">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Stylesheets -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -123,13 +123,18 @@
   <main role="main" id="main-content">
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 scanline" aria-labelledby="page-title">
-      <div class="max-w-5xl mx-auto text-center">
-        <h1 id="page-title" class="text-5xl sm:text-6xl font-bold gradient-text mb-6 fade-in">
-          Let's Build Something Amazing
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 scanline relative overflow-hidden" aria-labelledby="page-title">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-magenta-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        <h1 id="page-title" class="text-5xl sm:text-6xl lg:text-7xl font-bold gradient-text mb-8 fade-in leading-tight">
+          Let's Talk
         </h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto fade-in">
-          Ready to grow your business online? Get in touch for a free consultation.
+        <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto fade-in leading-relaxed">
+          Free consultation. No pressure. Let's see if we're a good fit.
         </p>
       </div>
     </section>
@@ -169,17 +174,27 @@
                   <label for="service" class="block text-cyan-400 font-semibold mb-2">What services are you interested in? *</label>
                   <select id="service" name="service" required class="w-full" aria-required="true">
                     <option value="">Select a service...</option>
-                    <option value="one-time-starter">One-Time Build - Starter ($2,497)</option>
-                    <option value="one-time-growth">One-Time Build - Growth ($3,497)</option>
-                    <option value="one-time-domination">One-Time Build - Domination ($4,997)</option>
-                    <option value="monthly-starter-12">Monthly - Starter (12-month)</option>
-                    <option value="monthly-starter-24">Monthly - Starter (24-month)</option>
-                    <option value="monthly-growth-12">Monthly - Growth (12-month)</option>
-                    <option value="monthly-growth-24">Monthly - Growth (24-month)</option>
-                    <option value="monthly-domination-12">Monthly - Domination (12-month)</option>
-                    <option value="monthly-domination-24">Monthly - Domination (24-month)</option>
-                    <option value="social-media">Social Media Management Add-on</option>
-                    <option value="google-ads">Google SEO/Ads Management Add-on</option>
+                    <optgroup label="SaaS Products">
+                      <option value="crm-platform-purchase">CRM Platform - Purchase</option>
+                      <option value="crm-platform-rental">CRM Platform - Monthly Rental</option>
+                    </optgroup>
+                    <optgroup label="One-Time Builds">
+                      <option value="one-time-starter">Starter ($2,497)</option>
+                      <option value="one-time-growth">Growth ($3,497)</option>
+                      <option value="one-time-domination">Domination ($4,997)</option>
+                    </optgroup>
+                    <optgroup label="Monthly Management">
+                      <option value="monthly-starter-12">Starter (12-month)</option>
+                      <option value="monthly-starter-24">Starter (24-month)</option>
+                      <option value="monthly-growth-12">Growth (12-month)</option>
+                      <option value="monthly-growth-24">Growth (24-month)</option>
+                      <option value="monthly-domination-12">Domination (12-month)</option>
+                      <option value="monthly-domination-24">Domination (24-month)</option>
+                    </optgroup>
+                    <optgroup label="Add-Ons">
+                      <option value="social-media">Social Media Management</option>
+                      <option value="google-ads">Google SEO/Ads Management</option>
+                    </optgroup>
                     <option value="consultation">Just exploring / Free consultation</option>
                   </select>
                 </div>
