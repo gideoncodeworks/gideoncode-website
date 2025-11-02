@@ -30,6 +30,12 @@ const SCREENSHOTS = [
     waitFor: 1500,
   },
   {
+    url: 'file://' + path.join(__dirname, 'careers.html'),
+    output: 'images/portfolio/careers-page.jpg',
+    name: 'Careers Page',
+    waitFor: 1500,
+  },
+  {
     url: 'file://' + path.join(__dirname, 'contractor-demo.html'),
     output: 'images/portfolio/contractor-demo.jpg',
     name: 'Contractor Portfolio Demo',
