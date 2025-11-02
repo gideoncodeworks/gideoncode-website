@@ -18,6 +18,12 @@ const VIEWPORT = {
 
 const SCREENSHOTS = [
   {
+    url: 'https://gideoncode.com/crm-demo.html',
+    output: 'images/portfolio/crm-platform.jpg',
+    name: 'Live CRM Demo',
+    waitFor: 2000,
+  },
+  {
     url: 'file://' + path.join(__dirname, 'index.html'),
     output: 'images/portfolio/gcw-site.jpg',
     name: 'Gideon Code Works Homepage',
