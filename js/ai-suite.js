@@ -3,6 +3,104 @@
 (function() {
   const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+  // ========================================
+  // NARRATIVE SYNC SYSTEM
+  // Makes the whole page respond to user intent
+  // ========================================
+
+  // Global state manager
+  window.gcAIState = window.gcAIState || {
+    intent: null,      // From Vision Gate
+    mission: null,     // From Scope Visualizer
+    vibe: null,        // From Reel Generator
+    brandName: null,   // From Reel Generator
+    industry: null,    // From Reel Generator
+    timeline: null,    // From Vision/Scope
+    budget: null       // From Vision/Scope
+  };
+
+  // Dispatch narrative update event
+  const emitNarrativeUpdate = (updates) => {
+    Object.assign(window.gcAIState, updates);
+    document.dispatchEvent(new CustomEvent('gcNarrativeUpdate', {
+      detail: window.gcAIState
+    }));
+  };
+
+  // Smooth text transition helper
+  const smoothTextUpdate = (element, newText, duration = 400) => {
+    if (!element || element.textContent === newText) return;
+
+    element.style.transition = `opacity ${duration}ms ease-in-out`;
+    element.style.opacity = '0';
+
+    setTimeout(() => {
+      element.textContent = newText;
+      element.style.opacity = '1';
+    }, duration);
+  };
+
+  // Update hero headline based on latest intent
+  const updateHeroNarrative = (state) => {
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+
+    if (state.intent && heroTitle) {
+      smoothTextUpdate(heroTitle, state.intent);
+    }
+  };
+
+  // Update command tiles to reflect user's mission
+  const updateCommandTiles = (state) => {
+    if (!state.mission) return;
+
+    const tiles = document.querySelectorAll('.ai-command-card p');
+    if (tiles.length >= 3) {
+      smoothTextUpdate(tiles[0], `Map your vision for "${state.mission}" into a revenue-generating roadmap.`);
+      smoothTextUpdate(tiles[1], `Get a detailed project scope for "${state.mission}" with phases and timelines.`);
+      smoothTextUpdate(tiles[2], `Generate brand concepts that align with your mission: "${state.mission}".`);
+    }
+  };
+
+  // Update final CTA to be mission-specific
+  const updateFinalCTA = (state) => {
+    const ctaHeadline = document.querySelector('.cta-section h2');
+
+    if (state.mission && ctaHeadline) {
+      smoothTextUpdate(ctaHeadline, `Ready to launch ${state.mission}?`);
+    } else if (state.intent && ctaHeadline) {
+      const simplified = state.intent.split(':')[0] || state.intent;
+      smoothTextUpdate(ctaHeadline, `Ready to build ${simplified}?`);
+    }
+  };
+
+  // Update concierge default context
+  const updateConciergeContext = (state) => {
+    const contextEl = document.getElementById('ai-concierge-context');
+
+    if (state.mission && contextEl) {
+      smoothTextUpdate(contextEl, `Let's discuss your mission: "${state.mission}"`);
+    } else if (state.intent && contextEl) {
+      smoothTextUpdate(contextEl, `Ready to talk about: "${state.intent}"`);
+    }
+  };
+
+  // Main narrative sync listener
+  document.addEventListener('gcNarrativeUpdate', (e) => {
+    const state = e.detail;
+
+    updateHeroNarrative(state);
+    updateCommandTiles(state);
+    updateFinalCTA(state);
+    updateConciergeContext(state);
+
+    console.log('📖 Narrative synced:', state);
+  });
+
+  // ========================================
+  // END NARRATIVE SYNC SYSTEM
+  // ========================================
+
   // Real AI gateway call - uses Anthropic (Claude) + OpenAI (GPT-4) on backend
   const callAiGateway = async (kind, payload) => {
     try {
@@ -184,6 +282,14 @@
         const response = await callAiGateway('vision', payload);
         summary.textContent = response.summary;
         highlightHero(response.headline);
+
+        // Trigger narrative sync
+        emitNarrativeUpdate({
+          intent: response.headline,
+          timeline: payload.timeline,
+          budget: extractBudget(intent)
+        });
+
         status.classList.remove('processing');
         status.classList.add('success');
         status.textContent = 'Future mapped. Concierge queue updated.';
@@ -257,6 +363,17 @@
     const match = text.match(/(\\d+)[- ]?(week|month)/i);
     if (!match) return null;
     return `${match[1]} ${match[2]}${match[1] === '1' ? '' : 's'}`;
+  };
+
+  const extractBudget = (text) => {
+    const match = text.match(/\$[\d,]+k?(?:[-–]\$[\d,]+k?)?/i);
+    return match ? match[0] : null;
+  };
+
+  const extractIndustry = (text) => {
+    const industries = ['tech', 'health', 'fitness', 'finance', 'ecommerce', 'saas', 'education', 'real estate', 'consulting'];
+    const lower = text.toLowerCase();
+    return industries.find(ind => lower.includes(ind)) || 'general';
   };
 
   const initScopeVisualizer = () => {
@@ -336,6 +453,14 @@
         outputStatus.classList.add('success');
         outputStatus.textContent = 'Mission deck ready. Share it or restart.';
         renderScopeOutput(outputBody, result);
+
+        // Trigger narrative sync
+        emitNarrativeUpdate({
+          mission: payload.mission,
+          timeline: payload.timeline,
+          budget: payload.budget
+        });
+
         setStage(3);
       } catch (err) {
         outputStatus.classList.remove('processing');
@@ -512,6 +637,13 @@
             </ol>
           </div>
         `;
+
+        // Trigger narrative sync
+        emitNarrativeUpdate({
+          vibe: payload.vibe,
+          brandName: payload.name,
+          industry: extractIndustry(prompt?.value)
+        });
 
         if (saveCheckbox?.checked) {
           alert('We will email you the rendered reel once backend integration is complete.');
