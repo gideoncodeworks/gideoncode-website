@@ -628,7 +628,7 @@
       contextEl.textContent = deriveContext();
       panel.focus();
       if (!feed.children.length) {
-        appendMessage('system', 'I\'m Gideon, your AI guide at Gideon Code. Let\'s print some revenue. Ask me about pricing, timelines, or what we can build for you.');
+        appendMessage('system', 'I\'m G, your AI guide at Gideon Code. Let\'s print some revenue. Ask me about pricing, timelines, or what we can build for you.');
       }
     };
 
