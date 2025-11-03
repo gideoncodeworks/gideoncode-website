@@ -1,14 +1,13 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// Initialize Stripe with API key from environment
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
+if (!stripeSecretKey) {
+  console.error('STRIPE_SECRET_KEY environment variable is not set!');
+}
+
+const stripe = require('stripe')(stripeSecretKey);
 
 exports.handler = async (event, context) => {
-  // Only allow POST
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' })
-    };
-  }
-
   // CORS headers
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -19,6 +18,28 @@ exports.handler = async (event, context) => {
   // Handle preflight
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
+  }
+
+  // Only allow POST
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers,
+      body: JSON.stringify({ error: 'Method not allowed' })
+    };
+  }
+
+  // Check for required environment variable
+  if (!stripeSecretKey) {
+    console.error('Missing STRIPE_SECRET_KEY environment variable');
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({
+        error: 'Server configuration error',
+        message: 'Payment processing is not configured. Please contact support.'
+      })
+    };
   }
 
   try {
