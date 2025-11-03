@@ -365,17 +365,13 @@
           throw new Error('Failed to create checkout session');
         }
 
-        const { sessionId } = await response.json();
+        const { url } = await response.json();
 
         // Store customer data for success page
         sessionStorage.setItem('customerData', JSON.stringify(customerData));
 
         // Redirect to Stripe Checkout
-        const result = await stripe.redirectToCheckout({ sessionId });
-
-        if (result.error) {
-          throw new Error(result.error.message);
-        }
+        window.location.href = url;
 
       } catch (error) {
         console.error('Error:', error);
