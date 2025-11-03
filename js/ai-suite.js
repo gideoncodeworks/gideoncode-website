@@ -602,19 +602,25 @@
 
   const initConcierge = () => {
     ensureConciergeMarkup();
-    const toggle = select('#ai-concierge-toggle');
-    const panel = select('#ai-concierge');
-    const closeBtn = select('#ai-concierge-close');
-    const form = select('#ai-concierge-form');
-    const input = select('#ai-concierge-input');
-    const feed = select('#ai-concierge-feed');
-    const voiceBtn = select('#ai-concierge-voice');
-    const contextEl = select('#ai-concierge-context');
-    const transparencyBtn = select('#ai-concierge-transparency');
-    const transparencyDialog = select('#ai-transparency');
-    let recognition = null;
 
-    if (!toggle || !panel || !form || !feed) return;
+    // Give DOM a moment to update after injection
+    setTimeout(() => {
+      const toggle = select('#ai-concierge-toggle');
+      const panel = select('#ai-concierge');
+      const closeBtn = select('#ai-concierge-close');
+      const form = select('#ai-concierge-form');
+      const input = select('#ai-concierge-input');
+      const feed = select('#ai-concierge-feed');
+      const voiceBtn = select('#ai-concierge-voice');
+      const contextEl = select('#ai-concierge-context');
+      const transparencyBtn = select('#ai-concierge-transparency');
+      const transparencyDialog = select('#ai-transparency');
+      let recognition = null;
+
+      if (!toggle || !panel || !form || !feed) {
+        console.error('AI Concierge: Required elements not found', { toggle, panel, form, feed });
+        return;
+      }
 
     const openPanel = () => {
       panel.classList.remove('hidden');
@@ -732,6 +738,7 @@
         closePanel();
       }
     });
+    }, 0); // End setTimeout
   };
 
   document.addEventListener('DOMContentLoaded', () => {
