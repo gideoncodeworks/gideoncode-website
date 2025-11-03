@@ -350,8 +350,8 @@
       };
 
       try {
-        // Call CRM API to create Stripe Checkout Session
-        const functionUrl = 'https://crm.gideoncode.com/api/public/create-checkout-session';
+        // Call Netlify Function to create Stripe Checkout Session
+        const functionUrl = '/.netlify/functions/create-checkout-session';
 
         const response = await fetch(functionUrl, {
           method: 'POST',

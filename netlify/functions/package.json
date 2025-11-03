@@ -1,0 +1,8 @@
+{
+  "name": "gideoncode-netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Gideon Code Works website",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
