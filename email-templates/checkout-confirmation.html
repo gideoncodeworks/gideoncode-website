@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #0a0a0a; padding: 40px 20px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; width: 100%; background: linear-gradient(to bottom, #0a0a0a, #1a1a1a); border: 1px solid rgba(0, 255, 255, 0.2); border-radius: 8px;">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding: 40px; text-align: center; background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1)); border-bottom: 1px solid rgba(0, 255, 255, 0.2);">
+              <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
+              <h1 style="margin: 0; color: #00ffff; font-size: 28px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Order Confirmed!</h1>
+              <p style="margin: 8px 0 0 0; color: #a0a0a0; font-size: 16px;">Welcome to Gideon Code Works</p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding: 40px;">
+
+              <!-- Greeting -->
+              <p style="margin: 0 0 24px 0; color: #ffffff; font-size: 16px; line-height: 1.6;">
+                Hi <strong>{{firstName}}</strong>,
+              </p>
+
+              <p style="margin: 0 0 24px 0; color: #d0d0d0; font-size: 16px; line-height: 1.6;">
+                Thank you for choosing Gideon Code Works! We've received your order and payment. Your project is officially underway! 🚀
+              </p>
+
+              <!-- Order Details Box -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: rgba(0, 255, 255, 0.05); border: 1px solid rgba(0, 255, 255, 0.2); border-radius: 8px; margin-bottom: 32px;">
+                <tr>
+                  <td style="padding: 24px;">
+                    <h2 style="margin: 0 0 16px 0; color: #00ffff; font-size: 18px; font-weight: bold;">Order Summary</h2>
+
+                    <table width="100%" cellpadding="4" cellspacing="0" border="0" style="color: #d0d0d0; font-size: 14px;">
+                      <tr>
+                        <td style="padding: 8px 0; color: #a0a0a0;">Order Number:</td>
+                        <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #ffffff;">{{orderNumber}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #a0a0a0;">Plan:</td>
+                        <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #ffffff;">{{planName}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #a0a0a0;">Deposit Paid:</td>
+                        <td style="padding: 8px 0; text-align: right; font-weight: bold; color: #00ff88;">${{depositAmount}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; color: #a0a0a0;">Date:</td>
+                        <td style="padding: 8px 0; text-align: right; color: #d0d0d0;">{{orderDate}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Client Portal CTA -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: linear-gradient(135deg, #00ffff, #00cccc); border-radius: 8px; margin-bottom: 32px;">
+                <tr>
+                  <td style="padding: 24px; text-align: center;">
+                    <h3 style="margin: 0 0 12px 0; color: #000000; font-size: 20px; font-weight: bold;">🎯 Complete Your Project Questionnaire</h3>
+                    <p style="margin: 0 0 16px 0; color: #001a1a; font-size: 14px;">
+                      Access your client portal and tell us about your vision
+                    </p>
+                    <a href="{{portalUrl}}" style="display: inline-block; padding: 14px 32px; background-color: #000000; color: #00ffff; text-decoration: none; font-weight: bold; font-size: 16px; border-radius: 6px; text-transform: uppercase; letter-spacing: 1px;">
+                      Access Client Portal →
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- What Happens Next -->
+              <h2 style="margin: 0 0 16px 0; color: #00ffff; font-size: 20px; font-weight: bold;">What Happens Next?</h2>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 24px;">
+                <tr>
+                  <td width="40" style="vertical-align: top; padding-top: 4px;">
+                    <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #00ffff, #00cccc); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000000; font-weight: bold; font-size: 16px;">1</div>
+                  </td>
+                  <td style="padding-left: 16px;">
+                    <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 16px; font-weight: bold;">Complete Questionnaire (Now)</h4>
+                    <p style="margin: 0; color: #a0a0a0; font-size: 14px; line-height: 1.5;">Fill out the project questionnaire in your client portal. Takes 10-15 minutes.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 24px;">
+                <tr>
+                  <td width="40" style="vertical-align: top; padding-top: 4px;">
+                    <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #00ffff, #00cccc); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000000; font-weight: bold; font-size: 16px;">2</div>
+                  </td>
+                  <td style="padding-left: 16px;">
+                    <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 16px; font-weight: bold;">Onboarding Call (24-48 Hours)</h4>
+                    <p style="margin: 0; color: #a0a0a0; font-size: 14px; line-height: 1.5;">An onboarding specialist will contact you to schedule a kickoff call.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 24px;">
+                <tr>
+                  <td width="40" style="vertical-align: top; padding-top: 4px;">
+                    <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #00ffff, #00cccc); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000000; font-weight: bold; font-size: 16px;">3</div>
+                  </td>
+                  <td style="padding-left: 16px;">
+                    <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 16px; font-weight: bold;">Project Kickoff</h4>
+                    <p style="margin: 0; color: #a0a0a0; font-size: 14px; line-height: 1.5;">Meet your team, review timeline, and get started on your project.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 32px;">
+                <tr>
+                  <td width="40" style="vertical-align: top; padding-top: 4px;">
+                    <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #00ffff, #00cccc); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000000; font-weight: bold; font-size: 16px;">4</div>
+                  </td>
+                  <td style="padding-left: 16px;">
+                    <h4 style="margin: 0 0 4px 0; color: #ffffff; font-size: 16px; font-weight: bold;">Launch & Final Payment</h4>
+                    <p style="margin: 0; color: #a0a0a0; font-size: 14px; line-height: 1.5;">Your project goes live and remaining balance is due.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Support Box -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: rgba(255, 0, 255, 0.05); border: 1px solid rgba(255, 0, 255, 0.2); border-radius: 8px;">
+                <tr>
+                  <td style="padding: 24px;">
+                    <h3 style="margin: 0 0 12px 0; color: #ff00ff; font-size: 18px; font-weight: bold;">Need Help?</h3>
+                    <p style="margin: 0 0 12px 0; color: #d0d0d0; font-size: 14px; line-height: 1.6;">
+                      Our team is here to help you every step of the way.
+                    </p>
+                    <p style="margin: 0; color: #d0d0d0; font-size: 14px;">
+                      📞 <strong style="color: #ffffff;">1-216-463-2648</strong><br>
+                      📧 <a href="mailto:support@gideoncode.com" style="color: #00ffff; text-decoration: none;">support@gideoncode.com</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 32px; text-align: center; border-top: 1px solid rgba(0, 255, 255, 0.2); background-color: rgba(0, 0, 0, 0.5);">
+              <p style="margin: 0 0 8px 0; color: #ffffff; font-size: 16px; font-weight: bold;">Gideon Code Works</p>
+              <p style="margin: 0 0 16px 0; color: #a0a0a0; font-size: 12px;">
+                Building digital solutions that drive results
+              </p>
+              <p style="margin: 0; color: #606060; font-size: 11px;">
+                © 2025 Gideon Code Works. All rights reserved.<br>
+                <a href="https://gideoncode.com" style="color: #00ffff; text-decoration: none;">gideoncode.com</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
