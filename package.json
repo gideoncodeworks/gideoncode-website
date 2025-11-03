@@ -16,5 +16,9 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "puppeteer": "^21.11.0"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0",
+    "@sendgrid/mail": "^8.1.0"
   }
 }
