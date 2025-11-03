@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote Sales Success</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0a0a1a 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    .workspace-scene {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(10, 10, 26, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
+    }
+    .laptop-screen {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 10, 30, 0.9) 100%);
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 100px rgba(6, 182, 212, 0.3),
+        inset 0 0 80px rgba(6, 182, 212, 0.1);
+      border: 2px solid rgba(6, 182, 212, 0.3);
+    }
+    .success-pulse {
+      animation: successPulse 2s ease-in-out infinite;
+    }
+    @keyframes successPulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+      }
+      50% {
+        opacity: 0.9;
+        transform: scale(1.02);
+        filter: brightness(1.1);
+      }
+    }
+    .celebration-glow {
+      animation: celebrationGlow 3s ease-in-out infinite;
+    }
+    @keyframes celebrationGlow {
+      0%, 100% {
+        box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 80px rgba(236, 72, 153, 0.6);
+      }
+    }
+    .metric-card {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(0, 0, 0, 0.6) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      backdrop-filter: blur(20px);
+    }
+    .float-1 {
+      animation: float 4s ease-in-out infinite;
+    }
+    .float-2 {
+      animation: float 5s ease-in-out infinite 0.5s;
+    }
+    .float-3 {
+      animation: float 6s ease-in-out infinite 1s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+    }
+    .money-icon {
+      filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.6));
+    }
+    .trophy-glow {
+      filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.8));
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-8">
+
+  <div class="workspace-scene relative w-full max-w-7xl mx-auto rounded-3xl p-12 min-h-[1080px]">
+
+    <!-- Desk workspace with laptop centered -->
+    <div class="absolute inset-0 flex items-center justify-center">
+
+      <!-- Main Laptop Display -->
+      <div class="relative" style="width: 900px;">
+
+        <!-- Laptop Screen -->
+        <div class="laptop-screen celebration-glow rounded-2xl p-8 relative">
+
+          <!-- Success Banner -->
+          <div class="success-pulse bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-6 mb-6 border-2 border-green-400 shadow-2xl">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="text-6xl">🎉</div>
+                <div>
+                  <div class="text-white text-3xl font-bold mb-1">Deal Closed!</div>
+                  <div class="text-green-100 text-lg">Summit Real Estate signed Enterprise CRM</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-white text-5xl font-bold">$2,500</div>
+                <div class="text-green-100 text-lg">per month recurring</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Metrics -->
+          <div class="grid grid-cols-3 gap-4 mb-6">
+            <div class="metric-card rounded-xl p-5 text-center">
+              <div class="text-cyan-300 text-sm uppercase tracking-wider mb-2">This Month</div>
+              <div class="text-4xl font-bold text-white mb-1">$11,450</div>
+              <div class="text-green-400 text-sm">↑ 34% growth</div>
+            </div>
+            <div class="metric-card rounded-xl p-5 text-center">
+              <div class="text-magenta-300 text-sm uppercase tracking-wider mb-2">Recurring Base</div>
+              <div class="text-4xl font-bold text-white mb-1">$8,940</div>
+              <div class="text-magenta-300 text-sm">Building forever</div>
+            </div>
+            <div class="metric-card rounded-xl p-5 text-center">
+              <div class="text-yellow-300 text-sm uppercase tracking-wider mb-2">Active Deals</div>
+              <div class="text-4xl font-bold text-white mb-1">7</div>
+              <div class="text-cyan-300 text-sm">Closing this week</div>
+            </div>
+          </div>
+
+          <!-- Recent Wins List -->
+          <div class="bg-black/60 rounded-xl p-5 border border-cyan-500/30">
+            <div class="text-cyan-300 font-semibold mb-4 uppercase tracking-wider text-sm">Recent Wins</div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                <div class="flex items-center gap-3">
+                  <div class="text-2xl">✓</div>
+                  <div>
+                    <div class="text-white font-semibold">Atlas Consulting - Growth Plan</div>
+                    <div class="text-gray-400 text-sm">Closed Dec 12</div>
+                  </div>
+                </div>
+                <div class="text-green-400 font-bold text-xl">+$697/mo</div>
+              </div>
+              <div class="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                <div class="flex items-center gap-3">
+                  <div class="text-2xl">✓</div>
+                  <div>
+                    <div class="text-white font-semibold">Velocity Coaching - Premium</div>
+                    <div class="text-gray-400 text-sm">Closed Dec 10</div>
+                  </div>
+                </div>
+                <div class="text-green-400 font-bold text-xl">+$897/mo</div>
+              </div>
+              <div class="flex items-center justify-between bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-3">
+                <div class="flex items-center gap-3">
+                  <div class="text-2xl">⟳</div>
+                  <div>
+                    <div class="text-white font-semibold">Nexus MLM - Demo Scheduled</div>
+                    <div class="text-gray-400 text-sm">Closes Dec 18</div>
+                  </div>
+                </div>
+                <div class="text-cyan-400 font-bold text-xl">$1,200/mo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Laptop Base -->
+        <div class="h-4 bg-gradient-to-b from-gray-800 to-gray-900 rounded-b-xl" style="margin-top: -8px;"></div>
+        <div class="h-3 bg-gray-900" style="width: 60%; margin: 0 auto; border-radius: 0 0 8px 8px;"></div>
+      </div>
+    </div>
+
+    <!-- Floating Success Elements -->
+    <div class="absolute top-12 right-12 float-1">
+      <div class="bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl p-6 border-2 border-yellow-400 shadow-2xl" style="width: 280px;">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="text-5xl trophy-glow">🏆</div>
+          <div class="text-white font-bold text-xl">Top Performer</div>
+        </div>
+        <div class="text-yellow-100 text-sm mb-2">Q4 2024 Leaderboard</div>
+        <div class="text-white text-3xl font-bold">#1 This Quarter</div>
+      </div>
+    </div>
+
+    <div class="absolute top-12 left-12 float-2">
+      <div class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 border-2 border-green-400 shadow-2xl" style="width: 280px;">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="text-5xl money-icon">💰</div>
+          <div class="text-white font-bold text-xl">Commission</div>
+        </div>
+        <div class="text-green-100 text-sm mb-2">This Pay Period</div>
+        <div class="text-white text-3xl font-bold">$4,215</div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-12 right-12 float-3">
+      <div class="bg-gradient-to-br from-magenta-500 to-purple-600 rounded-2xl p-6 border-2 border-magenta-400 shadow-2xl" style="width: 300px;">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="text-5xl">📈</div>
+          <div class="text-white font-bold text-xl">Lifetime Value</div>
+        </div>
+        <div class="text-magenta-100 text-sm mb-2">Total Portfolio Worth</div>
+        <div class="text-white text-3xl font-bold">$8,940/mo</div>
+        <div class="text-magenta-200 text-xs mt-2">= $107,280 annually</div>
+      </div>
+    </div>
+
+    <!-- Motivational Overlay Bottom -->
+    <div class="absolute bottom-8 left-8 right-8">
+      <div class="bg-black/90 backdrop-blur-2xl rounded-2xl p-8 border-2 border-cyan-500/50 shadow-2xl">
+        <div class="text-center">
+          <div class="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-3">Remote Freedom • Uncapped Hustle • Lifetime Residuals</div>
+          <div class="text-3xl font-bold text-white mb-3">Close from anywhere. Build recurring income. Keep it forever.</div>
+          <div class="text-gray-300 text-lg">Every deal you close becomes monthly income. No caps, no limits, just performance.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
