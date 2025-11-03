@@ -57,6 +57,12 @@ document.addEventListener('DOMContentLoaded', function() {
         closeMobileMenu();
       }
     });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        closeMobileMenu();
+      }
+    });
   }
 
   // Desktop dropdown menus

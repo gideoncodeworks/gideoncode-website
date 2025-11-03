@@ -368,6 +368,14 @@ img[src*="logo" i] {
   border-radius: 9999px;
 }
 
+.nav-desktop-links {
+  display: none;
+}
+
+.nav-mobile-toggle {
+  display: block;
+}
+
 .nav-dropdown {
   position: absolute;
   right: 0;
@@ -471,6 +479,20 @@ body.menu-open #mobile-menu-overlay {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .nav-desktop-links {
+    display: flex;
+  }
+
+  .nav-mobile-toggle {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
 }
 
 .glow-button {
