@@ -277,6 +277,38 @@
         ],
         description: 'Perfect for businesses that need to manage their sales team',
         checkoutUrl: 'plan-details.html?plan=crm-platform'
+      },
+      'webapp-saas': {
+        name: 'SaaS / Dashboard Application',
+        price: 'Starting at $19,997',
+        recurring: null,
+        features: [
+          'Custom user dashboards',
+          'Data visualization & reporting',
+          'User authentication & roles',
+          'Database design & setup',
+          'API development',
+          'Responsive web design',
+          '90 days support'
+        ],
+        description: 'Perfect for businesses that need custom SaaS products or data dashboards',
+        checkoutUrl: 'contact.html'
+      },
+      'webapp-crm-internal': {
+        name: 'CRM / Internal Tools',
+        price: 'Starting at $14,997',
+        recurring: null,
+        features: [
+          'Custom workflow automation',
+          'Sales pipeline management',
+          'Contact & lead tracking',
+          'Reporting & analytics',
+          'Email integrations',
+          'User permissions & security',
+          '90 days support'
+        ],
+        description: 'Perfect for businesses that need custom internal tools or CRM systems',
+        checkoutUrl: 'contact.html'
       }
     };
 
@@ -394,10 +426,21 @@
       // Determine recommended package
       let recommendedPackage;
 
+      // Check if web application is needed
+      if (scores.webapp >= 3) {
+        // Recommend web application based on complexity
+        if (scores.webapp >= 5) {
+          recommendedPackage = packages['webapp-saas'];
+        } else {
+          recommendedPackage = packages['webapp-crm-internal'];
+        }
+      }
       // Determine if CRM is needed
-      if (scores.crm >= 4) {
+      else if (scores.crm >= 4) {
         recommendedPackage = packages['crm-platform'];
-      } else {
+      }
+      // Otherwise recommend website
+      else {
         // Determine tier
         let tier = 'growth'; // default
         if (scores.tier.starter > scores.tier.growth && scores.tier.starter > scores.tier.domination) {
@@ -439,10 +482,20 @@
       const alternativesDiv = document.getElementById('alternative-plans');
       let alternatives = [];
 
-      // Add 2-3 alternative packages
+      // Determine what type of alternatives to show
+      const recommendedKey = Object.keys(packages).find(key => packages[key] === recommendedPackage);
+
+      // Add 2-3 alternative packages based on recommendation type
       Object.keys(packages).forEach(key => {
         if (packages[key] !== recommendedPackage && alternatives.length < 3) {
-          if (key.startsWith('website-')) {
+          // If webapp recommended, show other webapp or crm options
+          if (recommendedKey.startsWith('webapp-')) {
+            if (key.startsWith('webapp-') || key === 'crm-platform') {
+              alternatives.push(packages[key]);
+            }
+          }
+          // Otherwise show website alternatives
+          else if (key.startsWith('website-')) {
             alternatives.push(packages[key]);
           }
         }
