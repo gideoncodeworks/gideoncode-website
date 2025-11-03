@@ -162,7 +162,7 @@ h4, h5, h6 {
   z-index: 10;
 }
 
-/* Neon Glow Button */
+/* Neon Glow Button - Standardized Hover Effects */
 .neon-button {
   position: relative;
   display: inline-block;
@@ -177,6 +177,7 @@ h4, h5, h6 {
   overflow: hidden;
   transition: all 0.3s ease;
   text-decoration: none;
+  z-index: 1;
 }
 
 .neon-button:hover {
@@ -184,6 +185,11 @@ h4, h5, h6 {
   box-shadow: 0 0 20px var(--primary-cyan),
               0 0 40px var(--primary-cyan),
               0 0 60px var(--primary-cyan);
+  transform: translateY(-2px);
+}
+
+.neon-button:active {
+  transform: translateY(0);
 }
 
 .neon-button::before {
@@ -204,15 +210,22 @@ h4, h5, h6 {
   opacity: 1;
 }
 
+/* Magenta Variant */
 .neon-button-magenta {
   border-color: var(--primary-magenta);
   color: var(--primary-magenta);
 }
 
 .neon-button-magenta:hover {
+  color: var(--bg-black);
   box-shadow: 0 0 20px var(--primary-magenta),
               0 0 40px var(--primary-magenta),
               0 0 60px var(--primary-magenta);
+  transform: translateY(-2px);
+}
+
+.neon-button-magenta:active {
+  transform: translateY(0);
 }
 
 .neon-button-magenta::before {
@@ -224,6 +237,7 @@ h4, h5, h6 {
   opacity: 1;
 }
 
+/* Outline Variant */
 .neon-button-outline {
   background: transparent;
   border-color: var(--primary-cyan);
@@ -235,6 +249,11 @@ h4, h5, h6 {
   box-shadow: 0 0 20px var(--primary-cyan),
               0 0 40px var(--primary-cyan),
               0 0 60px var(--primary-cyan);
+  transform: translateY(-2px);
+}
+
+.neon-button-outline:active {
+  transform: translateY(0);
 }
 
 .neon-button-outline::before {
@@ -379,8 +398,12 @@ body.menu-open #mobile-menu-overlay {
 
 .glow-button:hover,
 .glow-button:focus-visible {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 0 0 18px rgba(0, 255, 255, 0.35), 0 0 28px rgba(0, 255, 255, 0.25);
+}
+
+.glow-button:active {
+  transform: translateY(0);
 }
 
 .glow-button:hover::after,
