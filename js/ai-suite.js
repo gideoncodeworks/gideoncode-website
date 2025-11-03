@@ -419,7 +419,7 @@
           outputStatus.textContent = 'Mission deck ready. Share it or restart.';
         }, 5000);
       }
-    });
+    };
   };
 
   const renderScopeOutput = (container, data) => {
