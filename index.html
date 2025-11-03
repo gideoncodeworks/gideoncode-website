@@ -120,7 +120,7 @@
   <!-- Header & Navigation -->
   <header>
     <div class="fixed w-full top-0 z-50">
-      <nav class="bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+      <nav class="site-nav bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex-shrink-0 flex items-center">
@@ -133,21 +133,19 @@
               <a href="services.html#web" class="nav-link text-white hover:text-cyan-400">Web Services</a>
               <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="nav-link text-white hover:text-cyan-400">CRM Platform</a>
               <a href="careers.html" class="nav-link text-white hover:text-cyan-400">Join Sales Team</a>
-              <div class="relative group">
-                <button class="nav-link text-white hover:text-cyan-400 flex items-center gap-1">
-                  More
-                  <svg class="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <div class="relative nav-dropdown-container" data-dropdown>
+                <button type="button" class="nav-link text-white hover:text-cyan-400 flex items-center gap-1 nav-dropdown-toggle" data-dropdown-button aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-menu">
+                  <span>More</span>
+                  <svg class="w-4 h-4 text-cyan-400 nav-dropdown-icon transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <div class="absolute right-0 top-full pt-3 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
-                  <div class="bg-black border border-cyan-500/40 rounded shadow-xl">
-                    <div class="flex flex-col py-3">
-                      <a href="portfolio.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">Portfolio</a>
-                      <a href="about.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">About</a>
-                      <a href="contact.html" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">Contact</a>
-                      <a href="services.html#faq" class="px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition">FAQ</a>
-                    </div>
+                <div id="nav-more-menu" class="nav-dropdown" data-dropdown-menu role="menu" aria-hidden="true">
+                  <div class="nav-dropdown-panel">
+                    <a href="portfolio.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Portfolio</a>
+                    <a href="about.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">About</a>
+                    <a href="contact.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Contact</a>
+                    <a href="services.html#faq" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">FAQ</a>
                   </div>
                 </div>
               </div>
@@ -177,7 +175,7 @@
             <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
             <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
             <a href="services.html#faq" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">FAQ</a>
-            <a href="get-started.html" class="neon-button text-sm py-2 px-4 text-center" role="menuitem">Get Started</a>
+            <a href="get-started.html" class="mobile-menu-link neon-button text-sm py-2 px-4 text-center" role="menuitem">Get Started</a>
           </div>
         </div>
       </nav>

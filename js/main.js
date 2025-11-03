@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenu = document.getElementById('mobile-menu');
   const hamburger = document.querySelector('.hamburger');
   const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+  const dropdownControllers = [];
 
   if (mobileMenuButton && mobileMenu) {
     let mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
@@ -21,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active', shouldOpen);
       }
       document.body.classList.toggle('menu-open', shouldOpen);
+      if (shouldOpen === true) {
+        dropdownControllers.forEach(controller => controller.setState(false));
+      }
     };
 
     const closeMobileMenu = () => setMobileMenuState(false);
@@ -54,6 +58,59 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Desktop dropdown menus
+  document.querySelectorAll('[data-dropdown]').forEach(container => {
+    const toggleButton = container.querySelector('[data-dropdown-button]');
+    const menu = container.querySelector('[data-dropdown-menu]');
+
+    if (!toggleButton || !menu) {
+      return;
+    }
+
+    const setState = (isOpen) => {
+      container.classList.toggle('open', isOpen);
+      menu.classList.toggle('open', isOpen);
+      toggleButton.setAttribute('aria-expanded', String(isOpen));
+      menu.setAttribute('aria-hidden', String(!isOpen));
+    };
+
+    dropdownControllers.push({ container, setState });
+
+    toggleButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const willOpen = !container.classList.contains('open');
+      dropdownControllers.forEach(controller => controller.setState(false));
+      setState(willOpen);
+    });
+
+    toggleButton.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setState(false);
+        toggleButton.blur();
+      }
+    });
+
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setState(false);
+        toggleButton.focus();
+      }
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setState(false));
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    dropdownControllers.forEach(({ container, setState }) => {
+      if (!container.contains(event.target)) {
+        setState(false);
+      }
+    });
+  });
 
   // Scroll Animation
   const observerOptions = {
