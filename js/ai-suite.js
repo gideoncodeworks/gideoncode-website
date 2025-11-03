@@ -155,6 +155,7 @@
   const initVisionGate = () => {
     const form = select('#vision-gate-form');
     if (!form) return;
+    form.setAttribute('aria-busy', 'false');
 
     const input = select('#vision-gate-input');
     const status = select('#vision-gate-status');
@@ -168,7 +169,9 @@
 
       const intent = input.value.trim();
       status.textContent = 'Channeling the future you described…';
-      status.classList.add('text-cyan-200');
+      status.classList.add('text-cyan-200', 'ai-status', 'processing');
+      status.setAttribute('aria-live', 'polite');
+      form.setAttribute('aria-busy', 'true');
 
       const payload = {
         intent,
@@ -177,12 +180,25 @@
         timeline: extractTimeline(intent)
       };
 
-      const response = await callAiGateway('vision', payload);
-      summary.textContent = response.summary;
-      highlightHero(response.headline);
-      status.textContent = 'Future mapped. Concierge queue updated.';
-      input.value = '';
-      setTimeout(() => status.textContent = 'Powered by Gideon Code AI · Nothing is stored unless you choose to save it later.', 5000);
+      try {
+        const response = await callAiGateway('vision', payload);
+        summary.textContent = response.summary;
+        highlightHero(response.headline);
+        status.classList.remove('processing');
+        status.classList.add('success');
+        status.textContent = 'Future mapped. Concierge queue updated.';
+        input.value = '';
+      } catch (err) {
+        status.classList.remove('processing');
+        status.classList.add('error');
+        status.textContent = 'We hit a snag. Try again or ping the concierge.';
+      } finally {
+        form.setAttribute('aria-busy', 'false');
+        setTimeout(() => {
+          status.textContent = 'Powered by Gideon Code AI · Nothing is stored unless you choose to save it later.';
+          status.classList.remove('text-cyan-200', 'processing', 'success', 'error');
+        }, 4000);
+      }
     });
 
     if (voiceBtn && 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
@@ -246,6 +262,7 @@
   const initScopeVisualizer = () => {
     const form = select('#scope-form');
     if (!form) return;
+    form.setAttribute('aria-busy', 'false');
 
     const steps = selectAll('.scope-step');
     const stages = selectAll('.scope-stage');
@@ -309,13 +326,28 @@
       }
 
       outputStatus.textContent = 'Generating plan…';
+      form.setAttribute('aria-busy', 'true');
       output?.classList.remove('hidden');
       outputBody.innerHTML = '';
 
-      const result = await callAiGateway('scope', payload);
-      outputStatus.textContent = 'Mission deck ready. Share it or restart.';
-      renderScopeOutput(outputBody, result);
-      setStage(3);
+      try {
+        const result = await callAiGateway('scope', payload);
+        outputStatus.classList.remove('processing');
+        outputStatus.classList.add('success');
+        outputStatus.textContent = 'Mission deck ready. Share it or restart.';
+        renderScopeOutput(outputBody, result);
+        setStage(3);
+      } catch (err) {
+        outputStatus.classList.remove('processing');
+        outputStatus.classList.add('error');
+        outputStatus.textContent = 'Could not generate plan. Please retry in a moment.';
+        outputBody.innerHTML = '';
+      } finally {
+        form.setAttribute('aria-busy', 'false');
+        setTimeout(() => {
+          outputStatus.classList.remove('processing', 'success', 'error');
+        }, 5000);
+      }
     });
 
     output?.addEventListener('click', (event) => {
@@ -389,6 +421,7 @@
   const initReel = () => {
     const form = select('#reel-form');
     if (!form) return;
+    form.setAttribute('aria-busy', 'false');
 
     const prompt = select('#reel-prompt');
     const status = select('#reel-status');
@@ -399,38 +432,53 @@
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       status?.classList.remove('hidden');
+      status?.setAttribute('aria-live', 'polite');
+      form.setAttribute('aria-busy', 'true');
 
       const payload = {
         vibe: prompt?.value.trim(),
         name: extractBrandName(prompt?.value)
       };
 
-      const result = await callAiGateway('reel', payload);
-      status?.classList.add('hidden');
+      try {
+        const result = await callAiGateway('reel', payload);
+        status?.classList.remove('processing');
+        status?.classList.add('success', 'hidden');
 
-      output?.classList.remove('hidden');
-      outputBody.innerHTML = `
-        <div class="story">
-          <h4 class="text-cyan-300 uppercase tracking-[0.2em] text-xs">Hero Copy</h4>
-          <p class="text-lg text-gray-200 font-semibold">${result.headline}</p>
-          <p class="text-sm text-gray-300 mt-1">${result.subhead}</p>
-        </div>
-        <div class="story">
-          <h4 class="text-magenta-300 uppercase tracking-[0.2em] text-xs">Palette</h4>
-          <div class="flex gap-3">
-            ${result.palette.map(color => `<span class="w-10 h-10 rounded-full border border-white/20" style="background:${color}"></span>`).join('')}
+        output?.classList.remove('hidden');
+        outputBody.innerHTML = `
+          <div class="story">
+            <h4 class="text-cyan-300 uppercase tracking-[0.2em] text-xs">Hero Copy</h4>
+            <p class="text-lg text-gray-200 font-semibold">${result.headline}</p>
+            <p class="text-sm text-gray-300 mt-1">${result.subhead}</p>
           </div>
-        </div>
-        <div class="story">
-          <h4 class="text-cyan-300 uppercase tracking-[0.2em] text-xs">Motion Beats</h4>
-          <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-200">
-            ${result.beats.map(item => `<li>${item}</li>`).join('')}
-          </ol>
-        </div>
-      `;
+          <div class="story">
+            <h4 class="text-magenta-300 uppercase tracking-[0.2em] text-xs">Palette</h4>
+            <div class="flex gap-3">
+              ${result.palette.map(color => `<span class="w-10 h-10 rounded-full border border-white/20" style="background:${color}"></span>`).join('')}
+            </div>
+          </div>
+          <div class="story">
+            <h4 class="text-cyan-300 uppercase tracking-[0.2em] text-xs">Motion Beats</h4>
+            <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-200">
+              ${result.beats.map(item => `<li>${item}</li>`).join('')}
+            </ol>
+          </div>
+        `;
 
-      if (saveCheckbox?.checked) {
-        alert('We will email you the rendered reel once backend integration is complete.');
+        if (saveCheckbox?.checked) {
+          alert('We will email you the rendered reel once backend integration is complete.');
+        }
+      } catch (err) {
+        status?.classList.remove('processing');
+        status?.classList.add('error');
+        status?.classList.remove('hidden');
+        status.textContent = 'Preview service is busy. Try again shortly.';
+      } finally {
+        form.setAttribute('aria-busy', 'false');
+        setTimeout(() => {
+          status?.classList.remove('processing', 'success', 'error');
+        }, 5000);
       }
     });
 
@@ -502,8 +550,12 @@
       };
 
       appendMessage('system', 'Processing…');
-      const response = await callAiGateway('concierge', payload);
-      replaceLastMessage(response.message);
+      try {
+        const response = await callAiGateway('concierge', payload);
+        replaceLastMessage(response.message);
+      } catch (err) {
+        replaceLastMessage('I’m offline for a moment. Call 1-216-463-2648 and we’ll pick it up live.');
+      }
     });
 
     const appendMessage = (role, text) => {
