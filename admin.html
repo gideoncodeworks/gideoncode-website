@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Gideon Code Works</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/gcw-logo.png" type="image/png">
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center">
+
+  <div class="max-w-md w-full px-6">
+
+    <!-- Login Card -->
+    <div class="cyber-card text-center">
+      <div class="mb-8">
+        <img src="images/gcw-logo.png" alt="Gideon Code Works" width="200" height="60" class="mx-auto mb-6">
+        <h1 class="text-3xl font-bold gradient-text mb-2">Admin Access</h1>
+        <p class="text-gray-400">Enter your password to continue</p>
+      </div>
+
+      <form id="login-form" class="space-y-6">
+        <div>
+          <input
+            type="password"
+            id="admin-password"
+            placeholder="Enter password"
+            autocomplete="current-password"
+            class="w-full bg-gray-900 border-2 border-gray-700 rounded-lg px-4 py-3 text-white text-center text-lg focus:border-cyan-500 focus:outline-none transition"
+          />
+          <p id="error-message" class="text-red-400 text-sm mt-2 hidden">Incorrect password</p>
+        </div>
+
+        <button
+          type="submit"
+          class="neon-button w-full py-4 text-lg"
+        >
+          Access Admin Hub →
+        </button>
+
+        <div class="pt-6 border-t border-gray-800">
+          <p class="text-gray-500 text-sm mb-4">Quick Access:</p>
+          <div class="space-y-2">
+            <a href="admin-ai-hub.html" class="block text-cyan-400 hover:text-cyan-300 text-sm">
+              🤖 AI Command Center
+            </a>
+            <a href="crm-demo.html" class="block text-cyan-400 hover:text-cyan-300 text-sm">
+              💼 CRM Dashboard
+            </a>
+            <a href="/" class="block text-gray-400 hover:text-gray-300 text-sm">
+              ← Back to Website
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Password Hint (remove in production) -->
+    <div class="mt-6 text-center">
+      <button onclick="showHint()" class="text-gray-600 hover:text-gray-400 text-xs">
+        Forgot password?
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // Admin password (change this to your preferred password)
+    const ADMIN_PASSWORD = 'gideon2025';
+
+    const form = document.getElementById('login-form');
+    const passwordInput = document.getElementById('admin-password');
+    const errorMessage = document.getElementById('error-message');
+
+    // Check if already logged in
+    if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+      window.location.href = 'admin-ai-hub.html';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = passwordInput.value;
+
+      if (password === ADMIN_PASSWORD) {
+        // Set login state
+        sessionStorage.setItem('adminLoggedIn', 'true');
+        sessionStorage.setItem('adminUser', 'Josh Stone');
+
+        // Redirect to AI hub
+        window.location.href = 'admin-ai-hub.html';
+      } else {
+        // Show error
+        errorMessage.classList.remove('hidden');
+        passwordInput.value = '';
+        passwordInput.classList.add('border-red-500');
+
+        setTimeout(() => {
+          errorMessage.classList.add('hidden');
+          passwordInput.classList.remove('border-red-500');
+        }, 3000);
+      }
+    });
+
+    // Clear error on input
+    passwordInput.addEventListener('input', () => {
+      errorMessage.classList.add('hidden');
+      passwordInput.classList.remove('border-red-500');
+    });
+
+    // Password hint function (for development - remove in production)
+    function showHint() {
+      if (confirm('Password hint: Same as careers compensation page')) {
+        passwordInput.value = ADMIN_PASSWORD;
+        passwordInput.focus();
+      }
+    }
+
+    // Focus input on load
+    passwordInput.focus();
+
+    // Allow Enter key
+    passwordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        form.dispatchEvent(new Event('submit'));
+      }
+    });
+  </script>
+
+</body>
+</html>

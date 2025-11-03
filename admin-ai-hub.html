@@ -10,6 +10,13 @@
 </head>
 <body class="bg-black text-white min-h-screen">
 
+  <!-- Login Protection -->
+  <script>
+    if (sessionStorage.getItem('adminLoggedIn') !== 'true') {
+      window.location.href = 'admin.html';
+    }
+  </script>
+
   <!-- Header -->
   <header class="fixed w-full top-0 bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -20,12 +27,11 @@
       <div class="flex items-center space-x-4">
         <div class="text-sm">
           <span class="text-gray-400">Admin:</span>
-          <span class="text-white font-semibold ml-2">Josh Stone</span>
+          <span class="text-white font-semibold ml-2" id="admin-name">Josh Stone</span>
         </div>
-        <button class="text-gray-400 hover:text-white">
+        <button onclick="logout()" class="text-gray-400 hover:text-red-400 transition" title="Logout">
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 16v-4M12 8h.01"></path>
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"></path>
           </svg>
         </button>
       </div>

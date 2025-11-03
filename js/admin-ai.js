@@ -3,6 +3,24 @@
  * Deep AI integration for business management
  */
 
+// Initialize admin session
+document.addEventListener('DOMContentLoaded', () => {
+  const adminName = sessionStorage.getItem('adminUser') || 'Admin';
+  const nameElement = document.getElementById('admin-name');
+  if (nameElement) {
+    nameElement.textContent = adminName;
+  }
+});
+
+// Logout function
+function logout() {
+  if (confirm('Are you sure you want to log out?')) {
+    sessionStorage.removeItem('adminLoggedIn');
+    sessionStorage.removeItem('adminUser');
+    window.location.href = 'admin.html';
+  }
+}
+
 // AI Tool Definitions
 const aiTools = {
   'business-intelligence': {
