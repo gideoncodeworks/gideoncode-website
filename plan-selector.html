@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Plan Selector | Gideon Code Works</title>
+  <meta name="description" content="Get personalized recommendations for your website and digital presence needs">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/gcw-logo.png" type="image/png">
+</head>
+<body class="bg-black text-white min-h-screen">
+
+  <!-- Header -->
+  <header class="fixed w-full top-0 bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <a href="index.html">
+        <img src="images/gcw-logo.png" alt="Gideon Code Works" width="180" height="54" loading="eager">
+      </a>
+      <a href="services.html" class="text-cyan-400 hover:text-cyan-300 transition text-sm">View All Services</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Intro Section -->
+      <div id="intro-section" class="text-center mb-12">
+        <div class="inline-block mb-6">
+          <div class="text-6xl mb-4">🤖</div>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold gradient-text mb-4">
+          AI Plan Selector
+        </h1>
+        <p class="text-gray-300 text-lg mb-8">
+          Answer a few quick questions and get personalized recommendations for your digital presence
+        </p>
+        <button onclick="startQuestionnaire()" class="neon-button text-lg px-8 py-4">
+          Get Started
+        </button>
+      </div>
+
+      <!-- Questionnaire Section -->
+      <div id="questionnaire-section" class="hidden">
+        <!-- Progress Bar -->
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-400">Progress</span>
+            <span class="text-sm text-cyan-400"><span id="current-question">1</span> of <span id="total-questions">5</span></span>
+          </div>
+          <div class="w-full bg-gray-800 rounded-full h-2">
+            <div id="progress-bar" class="bg-gradient-to-r from-cyan-500 to-magenta-500 h-2 rounded-full transition-all duration-300" style="width: 20%"></div>
+          </div>
+        </div>
+
+        <!-- Question Container -->
+        <div class="cyber-card mb-6">
+          <h2 id="question-text" class="text-2xl font-bold text-white mb-6"></h2>
+          <div id="options-container" class="space-y-4"></div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between">
+          <button id="back-button" onclick="previousQuestion()" class="neon-button-outline px-6 py-3 opacity-50 pointer-events-none">
+            ← Back
+          </button>
+          <button id="next-button" onclick="nextQuestion()" class="neon-button px-6 py-3 opacity-50 pointer-events-none">
+            Next →
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div id="results-section" class="hidden">
+        <div class="text-center mb-8">
+          <div class="text-6xl mb-4">✨</div>
+          <h2 class="text-4xl font-bold gradient-text mb-4">Your Personalized Recommendations</h2>
+          <p class="text-gray-300">Based on your answers, here's what we recommend:</p>
+        </div>
+
+        <!-- Recommended Plan -->
+        <div id="recommended-plan" class="cyber-card border-2 border-cyan-500 mb-8">
+          <!-- Will be populated by JavaScript -->
+        </div>
+
+        <!-- Alternative Options -->
+        <div id="alternative-plans" class="mb-8">
+          <h3 class="text-2xl font-bold text-white mb-4">Other Options to Consider</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="text-center space-y-4">
+          <a id="checkout-button" href="checkout.html" class="neon-button inline-block px-8 py-4 text-lg">
+            Proceed to Checkout
+          </a>
+          <div>
+            <a href="contact.html" class="text-cyan-400 hover:text-cyan-300 transition">
+              Need help deciding? Talk to our team →
+            </a>
+          </div>
+          <div>
+            <button onclick="restartQuestionnaire()" class="text-gray-400 hover:text-gray-300 transition text-sm">
+              ← Start Over
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Questionnaire data
+    const questions = [
+      {
+        id: 1,
+        text: "What type of business do you have?",
+        options: [
+          { value: "service", label: "Service-based (consulting, contracting, etc.)", weight: { website: 2, crm: 1 } },
+          { value: "ecommerce", label: "E-commerce / Retail", weight: { website: 3, crm: 2 } },
+          { value: "saas", label: "Software / SaaS", weight: { webapp: 3, crm: 2 } },
+          { value: "local", label: "Local business (restaurant, salon, gym, etc.)", weight: { website: 2, crm: 1 } },
+          { value: "other", label: "Other / Multiple", weight: { website: 2, crm: 1 } }
+        ]
+      },
+      {
+        id: 2,
+        text: "What's your primary goal?",
+        options: [
+          { value: "leads", label: "Generate leads and get more customers", weight: { website: 2, seo: 2 } },
+          { value: "brand", label: "Build my brand and online presence", weight: { website: 2, branding: 2 } },
+          { value: "sales", label: "Sell products or services online", weight: { website: 3, ecommerce: 2 } },
+          { value: "manage", label: "Manage customers and sales pipeline", weight: { crm: 3, website: 1 } },
+          { value: "app", label: "Build a custom web/mobile application", weight: { webapp: 3, mobileapp: 2 } }
+        ]
+      },
+      {
+        id: 3,
+        text: "How many pages do you need on your website?",
+        options: [
+          { value: "1-5", label: "1-5 pages (simple presence)", weight: { tier: "starter" } },
+          { value: "6-10", label: "6-10 pages (standard site)", weight: { tier: "growth" } },
+          { value: "11-20", label: "11-20 pages (extensive content)", weight: { tier: "domination" } },
+          { value: "20+", label: "20+ pages (large site)", weight: { tier: "domination" } },
+          { value: "unsure", label: "Not sure yet", weight: { tier: "growth" } }
+        ]
+      },
+      {
+        id: 4,
+        text: "Do you want ongoing maintenance and updates?",
+        options: [
+          { value: "yes", label: "Yes, I want monthly support and updates", weight: { monthly: 3 } },
+          { value: "no", label: "No, just build it and I'll manage it myself", weight: { onetime: 3 } },
+          { value: "maybe", label: "Maybe later, but not right now", weight: { onetime: 2 } }
+        ]
+      },
+      {
+        id: 5,
+        text: "What's your budget range?",
+        options: [
+          { value: "under-3k", label: "Under $3,000", weight: { tier: "starter", onetime: 2 } },
+          { value: "3k-5k", label: "$3,000 - $5,000", weight: { tier: "growth" } },
+          { value: "5k-10k", label: "$5,000 - $10,000", weight: { tier: "domination" } },
+          { value: "10k+", label: "$10,000+", weight: { tier: "domination", webapp: 2 } },
+          { value: "flexible", label: "Flexible / Not sure", weight: { tier: "growth" } }
+        ]
+      }
+    ];
+
+    // Service packages
+    const packages = {
+      'website-starter-onetime': {
+        name: 'Website Starter (One-Time)',
+        price: '$2,497',
+        recurring: null,
+        features: [
+          'Up to 5 pages',
+          'Mobile responsive design',
+          'Contact form',
+          'Basic SEO setup',
+          '30 days post-launch support'
+        ],
+        description: 'Perfect for small businesses that need a simple online presence',
+        checkoutUrl: 'checkout.html?plan=website-starter-onetime'
+      },
+      'website-starter-monthly': {
+        name: 'Website Starter (Monthly)',
+        price: '$997',
+        recurring: '$97/mo',
+        features: [
+          'Up to 5 pages',
+          'Mobile responsive design',
+          'Contact form',
+          'Monthly updates & changes',
+          'Ongoing SEO optimization',
+          'Analytics & reporting'
+        ],
+        description: 'Lower upfront cost with ongoing support and updates',
+        checkoutUrl: 'checkout.html?plan=website-starter-monthly'
+      },
+      'website-growth-onetime': {
+        name: 'Website Growth (One-Time)',
+        price: '$3,497',
+        recurring: null,
+        features: [
+          'Up to 10 pages',
+          'Advanced SEO',
+          'Newsletter signup',
+          'Social media integration',
+          '60 days post-launch support'
+        ],
+        description: 'Best for growing businesses that need more content and features',
+        checkoutUrl: 'checkout.html?plan=website-growth-onetime'
+      },
+      'website-growth-monthly': {
+        name: 'Website Growth (Monthly)',
+        price: '$1,497',
+        recurring: '$147/mo',
+        features: [
+          'Up to 10 pages',
+          'Advanced SEO',
+          'Newsletter integration',
+          'Monthly content updates',
+          'A/B testing',
+          'Performance optimization',
+          'Priority support'
+        ],
+        description: 'Most popular option for serious businesses',
+        checkoutUrl: 'checkout.html?plan=website-growth-monthly',
+        recommended: true
+      },
+      'website-domination-onetime': {
+        name: 'Website Domination (One-Time)',
+        price: '$4,997',
+        recurring: null,
+        features: [
+          'Unlimited pages',
+          'E-commerce ready',
+          'Blog/news system',
+          'Advanced integrations',
+          '90 days post-launch support'
+        ],
+        description: 'Complete solution for businesses that want it all',
+        checkoutUrl: 'checkout.html?plan=website-domination-onetime'
+      },
+      'website-domination-monthly': {
+        name: 'Website Domination (Monthly)',
+        price: '$1,997',
+        recurring: '$197/mo',
+        features: [
+          'Unlimited pages',
+          'E-commerce support',
+          'Weekly updates',
+          'Advanced analytics',
+          'Custom integrations',
+          'Dedicated support',
+          'Growth consulting'
+        ],
+        description: 'Enterprise-level website with maximum support',
+        checkoutUrl: 'checkout.html?plan=website-domination-monthly'
+      },
+      'crm-platform': {
+        name: 'Gideon Code CRM Platform',
+        price: 'Custom',
+        recurring: 'Starting at $97/mo',
+        features: [
+          'Sales pipeline management',
+          'Commission tracking',
+          'Team management',
+          'Real-time analytics',
+          'Mobile access',
+          'Custom integrations'
+        ],
+        description: 'Perfect for businesses that need to manage their sales team',
+        checkoutUrl: 'checkout.html?plan=crm-platform'
+      }
+    };
+
+    // State
+    let currentQuestionIndex = 0;
+    let answers = {};
+    let scores = {
+      website: 0,
+      crm: 0,
+      webapp: 0,
+      mobileapp: 0,
+      branding: 0,
+      seo: 0,
+      ecommerce: 0,
+      monthly: 0,
+      onetime: 0,
+      tier: { starter: 0, growth: 0, domination: 0 }
+    };
+
+    function startQuestionnaire() {
+      document.getElementById('intro-section').classList.add('hidden');
+      document.getElementById('questionnaire-section').classList.remove('hidden');
+      document.getElementById('total-questions').textContent = questions.length;
+      showQuestion(0);
+    }
+
+    function showQuestion(index) {
+      currentQuestionIndex = index;
+      const question = questions[index];
+
+      document.getElementById('current-question').textContent = index + 1;
+      document.getElementById('question-text').textContent = question.text;
+
+      // Update progress bar
+      const progress = ((index + 1) / questions.length) * 100;
+      document.getElementById('progress-bar').style.width = progress + '%';
+
+      // Render options
+      const optionsContainer = document.getElementById('options-container');
+      optionsContainer.innerHTML = '';
+
+      question.options.forEach(option => {
+        const button = document.createElement('button');
+        button.className = 'option-button w-full text-left p-4 rounded-lg border-2 border-gray-700 hover:border-cyan-500 transition-all duration-200';
+        button.innerHTML = `
+          <div class="flex items-center">
+            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-600 mr-4 option-radio"></div>
+            <div class="text-white">${option.label}</div>
+          </div>
+        `;
+
+        if (answers[question.id] === option.value) {
+          button.classList.add('selected');
+        }
+
+        button.onclick = () => selectOption(question.id, option.value, option.weight);
+        optionsContainer.appendChild(button);
+      });
+
+      // Update navigation buttons
+      const backButton = document.getElementById('back-button');
+      const nextButton = document.getElementById('next-button');
+
+      if (index === 0) {
+        backButton.classList.add('opacity-50', 'pointer-events-none');
+      } else {
+        backButton.classList.remove('opacity-50', 'pointer-events-none');
+      }
+
+      if (answers[question.id]) {
+        nextButton.classList.remove('opacity-50', 'pointer-events-none');
+      } else {
+        nextButton.classList.add('opacity-50', 'pointer-events-none');
+      }
+    }
+
+    function selectOption(questionId, value, weight) {
+      answers[questionId] = value;
+
+      // Update scores
+      Object.keys(weight).forEach(key => {
+        if (key === 'tier') {
+          scores.tier[weight[key]] += 1;
+        } else {
+          scores[key] = (scores[key] || 0) + weight[key];
+        }
+      });
+
+      // Update UI
+      document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+
+      // Enable next button
+      document.getElementById('next-button').classList.remove('opacity-50', 'pointer-events-none');
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < questions.length - 1) {
+        showQuestion(currentQuestionIndex + 1);
+      } else {
+        showResults();
+      }
+    }
+
+    function previousQuestion() {
+      if (currentQuestionIndex > 0) {
+        showQuestion(currentQuestionIndex - 1);
+      }
+    }
+
+    function showResults() {
+      document.getElementById('questionnaire-section').classList.add('hidden');
+      document.getElementById('results-section').classList.remove('hidden');
+
+      // Determine recommended package
+      let recommendedPackage;
+
+      // Determine if CRM is needed
+      if (scores.crm >= 4) {
+        recommendedPackage = packages['crm-platform'];
+      } else {
+        // Determine tier
+        let tier = 'growth'; // default
+        if (scores.tier.starter > scores.tier.growth && scores.tier.starter > scores.tier.domination) {
+          tier = 'starter';
+        } else if (scores.tier.domination > scores.tier.growth) {
+          tier = 'domination';
+        }
+
+        // Determine if monthly or onetime
+        const isMonthly = scores.monthly > scores.onetime;
+        const suffix = isMonthly ? 'monthly' : 'onetime';
+
+        recommendedPackage = packages[`website-${tier}-${suffix}`];
+      }
+
+      // Display recommended package
+      const recommendedDiv = document.getElementById('recommended-plan');
+      recommendedDiv.innerHTML = `
+        <div class="mb-4">
+          <span class="inline-block bg-cyan-500 text-black text-xs font-bold px-3 py-1 rounded-full mb-4">RECOMMENDED FOR YOU</span>
+          <h3 class="text-3xl font-bold text-cyan-400 mb-2">${recommendedPackage.name}</h3>
+          <p class="text-gray-300 mb-4">${recommendedPackage.description}</p>
+        </div>
+        <div class="mb-6">
+          <div class="text-4xl font-bold text-white mb-2">
+            ${recommendedPackage.price}
+            ${recommendedPackage.recurring ? `<span class="text-lg text-gray-400">+ ${recommendedPackage.recurring}</span>` : ''}
+          </div>
+        </div>
+        <ul class="space-y-3 mb-8">
+          ${recommendedPackage.features.map(f => `<li class="flex items-start"><span class="text-cyan-400 mr-2">✓</span><span class="text-gray-300">${f}</span></li>`).join('')}
+        </ul>
+        <a href="${recommendedPackage.checkoutUrl}" class="neon-button w-full text-center block">
+          Select This Plan
+        </a>
+      `;
+
+      // Show alternative options
+      const alternativesDiv = document.getElementById('alternative-plans');
+      let alternatives = [];
+
+      // Add 2-3 alternative packages
+      Object.keys(packages).forEach(key => {
+        if (packages[key] !== recommendedPackage && alternatives.length < 3) {
+          if (key.startsWith('website-')) {
+            alternatives.push(packages[key]);
+          }
+        }
+      });
+
+      alternativesDiv.querySelector('div').innerHTML = alternatives.map(pkg => `
+        <div class="cyber-card">
+          <h4 class="text-xl font-bold text-white mb-2">${pkg.name}</h4>
+          <div class="text-2xl font-bold text-cyan-400 mb-4">
+            ${pkg.price}
+            ${pkg.recurring ? `<span class="text-sm text-gray-400">+ ${pkg.recurring}</span>` : ''}
+          </div>
+          <ul class="space-y-2 mb-6 text-sm">
+            ${pkg.features.slice(0, 4).map(f => `<li class="text-gray-400">✓ ${f}</li>`).join('')}
+          </ul>
+          <a href="${pkg.checkoutUrl}" class="neon-button-outline w-full text-center block text-sm">
+            Select
+          </a>
+        </div>
+      `).join('');
+
+      // Update checkout button
+      document.getElementById('checkout-button').href = recommendedPackage.checkoutUrl;
+    }
+
+    function restartQuestionnaire() {
+      currentQuestionIndex = 0;
+      answers = {};
+      scores = {
+        website: 0,
+        crm: 0,
+        webapp: 0,
+        mobileapp: 0,
+        branding: 0,
+        seo: 0,
+        ecommerce: 0,
+        monthly: 0,
+        onetime: 0,
+        tier: { starter: 0, growth: 0, domination: 0 }
+      };
+
+      document.getElementById('results-section').classList.add('hidden');
+      document.getElementById('intro-section').classList.remove('hidden');
+    }
+  </script>
+
+  <style>
+    .option-button.selected {
+      border-color: #06b6d4;
+      background: rgba(6, 182, 212, 0.1);
+    }
+
+    .option-button.selected .option-radio {
+      border-color: #06b6d4;
+      background: #06b6d4;
+      position: relative;
+    }
+
+    .option-button.selected .option-radio::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+    }
+  </style>
+
+</body>
+</html>
