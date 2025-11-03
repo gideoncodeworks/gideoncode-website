@@ -263,6 +263,21 @@
     const selectedPlan = urlParams.get('plan') || 'website-growth-monthly';
     const plan = plans[selectedPlan];
 
+    // Get addons from URL
+    const addonsParam = urlParams.get('addons');
+    const addonPricesParam = urlParams.get('addonPrices');
+    const totalPriceOverride = urlParams.get('totalPrice');
+
+    let addons = [];
+    let totalPrice = plan.totalPrice;
+
+    if (addonsParam && addonPricesParam) {
+      const addonNames = addonsParam.split(',');
+      const addonPrices = addonPricesParam.split(',').map(p => parseInt(p));
+      addons = addonNames.map((name, i) => ({ name, price: addonPrices[i] }));
+      totalPrice = parseInt(totalPriceOverride) || (plan.totalPrice + addonPrices.reduce((a,b) => a+b, 0));
+    }
+
     // Populate page with plan details
     if (plan) {
       document.getElementById('plan-name').textContent = plan.name;
@@ -270,15 +285,26 @@
 
       // Features
       const featuresDiv = document.getElementById('plan-features');
-      featuresDiv.innerHTML = plan.features.map(f =>
+      let featuresHTML = plan.features.map(f =>
         `<div class="flex items-start"><span class="text-cyan-400 mr-2">✓</span><span class="text-gray-300 text-sm">${f}</span></div>`
       ).join('');
 
-      // Pricing
-      const depositAmount = (plan.totalPrice * 0.5).toFixed(2);
-      const balanceAmount = (plan.totalPrice * 0.5).toFixed(2);
+      // Add selected addons to features
+      if (addons.length > 0) {
+        featuresHTML += '<div class="pt-3 mt-3 border-t border-gray-800"><div class="text-cyan-400 text-xs font-bold mb-2">ADD-ONS:</div>';
+        featuresHTML += addons.map(addon =>
+          `<div class="flex items-start"><span class="text-cyan-400 mr-2">+</span><span class="text-gray-300 text-sm">${addon.name} (+$${addon.price.toLocaleString()})</span></div>`
+        ).join('');
+        featuresHTML += '</div>';
+      }
 
-      document.getElementById('total-price').textContent = `$${plan.totalPrice.toLocaleString()}`;
+      featuresDiv.innerHTML = featuresHTML;
+
+      // Pricing
+      const depositAmount = (totalPrice * 0.5).toFixed(2);
+      const balanceAmount = (totalPrice * 0.5).toFixed(2);
+
+      document.getElementById('total-price').textContent = `$${totalPrice.toLocaleString()}`;
       document.getElementById('deposit-amount').textContent = `$${depositAmount}`;
       document.getElementById('balance-amount').textContent = `$${balanceAmount}`;
       document.getElementById('checkout-total').textContent = `$${depositAmount}`;
@@ -289,9 +315,9 @@
       }
     }
 
-    // Initialize Stripe (use your test publishable key)
-    // TODO: Replace with your actual Stripe publishable key
-    const stripe = Stripe('pk_test_YOUR_PUBLISHABLE_KEY_HERE');
+    // Initialize Stripe
+    // Get your test key from: https://dashboard.stripe.com/test/apikeys
+    const stripe = Stripe('pk_test_51QR7wHRrnG5qIy3dE3UOBRWJ5BGNF6FJlT8JcFXrp7tI3YCYjQl2K0E5KbfyXGj4O7vFOxI2AJpnMLqOzBmPUa1k00XW1bKLIa');
 
     async function handleCheckout() {
       // Validate form
@@ -307,6 +333,7 @@
       button.textContent = 'Processing...';
 
       // Collect customer data
+      const addonsSummary = addons.length > 0 ? `\n\nAdd-ons: ${addons.map(a => a.name).join(', ')}` : '';
       const customerData = {
         firstName: document.getElementById('firstName').value,
         lastName: document.getElementById('lastName').value,
@@ -314,31 +341,41 @@
         phone: document.getElementById('phone').value,
         company: document.getElementById('company').value,
         website: document.getElementById('website').value,
-        projectDetails: document.getElementById('projectDetails').value,
+        projectDetails: document.getElementById('projectDetails').value + addonsSummary,
         selectedPlan: selectedPlan,
-        planName: plan.name,
-        totalPrice: plan.totalPrice,
-        depositAmount: (plan.totalPrice * 0.5).toFixed(2),
+        planName: plan.name + (addons.length > 0 ? ' + Add-ons' : ''),
+        totalPrice: totalPrice,
+        depositAmount: (totalPrice * 0.5).toFixed(2),
         monthlyPrice: plan.monthlyPrice
       };
 
       try {
-        // TODO: Replace with your actual backend endpoint
-        // This would call your server to create a Stripe Checkout Session
-        // For now, we'll redirect to a success page with the data
+        // Call CRM API to create Stripe Checkout Session
+        const functionUrl = 'https://crm.gideoncode.com/api/public/create-checkout-session';
 
-        // In production, you would do:
-        // const response = await fetch('/create-checkout-session', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(customerData)
-        // });
-        // const session = await response.json();
-        // const result = await stripe.redirectToCheckout({ sessionId: session.id });
+        const response = await fetch(functionUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ customerData })
+        });
 
-        // For now, store data and redirect to success page
+        if (!response.ok) {
+          throw new Error('Failed to create checkout session');
+        }
+
+        const { sessionId } = await response.json();
+
+        // Store customer data for success page
         sessionStorage.setItem('customerData', JSON.stringify(customerData));
-        window.location.href = 'checkout-success.html';
+
+        // Redirect to Stripe Checkout
+        const result = await stripe.redirectToCheckout({ sessionId });
+
+        if (result.error) {
+          throw new Error(result.error.message);
+        }
 
       } catch (error) {
         console.error('Error:', error);
