@@ -231,13 +231,28 @@ h4, h5, h6 {
 }
 
 .neon-button-outline:hover {
-  background: rgba(0, 255, 255, 0.1);
+  color: var(--bg-black);
   box-shadow: 0 0 20px var(--primary-cyan),
-              0 0 40px var(--primary-cyan);
+              0 0 40px var(--primary-cyan),
+              0 0 60px var(--primary-cyan);
 }
 
 .neon-button-outline::before {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-cyan);
+  transition: left 0.3s ease, opacity 0.3s ease;
+  z-index: -1;
+  opacity: 0;
+}
+
+.neon-button-outline:hover::before {
+  left: 0;
+  opacity: 1;
 }
 
 /* Card Styles */
