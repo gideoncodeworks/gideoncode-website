@@ -31,3 +31,4 @@
   for = "/*.svg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+<!-- Deployment trigger Sun Nov  2 21:00:47 EST 2025 -->
