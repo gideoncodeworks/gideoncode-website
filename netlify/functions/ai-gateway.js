@@ -173,8 +173,12 @@ async function callOpenAI(prompt) {
 
   if (!response.ok) {
     const error = await response.text();
-    console.error('OpenAI error:', error);
-    throw new Error('OpenAI request failed');
+    console.error('OpenAI error response:', {
+      status: response.status,
+      statusText: response.statusText,
+      body: error
+    });
+    throw new Error(`OpenAI ${response.status}: ${error.substring(0, 200)}`);
   }
 
   const data = await response.json();
@@ -206,8 +210,12 @@ async function callAnthropic(prompt) {
 
   if (!response.ok) {
     const error = await response.text();
-    console.error('Anthropic error:', error);
-    throw new Error('Anthropic request failed');
+    console.error('Anthropic error response:', {
+      status: response.status,
+      statusText: response.statusText,
+      body: error
+    });
+    throw new Error(`Anthropic ${response.status}: ${error.substring(0, 200)}`);
   }
 
   const data = await response.json();
@@ -311,7 +319,8 @@ exports.handler = async (event, context) => {
       headers,
       body: JSON.stringify({
         error: 'AI service temporarily unavailable',
-        message: error.message
+        message: error.message,
+        details: error.stack?.split('\n').slice(0, 3).join('\n') // First 3 lines of stack
       })
     };
   }
