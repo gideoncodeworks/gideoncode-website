@@ -150,6 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
     el.setAttribute('data-text', el.textContent);
   });
 
+  // Apply glow interaction to standard buttons site-wide
+  document.querySelectorAll('button').forEach(button => {
+    if (
+      !button.classList.contains('neon-button') &&
+      !button.classList.contains('neon-button-magenta') &&
+      !button.classList.contains('neon-button-outline')
+    ) {
+      button.classList.add('glow-button');
+    }
+  });
+
   const laneLinks = Array.from(document.querySelectorAll('.floating-cta__link'));
   const laneSections = Array.from(document.querySelectorAll('[data-lane]'));
 
