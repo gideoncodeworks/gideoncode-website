@@ -75,10 +75,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Set active nav link based on current page
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const isCareersFamily = currentPage.startsWith('careers');
+  const isWebFamily = currentPage === 'services.html' || currentPage.endsWith('-demo.html');
+
   document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('http')) {
+      return;
+    }
+    const baseHref = (href.split('#')[0] || href) || '';
+    const matchesPage = baseHref === currentPage || (currentPage === '' && baseHref === 'index.html');
+    const matchesCareers = isCareersFamily && baseHref === 'careers.html';
+    const matchesWeb = isWebFamily && baseHref === 'services.html';
+    if (matchesPage || matchesCareers || matchesWeb) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 
@@ -138,6 +149,33 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.glitch').forEach(el => {
     el.setAttribute('data-text', el.textContent);
   });
+
+  const laneLinks = Array.from(document.querySelectorAll('.floating-cta__link'));
+  const laneSections = Array.from(document.querySelectorAll('[data-lane]'));
+
+  if (laneLinks.length && laneSections.length) {
+    const setActiveLane = (laneId) => {
+      laneLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.laneTarget === laneId);
+      });
+    };
+
+    laneLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setActiveLane(link.dataset.laneTarget);
+      });
+    });
+
+    const laneObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveLane(entry.target.dataset.lane);
+        }
+      });
+    }, { threshold: 0.45, rootMargin: '-10% 0px -10% 0px' });
+
+    laneSections.forEach(section => laneObserver.observe(section));
+  }
 });
 
 // Pricing Calculator (optional enhancement)

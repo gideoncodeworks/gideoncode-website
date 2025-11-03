@@ -347,6 +347,222 @@ body.menu-open #mobile-menu-overlay {
   pointer-events: auto;
 }
 
+.floating-cta {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  z-index: 70;
+}
+
+.floating-cta__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-white);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 255, 0.35);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.floating-cta__link:hover,
+.floating-cta__link:focus-visible {
+  color: var(--bg-black);
+  background: linear-gradient(90deg, var(--primary-cyan), var(--primary-magenta));
+  border-color: transparent;
+}
+
+.floating-cta__link.active {
+  color: var(--bg-black);
+  background: linear-gradient(90deg, var(--primary-cyan), var(--primary-magenta));
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.35);
+}
+
+.lane-visual {
+  position: relative;
+  min-height: 320px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.35);
+  background: radial-gradient(120% 120% at 10% 10%, rgba(0, 255, 255, 0.35), transparent 55%), radial-gradient(150% 150% at 85% 20%, rgba(255, 0, 255, 0.25), transparent 60%), rgba(0, 0, 0, 0.85);
+}
+
+.lane-visual::before,
+.lane-visual::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(40px);
+  opacity: 0.7;
+}
+
+.lane-visual--services::before {
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  left: -40px;
+  background: rgba(0, 255, 255, 0.45);
+}
+
+.lane-visual--services::after {
+  width: 260px;
+  height: 260px;
+  bottom: -80px;
+  right: -40px;
+  background: rgba(255, 0, 128, 0.35);
+}
+
+.lane-visual--crm {
+  border-color: rgba(0, 255, 200, 0.35);
+  background: radial-gradient(110% 110% at 15% 20%, rgba(0, 255, 255, 0.4), transparent 55%), radial-gradient(130% 130% at 80% 30%, rgba(0, 120, 255, 0.32), transparent 60%), rgba(2, 8, 28, 0.92);
+}
+
+.lane-visual--crm::before {
+  width: 240px;
+  height: 240px;
+  top: -70px;
+  right: -60px;
+  background: rgba(0, 174, 255, 0.45);
+}
+
+.lane-visual--crm::after {
+  width: 220px;
+  height: 220px;
+  bottom: -80px;
+  left: -50px;
+  background: rgba(0, 255, 199, 0.3);
+}
+
+.lane-visual--careers {
+  border-color: rgba(255, 0, 170, 0.35);
+  background: radial-gradient(110% 110% at 20% 15%, rgba(255, 0, 170, 0.35), transparent 55%), radial-gradient(140% 140% at 80% 60%, rgba(255, 128, 0, 0.25), transparent 60%), rgba(20, 4, 30, 0.9);
+}
+
+.lane-visual--careers::before {
+  width: 260px;
+  height: 260px;
+  top: -80px;
+  left: -60px;
+  background: rgba(255, 0, 170, 0.45);
+}
+
+.lane-visual--careers::after {
+  width: 220px;
+  height: 220px;
+  bottom: -80px;
+  right: -40px;
+  background: rgba(255, 110, 0, 0.35);
+}
+
+.lane-visual__badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  color: var(--text-white);
+}
+
+.lane-visual__badge--right {
+  left: auto;
+  right: 1.5rem;
+  border-color: rgba(0, 174, 255, 0.5);
+}
+
+.lane-card-visual {
+  position: relative;
+  height: 5.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.lane-card-visual::before,
+.lane-card-visual::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(30px);
+  opacity: 0.75;
+}
+
+.lane-card-visual--waa {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.22), rgba(0, 200, 255, 0.12));
+}
+
+.lane-card-visual--waa::before {
+  width: 140px;
+  height: 140px;
+  top: -60px;
+  left: -30px;
+  background: rgba(0, 255, 255, 0.45);
+}
+
+.lane-card-visual--waa::after {
+  width: 120px;
+  height: 120px;
+  bottom: -50px;
+  right: -40px;
+  background: rgba(0, 174, 255, 0.35);
+}
+
+.lane-card-visual--brand {
+  border-color: rgba(255, 0, 204, 0.25);
+  background: linear-gradient(135deg, rgba(255, 0, 170, 0.22), rgba(120, 0, 255, 0.12));
+}
+
+.lane-card-visual--brand::before {
+  width: 130px;
+  height: 130px;
+  top: -40px;
+  right: -30px;
+  background: rgba(255, 0, 170, 0.45);
+}
+
+.lane-card-visual--brand::after {
+  width: 120px;
+  height: 120px;
+  bottom: -50px;
+  left: -20px;
+  background: rgba(153, 0, 255, 0.35);
+}
+
+.lane-card-visual--custom {
+  border-color: rgba(0, 255, 200, 0.25);
+  background: linear-gradient(135deg, rgba(0, 255, 200, 0.2), rgba(0, 110, 255, 0.12));
+}
+
+.lane-card-visual--custom::before {
+  width: 140px;
+  height: 140px;
+  top: -50px;
+  left: -40px;
+  background: rgba(0, 255, 200, 0.45);
+}
+
+.lane-card-visual--custom::after {
+  width: 120px;
+  height: 120px;
+  bottom: -40px;
+  right: -20px;
+  background: rgba(0, 120, 255, 0.3);
+}
+
 @media (max-width: 640px) {
   .mobile-menu {
     width: 100vw;
