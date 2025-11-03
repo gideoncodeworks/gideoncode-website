@@ -628,7 +628,7 @@
       contextEl.textContent = deriveContext();
       panel.focus();
       if (!feed.children.length) {
-        appendMessage('system', 'Welcome aboard. Ask for a plan, or say “Show me the launch phases” to get started.');
+        appendMessage('system', 'Let\'s print some revenue. Ask about pricing, timelines, or what we can build for you.');
       }
     };
 
