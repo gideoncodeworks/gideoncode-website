@@ -357,11 +357,8 @@
       if (!action) return;
 
       switch (action) {
-        case 'download':
-          alert('Download pipeline coming soon. Dev note: wire to PDF generator.');
-          break;
-        case 'notion':
-          alert('Connect to Notion API via backend. We will create a draft page for the client.');
+        case 'email':
+          handleEmailScope();
           break;
         case 'restart':
           form.reset();
@@ -371,6 +368,56 @@
           break;
         default:
           break;
+      }
+    });
+
+    const handleEmailScope = async () => {
+      const email = prompt('Enter your email to receive the scope document:');
+      if (!email || !email.includes('@')) {
+        alert('Please enter a valid email address');
+        return;
+      }
+
+      const outputBody = select('#scope-output-body');
+      if (!outputBody) return;
+
+      const scopeData = {
+        email,
+        scopeHtml: outputBody.innerHTML,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        outputStatus.classList.add('processing');
+        outputStatus.textContent = 'Sending scope to your email...';
+
+        const response = await fetch('/.netlify/functions/email-scope', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(scopeData)
+        });
+
+        if (!response.ok) throw new Error('Failed to send email');
+
+        outputStatus.classList.remove('processing');
+        outputStatus.classList.add('success');
+        outputStatus.textContent = `✓ Scope sent to ${email}!`;
+
+        setTimeout(() => {
+          outputStatus.classList.remove('success');
+          outputStatus.textContent = 'Mission deck ready. Share it or restart.';
+        }, 5000);
+
+      } catch (error) {
+        outputStatus.classList.remove('processing');
+        outputStatus.classList.add('error');
+        outputStatus.textContent = 'Failed to send email. Please try again.';
+        console.error('Email error:', error);
+
+        setTimeout(() => {
+          outputStatus.classList.remove('error');
+          outputStatus.textContent = 'Mission deck ready. Share it or restart.';
+        }, 5000);
       }
     });
   };

@@ -19,6 +19,22 @@ A modern, cyberpunk-themed website for Gideon Code Works - building recurring re
 - **Contact Forms**: Working contact and careers application forms
 - **SEO Optimized**: Semantic HTML and proper meta tags
 
+## AI Experience Suite (Homepage)
+
+The homepage now stages a client-facing AI journey powered by Netlify Functions that proxy OpenAI GPT-4o and Anthropic Claude Sonnet. Modules:
+
+- **Vision Gate Hero** – Intent input (text/voice) re-themes the hero copy in real time.
+- **Adaptive Concierge HUD** – Floating assistant that reads page context and offers predictive next moves.
+- **Predictive Scope Visualizer** – Three-step wizard outputting mission decks, metrics, and recommended actions.
+- **Vision Preview Reel** – Generates hero copy, palette, and motion beats for pitch-ready previews.
+
+### Backend TODO
+
+1. Store sessions only when users opt in (`scope-save`, `reel-save`), logging email + consent for follow up.
+2. Wire export actions (PDF, Notion) to backend services using the structured payloads returned by the wizard.
+3. Connect the preview reel to real media generation (Midjourney, DALL·E, or custom renderer) and stream progress.
+4. Add analytics/telemetry to tune prompts while respecting opt-in/out states noted in the UI.
+
 ## Pages
 
 1. **Home** (`index.html`) - Hero section with value propositions
