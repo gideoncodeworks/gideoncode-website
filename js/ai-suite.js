@@ -546,7 +546,62 @@
     return match ? match[1].trim() : null;
   };
 
+  const ensureConciergeMarkup = () => {
+    if (select('#ai-concierge')) {
+      return;
+    }
+
+    const template = `
+      <section id="ai-concierge" aria-live="polite" class="ai-concierge hidden">
+        <header class="ai-concierge-header">
+          <div>
+            <h2 class="ai-concierge-title">Gideon Code Concierge</h2>
+            <p id="ai-concierge-context" class="ai-concierge-context text-sm text-gray-300">Ready to map your next move.</p>
+          </div>
+          <button type="button" id="ai-concierge-close" class="ai-concierge-close" aria-label="Close concierge panel">✕</button>
+        </header>
+        <div id="ai-concierge-feed" class="ai-concierge-feed" role="log"></div>
+        <form id="ai-concierge-form" class="ai-concierge-form">
+          <label for="ai-concierge-input" class="sr-only">Ask Gideon Code AI for help</label>
+          <div class="relative flex-1">
+            <input id="ai-concierge-input" type="text" class="ai-concierge-input" placeholder="Ask for a plan, timeline, or idea…" autocomplete="off">
+            <button type="button" id="ai-concierge-voice" class="ai-concierge-voice" aria-label="Speak instead">🎤</button>
+          </div>
+          <button type="submit" class="ai-concierge-submit">Send</button>
+        </form>
+        <p class="ai-concierge-footer text-xs text-gray-400">
+          Automated guidance. <button type="button" id="ai-concierge-transparency" class="link-button">See how we use AI.</button>
+        </p>
+      </section>
+      <button type="button" id="ai-concierge-toggle" class="ai-concierge-toggle" aria-haspopup="dialog" aria-controls="ai-concierge" aria-expanded="false">
+        <span class="ai-concierge-pulse"></span>
+        <span>Concierge</span>
+      </button>
+      <dialog id="ai-transparency" class="ai-transparency">
+        <div class="ai-transparency-panel">
+          <header class="ai-transparency-header">
+            <h3 class="ai-transparency-title">How Gideon Code AI Works</h3>
+            <button type="button" class="ai-transparency-close" aria-label="Close transparency note">✕</button>
+          </header>
+          <div class="ai-transparency-body">
+            <p>We use secure OpenAI and Anthropic APIs through our own gateway. Nothing leaves your browser unless you choose to save or email a session.</p>
+            <ul>
+              <li>No personal data stored by default.</li>
+              <li>Optional “save session” asks for consent and email.</li>
+              <li>We log anonymous usage patterns to improve prompts.</li>
+            </ul>
+            <p class="text-sm text-gray-400">Full details live in our Privacy Policy. Questions? <a href="mailto:info@gideoncode.com" class="text-cyan-300 hover:text-cyan-100">Reach out</a>.</p>
+          </div>
+          <button type="button" class="neon-button w-full ai-transparency-dismiss">Got it</button>
+        </div>
+      </dialog>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', template);
+  };
+
   const initConcierge = () => {
+    ensureConciergeMarkup();
     const toggle = select('#ai-concierge-toggle');
     const panel = select('#ai-concierge');
     const closeBtn = select('#ai-concierge-close');
