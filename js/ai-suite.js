@@ -42,8 +42,7 @@
 
   // Update hero headline based on latest intent
   const updateHeroNarrative = (state) => {
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroTitle = document.querySelector('#hero-heading');
 
     if (state.intent && heroTitle) {
       smoothTextUpdate(heroTitle, state.intent);
@@ -52,19 +51,20 @@
 
   // Update command tiles to reflect user's mission
   const updateCommandTiles = (state) => {
-    if (!state.mission) return;
+    if (!state.mission && !state.intent) return;
 
-    const tiles = document.querySelectorAll('.ai-command-card p');
+    const tiles = document.querySelectorAll('.ai-tile > p');
     if (tiles.length >= 3) {
-      smoothTextUpdate(tiles[0], `Map your vision for "${state.mission}" into a revenue-generating roadmap.`);
-      smoothTextUpdate(tiles[1], `Get a detailed project scope for "${state.mission}" with phases and timelines.`);
-      smoothTextUpdate(tiles[2], `Generate brand concepts that align with your mission: "${state.mission}".`);
+      const context = state.mission || state.intent;
+      smoothTextUpdate(tiles[0], `Your AI guide that understands "${context}" and surfaces the next best action.`);
+      smoothTextUpdate(tiles[1], `Turn "${context}" into a phased launch plan with projected impact and timelines.`);
+      smoothTextUpdate(tiles[2], `Generate motion graphics and hero copy that brings "${context}" to life visually.`);
     }
   };
 
   // Update final CTA to be mission-specific
   const updateFinalCTA = (state) => {
-    const ctaHeadline = document.querySelector('.cta-section h2');
+    const ctaHeadline = document.querySelector('#final-cta-heading');
 
     if (state.mission && ctaHeadline) {
       smoothTextUpdate(ctaHeadline, `Ready to launch ${state.mission}?`);
