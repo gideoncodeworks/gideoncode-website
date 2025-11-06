@@ -17,6 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkoutButton = document.getElementById('checkout-builder');
   const clearCartButton = document.getElementById('clear-cart');
 
+  // Tab switching
+  document.querySelectorAll('.builder-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const category = tab.dataset.category;
+      state.activeCategory = category;
+
+      // Update active tab styling
+      document.querySelectorAll('.builder-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      renderServices();
+    });
+  });
+
   clearCartButton.addEventListener('click', () => {
     state.cart = [];
     state.websiteType = null;
@@ -61,6 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderServices() {
     const websiteInCart = state.cart.some(item => item.category === 'website');
+
+    // Render based on active category
+    if (state.activeCategory !== 'web') {
+      servicesList.innerHTML = `
+        <div class="cyber-card text-center py-12">
+          <h3 class="text-2xl font-bold text-white mb-4">Coming Soon</h3>
+          <p class="text-gray-400">The ${state.activeCategory} category is under construction. For now, check out our Web + SEO services!</p>
+        </div>
+      `;
+      return;
+    }
 
     servicesList.innerHTML = `
       <!-- ONE-TIME BUILDS -->
