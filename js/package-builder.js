@@ -142,6 +142,28 @@ document.addEventListener('DOMContentLoaded', () => {
           timeline: '90 day ramp',
           summary: 'Advanced SEO with content creation, competitive analysis, and aggressive link building.',
           details: ['Everything in Starter', 'Content creation (2-3 posts/mo)', 'Competitive analysis', 'Advanced link building', 'Local SEO optimization', 'Conversion tracking']
+        },
+
+        // GIDEON AI ADD-ONS
+        {
+          id: 'gideon-ai-basic-web',
+          name: 'Add Gideon AI Chatbot (Basic)',
+          price: 99,
+          setupFee: 497,
+          kind: 'monthly',
+          timeline: '1 week setup',
+          summary: '24/7 AI assistant for your website. Never miss a lead with intelligent conversation.',
+          details: ['500 AI conversations/month', 'Powered by Claude + GPT-4', 'Lead capture + routing', 'Email support', '$497 setup fee']
+        },
+        {
+          id: 'gideon-ai-pro-web',
+          name: 'Add Gideon AI Chatbot (Professional)',
+          price: 299,
+          setupFee: 997,
+          kind: 'monthly',
+          timeline: '2 weeks setup',
+          summary: 'Custom AI trained on YOUR business. Books appointments, captures leads, integrates with CRM.',
+          details: ['2,000 AI conversations/month', 'Custom persona + brand voice', 'Action execution system', 'Priority support', '$997 setup fee']
         }
       ]
     },
