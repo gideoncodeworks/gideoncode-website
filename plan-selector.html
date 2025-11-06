@@ -134,6 +134,21 @@
           <p class="text-gray-300">Based on your answers, here's what we recommend:</p>
         </div>
 
+        <div id="gideon-message" class="gideon-plan-card hidden mb-10" aria-live="polite">
+          <div class="gideon-plan-card__header">
+            <div class="gideon-plan-card__avatar">
+              <video src="media/gideon-lives.mp4" autoplay muted loop playsinline poster="images/portfolio/crm-platform.jpg"></video>
+            </div>
+            <div>
+              <p class="gideon-plan-card__eyebrow">Gideon Recommends</p>
+              <h3 id="gideon-headline" class="gideon-plan-card__headline">Dialing in your build...</h3>
+            </div>
+          </div>
+          <p id="gideon-summary" class="gideon-plan-card__summary text-gray-300"></p>
+          <ul id="gideon-bullets" class="gideon-plan-card__bullets text-gray-200"></ul>
+          <div id="gideon-disclaimer" class="gideon-plan-card__disclaimer text-xs text-gray-500"></div>
+        </div>
+
         <!-- Recommended Plan -->
         <div id="recommended-plan" class="cyber-card border-2 border-cyan-500 mb-8">
           <!-- Will be populated by JavaScript -->
@@ -142,7 +157,7 @@
         <!-- Alternative Options -->
         <div id="alternative-plans" class="mb-8">
           <h3 class="text-2xl font-bold text-white mb-4">Other Options to Consider</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div id="alternative-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Will be populated by JavaScript -->
           </div>
         </div>
@@ -420,11 +435,11 @@
           </div>
         `;
 
-        if (answers[question.id] === option.value) {
+        if (answers[question.id]?.value === option.value) {
           button.classList.add('selected');
         }
 
-        button.onclick = () => selectOption(question.id, option.value, option.weight);
+        button.addEventListener('click', (event) => selectOption(question.id, option, event.currentTarget));
         optionsContainer.appendChild(button);
       });
 
@@ -445,24 +460,50 @@
       }
     }
 
-    function selectOption(questionId, value, weight) {
-      answers[questionId] = value;
+    function selectOption(questionId, option, buttonElement) {
+      answers[questionId] = {
+        value: option.value,
+        weight: option.weight,
+        label: option.label
+      };
 
-      // Update scores
-      Object.keys(weight).forEach(key => {
-        if (key === 'tier') {
-          scores.tier[weight[key]] += 1;
-        } else {
-          scores[key] = (scores[key] || 0) + weight[key];
-        }
-      });
+      recalculateScores();
 
-      // Update UI
-      document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('selected'));
-      event.currentTarget.classList.add('selected');
+      const container = document.getElementById('options-container');
+      container.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('selected'));
+      buttonElement.classList.add('selected');
 
-      // Enable next button
       document.getElementById('next-button').classList.remove('opacity-50', 'pointer-events-none');
+    }
+
+    function recalculateScores() {
+      scores = {
+        website: 0,
+        crm: 0,
+        webapp: 0,
+        mobileapp: 0,
+        branding: 0,
+        seo: 0,
+        ecommerce: 0,
+        monthly: 0,
+        onetime: 0,
+        tier: { starter: 0, growth: 0, domination: 0 }
+      };
+
+      Object.values(answers).forEach(answer => {
+        if (!answer) return;
+        const weight = answer.weight || {};
+        Object.keys(weight).forEach(key => {
+          if (key === 'tier') {
+            const tierKey = weight[key];
+            if (scores.tier[tierKey] !== undefined) {
+              scores.tier[tierKey] += 1;
+            }
+          } else {
+            scores[key] = (scores[key] || 0) + weight[key];
+          }
+        });
+      });
     }
 
     function nextQuestion() {
@@ -480,43 +521,38 @@
     }
 
     function showResults() {
+      recalculateScores();
       document.getElementById('questionnaire-section').classList.add('hidden');
       document.getElementById('results-section').classList.remove('hidden');
 
-      // Determine recommended package
+      let recommendedKey;
       let recommendedPackage;
 
-      // Check if web application is needed
       if (scores.webapp >= 3) {
-        // Recommend web application based on complexity
-        if (scores.webapp >= 5) {
-          recommendedPackage = packages['webapp-saas'];
-        } else {
-          recommendedPackage = packages['webapp-crm-internal'];
-        }
-      }
-      // Determine if CRM is needed
-      else if (scores.crm >= 4) {
-        recommendedPackage = packages['crm-platform'];
-      }
-      // Otherwise recommend website
-      else {
-        // Determine tier
-        let tier = 'growth'; // default
-        if (scores.tier.starter > scores.tier.growth && scores.tier.starter > scores.tier.domination) {
+        recommendedKey = scores.webapp >= 5 ? 'webapp-saas' : 'webapp-crm-internal';
+        recommendedPackage = packages[recommendedKey];
+      } else if (scores.crm >= 4) {
+        recommendedKey = 'crm-platform';
+        recommendedPackage = packages[recommendedKey];
+      } else {
+        let tier = 'growth';
+        if (scores.tier.starter >= scores.tier.growth && scores.tier.starter >= scores.tier.domination) {
           tier = 'starter';
         } else if (scores.tier.domination > scores.tier.growth) {
           tier = 'domination';
         }
 
-        // Determine if monthly or onetime
         const isMonthly = scores.monthly > scores.onetime;
         const suffix = isMonthly ? 'monthly' : 'onetime';
-
-        recommendedPackage = packages[`website-${tier}-${suffix}`];
+        recommendedKey = `website-${tier}-${suffix}`;
+        recommendedPackage = packages[recommendedKey];
       }
 
-      // Display recommended package
+      if (!recommendedPackage) {
+        recommendedKey = 'website-growth-monthly';
+        recommendedPackage = packages[recommendedKey];
+      }
+
       const recommendedDiv = document.getElementById('recommended-plan');
       recommendedDiv.innerHTML = `
         <div class="mb-4">
@@ -533,35 +569,14 @@
         <ul class="space-y-3 mb-8">
           ${recommendedPackage.features.map(f => `<li class="flex items-start"><span class="text-cyan-400 mr-2">✓</span><span class="text-gray-300">${f}</span></li>`).join('')}
         </ul>
-        <a href="${recommendedPackage.checkoutUrl}" class="neon-button w-full text-center block">
+        <a id="recommended-cta" href="${recommendedPackage.checkoutUrl}" class="neon-button w-full text-center block">
           Select This Plan
         </a>
       `;
 
-      // Show alternative options
-      const alternativesDiv = document.getElementById('alternative-plans');
-      let alternatives = [];
-
-      // Determine what type of alternatives to show
-      const recommendedKey = Object.keys(packages).find(key => packages[key] === recommendedPackage);
-
-      // Add 2-3 alternative packages based on recommendation type
-      Object.keys(packages).forEach(key => {
-        if (packages[key] !== recommendedPackage && alternatives.length < 3) {
-          // If webapp recommended, show other webapp or crm options
-          if (recommendedKey.startsWith('webapp-')) {
-            if (key.startsWith('webapp-') || key === 'crm-platform') {
-              alternatives.push(packages[key]);
-            }
-          }
-          // Otherwise show website alternatives
-          else if (key.startsWith('website-')) {
-            alternatives.push(packages[key]);
-          }
-        }
-      });
-
-      alternativesDiv.querySelector('div').innerHTML = alternatives.map(pkg => `
+      const alternativeGrid = document.getElementById('alternative-grid');
+      const alternatives = buildAlternativeList(recommendedKey);
+      alternativeGrid.innerHTML = alternatives.map(({ pkg }) => `
         <div class="cyber-card">
           <h4 class="text-xl font-bold text-white mb-2">${pkg.name}</h4>
           <div class="text-2xl font-bold text-cyan-400 mb-4">
@@ -577,8 +592,153 @@
         </div>
       `).join('');
 
-      // Update checkout button
       document.getElementById('checkout-button').href = recommendedPackage.checkoutUrl;
+
+      showGideonLoading();
+      const recommendedCta = document.getElementById('recommended-cta');
+      const planPayload = buildPlanPayload(recommendedKey, recommendedPackage, alternatives);
+      fetchGideonNarrative(planPayload, recommendedCta);
+    }
+
+    function buildAlternativeList(recommendedKey) {
+      const items = [];
+      const isWebapp = recommendedKey.startsWith('webapp-');
+      const isCrm = recommendedKey === 'crm-platform';
+
+      Object.keys(packages).forEach(key => {
+        if (key === recommendedKey || items.length >= 3) return;
+
+        if (isWebapp) {
+          if (key.startsWith('webapp-') || key === 'crm-platform') {
+            items.push({ key, pkg: packages[key] });
+          }
+        } else if (isCrm) {
+          if (key.startsWith('website-') || key.startsWith('webapp-')) {
+            items.push({ key, pkg: packages[key] });
+          }
+        } else {
+          if (key.startsWith('website-')) {
+            items.push({ key, pkg: packages[key] });
+          } else if (key === 'crm-platform' && items.length < 2) {
+            items.push({ key, pkg: packages[key] });
+          }
+        }
+      });
+
+      return items;
+    }
+
+    function buildPlanPayload(recommendedKey, recommendedPackage, alternatives) {
+      const payloadAlternatives = (alternatives || []).slice(0, 2).map(item => ({
+        id: item.key,
+        name: item.pkg.name,
+        summary: item.pkg.description,
+        checkoutUrl: item.pkg.checkoutUrl
+      }));
+
+      return {
+        businessType: answers[1]?.label || '',
+        primaryGoal: answers[2]?.label || '',
+        siteScale: answers[3]?.label || '',
+        maintenance: answers[4]?.label || '',
+        budget: answers[5]?.label || '',
+        recommendedPlan: {
+          id: recommendedKey,
+          name: recommendedPackage.name,
+          price: recommendedPackage.price,
+          recurring: recommendedPackage.recurring,
+          type: recommendedKey.split('-')[0],
+          billing: recommendedPackage.recurring ? 'monthly' : 'one-time',
+          summary: recommendedPackage.description,
+          checkoutUrl: recommendedPackage.checkoutUrl
+        },
+        alternatives: payloadAlternatives,
+        tags: buildPlanTags()
+      };
+    }
+
+    function buildPlanTags() {
+      const tags = [];
+      if (scores.crm >= 3) tags.push('crm');
+      if (scores.webapp >= 3) tags.push('webapp');
+      tags.push(scores.monthly > scores.onetime ? 'prefers_monthly' : 'prefers_onetime');
+
+      const tierEntries = Object.entries(scores.tier || {});
+      if (tierEntries.length) {
+        const [topTier] = tierEntries.sort((a, b) => b[1] - a[1])[0];
+        tags.push(`${topTier}_tier`);
+      }
+
+      if (scores.branding >= 2) tags.push('branding');
+      if (scores.seo >= 2) tags.push('seo');
+      if (scores.ecommerce >= 2) tags.push('ecommerce');
+
+      return tags.filter(Boolean);
+    }
+
+    function showGideonLoading() {
+      const container = document.getElementById('gideon-message');
+      const bulletsEl = document.getElementById('gideon-bullets');
+      container.classList.remove('hidden');
+      document.getElementById('gideon-headline').textContent = 'Dialing in your build...';
+      document.getElementById('gideon-summary').textContent = 'Pushing your inputs through Gideon so the plan matches your revenue target.';
+      bulletsEl.innerHTML = '<li class="text-gray-400">Syncing Claude + GPT-4 signals...</li>';
+      document.getElementById('gideon-disclaimer').textContent = '';
+    }
+
+    async function fetchGideonNarrative(payload, recommendedCta) {
+      try {
+        const response = await fetch('/.netlify/functions/ai-gateway', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ kind: 'plan', payload })
+        });
+
+        if (!response.ok) {
+          throw new Error(`Gateway ${response.status}`);
+        }
+
+        const data = await response.json();
+        renderGideonMessage(data, recommendedCta);
+      } catch (error) {
+        console.error('Gideon plan narrative failed:', error);
+        renderGideonFallback(recommendedCta);
+      }
+    }
+
+    function renderGideonMessage(data, recommendedCta) {
+      const headline = data.headline || 'Let’s build the machine that prints your revenue.';
+      const summary = data.summary || 'We’ll lock in the stack, wire Gideon to it, and get the pipeline compounding fast.';
+      const bullets = Array.isArray(data.bullets) && data.bullets.length ? data.bullets : [
+        'Gideon runs analytics, outreach, and follow-up loops',
+        '50% deposit today, balance at launch sign-off',
+        'Scope locks before kickoff so there are no surprises'
+      ];
+      const disclaimer = data.disclaimer || 'Scope validated post-discovery. Change orders apply if new requirements surface. 50% deposit due now.';
+
+      document.getElementById('gideon-headline').textContent = headline;
+      document.getElementById('gideon-summary').textContent = summary;
+      document.getElementById('gideon-bullets').innerHTML = bullets.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('gideon-disclaimer').textContent = disclaimer.toUpperCase();
+
+      if (data.ctaLabel && recommendedCta) {
+        recommendedCta.textContent = data.ctaLabel;
+      }
+    }
+
+    function renderGideonFallback(recommendedCta) {
+      document.getElementById('gideon-headline').textContent = 'We already know how to ship this.';
+      document.getElementById('gideon-summary').textContent = 'Even if the AI feed lags, we have the sprint map. Lock the slot and we’ll finalize scope on kickoff.';
+      document.getElementById('gideon-bullets').innerHTML = [
+        'Discovery call locks the feature list before we write a line of code',
+        'Any extra scope runs through a change order before work starts',
+        '50% deposit today. Balance after delivery sign-off'
+      ].map(item => `<li>${item}</li>`).join('');
+      document.getElementById('gideon-disclaimer').textContent = 'Scope validated at intake. Change orders issued if requirements expand.';
+
+      if (recommendedCta) {
+        recommendedCta.textContent = 'Lock My Slot';
+      }
     }
 
     function restartQuestionnaire() {
@@ -596,9 +756,14 @@
         onetime: 0,
         tier: { starter: 0, growth: 0, domination: 0 }
       };
+      recalculateScores();
 
       document.getElementById('results-section').classList.add('hidden');
       document.getElementById('intro-section').classList.remove('hidden');
+      document.getElementById('gideon-message').classList.add('hidden');
+      document.getElementById('gideon-bullets').innerHTML = '';
+      document.getElementById('gideon-summary').textContent = '';
+      document.getElementById('gideon-disclaimer').textContent = '';
     }
   </script>
 

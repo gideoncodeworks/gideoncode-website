@@ -161,6 +161,39 @@ Return JSON:
         `.trim()
       };
 
+    case 'plan':
+      return {
+        system: companyContext,
+        user: `
+We just ran Gideon's plan selector. Here is what the prospect told us:
+
+- Business type: ${payload.businessType || 'not provided'}
+- Primary goal: ${payload.primaryGoal || 'not provided'}
+- Website scale: ${payload.siteScale || 'not provided'}
+- Maintenance preference: ${payload.maintenance || 'not provided'}
+- Budget: ${payload.budget || 'not provided'}
+- Recommended plan: ${payload.recommendedPlan?.name || 'unknown'} (${payload.recommendedPlan?.price || 'price TBD'})
+- Plan type: ${payload.recommendedPlan?.type || 'not provided'} | Billing: ${payload.recommendedPlan?.billing || 'not provided'}
+- Checkout URL: ${payload.recommendedPlan?.checkoutUrl || 'not set'}
+- Alternative options: ${Array.isArray(payload.alternatives) ? payload.alternatives.map(option => option.name + ' - ' + option.summary).join('; ') : 'none listed'}
+- Notable tags: ${Array.isArray(payload.tags) ? payload.tags.join(', ') : 'none'}
+
+Write a JSON object with this shape:
+{
+  "headline": "Bold 8-12 word line that references their goal",
+  "summary": "Two punchy sentences, present tense, selling ${payload.recommendedPlan?.name || 'the plan'}",
+  "bullets": [
+    "Three benefit bullets, each under 15 words, action-focused"
+  ],
+  "ctaLabel": "Up to 5 words for the checkout button copy",
+  "disclaimer": "Short clause (<=160 chars) covering scope validation, change orders, and 50% deposit",
+  "toneNote": "One adjective describing the tone (e.g., ferocious, cool-headed)."
+}
+
+Respect Gideon's bold voice. Keep JSON valid (double quotes, no trailing commas) and do not wrap it in markdown.
+        `.trim()
+      };
+
     default:
       return null;
   }

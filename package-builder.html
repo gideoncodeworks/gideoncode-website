@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Gideon Package | Gideon Code Works</title>
+  <meta name="description" content="Curate your custom Gideon Code Works service stack. Mix websites, automation, and AI services, then lock your build with a 50% deposit.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="icon" href="images/gcw-logo.png" type="image/png">
+</head>
+<body class="bg-black text-white font-inter min-h-screen">
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="fixed w-full top-0 z-50">
+      <nav class="site-nav bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0 flex items-center">
+              <a href="index.html" aria-label="Gideon Code Works Home" class="flex items-center">
+                <img src="images/gcw-logo.png" alt="Gideon Code Works logo - cyberpunk tech design with cyan to magenta gradient" width="200" height="60">
+              </a>
+            </div>
+
+            <div class="nav-desktop-links items-center space-x-6">
+              <a href="services.html#web" class="nav-link text-white hover:text-cyan-400">Web Services</a>
+              <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="nav-link text-white hover:text-cyan-400">CRM Platform</a>
+              <a href="careers.html" class="nav-link text-white hover:text-cyan-400">Join Sales Team</a>
+              <div class="relative nav-dropdown-container">
+                <button type="button" class="nav-link text-white hover:text-cyan-400 flex items-center gap-1 nav-dropdown-toggle" aria-haspopup="true" aria-controls="nav-more-menu">
+                  <span>More</span>
+                  <svg class="w-4 h-4 text-cyan-400 nav-dropdown-icon transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div id="nav-more-menu" class="nav-dropdown" role="menu" aria-hidden="true">
+                  <div class="nav-dropdown-panel">
+                    <a href="portfolio.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Portfolio</a>
+                    <a href="about.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">About</a>
+                    <a href="contact.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Contact</a>
+                    <a href="services.html#faq" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">FAQ</a>
+                  </div>
+                </div>
+              </div>
+              <span class="nav-badge">Package Builder</span>
+              <a href="plan-selector.html" class="neon-button text-sm py-2 px-4" aria-label="Run the Gideon plan selector">AI Wizard</a>
+            </div>
+
+            <div class="nav-mobile-toggle">
+              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu">
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
+          <div class="flex flex-col p-6 space-y-6">
+            <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
+            <a href="services.html#web" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Web Services</a>
+            <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">CRM Platform</a>
+            <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Join Sales Team</a>
+            <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
+            <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
+            <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
+            <a href="services.html#faq" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">FAQ</a>
+            <a href="plan-selector.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">AI Wizard</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+    <section class="max-w-7xl mx-auto mb-12">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6">
+          <p class="text-xs uppercase tracking-[0.4em] text-cyan-300">Gideon Build Lab</p>
+          <h1 class="text-4xl sm:text-5xl font-bold gradient-text leading-tight">Assemble the stack Gideon will run for you</h1>
+          <p class="text-lg text-gray-300 leading-relaxed">Swipe through our modules, add the ones that move the needle, and Gideon will orchestrate the delivery. We collect 50% now, lock scope after discovery, and go live fast.</p>
+          <div class="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-gray-400">
+            <span class="nav-badge">Dual Claude + GPT-4 Brain</span>
+            <span class="nav-badge">Change Orders Protected</span>
+            <span class="nav-badge">SaaS + Web + Automation</span>
+          </div>
+        </div>
+        <div class="relative hero-gideon-card">
+          <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-transparent to-magenta-500/30 rounded-3xl blur-xl"></div>
+          <div class="relative rounded-3xl border border-cyan-500/40 overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="images/portfolio/crm-platform.jpg">
+              <source src="media/gideon-lives.mp4" type="video/mp4">
+            </video>
+            <div class="absolute bottom-0 left-0 right-0 bg-black/70 px-6 py-5 flex flex-col gap-1">
+              <p class="text-sm uppercase tracking-[0.3em] text-cyan-200">Gideon Oversees Every Module</p>
+              <p class="text-lg text-white font-semibold">Add the services you want—Gideon syncs the teams, automates the cadence, and reports the wins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8" aria-label="Gideon package builder">
+      <div class="lg:col-span-2 space-y-6">
+        <div class="flex flex-wrap gap-3 border border-cyan-500/30 rounded-full px-2 py-2 bg-black/60">
+          <button class="builder-tab active" data-category="web">Web + Growth</button>
+          <button class="builder-tab" data-category="apps">Apps + Automation</button>
+        </div>
+
+        <div id="builder-subcopy" class="text-sm text-gray-400 leading-relaxed">
+          Websites, funnels, SEO, and outbound fuel. Add modules to your cart—we’ll scope the rest on discovery.
+        </div>
+
+        <div id="service-list" class="space-y-5" aria-live="polite">
+          <!-- Services injected by package-builder.js -->
+        </div>
+      </div>
+
+      <aside class="cyber-card sticky top-28 h-max space-y-6" aria-label="Selected services summary">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-cyan-300 mb-2">Gideon Cart</p>
+          <h2 class="text-2xl font-bold text-white">Your Build</h2>
+          <p class="text-sm text-gray-400 mt-2">Deposit locks the build slot. Discovery confirms scope, then we sprint.</p>
+        </div>
+
+        <div id="cart-items" class="space-y-4">
+          <div class="bg-black/40 border border-dashed border-cyan-500/30 rounded-lg p-4 text-sm text-gray-400">
+            Nothing selected yet. Add modules from the left and Gideon will stack them into one project.
+          </div>
+        </div>
+
+        <div class="space-y-4 border-t border-gray-800 pt-4 text-sm text-gray-300" id="cart-summary">
+          <div class="flex justify-between">
+            <span>Project Total</span>
+            <span id="cart-total">$0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Deposit (50% today)</span>
+            <span id="cart-deposit">$0</span>
+          </div>
+          <div class="flex justify-between text-gray-500">
+            <span>Balance (due at delivery)</span>
+            <span id="cart-balance">$0</span>
+          </div>
+        </div>
+
+        <div class="bg-black/40 border border-cyan-500/20 rounded-lg p-4 text-xs text-gray-400 leading-relaxed">
+          <p class="font-semibold text-gray-200 mb-2 uppercase tracking-[0.2em]">Gideon Scope Protocol</p>
+          <ul class="space-y-2 list-disc list-inside">
+            <li>Discovery call confirms requirements before we write a line of code.</li>
+            <li>Anything new goes through a written change order with updated pricing.</li>
+            <li>Deposit is non-refundable once build assets are in motion.</li>
+          </ul>
+        </div>
+
+        <button id="checkout-builder" class="neon-button w-full text-center text-lg py-4 disabled:opacity-40 disabled:pointer-events-none">
+          Lock My Build →
+        </button>
+        <button id="clear-cart" class="text-sm text-gray-500 hover:text-cyan-300 transition" type="button">
+          Clear cart
+        </button>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-cyan-500 border-opacity-20 py-8">
+    <div class="max-w-6xl mx-auto text-center text-sm text-gray-500">
+      &copy; 2025 Gideon Code Works. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/package-builder.js" defer></script>
+  <script src="js/main.js?v=4" defer></script>
+</body>
+</html>

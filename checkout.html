@@ -211,6 +211,10 @@
                   <span id="checkout-total" class="font-bold text-cyan-400 text-2xl">$748.50</span>
                 </div>
               </div>
+
+              <div id="scope-disclaimer" class="mt-4 bg-black/40 border border-cyan-500/20 rounded-lg p-4 text-xs text-gray-400 leading-relaxed">
+                Discovery locks final scope. If we uncover additional requirements, we’ll send a change order before continuing.
+              </div>
             </div>
 
             <!-- Checkout Button -->
@@ -316,21 +320,43 @@
     // Get selected plan from URL
     const urlParams = new URLSearchParams(window.location.search);
     const selectedPlan = urlParams.get('plan') || 'website-growth-monthly';
-    const plan = plans[selectedPlan];
-
-    // Get addons from URL
+    const sourceParam = urlParams.get('source') || '';
     const addonsParam = urlParams.get('addons');
     const addonPricesParam = urlParams.get('addonPrices');
-    const totalPriceOverride = urlParams.get('totalPrice');
+    const totalPriceOverrideParam = urlParams.get('totalPrice');
+    const customPlanNameParam = urlParams.get('customPlanName');
+    const customSummaryParam = urlParams.get('customSummary');
+
+    const totalPriceOverride = totalPriceOverrideParam ? parseFloat(totalPriceOverrideParam) : null;
+
+    let plan = plans[selectedPlan];
+    if (!plan && selectedPlan === 'custom-package') {
+      const customName = customPlanNameParam || 'Custom Gideon Build';
+      const summaryList = (customSummaryParam || '').split('|').map(item => item.trim()).filter(Boolean);
+      plan = {
+        name: customName,
+        description: 'This stack was assembled inside the Gideon builder. Discovery locks the final scope.',
+        totalPrice: totalPriceOverride || 0,
+        monthlyPrice: null,
+        features: summaryList.length ? summaryList : ['Modules selected below.']
+      };
+    }
+
+    if (!plan) {
+      plan = plans['website-growth-monthly'];
+    }
 
     let addons = [];
-    let totalPrice = plan.totalPrice;
+    let totalPrice = plan.totalPrice || 0;
 
     if (addonsParam && addonPricesParam) {
-      const addonNames = addonsParam.split(',');
-      const addonPrices = addonPricesParam.split(',').map(p => parseInt(p));
-      addons = addonNames.map((name, i) => ({ name, price: addonPrices[i] }));
-      totalPrice = parseInt(totalPriceOverride) || (plan.totalPrice + addonPrices.reduce((a,b) => a+b, 0));
+      const addonNames = addonsParam.split(',').map(name => decodeURIComponent(name));
+      const addonPrices = addonPricesParam.split(',').map(p => parseFloat(p));
+      addons = addonNames.map((name, i) => ({ name, price: addonPrices[i] || 0 }));
+      const addonsSum = addonPrices.reduce((sum, price) => sum + (price || 0), 0);
+      totalPrice = totalPriceOverride !== null ? totalPriceOverride : (plan.totalPrice || 0) + addonsSum;
+    } else if (selectedPlan === 'custom-package' && totalPriceOverride !== null) {
+      totalPrice = totalPriceOverride;
     }
 
     // Populate page with plan details
@@ -345,10 +371,10 @@
       ).join('');
 
       // Add selected addons to features
-      if (addons.length > 0) {
+      if (addons.length > 0 && selectedPlan !== 'custom-package') {
         featuresHTML += '<div class="pt-3 mt-3 border-t border-gray-800"><div class="text-cyan-400 text-xs font-bold mb-2">ADD-ONS:</div>';
         featuresHTML += addons.map(addon =>
-          `<div class="flex items-start"><span class="text-cyan-400 mr-2">+</span><span class="text-gray-300 text-sm">${addon.name} (+$${addon.price.toLocaleString()})</span></div>`
+          `<div class="flex items-start"><span class="text-cyan-400 mr-2">+</span><span class="text-gray-300 text-sm">${addon.name} (${addon.name.toLowerCase().includes('(monthly)') ? '+$' + addon.price.toLocaleString() + '/mo' : '+$' + addon.price.toLocaleString()})</span></div>`
         ).join('');
         featuresHTML += '</div>';
       }
@@ -356,7 +382,11 @@
       featuresDiv.innerHTML = featuresHTML;
 
       // Pricing
-      const depositAmount = (totalPrice * 0.5).toFixed(2);
+    if (!Number.isFinite(totalPrice)) {
+      totalPrice = 0;
+    }
+
+    const depositAmount = (totalPrice * 0.5).toFixed(2);
       const balanceAmount = (totalPrice * 0.5).toFixed(2);
 
       document.getElementById('total-price').textContent = `$${totalPrice.toLocaleString()}`;
@@ -367,6 +397,20 @@
       if (plan.monthlyPrice) {
         document.getElementById('monthly-charges').classList.remove('hidden');
         document.getElementById('monthly-amount').textContent = `$${plan.monthlyPrice}/mo`;
+      }
+
+      const scopeDisclaimerEl = document.getElementById('scope-disclaimer');
+      if (scopeDisclaimerEl) {
+        const hasMonthlyAddon = addons.some(addon => addon.name.toLowerCase().includes('(monthly)'));
+        if (selectedPlan === 'custom-package' || sourceParam === 'package-builder') {
+          scopeDisclaimerEl.textContent = hasMonthlyAddon
+            ? 'Custom builder stack: 50% deposit locks the build. Monthly modules billed separately as noted. Change orders issued if discovery expands scope.'
+            : 'Custom builder stack: 50% deposit locks the build slot. Discovery validates scope and any expansion moves to a signed change order.';
+        } else {
+          scopeDisclaimerEl.textContent = hasMonthlyAddon
+            ? 'Discovery locks final scope. Monthly services are billed separately after launch. Change orders issued if new requirements surface.'
+            : 'Discovery locks final scope. If additional requirements surface, we issue a written change order before continuing.';
+        }
       }
     }
 

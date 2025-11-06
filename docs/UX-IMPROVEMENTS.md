@@ -35,6 +35,8 @@
 | 2025-11-07 | Footer Copyright | Updated to 2025 across all templates. |
 | 2025-11-08 | Navigation Accessibility | Synced header + dropdown behaviour across marketing pages and CRM demo. |
 | 2025-11-08 | Gideon Concierge | Reintroduced Gideon-branded concierge powered by Anthropic/OpenAI gateway. |
+| 2025-11-08 | Gideon Plan Wizard | Plan selector now routes responses through the Gideon AI gateway with narrative output. |
+| 2025-11-08 | Package Builder Launch | New `package-builder.html` + cart funnel feeds custom checkout with legal disclaimers. |
 | 2025-11-08 | Navigation Unification | Standardized header across all 33 pages with consistent dropdown behavior. |
 | 2025-11-08 | Gideon Refactor | Consolidated ai-suite.js (883 lines) into main.js (496 lines) - 44% smaller. |
 | 2025-11-08 | Video Avatar | Added gideon-lives.mp4 (3MB) for animated concierge presence. |
