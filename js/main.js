@@ -409,7 +409,7 @@ function initGideonConcierge() {
       }
 
       const data = await response.json();
-      const message = data.message || 'Pipeline mapped. Let's move.';
+      const message = data.message || 'Pipeline mapped. Let\'s move.';
 
       // Check if booking is needed
       if (data.needsBooking) {
@@ -420,7 +420,7 @@ function initGideonConcierge() {
       }
     } catch (error) {
       console.error('Concierge error:', error);
-      appendMessage('gideon', 'Signal jammed? Call 1-216-463-2648 or email josh@gideoncode.com and we'll mobilize the team.');
+      appendMessage('gideon', 'Signal jammed? Call 1-216-463-2648 or email josh@gideoncode.com and we\'ll mobilize the team.');
     } finally {
       setLoading(false);
     }
