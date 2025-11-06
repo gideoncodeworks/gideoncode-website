@@ -172,7 +172,11 @@
             <div class="cyber-card">
               <h2 id="contact-heading" class="text-3xl font-bold gradient-text mb-6">Get Your Free Quote</h2>
 
-              <form id="contact-form" class="space-y-6" aria-label="Contact form">
+              <form id="contact-form" class="space-y-6" aria-label="Contact form" name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/form-success.html">
+                <input type="hidden" name="form-name" value="contact-form">
+                <div class="hidden">
+                  <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                </div>
                 <div>
                   <label for="contact-name" class="block text-cyan-400 font-semibold mb-2">Name *</label>
                   <input type="text" id="contact-name" name="name" required class="w-full" aria-required="true">
@@ -451,6 +455,6 @@
   <script src="js/main.js?v=4" defer></script>
 
 
-  <script src="js/ai-suite.js?v=6" defer></script>
+  <script src="js/ai-suite-loader.js" defer></script>
 </body>
 </html>

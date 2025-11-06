@@ -196,12 +196,12 @@
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
         <h1 id="hero-heading" class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 hero-slide-in leading-tight">
           <span class="gradient-text">
-            Digital Products<br/>That Drive Revenue
+            Websites + AI CRM<br/>That Print Revenue
           </span>
         </h1>
 
         <p id="vision-gate-summary" class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto hero-slide-in-delayed leading-relaxed">
-          From websites to SaaS platforms, we build solutions that scale your business. Premium quality without premium prices.
+          Launch a high-converting site from $212.50/mo, plug it into Gideon’s dual-Claude/GPT CRM, and let the same stack our team uses grow your pipeline.
         </p>
 
         <!-- Vision Gate -->
@@ -235,7 +235,7 @@
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center hero-slide-in-delayed-more">
-          <a href="#lane-services" class="neon-button w-full sm:w-auto" aria-label="See how we build your digital presence end-to-end">
+          <a href="#lane-services" class="neon-button w-full sm:w-auto" aria-label="See how we build your digital presence end-to-end" data-dynamic-cta data-default-text="Build My Digital Presence" data-cta-template="Build %s">
             Build My Digital Presence
           </a>
           <a href="crm-demo.html" class="neon-button neon-button-outline w-full sm:w-auto" aria-label="Tour the Gideon Code Works CRM demo">
@@ -245,20 +245,29 @@
             Join the Sales Engine
           </a>
         </div>
+        <p class="mt-6 text-sm text-gray-400 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center hero-slide-in-delayed-more">
+          <span class="uppercase tracking-[0.3em] text-cyan-300">Call</span>
+          <a href="tel:+12164632648" class="text-white hover:text-cyan-300 transition">1-216-463-2648</a>
+          <span class="hidden sm:inline text-gray-600">|</span>
+          <a href="mailto:josh@gideoncode.com" class="text-white hover:text-cyan-300 transition">josh@gideoncode.com</a>
+        </p>
 
         <!-- Quick Stats -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto hero-slide-in-delayed-more">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto hero-slide-in-delayed-more">
           <div class="text-center">
-            <div class="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">7+</div>
-            <div class="text-sm text-gray-400 uppercase tracking-wider">Live Projects</div>
+            <p class="text-sm text-gray-400 uppercase tracking-[0.3em] mb-2">Web-as-a-Service</p>
+            <p class="text-2xl font-bold text-cyan-300">$212.50/mo</p>
+            <p class="text-xs text-gray-400 mt-1">Includes hosting, updates, CRO</p>
           </div>
-          <div class="text-center border-l border-r border-gray-700">
-            <div class="text-3xl sm:text-4xl font-bold text-magenta-400 mb-2">2</div>
-            <div class="text-sm text-gray-400 uppercase tracking-wider">SaaS Products</div>
+          <div class="text-center border-l border-r border-gray-700 px-4">
+            <p class="text-sm text-gray-400 uppercase tracking-[0.3em] mb-2">Custom Builds</p>
+            <p class="text-2xl font-bold text-magenta-300">From $2,497</p>
+            <p class="text-xs text-gray-400 mt-1">Strategy, design, launch sprints</p>
           </div>
           <div class="text-center">
-            <div class="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">100%</div>
-            <div class="text-sm text-gray-400 uppercase tracking-wider">Client Success</div>
+            <p class="text-sm text-gray-400 uppercase tracking-[0.3em] mb-2">AI CRM</p>
+            <p class="text-2xl font-bold text-cyan-300">Buy or Rent</p>
+            <p class="text-xs text-gray-400 mt-1">Includes dual AI copilots</p>
           </div>
         </div>
       </div>
@@ -501,7 +510,7 @@
                   <input type="checkbox" id="reel-save" class="scope-checkbox">
                   <span>Email me the reel when it’s ready.</span>
                 </label>
-                <span id="reel-status" class="text-cyan-300 hidden">Rendering preview…</span>
+                <span id="reel-status" class="text-cyan-300 hidden" aria-live="polite" role="status">Rendering preview…</span>
               </div>
 
               <button type="submit" class="neon-button w-full mt-4">Generate Preview Reel</button>
@@ -697,6 +706,20 @@
           </article>
         </div>
 
+        <div class="grid gap-6 lg:grid-cols-2 items-center">
+          <figure class="crm-proof">
+            <img src="images/portfolio/crm-demo.jpg" alt="Screens from the Gideon AI CRM showing pipeline heatmap, sentiment badges, and forecast copilot chat" loading="lazy" width="1280" height="720">
+            <figcaption>
+              <p class="text-sm uppercase tracking-[0.3em] text-cyan-200">Live View</p>
+              <p class="text-xl font-semibold text-white">Heatmap, concierge chat, and sentiment scoring inside one cockpit.</p>
+            </figcaption>
+          </figure>
+          <div class="text-gray-300 space-y-4">
+            <p>Pipeline Heatmap shows deal temperature, objections, and narrative sentiment in seconds. Forecast Copilot sits on the right, ready to explain upside, risk, and next-best-task for any stage.</p>
+            <p>Every dataset comes from Gideon’s intelligence API, so the same insights power alerts, call prep, and post-call debriefs. No duplicate entry, no stale slides.</p>
+          </div>
+        </div>
+
         <div class="text-center space-y-4">
           <p class="text-gray-300 text-sm">
             Gideon routes requests to Anthropic first for strategic tone, fails over to GPT-4o for speed, and logs every insight in the CRM.
@@ -752,7 +775,7 @@
           Bring us one mandate—more web clients, CRM buyers, or sales talent—and we’ll architect the plan, build the assets, and execute alongside you.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="contact.html" class="neon-button neon-button-magenta w-full sm:w-auto" aria-label="Book a strategy session with Gideon Code Works">Book Strategy Session</a>
+          <a href="contact.html" class="neon-button neon-button-magenta w-full sm:w-auto" aria-label="Book a strategy session with Gideon Code Works" data-dynamic-cta data-default-text="Book Strategy Session" data-cta-template="Book a call about %s">Book Strategy Session</a>
           <a href="#lane-services" class="neon-button neon-button-outline w-full sm:w-auto" aria-label="Review Gideon Code Works offerings">Review Offerings</a>
         </div>
       </div>
@@ -840,6 +863,6 @@
 
   <!-- JavaScript - Deferred for Performance -->
   <script src="js/main.js?v=4" defer></script>
-  <script src="js/ai-suite.js?v=6" defer></script>
+  <script src="js/ai-suite-loader.js" defer></script>
 </body>
 </html>

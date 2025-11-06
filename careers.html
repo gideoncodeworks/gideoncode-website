@@ -420,7 +420,11 @@
       <p class="text-center text-gray-300 mb-12 fade-in">This isn't for everyone. But if you're ready to build something real, apply now.</p>
 
       <div class="cyber-card fade-in">
-        <form id="careers-form" class="space-y-6" aria-label="Career application form">
+        <form id="careers-form" class="space-y-6" aria-label="Career application form" name="careers-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/form-success.html">
+          <input type="hidden" name="form-name" value="careers-form">
+          <div class="hidden">
+            <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+          </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-cyan-400 font-semibold mb-2">Name *</label>
@@ -553,6 +557,6 @@
   <script src="js/main.js?v=4" defer></script>
 
 
-  <script src="js/ai-suite.js?v=6" defer></script>
+  <script src="js/ai-suite-loader.js" defer></script>
 </body>
 </html>

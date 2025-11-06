@@ -85,6 +85,27 @@
     }
   };
 
+  const getNarrativeSnippet = (state) => state.mission || state.intent || null;
+
+  const formatSnippet = (text, limit = 42) => {
+    if (!text) return '';
+    return text.length > limit ? `${text.slice(0, limit).trim()}…` : text;
+  };
+
+  const updateActionButtons = (state) => {
+    const snippet = formatSnippet(getNarrativeSnippet(state));
+    const buttons = selectAll('[data-dynamic-cta]');
+    buttons.forEach(btn => {
+      const base = btn.dataset.defaultText || btn.textContent;
+      if (!snippet) {
+        btn.textContent = base;
+        return;
+      }
+      const template = btn.dataset.ctaTemplate || '%s';
+      btn.textContent = template.replace('%s', snippet);
+    });
+  };
+
   // Main narrative sync listener
   document.addEventListener('gcNarrativeUpdate', (e) => {
     const state = e.detail;
@@ -93,6 +114,7 @@
     updateCommandTiles(state);
     updateFinalCTA(state);
     updateConciergeContext(state);
+    updateActionButtons(state);
 
     console.log('📖 Narrative synced:', state);
   });
@@ -100,6 +122,16 @@
   // ========================================
   // END NARRATIVE SYNC SYSTEM
   // ========================================
+
+  const setStatusIndicator = (element, state, message) => {
+    if (!element) return;
+    element.textContent = message;
+    element.classList.remove('status-processing', 'status-success', 'status-error');
+    if (state) {
+      element.classList.add(`status-${state}`);
+    }
+    element.classList.remove('hidden');
+  };
 
   // Real AI gateway call - uses Anthropic (Claude) + OpenAI (GPT-4) on backend
   const callAiGateway = async (kind, payload) => {
@@ -266,9 +298,7 @@
       if (!input.value.trim()) return;
 
       const intent = input.value.trim();
-      status.textContent = 'Channeling the future you described…';
-      status.classList.add('text-cyan-200', 'ai-status', 'processing');
-      status.setAttribute('aria-live', 'polite');
+      setStatusIndicator(status, 'processing', 'Channeling the future you described…');
       form.setAttribute('aria-busy', 'true');
 
       const payload = {
@@ -290,19 +320,14 @@
           budget: extractBudget(intent)
         });
 
-        status.classList.remove('processing');
-        status.classList.add('success');
-        status.textContent = 'Future mapped. Concierge queue updated.';
+        setStatusIndicator(status, 'success', 'Future mapped. Concierge queue updated.');
         input.value = '';
       } catch (err) {
-        status.classList.remove('processing');
-        status.classList.add('error');
-        status.textContent = 'We hit a snag. Try again or ping the concierge.';
+        setStatusIndicator(status, 'error', 'We hit a snag. Try again or ping the concierge.');
       } finally {
         form.setAttribute('aria-busy', 'false');
         setTimeout(() => {
-          status.textContent = 'Powered by Gideon Code AI · Nothing is stored unless you choose to save it later.';
-          status.classList.remove('text-cyan-200', 'processing', 'success', 'error');
+          setStatusIndicator(status, null, 'Powered by Gideon Code AI · Nothing is stored unless you choose to save it later.');
         }, 4000);
       }
     });
@@ -442,16 +467,14 @@
         }
       }
 
-      outputStatus.textContent = 'Generating plan…';
+      setStatusIndicator(outputStatus, 'processing', 'Generating plan…');
       form.setAttribute('aria-busy', 'true');
       output?.classList.remove('hidden');
       outputBody.innerHTML = '';
 
       try {
         const result = await callAiGateway('scope', payload);
-        outputStatus.classList.remove('processing');
-        outputStatus.classList.add('success');
-        outputStatus.textContent = 'Mission deck ready. Share it or restart.';
+        setStatusIndicator(outputStatus, 'success', 'Mission deck ready. Share it or restart.');
         renderScopeOutput(outputBody, result);
 
         // Trigger narrative sync
@@ -463,14 +486,12 @@
 
         setStage(3);
       } catch (err) {
-        outputStatus.classList.remove('processing');
-        outputStatus.classList.add('error');
-        outputStatus.textContent = 'Could not generate plan. Please retry in a moment.';
+        setStatusIndicator(outputStatus, 'error', 'Could not generate plan. Please retry in a moment.');
         outputBody.innerHTML = '';
       } finally {
         form.setAttribute('aria-busy', 'false');
         setTimeout(() => {
-          outputStatus.classList.remove('processing', 'success', 'error');
+          setStatusIndicator(outputStatus, null, 'Mission deck ready. Share it or restart.');
         }, 5000);
       }
     });
@@ -513,8 +534,7 @@
       };
 
       try {
-        outputStatus.classList.add('processing');
-        outputStatus.textContent = 'Sending scope to your email...';
+        setStatusIndicator(outputStatus, 'processing', 'Sending scope to your email...');
 
         const response = await fetch('/.netlify/functions/email-scope', {
           method: 'POST',
@@ -524,24 +544,18 @@
 
         if (!response.ok) throw new Error('Failed to send email');
 
-        outputStatus.classList.remove('processing');
-        outputStatus.classList.add('success');
-        outputStatus.textContent = `✓ Scope sent to ${email}!`;
+        setStatusIndicator(outputStatus, 'success', `✓ Scope sent to ${email}!`);
 
         setTimeout(() => {
-          outputStatus.classList.remove('success');
-          outputStatus.textContent = 'Mission deck ready. Share it or restart.';
+          setStatusIndicator(outputStatus, null, 'Mission deck ready. Share it or restart.');
         }, 5000);
 
       } catch (error) {
-        outputStatus.classList.remove('processing');
-        outputStatus.classList.add('error');
-        outputStatus.textContent = 'Failed to send email. Please try again.';
+        setStatusIndicator(outputStatus, 'error', 'Failed to send email. Please try again.');
         console.error('Email error:', error);
 
         setTimeout(() => {
-          outputStatus.classList.remove('error');
-          outputStatus.textContent = 'Mission deck ready. Share it or restart.';
+          setStatusIndicator(outputStatus, null, 'Mission deck ready. Share it or restart.');
         }, 5000);
       }
     };
@@ -603,8 +617,10 @@
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      status?.classList.remove('hidden');
-      status?.setAttribute('aria-live', 'polite');
+      if (status) {
+        status.setAttribute('aria-live', 'polite');
+        setStatusIndicator(status, 'processing', 'Rendering preview…');
+      }
       form.setAttribute('aria-busy', 'true');
 
       const payload = {
@@ -614,9 +630,9 @@
 
       try {
         const result = await callAiGateway('reel', payload);
-        status?.classList.remove('processing');
-        status?.classList.add('success', 'hidden');
-
+        if (status) {
+          setStatusIndicator(status, 'success', 'Preview ready.');
+        }
         output?.classList.remove('hidden');
         outputBody.innerHTML = `
           <div class="story">
@@ -649,14 +665,16 @@
           alert('We will email you the rendered reel once backend integration is complete.');
         }
       } catch (err) {
-        status?.classList.remove('processing');
-        status?.classList.add('error');
-        status?.classList.remove('hidden');
-        status.textContent = 'Preview service is busy. Try again shortly.';
+        if (status) {
+          setStatusIndicator(status, 'error', 'Preview service is busy. Try again shortly.');
+        }
       } finally {
         form.setAttribute('aria-busy', 'false');
         setTimeout(() => {
-          status?.classList.remove('processing', 'success', 'error');
+          if (status) {
+            setStatusIndicator(status, null, 'Rendering preview…');
+            status.classList.add('hidden');
+          }
         }, 5000);
       }
     });

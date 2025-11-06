@@ -156,43 +156,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Form Submission Handlers
-  const contactForm = document.getElementById('contact-form');
-  const careersForm = document.getElementById('careers-form');
+  // Form validation feedback
+  const showFieldError = (field) => {
+    field.classList.add('input-error');
+    let message = field.parentElement?.querySelector('.input-error-message');
+    if (!message && field.parentElement) {
+      message = document.createElement('p');
+      message.className = 'input-error-message text-xs text-red-400 mt-1';
+      field.parentElement.appendChild(message);
+    }
+    if (message) {
+      message.textContent = field.validationMessage || 'This field is required.';
+      message.classList.remove('hidden');
+    }
+  };
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+  const clearFieldError = (field) => {
+    field.classList.remove('input-error');
+    const message = field.parentElement?.querySelector('.input-error-message');
+    if (message) {
+      message.classList.add('hidden');
+    }
+  };
 
-      // Get form data
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData);
-
-      // You can integrate with a backend service here
-      console.log('Contact Form Submission:', data);
-
-      // Show success message
-      alert('Thank you for your message! We\'ll get back to you soon.');
-      contactForm.reset();
+  document.querySelectorAll('form input, form select, form textarea').forEach(field => {
+    field.addEventListener('invalid', (event) => {
+      event.preventDefault();
+      showFieldError(field);
     });
-  }
 
-  if (careersForm) {
-    careersForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Get form data
-      const formData = new FormData(careersForm);
-      const data = Object.fromEntries(formData);
-
-      // You can integrate with a backend service here
-      console.log('Careers Form Submission:', data);
-
-      // Show success message
-      alert('Thank you for your application! We\'ll review it and get back to you soon.');
-      careersForm.reset();
-    });
-  }
+    field.addEventListener('input', () => clearFieldError(field));
+  });
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
