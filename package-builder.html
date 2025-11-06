@@ -161,12 +161,16 @@
           </ul>
         </div>
 
-        <button id="checkout-builder" class="neon-button w-full text-center text-lg py-4 disabled:opacity-40 disabled:pointer-events-none" disabled>
-          Lock My Build →
-        </button>
-        <button id="clear-cart" class="text-sm text-gray-500 hover:text-cyan-300 transition" type="button">
-          Clear cart
-        </button>
+        <div class="relative z-10">
+          <button id="checkout-builder" class="neon-button w-full text-center text-lg py-4 disabled:opacity-40 disabled:pointer-events-none" disabled>
+            Lock My Build →
+          </button>
+        </div>
+        <div class="relative z-10">
+          <button id="clear-cart" class="text-sm text-gray-500 hover:text-cyan-300 transition w-full text-center" type="button">
+            Clear cart
+          </button>
+        </div>
       </aside>
     </section>
   </main>
@@ -180,5 +184,9 @@
 
   <script src="js/package-builder.js" defer></script>
   <script src="js/main.js?v=4" defer></script>
+  <script>
+    // Disable Gideon concierge on package builder to avoid overlay issues
+    window.DISABLE_GIDEON_CONCIERGE = true;
+  </script>
 </body>
 </html>

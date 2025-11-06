@@ -263,6 +263,11 @@ function calculateMonthly(setupFee, monthlyFee, months) {
 }
 
 function initGideonConcierge() {
+  // Allow pages to disable concierge
+  if (window.DISABLE_GIDEON_CONCIERGE) {
+    return;
+  }
+
   if (document.querySelector('[data-gideon-concierge]')) {
     return;
   }
