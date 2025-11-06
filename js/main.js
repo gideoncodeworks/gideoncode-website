@@ -263,22 +263,27 @@ function calculateMonthly(setupFee, monthlyFee, months) {
 }
 
 function initGideonConcierge() {
+  console.log('initGideonConcierge called');
+
   // Allow pages to disable concierge
   if (window.DISABLE_GIDEON_CONCIERGE) {
+    console.log('Gideon disabled by flag');
     return;
   }
 
   if (document.querySelector('[data-gideon-concierge]')) {
+    console.log('Gideon already exists');
     return;
   }
 
+  console.log('Creating Gideon button...');
   const container = document.createElement('div');
   container.className = 'gideon-concierge';
   container.setAttribute('data-gideon-concierge', 'true');
   container.innerHTML = `
     <button type="button" class="gideon-concierge__button" data-toggle aria-expanded="false" aria-controls="gideon-concierge-panel">
-      <video autoplay muted loop playsinline style="width: 120%; height: 120%; object-fit: cover; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        <source src="media/gideon-lives.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline style="width: 120%; height: 120%; object-fit: cover; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: transparent;">
+        <source src="/media/gideon-lives.mp4" type="video/mp4">
       </video>
     </button>
     <section class="gideon-concierge__panel" id="gideon-concierge-panel" role="dialog" aria-modal="true" aria-label="Gideon concierge" data-panel>
@@ -312,6 +317,7 @@ function initGideonConcierge() {
   `;
 
   document.body.appendChild(container);
+  console.log('Gideon button appended to body');
 
   const panel = container.querySelector('[data-panel]');
   const toggleButton = container.querySelector('[data-toggle]');
