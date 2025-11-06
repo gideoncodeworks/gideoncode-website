@@ -1,12 +1,13 @@
-// Gideon Package Builder - Real Pricing from Services
+// Gideon Package Builder - Complete Service Catalog
 document.addEventListener('DOMContentLoaded', () => {
   const categories = {
     web: {
-      description: 'Websites, SEO, and ongoing management to fuel your digital presence.',
+      description: 'Choose one-time website builds OR ongoing monthly management with your preferred contract length.',
       services: [
+        // ONE-TIME BUILDS
         {
           id: 'web-starter-onetime',
-          name: 'Starter Website (One-Time)',
+          name: 'Starter Website (One-Time Build)',
           price: 2497,
           kind: 'one-time',
           timeline: '3-4 weeks',
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           id: 'web-growth-onetime',
-          name: 'Growth Website (One-Time)',
+          name: 'Growth Website (One-Time Build)',
           price: 3497,
           kind: 'one-time',
           timeline: '4-6 weeks',
@@ -24,42 +25,105 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           id: 'web-domination-onetime',
-          name: 'Domination Website (One-Time)',
+          name: 'Domination Website (One-Time Build)',
           price: 4997,
           kind: 'one-time',
           timeline: '6-8 weeks',
           summary: 'Unlimited pages with custom features, e-commerce ready, premium SEO, and 24/7 support.',
           details: ['Unlimited pages', 'Custom features', 'Premium SEO', 'E-commerce ready', 'Blog + CMS', 'Hosting included (1 year)', '120 days priority support']
         },
+
+        // MONTHLY WEBSITE-AS-A-SERVICE (12-MONTH)
         {
-          id: 'web-starter-monthly',
-          name: 'Starter Web-as-a-Service',
+          id: 'web-starter-12mo',
+          name: 'Starter Web-as-a-Service (12-Month)',
+          price: 250,
+          setupFee: 497,
+          kind: 'monthly',
+          contractLength: '12 months',
+          timeline: 'ONGOING',
+          summary: 'Monthly managed website with hosting, updates, security, and support. 12-month commitment.',
+          details: ['Up to 5 pages', 'Monthly updates', 'Security monitoring', 'Managed hosting', 'Ongoing support', '$497 setup fee', '12-month contract: $250/mo']
+        },
+        {
+          id: 'web-growth-12mo',
+          name: 'Growth Web-as-a-Service (12-Month)',
+          price: 250,
+          setupFee: 697,
+          kind: 'monthly',
+          contractLength: '12 months',
+          timeline: 'ONGOING',
+          summary: 'Expanded managed site with weekly updates, priority support, and growth optimization. 12-month commitment.',
+          details: ['Up to 10 pages', 'Weekly updates', 'Advanced forms', 'Enhanced SEO', 'Priority support', '$697 setup fee', '12-month contract: $250/mo']
+        },
+        {
+          id: 'web-domination-12mo',
+          name: 'Domination Web-as-a-Service (12-Month)',
+          price: 297,
+          setupFee: 997,
+          kind: 'monthly',
+          contractLength: '12 months',
+          timeline: 'ONGOING',
+          summary: 'Enterprise managed website with daily monitoring, 24/7 support, and unlimited updates. 12-month commitment.',
+          details: ['Unlimited pages', 'Daily monitoring', 'Custom features', 'Premium SEO', '24/7 support', '$997 setup fee', '12-month contract: $297/mo']
+        },
+
+        // MONTHLY WEBSITE-AS-A-SERVICE (24-MONTH - BEST VALUE)
+        {
+          id: 'web-starter-24mo',
+          name: 'Starter Web-as-a-Service (24-Month - SAVE $900)',
           price: 212.50,
           setupFee: 497,
           kind: 'monthly',
+          contractLength: '24 months',
+          savings: 900,
           timeline: 'ONGOING',
-          summary: 'Monthly managed website with hosting, updates, security monitoring, and ongoing support.',
-          details: ['Up to 5 pages', 'Monthly updates', 'Security monitoring', 'Managed hosting', 'Ongoing support', '$497 setup fee', '24-month contract: $212.50/mo']
+          summary: 'Monthly managed website with hosting, updates, security, and support. Save $900 with 24-month commitment!',
+          details: ['Up to 5 pages', 'Monthly updates', 'Security monitoring', 'Managed hosting', 'Ongoing support', '$497 setup fee', '24-month contract: $212.50/mo', '💰 SAVE $900 vs 12-month']
         },
         {
-          id: 'web-growth-monthly',
-          name: 'Growth Web-as-a-Service',
+          id: 'web-growth-24mo',
+          name: 'Growth Web-as-a-Service (24-Month - SAVE $900)',
           price: 212.50,
           setupFee: 697,
           kind: 'monthly',
+          contractLength: '24 months',
+          savings: 900,
           timeline: 'ONGOING',
-          summary: 'Expanded managed site with weekly updates, priority support, and growth optimization.',
-          details: ['Up to 10 pages', 'Weekly updates', 'Advanced forms', 'Enhanced SEO', 'Priority support', '$697 setup fee', '24-month contract: $212.50/mo']
+          summary: 'Expanded managed site with weekly updates, priority support. Save $900 with 24-month commitment!',
+          details: ['Up to 10 pages', 'Weekly updates', 'Advanced forms', 'Enhanced SEO', 'Priority support', '$697 setup fee', '24-month contract: $212.50/mo', '💰 SAVE $900 vs 12-month']
         },
         {
-          id: 'web-domination-monthly',
-          name: 'Domination Web-as-a-Service',
+          id: 'web-domination-24mo',
+          name: 'Domination Web-as-a-Service (24-Month - SAVE $1,068)',
           price: 252.50,
           setupFee: 997,
           kind: 'monthly',
+          contractLength: '24 months',
+          savings: 1068,
           timeline: 'ONGOING',
-          summary: 'Enterprise managed website with daily monitoring, 24/7 support, and unlimited updates.',
-          details: ['Unlimited pages', 'Daily monitoring', 'Custom features', 'Premium SEO', '24/7 support', '$997 setup fee', '24-month contract: $252.50/mo']
+          summary: 'Enterprise managed website with daily monitoring, 24/7 support. Save $1,068 with 24-month commitment!',
+          details: ['Unlimited pages', 'Daily monitoring', 'Custom features', 'Premium SEO', '24/7 support', '$997 setup fee', '24-month contract: $252.50/mo', '💰 SAVE $1,068 vs 12-month']
+        },
+
+        // ADD-ONS
+        {
+          id: 'social-media-mgmt',
+          name: 'Social Media Management',
+          price: 250,
+          kind: 'monthly',
+          timeline: 'ONGOING',
+          summary: 'Professional social media management for Facebook, Instagram, or LinkedIn.',
+          details: ['12 posts per month', 'Content creation', 'Scheduling & posting', 'Community engagement', 'Monthly analytics report', 'Choose: Facebook, Instagram, or LinkedIn']
+        },
+        {
+          id: 'google-ads-mgmt',
+          name: 'Google Ads Setup & Management',
+          price: 297,
+          kind: 'monthly',
+          timeline: 'ONGOING',
+          summary: 'Complete Google Ads campaign management. Ad budget paid separately to Google.',
+          details: ['Keyword research', 'Google Ads campaign setup', 'Ad copy creation', 'Ongoing optimization', 'Monthly performance report', 'ROI tracking', '⚠️ Ad budget paid separately to Google']
         },
         {
           id: 'seo-starter',
@@ -274,17 +338,20 @@ document.addEventListener('DOMContentLoaded', () => {
     servicesList.innerHTML = category.services.map(service => {
       const inCart = state.cart.some(item => item.id === service.id);
       const setupFeeNote = service.setupFee ? `<p class="text-xs text-yellow-400 mt-1">+ $${service.setupFee} setup fee</p>` : '';
+      const savingsBadge = service.savings ? `<span class="inline-block bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full ml-2">Save $${service.savings}</span>` : '';
+      const contractNote = service.contractLength ? `<p class="text-xs text-gray-500 mt-1">${service.contractLength} commitment</p>` : '';
 
       return `
         <article class="cyber-card builder-service ${inCart ? 'selected' : ''}" data-service-id="${service.id}">
           <div class="flex justify-between items-start gap-4 mb-4">
-            <div>
-              <h3 class="text-xl font-semibold text-white">${service.name}</h3>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold text-white">${service.name}${savingsBadge}</h3>
               <p class="text-sm text-gray-400 mt-1">${service.summary}</p>
             </div>
-            <div class="text-right">
+            <div class="text-right min-w-[140px]">
               <p class="text-2xl font-bold text-cyan-300">${formatCurrency(service.price)}${service.kind === 'monthly' ? '<span class="text-sm text-gray-400">/mo</span>' : ''}</p>
               ${setupFeeNote}
+              ${contractNote}
               <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mt-1">${service.kind === 'monthly' ? 'Recurring' : 'One-Time'} · ${service.timeline}</p>
             </div>
           </div>
@@ -345,11 +412,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cartItems.innerHTML = state.cart.map(item => {
       const setupFeeNote = item.setupFee ? `<p class="text-xs text-yellow-400 mt-1">+ $${item.setupFee} setup</p>` : '';
+      const contractNote = item.contractLength ? `<p class="text-xs text-gray-500">${item.contractLength}</p>` : '';
       return `
         <div class="bg-black/40 border border-cyan-500/40 rounded-lg p-4 flex justify-between gap-4">
           <div>
             <p class="font-semibold text-white">${item.name}</p>
             <p class="text-xs uppercase tracking-[0.35em] text-gray-400 mt-1">${item.kind === 'monthly' ? 'Recurring' : 'One-Time'} · ${item.timeline}</p>
+            ${contractNote}
             <p class="text-sm text-gray-400 mt-2">${item.summary}</p>
           </div>
           <div class="text-right min-w-[120px]">
