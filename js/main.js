@@ -274,6 +274,11 @@ function initGideonConcierge() {
 
   const container = document.createElement('div');
   container.className = 'gideon-concierge';
+  // Position on left if requested (e.g., package builder page)
+  if (window.GIDEON_POSITION_LEFT) {
+    container.style.right = 'auto';
+    container.style.left = '1.75rem';
+  }
   container.setAttribute('data-gideon-concierge', 'true');
   container.innerHTML = `
     <button type="button" class="gideon-concierge__button" data-toggle aria-expanded="false" aria-controls="gideon-concierge-panel">
@@ -401,10 +406,18 @@ function initGideonConcierge() {
       }
 
       const data = await response.json();
-      appendMessage('gideon', data.message || 'Pipeline mapped. Let’s move.');
+      const message = data.message || 'Pipeline mapped. Let's move.';
+
+      // Check if booking is needed
+      if (data.needsBooking) {
+        const bookingLink = '<br><br><a href="https://calendly.com/gideoncode/30min" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:8px 16px;background:linear-gradient(135deg, rgba(34,211,238,0.9), rgba(236,72,153,0.85));color:#0f172a;border-radius:8px;text-decoration:none;font-weight:600;">📅 Book a Call Now</a>';
+        appendMessage('gideon', message + bookingLink);
+      } else {
+        appendMessage('gideon', message);
+      }
     } catch (error) {
       console.error('Concierge error:', error);
-      appendMessage('gideon', 'Signal jammed? Call 1-216-463-2648 or email josh@gideoncode.com and we’ll mobilize the team.');
+      appendMessage('gideon', 'Signal jammed? Call 1-216-463-2648 or email josh@gideoncode.com and we'll mobilize the team.');
     } finally {
       setLoading(false);
     }
