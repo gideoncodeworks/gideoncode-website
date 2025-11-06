@@ -274,15 +274,12 @@ function initGideonConcierge() {
 
   const container = document.createElement('div');
   container.className = 'gideon-concierge';
-  // Position on left if requested (e.g., package builder page)
-  if (window.GIDEON_POSITION_LEFT) {
-    container.style.right = 'auto';
-    container.style.left = '1.75rem';
-  }
   container.setAttribute('data-gideon-concierge', 'true');
   container.innerHTML = `
     <button type="button" class="gideon-concierge__button" data-toggle aria-expanded="false" aria-controls="gideon-concierge-panel">
-      GC
+      <video autoplay muted loop playsinline style="width: 120%; height: 120%; object-fit: cover; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <source src="media/gideon-lives.mp4" type="video/mp4">
+      </video>
     </button>
     <section class="gideon-concierge__panel" id="gideon-concierge-panel" role="dialog" aria-modal="true" aria-label="Gideon concierge" data-panel>
       <header class="gideon-concierge__header">
