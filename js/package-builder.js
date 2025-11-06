@@ -1,308 +1,15 @@
-// Gideon Package Builder - Complete Service Catalog
+// Gideon Package Builder - Guided Service Selection
 document.addEventListener('DOMContentLoaded', () => {
-  const categories = {
-    web: {
-      description: 'Choose one-time website builds OR ongoing monthly management with your preferred contract length.',
-      services: [
-        // ONE-TIME BUILDS
-        {
-          id: 'web-starter-onetime',
-          name: 'Starter Website (One-Time Build)',
-          price: 2497,
-          kind: 'one-time',
-          timeline: '3-4 weeks',
-          summary: 'Professional 5-page website with mobile responsive design, contact form, and basic SEO.',
-          details: ['Up to 5 pages', 'Mobile responsive', 'Contact form', 'Basic SEO setup', 'Hosting included (1 year)', '60 days support']
-        },
-        {
-          id: 'web-growth-onetime',
-          name: 'Growth Website (One-Time Build)',
-          price: 3497,
-          kind: 'one-time',
-          timeline: '4-6 weeks',
-          summary: 'Expanded 10-page website with blog, advanced forms, and enhanced SEO optimization.',
-          details: ['Up to 10 pages', 'Mobile responsive', 'Advanced forms', 'Enhanced SEO', 'Blog setup', 'Hosting included (1 year)', '90 days support']
-        },
-        {
-          id: 'web-domination-onetime',
-          name: 'Domination Website (One-Time Build)',
-          price: 4997,
-          kind: 'one-time',
-          timeline: '6-8 weeks',
-          summary: 'Unlimited pages with custom features, e-commerce ready, premium SEO, and 24/7 support.',
-          details: ['Unlimited pages', 'Custom features', 'Premium SEO', 'E-commerce ready', 'Blog + CMS', 'Hosting included (1 year)', '120 days priority support']
-        },
-
-        // MONTHLY WEBSITE-AS-A-SERVICE (12-MONTH)
-        {
-          id: 'web-starter-12mo',
-          name: 'Starter Web-as-a-Service (12-Month)',
-          price: 250,
-          setupFee: 497,
-          kind: 'monthly',
-          contractLength: '12 months',
-          timeline: 'ONGOING',
-          summary: 'Monthly managed website with hosting, updates, security, and support. 12-month commitment.',
-          details: ['Up to 5 pages', 'Monthly updates', 'Security monitoring', 'Managed hosting', 'Ongoing support', '$497 setup fee', '12-month contract: $250/mo']
-        },
-        {
-          id: 'web-growth-12mo',
-          name: 'Growth Web-as-a-Service (12-Month)',
-          price: 250,
-          setupFee: 697,
-          kind: 'monthly',
-          contractLength: '12 months',
-          timeline: 'ONGOING',
-          summary: 'Expanded managed site with weekly updates, priority support, and growth optimization. 12-month commitment.',
-          details: ['Up to 10 pages', 'Weekly updates', 'Advanced forms', 'Enhanced SEO', 'Priority support', '$697 setup fee', '12-month contract: $250/mo']
-        },
-        {
-          id: 'web-domination-12mo',
-          name: 'Domination Web-as-a-Service (12-Month)',
-          price: 297,
-          setupFee: 997,
-          kind: 'monthly',
-          contractLength: '12 months',
-          timeline: 'ONGOING',
-          summary: 'Enterprise managed website with daily monitoring, 24/7 support, and unlimited updates. 12-month commitment.',
-          details: ['Unlimited pages', 'Daily monitoring', 'Custom features', 'Premium SEO', '24/7 support', '$997 setup fee', '12-month contract: $297/mo']
-        },
-
-        // MONTHLY WEBSITE-AS-A-SERVICE (24-MONTH - BEST VALUE)
-        {
-          id: 'web-starter-24mo',
-          name: 'Starter Web-as-a-Service (24-Month - SAVE $900)',
-          price: 212.50,
-          setupFee: 497,
-          kind: 'monthly',
-          contractLength: '24 months',
-          savings: 900,
-          timeline: 'ONGOING',
-          summary: 'Monthly managed website with hosting, updates, security, and support. Save $900 with 24-month commitment!',
-          details: ['Up to 5 pages', 'Monthly updates', 'Security monitoring', 'Managed hosting', 'Ongoing support', '$497 setup fee', '24-month contract: $212.50/mo', '💰 SAVE $900 vs 12-month']
-        },
-        {
-          id: 'web-growth-24mo',
-          name: 'Growth Web-as-a-Service (24-Month - SAVE $900)',
-          price: 212.50,
-          setupFee: 697,
-          kind: 'monthly',
-          contractLength: '24 months',
-          savings: 900,
-          timeline: 'ONGOING',
-          summary: 'Expanded managed site with weekly updates, priority support. Save $900 with 24-month commitment!',
-          details: ['Up to 10 pages', 'Weekly updates', 'Advanced forms', 'Enhanced SEO', 'Priority support', '$697 setup fee', '24-month contract: $212.50/mo', '💰 SAVE $900 vs 12-month']
-        },
-        {
-          id: 'web-domination-24mo',
-          name: 'Domination Web-as-a-Service (24-Month - SAVE $1,068)',
-          price: 252.50,
-          setupFee: 997,
-          kind: 'monthly',
-          contractLength: '24 months',
-          savings: 1068,
-          timeline: 'ONGOING',
-          summary: 'Enterprise managed website with daily monitoring, 24/7 support. Save $1,068 with 24-month commitment!',
-          details: ['Unlimited pages', 'Daily monitoring', 'Custom features', 'Premium SEO', '24/7 support', '$997 setup fee', '24-month contract: $252.50/mo', '💰 SAVE $1,068 vs 12-month']
-        },
-
-        // ADD-ONS
-        {
-          id: 'social-media-mgmt',
-          name: 'Social Media Management',
-          price: 250,
-          kind: 'monthly',
-          timeline: 'ONGOING',
-          summary: 'Professional social media management for Facebook, Instagram, or LinkedIn.',
-          details: ['12 posts per month', 'Content creation', 'Scheduling & posting', 'Community engagement', 'Monthly analytics report', 'Choose: Facebook, Instagram, or LinkedIn']
-        },
-        {
-          id: 'google-ads-mgmt',
-          name: 'Google Ads Setup & Management',
-          price: 297,
-          kind: 'monthly',
-          timeline: 'ONGOING',
-          summary: 'Complete Google Ads campaign management. Ad budget paid separately to Google.',
-          details: ['Keyword research', 'Google Ads campaign setup', 'Ad copy creation', 'Ongoing optimization', 'Monthly performance report', 'ROI tracking', '⚠️ Ad budget paid separately to Google']
-        },
-        {
-          id: 'seo-starter',
-          name: 'Starter SEO Package',
-          price: 497,
-          kind: 'monthly',
-          timeline: '90 day ramp',
-          summary: 'Essential SEO with keyword research, on-page optimization, and monthly reporting.',
-          details: ['Keyword research', 'On-page optimization', 'Technical SEO audit', 'Monthly reports', 'Basic link building']
-        },
-        {
-          id: 'seo-growth',
-          name: 'Growth SEO Package',
-          price: 997,
-          kind: 'monthly',
-          timeline: '90 day ramp',
-          summary: 'Advanced SEO with content creation, competitive analysis, and aggressive link building.',
-          details: ['Everything in Starter', 'Content creation (2-3 posts/mo)', 'Competitive analysis', 'Advanced link building', 'Local SEO optimization', 'Conversion tracking']
-        },
-
-        // GIDEON AI ADD-ONS
-        {
-          id: 'gideon-ai-basic-web',
-          name: 'Add Gideon AI Chatbot (Basic)',
-          price: 99,
-          setupFee: 497,
-          kind: 'monthly',
-          timeline: '1 week setup',
-          summary: '24/7 AI assistant for your website. Never miss a lead with intelligent conversation.',
-          details: ['500 AI conversations/month', 'Powered by Claude + GPT-4', 'Lead capture + routing', 'Email support', '$497 setup fee']
-        },
-        {
-          id: 'gideon-ai-pro-web',
-          name: 'Add Gideon AI Chatbot (Professional)',
-          price: 299,
-          setupFee: 997,
-          kind: 'monthly',
-          timeline: '2 weeks setup',
-          summary: 'Custom AI trained on YOUR business. Books appointments, captures leads, integrates with CRM.',
-          details: ['2,000 AI conversations/month', 'Custom persona + brand voice', 'Action execution system', 'Priority support', '$997 setup fee']
-        }
-      ]
-    },
-    apps: {
-      description: 'Custom mobile apps, web applications, and internal tools built for your business.',
-      services: [
-        {
-          id: 'mobile-basic',
-          name: 'Basic Mobile App',
-          price: 14997,
-          kind: 'one-time',
-          timeline: '8-10 weeks',
-          summary: 'Single-platform mobile app (iOS OR Android) with up to 5 screens and basic features.',
-          details: ['iOS OR Android (single platform)', 'Up to 5 screens/views', 'User authentication', 'Basic API integration', 'Push notifications', 'App store submission', '60 days support']
-        },
-        {
-          id: 'mobile-pro',
-          name: 'Pro Mobile App',
-          price: 24997,
-          kind: 'one-time',
-          timeline: '12-14 weeks',
-          summary: 'Cross-platform app (iOS AND Android) with custom backend, advanced features, and 90 days support.',
-          details: ['iOS AND Android (both platforms)', 'Up to 10 screens/views', 'User authentication & profiles', 'Custom backend/database', 'Advanced API integrations', 'In-app purchases (optional)', 'App store submission', '90 days support']
-        },
-        {
-          id: 'app-maintenance-basic',
-          name: 'App Maintenance (Basic)',
-          price: 497,
-          kind: 'monthly',
-          timeline: 'ONGOING',
-          summary: 'Basic mobile app maintenance with bug fixes, minor updates, and security patches.',
-          details: ['Bug fixes', 'Security updates', 'Performance monitoring', 'App store compliance', 'Email support']
-        },
-        {
-          id: 'app-maintenance-full',
-          name: 'App Maintenance (Full)',
-          price: 997,
-          kind: 'monthly',
-          timeline: 'ONGOING',
-          summary: 'Full app support with feature development, priority support, and ongoing optimization.',
-          details: ['Everything in Basic', 'Feature development', 'Priority support', 'Analytics & reporting', 'User feedback management', 'Quarterly roadmap planning']
-        },
-        {
-          id: 'saas-dashboard',
-          name: 'SaaS / Dashboard Platform',
-          price: 19997,
-          kind: 'one-time',
-          timeline: '12-16 weeks',
-          summary: 'Custom SaaS platform with user dashboards, data visualization, and subscription billing.',
-          details: ['Custom user dashboards', 'Data visualization & reporting', 'User authentication & roles', 'Database design & setup', 'API development', 'Responsive web design', '90 days support']
-        },
-        {
-          id: 'crm-internal-tools',
-          name: 'CRM / Internal Tools',
-          price: 14997,
-          kind: 'one-time',
-          timeline: '10-12 weeks',
-          summary: 'Custom CRM or internal tool with workflow automation, pipeline management, and reporting.',
-          details: ['Custom workflow automation', 'Sales pipeline management', 'Contact & lead tracking', 'Reporting & analytics', 'Email integrations', 'User permissions & security', '90 days support']
-        }
-      ]
-    },
-    branding: {
-      description: 'Professional brand identity systems that make your business stand out.',
-      services: [
-        {
-          id: 'logo-design',
-          name: 'Logo Design',
-          price: 997,
-          kind: 'one-time',
-          timeline: '1-2 weeks',
-          summary: 'Professional logo with 3 concepts, 2 revision rounds, and all file formats.',
-          details: ['3 logo concepts', '2 revision rounds', 'Final files (PNG, SVG, PDF)', 'Black & white versions', 'Social media formats']
-        },
-        {
-          id: 'brand-identity',
-          name: 'Brand Identity Kit',
-          price: 2497,
-          kind: 'one-time',
-          timeline: '2-3 weeks',
-          summary: 'Complete brand identity with logo, color palette, typography, style guide, and templates.',
-          details: ['Custom logo design', 'Color palette (5-7 colors)', 'Typography system', 'Brand style guide (PDF)', 'Business card design', 'Social media templates', 'All file formats', '3 revision rounds']
-        },
-        {
-          id: 'brand-system',
-          name: 'Complete Brand System',
-          price: 4997,
-          kind: 'one-time',
-          timeline: '3-4 weeks',
-          summary: 'Enterprise brand system with comprehensive guidelines, marketing materials, and unlimited revisions.',
-          details: ['Everything in Identity Kit', 'Comprehensive brand guidelines', 'Marketing materials (flyers, brochures)', 'Email signature templates', 'PowerPoint/Keynote templates', 'Social media brand kit', 'Icon & graphic library', 'Unlimited revisions']
-        }
-      ]
-    },
-    ai: {
-      description: 'AI-powered chatbots that engage visitors 24/7, capture leads, and never miss an opportunity.',
-      services: [
-        {
-          id: 'gideon-ai-basic',
-          name: 'Gideon AI Chatbot (Basic)',
-          price: 99,
-          setupFee: 497,
-          kind: 'monthly',
-          timeline: '1 week setup',
-          summary: '24/7 AI assistant for your website. Never miss a lead again with intelligent conversation.',
-          details: ['500 AI conversations/month', 'Standard persona setup', 'Powered by Claude + GPT-4', 'Email support', 'Basic analytics', 'Lead capture forms', 'Mobile responsive']
-        },
-        {
-          id: 'gideon-ai-pro',
-          name: 'Gideon AI Chatbot (Professional)',
-          price: 299,
-          setupFee: 997,
-          kind: 'monthly',
-          timeline: '2 weeks setup',
-          summary: 'Custom AI assistant trained on YOUR business. Answers questions, books appointments, captures leads.',
-          details: ['2,000 AI conversations/month', 'Custom persona + brand voice', 'Action execution system', 'CRM integration ready', 'Priority support', 'Full analytics + costs', 'Lead capture + routing', 'Multi-language support']
-        },
-        {
-          id: 'gideon-ai-business',
-          name: 'Gideon AI Chatbot (Business)',
-          price: 599,
-          setupFee: 1997,
-          kind: 'monthly',
-          timeline: '3-4 weeks setup',
-          summary: 'Enterprise AI system with multiple personas, advanced automation, and white-label options.',
-          details: ['5,000 AI conversations/month', 'Multiple custom personas', 'Advanced workflow automation', 'Full CRM integration', 'Phone + email support', 'White-label option', 'Custom integrations', 'Dedicated success manager']
-        }
-      ]
-    }
-  };
-
   const state = {
     activeCategory: 'web',
-    cart: []
+    websiteType: null, // 'onetime' or 'monthly'
+    websiteTier: null, // 'starter', 'growth', 'domination'
+    contractLength: null, // '12' or '24'
+    cart: [],
+    expandedAccordion: null
   };
 
-  const categoryButtons = Array.from(document.querySelectorAll('.builder-tab'));
   const servicesList = document.getElementById('service-list');
-  const subCopy = document.getElementById('builder-subcopy');
   const cartItems = document.getElementById('cart-items');
   const cartTotal = document.getElementById('cart-total');
   const cartDeposit = document.getElementById('cart-deposit');
@@ -310,34 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkoutButton = document.getElementById('checkout-builder');
   const clearCartButton = document.getElementById('clear-cart');
 
-  categoryButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.category;
-      if (target === state.activeCategory) return;
-
-      state.activeCategory = target;
-      categoryButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.category === target));
-      renderServices();
-    });
-  });
-
   clearCartButton.addEventListener('click', () => {
     state.cart = [];
+    state.websiteType = null;
+    state.websiteTier = null;
+    state.contractLength = null;
+    state.expandedAccordion = null;
+    renderServices();
     renderCart();
   });
 
   checkoutButton.addEventListener('click', () => {
     if (!state.cart.length) return;
     const total = calculateTotal();
-    const names = state.cart.map(item => {
-      const displayName = item.kind === 'monthly' ? `${item.name} (Monthly)` : item.name;
-      return encodeURIComponent(displayName);
-    });
+    const names = state.cart.map(item => encodeURIComponent(item.name));
     const prices = state.cart.map(item => item.price);
     const summary = state.cart.map(item => {
       const priceLabel = item.kind === 'monthly' ? `${formatCurrency(item.price)}/mo` : formatCurrency(item.price);
-      const displayName = item.kind === 'monthly' ? `${item.name} (Monthly)` : item.name;
-      return `${displayName} (${priceLabel})`;
+      return `${item.name} (${priceLabel})`;
     });
 
     const checkoutUrl = new URL('checkout.html', window.location.origin);
@@ -353,65 +50,301 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function renderServices() {
-    const category = categories[state.activeCategory];
-    if (!category) return;
+    const websiteInCart = state.cart.some(item => item.category === 'website');
 
-    subCopy.textContent = category.description;
-    servicesList.innerHTML = category.services.map(service => {
-      const inCart = state.cart.some(item => item.id === service.id);
-      const setupFeeNote = service.setupFee ? `<p class="text-xs text-yellow-400 mt-1">+ $${service.setupFee} setup fee</p>` : '';
-      const savingsBadge = service.savings ? `<span class="inline-block bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full ml-2">Save $${service.savings}</span>` : '';
-      const contractNote = service.contractLength ? `<p class="text-xs text-gray-500 mt-1">${service.contractLength} commitment</p>` : '';
+    servicesList.innerHTML = `
+      <!-- ONE-TIME BUILDS -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">One-Time Website Builds</h3>
+        <p class="text-sm text-gray-400 mb-6">Complete website delivered once. Can add Gideon AI Chatbot. (No ongoing hosting/management)</p>
 
-      return `
-        <article class="cyber-card builder-service ${inCart ? 'selected' : ''}" data-service-id="${service.id}">
-          <div class="flex justify-between items-start gap-4 mb-4">
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold text-white">${service.name}${savingsBadge}</h3>
-              <p class="text-sm text-gray-400 mt-1">${service.summary}</p>
+        <div class="space-y-4">
+          ${renderOneTimeOption('starter', 'Starter Website', 2497, 'Up to 5 pages, mobile responsive, contact form, basic SEO, 1-year hosting included')}
+          ${renderOneTimeOption('growth', 'Growth Website', 3497, 'Up to 10 pages, advanced forms, enhanced SEO, blog, 1-year hosting included')}
+          ${renderOneTimeOption('domination', 'Domination Website', 4997, 'Unlimited pages, custom features, premium SEO, e-commerce ready, 1-year hosting included')}
+        </div>
+      </div>
+
+      <!-- WEBSITE-AS-A-SERVICE -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">Website-as-a-Service</h3>
+        <p class="text-sm text-gray-400 mb-6">Ongoing website management with hosting, updates, and support. Choose your tier, then pick contract length.</p>
+
+        <div class="space-y-4">
+          ${renderMonthlyAccordion('starter', 'Starter', 497, 250, 212.50, 900, 'Up to 5 pages, monthly updates, security monitoring, managed hosting')}
+          ${renderMonthlyAccordion('growth', 'Growth', 697, 250, 212.50, 900, 'Up to 10 pages, weekly updates, advanced forms, enhanced SEO, priority support')}
+          ${renderMonthlyAccordion('domination', 'Domination', 997, 297, 252.50, 1068, 'Unlimited pages, daily monitoring, custom features, premium SEO, 24/7 support')}
+        </div>
+      </div>
+
+      <!-- ADD-ONS (only show if website selected) -->
+      ${websiteInCart ? renderAddOns() : ''}
+    `;
+
+    attachEventListeners();
+  }
+
+  function renderOneTimeOption(tier, name, price, description) {
+    const selected = state.websiteType === 'onetime' && state.websiteTier === tier;
+    const disabled = state.websiteType === 'monthly';
+
+    return `
+      <div class="cyber-card ${selected ? 'border-2 border-cyan-500' : ''} ${disabled ? 'opacity-50' : ''}">
+        <div class="flex justify-between items-start gap-4">
+          <div class="flex-1">
+            <h4 class="text-xl font-semibold text-white mb-1">${name}</h4>
+            <p class="text-sm text-gray-400">${description}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-2xl font-bold text-cyan-300">${formatCurrency(price)}</p>
+            <p class="text-xs text-gray-500 mt-1">ONE-TIME</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <button
+            class="builder-toggle ${selected ? 'is-active' : ''}"
+            data-action="select-onetime"
+            data-tier="${tier}"
+            data-name="${name}"
+            data-price="${price}"
+            ${disabled ? 'disabled' : ''}
+          >
+            ${selected ? 'Selected' : 'Select This Build'}
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderMonthlyAccordion(tier, name, setupFee, price12mo, price24mo, savings, description) {
+    const isExpanded = state.expandedAccordion === tier;
+    const selected = state.websiteType === 'monthly' && state.websiteTier === tier;
+    const disabled = state.websiteType === 'onetime';
+
+    return `
+      <div class="cyber-card ${selected ? 'border-2 border-cyan-500' : ''} ${disabled ? 'opacity-50' : ''}">
+        <button
+          class="w-full text-left flex justify-between items-start gap-4"
+          data-action="toggle-accordion"
+          data-tier="${tier}"
+          ${disabled ? 'disabled' : ''}
+        >
+          <div class="flex-1">
+            <h4 class="text-xl font-semibold text-white mb-1">${name} Web-as-a-Service</h4>
+            <p class="text-sm text-gray-400">${description}</p>
+            <p class="text-xs text-yellow-400 mt-2">$${setupFee} setup fee • Choose contract length below</p>
+          </div>
+          <div class="text-right">
+            <p class="text-lg font-bold text-cyan-300">From ${formatCurrency(price24mo)}<span class="text-sm text-gray-400">/mo</span></p>
+            <p class="text-xs text-gray-500 mt-1">${isExpanded ? '▼ EXPANDED' : '► CLICK TO EXPAND'}</p>
+          </div>
+        </button>
+
+        ${isExpanded ? `
+          <div class="mt-6 pt-6 border-t border-gray-800 space-y-4">
+            <!-- 12-Month Option -->
+            <div class="bg-black/40 rounded-lg p-4 border ${state.contractLength === '12' && selected ? 'border-cyan-500' : 'border-gray-800'}">
+              <div class="flex justify-between items-center mb-3">
+                <div>
+                  <p class="font-semibold text-white">12-Month Contract</p>
+                  <p class="text-sm text-gray-400">Standard commitment</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-xl font-bold text-white">${formatCurrency(price12mo)}<span class="text-sm text-gray-400">/mo</span></p>
+                </div>
+              </div>
+              <button
+                class="builder-toggle ${state.contractLength === '12' && selected ? 'is-active' : ''}"
+                data-action="select-monthly"
+                data-tier="${tier}"
+                data-contract="12"
+                data-name="${name} Web-as-a-Service (12-Month)"
+                data-price="${price12mo}"
+                data-setup="${setupFee}"
+              >
+                ${state.contractLength === '12' && selected ? 'Selected' : 'Select 12-Month'}
+              </button>
             </div>
-            <div class="text-right min-w-[140px]">
-              <p class="text-2xl font-bold text-cyan-300">${formatCurrency(service.price)}${service.kind === 'monthly' ? '<span class="text-sm text-gray-400">/mo</span>' : ''}</p>
-              ${setupFeeNote}
-              ${contractNote}
-              <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mt-1">${service.kind === 'monthly' ? 'Recurring' : 'One-Time'} · ${service.timeline}</p>
+
+            <!-- 24-Month Option (BEST VALUE) -->
+            <div class="bg-black/40 rounded-lg p-4 border ${state.contractLength === '24' && selected ? 'border-cyan-500' : 'border-green-500/30'}">
+              <div class="flex justify-between items-center mb-3">
+                <div>
+                  <p class="font-semibold text-white">24-Month Contract <span class="inline-block bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full ml-2">SAVE $${savings}</span></p>
+                  <p class="text-sm text-gray-400">Best value - longer commitment</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-xl font-bold text-green-400">${formatCurrency(price24mo)}<span class="text-sm text-gray-400">/mo</span></p>
+                  <p class="text-xs line-through text-gray-500">${formatCurrency(price12mo)}/mo</p>
+                </div>
+              </div>
+              <button
+                class="builder-toggle ${state.contractLength === '24' && selected ? 'is-active' : ''}"
+                data-action="select-monthly"
+                data-tier="${tier}"
+                data-contract="24"
+                data-name="${name} Web-as-a-Service (24-Month)"
+                data-price="${price24mo}"
+                data-setup="${setupFee}"
+                data-savings="${savings}"
+              >
+                ${state.contractLength === '24' && selected ? 'Selected' : 'Select 24-Month'}
+              </button>
             </div>
           </div>
-          <ul class="grid sm:grid-cols-2 gap-2 text-sm text-gray-400 mb-4">
-            ${service.details.map(detail => `<li class="flex items-start gap-2"><span class="text-cyan-400 mt-1">✓</span><span>${detail}</span></li>`).join('')}
-          </ul>
-          <div class="flex justify-between items-center">
-            <button class="builder-toggle ${inCart ? 'is-active' : ''}" type="button" data-service-id="${service.id}">
-              ${inCart ? 'Remove' : 'Add to Build'}
-            </button>
-            <span class="text-xs uppercase tracking-[0.35em] text-gray-500">Real pricing</span>
-          </div>
-        </article>
-      `;
-    }).join('');
+        ` : ''}
+      </div>
+    `;
+  }
 
-    servicesList.querySelectorAll('.builder-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const id = button.dataset.serviceId;
-        toggleService(id);
+  function renderAddOns() {
+    const canAddFull = state.websiteType === 'monthly'; // Only monthly gets full add-ons
+    const canAddGideon = state.websiteType === 'onetime' || state.websiteType === 'monthly'; // Both get Gideon
+
+    return `
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">Add-On Services</h3>
+        <p class="text-sm text-gray-400 mb-6">${canAddFull ? 'Available add-ons for your website package:' : 'Available add-on for one-time builds:'}</p>
+
+        <div class="space-y-4">
+          ${canAddGideon ? renderAddOn('gideon-ai-basic', 'Gideon AI Chatbot (Basic)', 99, 497, '500 AI conversations/month, lead capture, email support') : ''}
+          ${canAddGideon ? renderAddOn('gideon-ai-pro', 'Gideon AI Chatbot (Professional)', 299, 997, '2,000 conversations/month, custom persona, action system, priority support') : ''}
+          ${canAddFull ? renderAddOn('social-media', 'Social Media Management', 250, 0, '12 posts/month, content creation, scheduling, engagement (Facebook/Instagram/LinkedIn)') : ''}
+          ${canAddFull ? renderAddOn('google-ads', 'Google Ads Setup & Management', 297, 0, 'Campaign setup, ad copy, optimization, reporting (ad budget paid separately)') : ''}
+          ${canAddFull ? renderAddOn('seo-starter', 'SEO Starter Package', 497, 0, 'Keyword research, on-page optimization, technical audit, monthly reports') : ''}
+          ${canAddFull ? renderAddOn('seo-growth', 'SEO Growth Package', 997, 0, 'Everything in Starter + content creation, competitive analysis, advanced link building') : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderAddOn(id, name, price, setupFee, description) {
+    const inCart = state.cart.some(item => item.id === id);
+
+    return `
+      <div class="cyber-card ${inCart ? 'border-2 border-magenta-500' : ''}">
+        <div class="flex justify-between items-start gap-4">
+          <div class="flex-1">
+            <h4 class="text-lg font-semibold text-white mb-1">${name}</h4>
+            <p class="text-sm text-gray-400">${description}</p>
+            ${setupFee > 0 ? `<p class="text-xs text-yellow-400 mt-1">+ $${setupFee} setup fee</p>` : ''}
+          </div>
+          <div class="text-right">
+            <p class="text-xl font-bold text-cyan-300">${formatCurrency(price)}<span class="text-sm text-gray-400">/mo</span></p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <button
+            class="builder-toggle ${inCart ? 'is-active' : ''}"
+            data-action="toggle-addon"
+            data-id="${id}"
+            data-name="${name}"
+            data-price="${price}"
+            data-setup="${setupFee || 0}"
+          >
+            ${inCart ? 'Remove' : 'Add to Build'}
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  function attachEventListeners() {
+    servicesList.querySelectorAll('[data-action]').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const action = button.dataset.action;
+
+        if (action === 'toggle-accordion') {
+          const tier = button.dataset.tier;
+          state.expandedAccordion = state.expandedAccordion === tier ? null : tier;
+          renderServices();
+        }
+        else if (action === 'select-onetime') {
+          selectOneTime(button.dataset);
+        }
+        else if (action === 'select-monthly') {
+          selectMonthly(button.dataset);
+        }
+        else if (action === 'toggle-addon') {
+          toggleAddOn(button.dataset);
+        }
       });
     });
   }
 
-  function toggleService(id) {
-    const category = categories[state.activeCategory];
-    if (!category) return;
+  function selectOneTime(data) {
+    const { tier, name, price } = data;
 
-    const service = category.services.find(item => item.id === id) ||
-      Object.values(categories).flatMap(cat => cat.services).find(item => item.id === id);
+    // Remove existing website from cart
+    state.cart = state.cart.filter(item => item.category !== 'website');
 
-    if (!service) return;
+    // Remove all add-ons except Gideon
+    state.cart = state.cart.filter(item => item.category === 'addon-gideon');
 
+    // Set state
+    state.websiteType = 'onetime';
+    state.websiteTier = tier;
+    state.contractLength = null;
+
+    // Add to cart
+    state.cart.push({
+      id: `onetime-${tier}`,
+      category: 'website',
+      name: name,
+      price: parseFloat(price),
+      kind: 'one-time',
+      setupFee: 0
+    });
+
+    renderServices();
+    renderCart();
+  }
+
+  function selectMonthly(data) {
+    const { tier, contract, name, price, setup, savings } = data;
+
+    // Remove existing website from cart
+    state.cart = state.cart.filter(item => item.category !== 'website');
+
+    // Set state
+    state.websiteType = 'monthly';
+    state.websiteTier = tier;
+    state.contractLength = contract;
+    state.expandedAccordion = tier;
+
+    // Add to cart
+    state.cart.push({
+      id: `monthly-${tier}-${contract}`,
+      category: 'website',
+      name: name,
+      price: parseFloat(price),
+      kind: 'monthly',
+      setupFee: parseFloat(setup),
+      contractLength: `${contract} months`,
+      savings: savings ? parseFloat(savings) : 0
+    });
+
+    renderServices();
+    renderCart();
+  }
+
+  function toggleAddOn(data) {
+    const { id, name, price, setup } = data;
     const index = state.cart.findIndex(item => item.id === id);
+
     if (index >= 0) {
       state.cart.splice(index, 1);
     } else {
-      state.cart.push(service);
+      const category = id.includes('gideon') ? 'addon-gideon' : 'addon-other';
+      state.cart.push({
+        id: id,
+        category: category,
+        name: name,
+        price: parseFloat(price),
+        kind: 'monthly',
+        setupFee: parseFloat(setup)
+      });
     }
 
     renderServices();
@@ -422,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!state.cart.length) {
       cartItems.innerHTML = `
         <div class="bg-black/40 border border-dashed border-cyan-500/30 rounded-lg p-4 text-sm text-gray-400">
-          Nothing selected yet. Add modules from the left and Gideon will stack them into one project.
+          Nothing selected yet. Choose your website option above to get started.
         </div>
       `;
       cartTotal.textContent = '$0';
@@ -435,26 +368,25 @@ document.addEventListener('DOMContentLoaded', () => {
     cartItems.innerHTML = state.cart.map(item => {
       const setupFeeNote = item.setupFee ? `<p class="text-xs text-yellow-400 mt-1">+ $${item.setupFee} setup</p>` : '';
       const contractNote = item.contractLength ? `<p class="text-xs text-gray-500">${item.contractLength}</p>` : '';
+      const savingsNote = item.savings ? `<p class="text-xs text-green-400">Saves $${item.savings}</p>` : '';
+
       return `
-        <div class="bg-black/40 border border-cyan-500/40 rounded-lg p-4 flex justify-between gap-4">
-          <div>
-            <p class="font-semibold text-white">${item.name}</p>
-            <p class="text-xs uppercase tracking-[0.35em] text-gray-400 mt-1">${item.kind === 'monthly' ? 'Recurring' : 'One-Time'} · ${item.timeline}</p>
-            ${contractNote}
-            <p class="text-sm text-gray-400 mt-2">${item.summary}</p>
-          </div>
-          <div class="text-right min-w-[120px]">
-            <p class="text-lg font-bold text-cyan-300">${formatCurrency(item.price)}${item.kind === 'monthly' ? '<span class="text-xs text-gray-400">/mo</span>' : ''}</p>
-            ${setupFeeNote}
-            <button class="text-xs text-magenta-300 hover:text-magenta-200 mt-2 remove-item" data-service-id="${item.id}">Remove</button>
+        <div class="bg-black/40 border border-cyan-500/40 rounded-lg p-4">
+          <div class="flex justify-between gap-4">
+            <div>
+              <p class="font-semibold text-white">${item.name}</p>
+              <p class="text-xs uppercase tracking-[0.35em] text-gray-400 mt-1">${item.kind === 'monthly' ? 'Recurring' : 'One-Time'}</p>
+              ${contractNote}
+              ${savingsNote}
+            </div>
+            <div class="text-right">
+              <p class="text-lg font-bold text-cyan-300">${formatCurrency(item.price)}${item.kind === 'monthly' ? '<span class="text-xs text-gray-400">/mo</span>' : ''}</p>
+              ${setupFeeNote}
+            </div>
           </div>
         </div>
       `;
     }).join('');
-
-    cartItems.querySelectorAll('.remove-item').forEach(button => {
-      button.addEventListener('click', () => toggleService(button.dataset.serviceId));
-    });
 
     const total = calculateTotal();
     const deposit = total * 0.5;
@@ -478,9 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function formatCurrency(value) {
     const amount = Number(value || 0);
-    if (!Number.isFinite(amount)) {
-      return '$0';
-    }
+    if (!Number.isFinite(amount)) return '$0';
     return amount % 1 === 0
       ? `$${amount.toLocaleString(undefined, { maximumFractionDigits: 0 })}`
       : `$${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -488,11 +418,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderServices();
   renderCart();
-});
-
-// Tab styling helper
-document.addEventListener('click', (event) => {
-  if (!event.target.classList.contains('builder-tab')) return;
-  document.querySelectorAll('.builder-tab').forEach(tab => tab.classList.remove('active'));
-  event.target.classList.add('active');
 });
