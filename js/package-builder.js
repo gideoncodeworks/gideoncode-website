@@ -1,103 +1,174 @@
-// Gideon Package Builder
+// Gideon Package Builder - Real Pricing from Services
 document.addEventListener('DOMContentLoaded', () => {
   const categories = {
     web: {
-      description: 'Websites, funnels, SEO, and revenue enablement modules for your digital presence.',
+      description: 'Websites, SEO, and ongoing management to fuel your digital presence.',
       services: [
         {
-          id: 'web-launch',
-          name: 'Launch Website Sprint',
+          id: 'web-starter-onetime',
+          name: 'Starter Website (One-Time)',
           price: 2497,
           kind: 'one-time',
-          timeline: '21 days',
-          summary: 'Strategy, wireframes, copy polish, high-converting design, and launch support.',
-          details: ['Up to 8 pages', 'Conversion-focused UX', 'On-page SEO + analytics', '30-day optimization window']
+          timeline: '3-4 weeks',
+          summary: 'Professional 5-page website with mobile responsive design, contact form, and basic SEO.',
+          details: ['Up to 5 pages', 'Mobile responsive', 'Contact form', 'Basic SEO setup', 'Hosting included (1 year)', '60 days support']
         },
         {
-          id: 'web-monthly',
-          name: 'Web-as-a-Service Subscription',
-          price: 212.5,
+          id: 'web-growth-onetime',
+          name: 'Growth Website (One-Time)',
+          price: 3497,
+          kind: 'one-time',
+          timeline: '4-6 weeks',
+          summary: 'Expanded 10-page website with blog, advanced forms, and enhanced SEO optimization.',
+          details: ['Up to 10 pages', 'Mobile responsive', 'Advanced forms', 'Enhanced SEO', 'Blog setup', 'Hosting included (1 year)', '90 days support']
+        },
+        {
+          id: 'web-domination-onetime',
+          name: 'Domination Website (One-Time)',
+          price: 4997,
+          kind: 'one-time',
+          timeline: '6-8 weeks',
+          summary: 'Unlimited pages with custom features, e-commerce ready, premium SEO, and 24/7 support.',
+          details: ['Unlimited pages', 'Custom features', 'Premium SEO', 'E-commerce ready', 'Blog + CMS', 'Hosting included (1 year)', '120 days priority support']
+        },
+        {
+          id: 'web-starter-monthly',
+          name: 'Starter Web-as-a-Service',
+          price: 212.50,
+          setupFee: 497,
           kind: 'monthly',
           timeline: 'ONGOING',
-          summary: 'Our team keeps the site sprinting—design updates, CRO experiments, security, hosting.',
-          details: ['Unlimited updates', 'A/B testing + analytics', 'Managed hosting & security', 'Quarterly growth sprints']
+          summary: 'Monthly managed website with hosting, updates, security monitoring, and ongoing support.',
+          details: ['Up to 5 pages', 'Monthly updates', 'Security monitoring', 'Managed hosting', 'Ongoing support', '$497 setup fee', '24-month contract: $212.50/mo']
         },
         {
-          id: 'seo-demand',
-          name: 'Demand Capture SEO Engine',
-          price: 1800,
+          id: 'web-growth-monthly',
+          name: 'Growth Web-as-a-Service',
+          price: 212.50,
+          setupFee: 697,
+          kind: 'monthly',
+          timeline: 'ONGOING',
+          summary: 'Expanded managed site with weekly updates, priority support, and growth optimization.',
+          details: ['Up to 10 pages', 'Weekly updates', 'Advanced forms', 'Enhanced SEO', 'Priority support', '$697 setup fee', '24-month contract: $212.50/mo']
+        },
+        {
+          id: 'web-domination-monthly',
+          name: 'Domination Web-as-a-Service',
+          price: 252.50,
+          setupFee: 997,
+          kind: 'monthly',
+          timeline: 'ONGOING',
+          summary: 'Enterprise managed website with daily monitoring, 24/7 support, and unlimited updates.',
+          details: ['Unlimited pages', 'Daily monitoring', 'Custom features', 'Premium SEO', '24/7 support', '$997 setup fee', '24-month contract: $252.50/mo']
+        },
+        {
+          id: 'seo-starter',
+          name: 'Starter SEO Package',
+          price: 497,
           kind: 'monthly',
           timeline: '90 day ramp',
-          summary: 'Technical SEO, content ops, local + maps, backlink velocity tied to pipeline goals.',
-          details: ['Quarterly technical audits', '2-3 articles/mo', 'Citation + backlink campaigns', 'Conversion tracking dashboards']
+          summary: 'Essential SEO with keyword research, on-page optimization, and monthly reporting.',
+          details: ['Keyword research', 'On-page optimization', 'Technical SEO audit', 'Monthly reports', 'Basic link building']
         },
         {
-          id: 'video-reel',
-          name: 'Cinematic Offer Reel',
-          price: 1800,
-          kind: 'one-time',
-          timeline: '3 weeks',
-          summary: 'Motion + script package for ads, social, and outbound sequences. Gideon handles the creative brief.',
-          details: ['Storyboard + script', 'Animated + live action mix', 'Social + vertical formats', 'Launch copy + CTAs']
-        },
-        {
-          id: 'outbound-kit',
-          name: 'Outbound Weapons Kit',
-          price: 3200,
-          kind: 'one-time',
-          timeline: '2 weeks',
-          summary: 'Landing page, email flows, Loom pitch, and call script wired to Gideon CRM.',
-          details: ['Offer landing page', '6-step email + SMS cadence', 'Video pitch script + deck', 'CRM automations pre-configured']
+          id: 'seo-growth',
+          name: 'Growth SEO Package',
+          price: 997,
+          kind: 'monthly',
+          timeline: '90 day ramp',
+          summary: 'Advanced SEO with content creation, competitive analysis, and aggressive link building.',
+          details: ['Everything in Starter', 'Content creation (2-3 posts/mo)', 'Competitive analysis', 'Advanced link building', 'Local SEO optimization', 'Conversion tracking']
         }
       ]
     },
     apps: {
-      description: 'Automation, portals, and apps that Gideon orchestrates for internal and customer-facing operations.',
+      description: 'Custom mobile apps, web applications, and internal tools built for your business.',
       services: [
         {
-          id: 'crm-portal',
-          name: 'Client or Partner Portal',
-          price: 11997,
+          id: 'mobile-basic',
+          name: 'Basic Mobile App',
+          price: 14997,
           kind: 'one-time',
           timeline: '8-10 weeks',
-          summary: 'Secure portal for clients, vendors, or franchisees with dashboards, file delivery, and ticketing.',
-          details: ['Role-based access', 'Document + asset hub', 'Automated onboarding flows', 'Stripe or ACH integrations']
+          summary: 'Single-platform mobile app (iOS OR Android) with up to 5 screens and basic features.',
+          details: ['iOS OR Android (single platform)', 'Up to 5 screens/views', 'User authentication', 'Basic API integration', 'Push notifications', 'App store submission', '60 days support']
         },
         {
-          id: 'custom-saas',
-          name: 'Custom SaaS / Dashboard App',
-          price: 19997,
+          id: 'mobile-pro',
+          name: 'Pro Mobile App',
+          price: 24997,
           kind: 'one-time',
           timeline: '12-14 weeks',
-          summary: 'Full-stack web application with multi-tenant architecture, analytics, and billing.',
-          details: ['Auth + user management', 'Postgres + Prisma data layer', 'API + webhook suite', 'Usage + billing instrumentation']
+          summary: 'Cross-platform app (iOS AND Android) with custom backend, advanced features, and 90 days support.',
+          details: ['iOS AND Android (both platforms)', 'Up to 10 screens/views', 'User authentication & profiles', 'Custom backend/database', 'Advanced API integrations', 'In-app purchases (optional)', 'App store submission', '90 days support']
         },
         {
-          id: 'workflow-automation',
-          name: 'Workflow Automation Mesh',
-          price: 6400,
+          id: 'app-maintenance-basic',
+          name: 'App Maintenance (Basic)',
+          price: 497,
+          kind: 'monthly',
+          timeline: 'ONGOING',
+          summary: 'Basic mobile app maintenance with bug fixes, minor updates, and security patches.',
+          details: ['Bug fixes', 'Security updates', 'Performance monitoring', 'App store compliance', 'Email support']
+        },
+        {
+          id: 'app-maintenance-full',
+          name: 'App Maintenance (Full)',
+          price: 997,
+          kind: 'monthly',
+          timeline: 'ONGOING',
+          summary: 'Full app support with feature development, priority support, and ongoing optimization.',
+          details: ['Everything in Basic', 'Feature development', 'Priority support', 'Analytics & reporting', 'User feedback management', 'Quarterly roadmap planning']
+        },
+        {
+          id: 'saas-dashboard',
+          name: 'SaaS / Dashboard Platform',
+          price: 19997,
           kind: 'one-time',
-          timeline: '4 weeks',
-          summary: 'Zapier/Make + serverless automations that glue CRMs, forms, fulfillment, and alerts together.',
-          details: ['Process mapping workshop', 'Automation build + QA', 'Runbook + ownership docs', '30-day monitoring']
+          timeline: '12-16 weeks',
+          summary: 'Custom SaaS platform with user dashboards, data visualization, and subscription billing.',
+          details: ['Custom user dashboards', 'Data visualization & reporting', 'User authentication & roles', 'Database design & setup', 'API development', 'Responsive web design', '90 days support']
         },
         {
-          id: 'mobile-app',
-          name: 'React Native Mobile App',
+          id: 'crm-internal-tools',
+          name: 'CRM / Internal Tools',
           price: 14997,
           kind: 'one-time',
           timeline: '10-12 weeks',
-          summary: 'iOS + Android app with offline sync, push notifications, and API integrations.',
-          details: ['Cross-platform build', 'App Store + Play Store launch', 'Design system + brand polish', 'Backend integration']
+          summary: 'Custom CRM or internal tool with workflow automation, pipeline management, and reporting.',
+          details: ['Custom workflow automation', 'Sales pipeline management', 'Contact & lead tracking', 'Reporting & analytics', 'Email integrations', 'User permissions & security', '90 days support']
+        }
+      ]
+    },
+    branding: {
+      description: 'Professional brand identity systems that make your business stand out.',
+      services: [
+        {
+          id: 'logo-design',
+          name: 'Logo Design',
+          price: 997,
+          kind: 'one-time',
+          timeline: '1-2 weeks',
+          summary: 'Professional logo with 3 concepts, 2 revision rounds, and all file formats.',
+          details: ['3 logo concepts', '2 revision rounds', 'Final files (PNG, SVG, PDF)', 'Black & white versions', 'Social media formats']
         },
         {
-          id: 'ai-copilot',
-          name: 'AI Copilot & Knowledge Base',
-          price: 7600,
+          id: 'brand-identity',
+          name: 'Brand Identity Kit',
+          price: 2497,
           kind: 'one-time',
-          timeline: '5 weeks',
-          summary: 'Claude/OpenAI co-pilot, embedded knowledge base, and tone-tuned assistant wired to your data.',
-          details: ['Secure data ingestion', 'Intent + workflow design', 'Playbook + prompt library', 'Ongoing training scripts']
+          timeline: '2-3 weeks',
+          summary: 'Complete brand identity with logo, color palette, typography, style guide, and templates.',
+          details: ['Custom logo design', 'Color palette (5-7 colors)', 'Typography system', 'Brand style guide (PDF)', 'Business card design', 'Social media templates', 'All file formats', '3 revision rounds']
+        },
+        {
+          id: 'brand-system',
+          name: 'Complete Brand System',
+          price: 4997,
+          kind: 'one-time',
+          timeline: '3-4 weeks',
+          summary: 'Enterprise brand system with comprehensive guidelines, marketing materials, and unlimited revisions.',
+          details: ['Everything in Identity Kit', 'Comprehensive brand guidelines', 'Marketing materials (flyers, brochures)', 'Email signature templates', 'PowerPoint/Keynote templates', 'Social media brand kit', 'Icon & graphic library', 'Unlimited revisions']
         }
       ]
     }
@@ -167,6 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
     subCopy.textContent = category.description;
     servicesList.innerHTML = category.services.map(service => {
       const inCart = state.cart.some(item => item.id === service.id);
+      const setupFeeNote = service.setupFee ? `<p class="text-xs text-yellow-400 mt-1">+ $${service.setupFee} setup fee</p>` : '';
+
       return `
         <article class="cyber-card builder-service ${inCart ? 'selected' : ''}" data-service-id="${service.id}">
           <div class="flex justify-between items-start gap-4 mb-4">
@@ -176,17 +249,18 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="text-right">
               <p class="text-2xl font-bold text-cyan-300">${formatCurrency(service.price)}${service.kind === 'monthly' ? '<span class="text-sm text-gray-400">/mo</span>' : ''}</p>
-              <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mt-1">${service.kind === 'monthly' ? 'Managed' : 'Project'} · ${service.timeline}</p>
+              ${setupFeeNote}
+              <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mt-1">${service.kind === 'monthly' ? 'Recurring' : 'One-Time'} · ${service.timeline}</p>
             </div>
           </div>
           <ul class="grid sm:grid-cols-2 gap-2 text-sm text-gray-400 mb-4">
-            ${service.details.map(detail => `<li class="flex items-start gap-2"><span class="text-cyan-400 mt-1">◎</span><span>${detail}</span></li>`).join('')}
+            ${service.details.map(detail => `<li class="flex items-start gap-2"><span class="text-cyan-400 mt-1">✓</span><span>${detail}</span></li>`).join('')}
           </ul>
           <div class="flex justify-between items-center">
             <button class="builder-toggle ${inCart ? 'is-active' : ''}" type="button" data-service-id="${service.id}">
               ${inCart ? 'Remove' : 'Add to Build'}
             </button>
-            <span class="text-xs uppercase tracking-[0.35em] text-gray-500">Gideon ready</span>
+            <span class="text-xs uppercase tracking-[0.35em] text-gray-500">Real pricing</span>
           </div>
         </article>
       `;
@@ -234,19 +308,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    cartItems.innerHTML = state.cart.map(item => `
-      <div class="bg-black/40 border border-cyan-500/40 rounded-lg p-4 flex justify-between gap-4">
-        <div>
-          <p class="font-semibold text-white">${item.name}</p>
-          <p class="text-xs uppercase tracking-[0.35em] text-gray-400 mt-1">${item.kind === 'monthly' ? 'Managed' : 'Project'} · ${item.timeline}</p>
-          <p class="text-sm text-gray-400 mt-2">${item.summary}</p>
+    cartItems.innerHTML = state.cart.map(item => {
+      const setupFeeNote = item.setupFee ? `<p class="text-xs text-yellow-400 mt-1">+ $${item.setupFee} setup</p>` : '';
+      return `
+        <div class="bg-black/40 border border-cyan-500/40 rounded-lg p-4 flex justify-between gap-4">
+          <div>
+            <p class="font-semibold text-white">${item.name}</p>
+            <p class="text-xs uppercase tracking-[0.35em] text-gray-400 mt-1">${item.kind === 'monthly' ? 'Recurring' : 'One-Time'} · ${item.timeline}</p>
+            <p class="text-sm text-gray-400 mt-2">${item.summary}</p>
+          </div>
+          <div class="text-right min-w-[120px]">
+            <p class="text-lg font-bold text-cyan-300">${formatCurrency(item.price)}${item.kind === 'monthly' ? '<span class="text-xs text-gray-400">/mo</span>' : ''}</p>
+            ${setupFeeNote}
+            <button class="text-xs text-magenta-300 hover:text-magenta-200 mt-2 remove-item" data-service-id="${item.id}">Remove</button>
+          </div>
         </div>
-        <div class="text-right min-w-[120px]">
-          <p class="text-lg font-bold text-cyan-300">${formatCurrency(item.price)}${item.kind === 'monthly' ? '<span class="text-xs text-gray-400">/mo</span>' : ''}</p>
-          <button class="text-xs text-magenta-300 hover:text-magenta-200 mt-2 remove-item" data-service-id="${item.id}">Remove</button>
-        </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
     cartItems.querySelectorAll('.remove-item').forEach(button => {
       button.addEventListener('click', () => toggleService(button.dataset.serviceId));
@@ -265,7 +343,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function calculateTotal() {
     return state.cart
       .filter(item => item.kind !== 'monthly')
-      .reduce((sum, item) => sum + item.price, 0);
+      .reduce((sum, item) => {
+        const basePrice = item.price;
+        const setupFee = item.setupFee || 0;
+        return sum + basePrice + setupFee;
+      }, 0);
   }
 
   function formatCurrency(value) {
