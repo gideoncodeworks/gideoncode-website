@@ -25,5 +25,21 @@
 ## Completed
 | Date | Item | Notes |
 |------|------|-------|
-| 2025-03-xx | AI CRM Command Center section | Added showcase highlighting dual AI stack + copilots. |
-| 2025-03-xx | Narrative Sync | Hero/tiles/CTA/concierge now react to Vision/Scope/Reel outputs. |
+| 2025-11-06 | Services Page | Created services.html with full pricing (fixes 404s). Codex. |
+| 2025-11-06 | Portfolio Page | Created portfolio.html with case studies (fixes 404s). Codex. |
+| 2025-11-06 | Forms → Netlify | Contact + careers forms now submit via Netlify Forms with honeypot. Codex. |
+| 2025-11-06 | Hero Copy | Homepage headline updated to "Websites + AI CRM That Print Revenue". Codex. |
+| 2025-11-06 | Phone Number | Added 1-216-463-2648 above fold in hero. Codex. |
+| 2025-11-06 | Loading States | Vision/Scope/Reel use consistent setStatusIndicator helper. Codex. |
+| 2025-11-06 | AI Gateway Feedback | Inline error messages with retry guidance. Codex. |
+| 2025-11-06 | Narrative CTA Updates | Hero + footer CTAs personalize based on gcAIState. Codex. |
+| 2025-11-06 | CRM Showcase | Added AI CRM Command Center section with screenshot. Codex. |
+| 2025-11-06 | Form Validation | Client-side validation with inline error display. Codex. |
+| 2025-11-06 | Bundle Lazy Loading | Created ai-suite-loader.js to load AI bundle only when needed. Codex. |
+| 2025-11-06 | Form Success Page | Created form-success.html shared redirect. Codex. |
+| 2025-11-06 | Netlify Rewrites | Added /services and /portfolio clean URL redirects. Codex. |
+| 2025-11-06 | Footer Copyright | Updated to 2025 across all pages. Codex. |
+| 2025-11-06 | Navigation Standardization | Unified nav structure across 33 pages. Codex. |
+| 2025-11-06 | AI CRM Command Center section | Added showcase highlighting dual AI stack + copilots. Claude. |
+| 2025-11-06 | Narrative Sync | Hero/tiles/CTA/concierge now react to Vision/Scope/Reel outputs. Claude. |
+| 2025-11-06 | Deployed to Production | All UX improvements live at gideoncode.com. Claude + Codex. |
