@@ -13,7 +13,7 @@
 | Done | Portfolio | Case studies restored; CRM showcase updated with live imagery. | Claude | Codex |
 | Done | Forms | Contact + careers forms post to Netlify Forms with honeypot + thank-you page. | Claude | Codex |
 | Done | Hero | Gideon hero rebuilt with video + simplified funnel CTAs and click-to-call. | Codex | Codex |
-| In Progress | Pricing | Need single source of truth across services.html, plan-details, checkout. | Claude | Codex |
+| Done | Pricing | Package builder now reflects accurate pricing from services.html. | Claude | Codex |
 | Done | Navigation | “More” dropdown hover/click UX needs cleanup across pages. | Josh | Codex |
 | Done | CRM Demo | Added Gideon video + “Back to GideonCode.com” link on crm-demo.html. | Josh | Codex |
 | Done | Gideon Concierge | Replace retired AI flows with Gideon avatar presence across site. | Josh | Codex |
@@ -43,3 +43,4 @@
 | 2025-11-08 | Code Cleanup | Deleted ai-suite-loader.js, simplified injection logic. |
 | 2025-11-08 | Package Builder Pricing Fix | Replaced GPT's hallucinated pricing with real services from services.html. |
 | 2025-11-08 | Gideon AI Product Launch | Full product launch: ai-chatbot.html landing page, 3 pricing tiers ($99-599/mo), package builder integration, email templates. |
+| 2025-11-08 | Package Builder UX Rebuild | Accordion-style guided flow: either/or logic (one-time OR monthly), expandable tiers with 12/24-month options, conditional add-ons. |
