@@ -27,9 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCart();
   });
 
-  checkoutButton.addEventListener('click', () => {
-    if (!state.cart.length) return;
+  checkoutButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('Checkout button clicked', state.cart);
+
+    if (!state.cart.length) {
+      console.log('Cart is empty, aborting');
+      return;
+    }
+
     const total = calculateTotal();
+    console.log('Total calculated:', total);
+
     const names = state.cart.map(item => encodeURIComponent(item.name));
     const prices = state.cart.map(item => item.price);
     const summary = state.cart.map(item => {
@@ -46,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkoutUrl.searchParams.set('customSummary', summary.join('|'));
     checkoutUrl.searchParams.set('source', 'package-builder');
 
+    console.log('Navigating to:', checkoutUrl.toString());
     window.location.href = checkoutUrl.toString();
   });
 
