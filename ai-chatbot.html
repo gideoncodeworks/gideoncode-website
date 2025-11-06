@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Meta Tags -->
+  <title>Gideon AI Chatbot | 24/7 AI Assistant for Your Website | From $99/mo</title>
+  <meta name="description" content="Add a 24/7 AI assistant to your website. Gideon AI Chatbot captures leads, answers questions, and never misses an opportunity. Powered by Claude & GPT-4. From $99/month.">
+  <meta name="keywords" content="AI chatbot, website chatbot, AI assistant, lead capture, customer service AI, Claude chatbot, GPT-4 chatbot, conversational AI">
+  <meta name="author" content="Gideon Code Works">
+  <link rel="canonical" href="https://gideoncode.com/ai-chatbot.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Gideon AI Chatbot | Never Miss a Lead Again">
+  <meta property="og:description" content="24/7 AI assistant that captures leads while you sleep. Powered by Claude & GPT-4. From $99/month.">
+  <meta property="og:image" content="https://gideoncode.com/images/portfolio/crm-platform.jpg">
+  <meta property="og:url" content="https://gideoncode.com/ai-chatbot.html">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Gideon Code Works">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gideon AI Chatbot - 24/7 Lead Capture">
+  <meta name="twitter:description" content="AI assistant that never sleeps. Capture leads, answer questions, book appointments automatically.">
+  <meta name="twitter:image" content="https://gideoncode.com/images/portfolio/crm-platform.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/gcw-logo.png" type="image/png">
+
+  <!-- Stylesheets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-inter min-h-screen">
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="fixed w-full top-0 z-50">
+      <nav class="site-nav bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0 flex items-center">
+              <a href="index.html" aria-label="Gideon Code Works Home" class="flex items-center">
+                <img src="images/gcw-logo.png" alt="Gideon Code Works logo" width="200" height="60">
+              </a>
+            </div>
+
+            <div class="nav-desktop-links items-center space-x-6">
+              <a href="services.html" class="nav-link text-white hover:text-cyan-400">Services</a>
+              <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="nav-link text-white hover:text-cyan-400">CRM Platform</a>
+              <a href="portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
+              <div class="relative nav-dropdown-container">
+                <button type="button" class="nav-link text-white hover:text-cyan-400 flex items-center gap-1 nav-dropdown-toggle" aria-haspopup="true" aria-controls="nav-more-menu">
+                  <span>More</span>
+                  <svg class="w-4 h-4 text-cyan-400 nav-dropdown-icon transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div id="nav-more-menu" class="nav-dropdown" role="menu">
+                  <div class="nav-dropdown-panel">
+                    <a href="about.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">About</a>
+                    <a href="contact.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Contact</a>
+                    <a href="careers.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Careers</a>
+                  </div>
+                </div>
+              </div>
+              <a href="#pricing" class="neon-button text-sm py-2 px-4">See Pricing</a>
+            </div>
+
+            <div class="nav-mobile-toggle">
+              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu">
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
+          <div class="flex flex-col p-6 space-y-6">
+            <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
+            <a href="services.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Services</a>
+            <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
+            <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">CRM Platform</a>
+            <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
+            <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
+            <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Careers</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-28">
+
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-cyan-950/30 via-black to-magenta-950/30"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-sm text-cyan-300">
+              <span class="relative flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+              </span>
+              Running live on platform.gideoncode.com
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold gradient-text leading-tight">
+              Never Miss a Lead Again
+            </h1>
+
+            <p class="text-xl text-gray-300 leading-relaxed">
+              Gideon AI Chatbot works 24/7 on your website—answering questions, capturing leads, and booking appointments while you sleep. Powered by the same dual Claude + GPT-4 brain that runs our CRM.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#pricing" class="neon-button neon-button-magenta text-lg py-4 px-8 text-center">
+                See Pricing
+              </a>
+              <a href="#demo" class="neon-button neon-button-outline text-lg py-4 px-8 text-center">
+                See It In Action
+              </a>
+            </div>
+
+            <div class="flex items-center gap-6 text-sm text-gray-400">
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Setup in 1 week</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>No coding required</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Cancel anytime</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-transparent to-magenta-500/30 rounded-3xl blur-xl"></div>
+            <div class="relative rounded-3xl border border-cyan-500/40 overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+              <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="images/portfolio/crm-platform.jpg">
+                <source src="media/gideon-lives.mp4" type="video/mp4">
+              </video>
+              <div class="absolute bottom-0 left-0 right-0 bg-black/80 px-6 py-5">
+                <p class="text-sm uppercase tracking-[0.3em] text-cyan-200 mb-1">Gideon AI Brain</p>
+                <p class="text-white font-semibold">Dual Claude 3.5 Sonnet + GPT-4o intelligence. Understands context, takes action, never forgets.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950/20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold gradient-text mb-6">
+            How Many Leads Are You Losing Right Now?
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Your website gets traffic, but most visitors leave without a trace. Here's what's happening while you sleep, eat, or focus on your business.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+          <!-- Without Gideon -->
+          <div class="cyber-card border-2 border-red-500/40">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+                <span class="text-2xl">❌</span>
+              </div>
+              <h3 class="text-2xl font-bold text-red-400">Without Gideon</h3>
+            </div>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex gap-3">
+                <span class="text-red-400 mt-1">✗</span>
+                <span>Visitors leave after 30 seconds with no interaction</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-red-400 mt-1">✗</span>
+                <span>Questions go unanswered until you check email (maybe tomorrow)</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-red-400 mt-1">✗</span>
+                <span>International visitors can't reach you during your hours</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-red-400 mt-1">✗</span>
+                <span>Simple questions block sales ("What's your pricing?")</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-red-400 mt-1">✗</span>
+                <span>No way to track who visited or what they wanted</span>
+              </li>
+            </ul>
+            <div class="mt-8 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
+              <p class="text-red-300 font-semibold">Result: 98% of visitors leave without converting</p>
+            </div>
+          </div>
+
+          <!-- With Gideon -->
+          <div class="cyber-card border-2 border-cyan-500">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                <span class="text-2xl">✓</span>
+              </div>
+              <h3 class="text-2xl font-bold text-cyan-400">With Gideon AI</h3>
+            </div>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex gap-3">
+                <span class="text-cyan-400 mt-1">✓</span>
+                <span>Visitors get instant, intelligent responses 24/7</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 mt-1">✓</span>
+                <span>Gideon answers questions about YOUR business specifically</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 mt-1">✓</span>
+                <span>Works around the clock in multiple time zones</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 mt-1">✓</span>
+                <span>Handles FAQs automatically, escalates complex questions</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400 mt-1">✓</span>
+                <span>Captures contact info, books appointments, routes leads to your CRM</span>
+              </li>
+            </ul>
+            <div class="mt-8 p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
+              <p class="text-cyan-300 font-semibold">Result: 3-5x more leads captured and qualified</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl sm:text-5xl font-bold gradient-text mb-6">
+          See Gideon in Action
+        </h2>
+        <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+          Click the chat button in the bottom-right corner of this page right now. That's Gideon. Ask anything about our services, pricing, or how it works. Experience the intelligence yourself.
+        </p>
+
+        <div class="cyber-card max-w-2xl mx-auto border-2 border-magenta-500">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-magenta-500 flex items-center justify-center">
+              <span class="text-3xl">💬</span>
+            </div>
+            <div class="text-left">
+              <h3 class="text-2xl font-bold text-white">Try It Right Now</h3>
+              <p class="text-gray-400">Look for the "GC" button in the bottom-right corner →</p>
+            </div>
+          </div>
+
+          <div class="bg-black/40 border border-cyan-500/30 rounded-lg p-6 text-left">
+            <p class="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-4">Example Questions to Ask:</p>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex gap-3">
+                <span class="text-cyan-400">→</span>
+                <span>"What's the difference between Basic and Professional plans?"</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400">→</span>
+                <span>"How long does setup take?"</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400">→</span>
+                <span>"Can I customize the chatbot's personality?"</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-cyan-400">→</span>
+                <span>"What happens if I go over my conversation limit?"</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-6 text-sm text-gray-400">
+            <p>This is the EXACT same AI that will go on your website. Same intelligence, same natural conversation, customized to YOUR business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-magenta-950/20">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold gradient-text mb-6">
+            What Makes Gideon Different?
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            This isn't a chatbot with canned responses. This is real AI that understands context, remembers conversations, and actually helps your customers.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="cyber-card">
+            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-4">
+              <span class="text-2xl">🧠</span>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3">Dual AI Brain</h3>
+            <p class="text-gray-300">Claude 3.5 Sonnet primary, GPT-4o failover. Gets smarter with every conversation and never forgets context.</p>
+          </div>
+
+          <div class="cyber-card">
+            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-4">
+              <span class="text-2xl">🎯</span>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3">Trained on YOUR Business</h3>
+            <p class="text-gray-300">We customize Gideon with your services, pricing, FAQs, and brand voice. It sounds like you, not a robot.</p>
+          </div>
+
+          <div class="cyber-card">
+            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-4">
+              <span class="text-2xl">⚡</span>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3">Takes Action, Not Just Talk</h3>
+            <p class="text-gray-300">Books appointments, captures leads, routes to your CRM, sends follow-up emails. Does the work, not just the chat.</p>
+          </div>
+
+          <div class="cyber-card">
+            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-4">
+              <span class="text-2xl">📊</span>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3">Full Analytics Dashboard</h3>
+            <p class="text-gray-300">See every conversation, track conversion rates, identify common questions. Know what your customers really want.</p>
+          </div>
+
+          <div class="cyber-card">
+            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-4">
+              <span class="text-2xl">🔒</span>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3">Secure & Compliant</h3>
+            <p class="text-gray-300">Enterprise-grade security, GDPR compliant, data encryption. Your conversations and customer data stay safe.</p>
+          </div>
+
+          <div class="cyber-card">
+            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-4">
+              <span class="text-2xl">🚀</span>
+            </div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-3">Setup in 1 Week</h3>
+            <p class="text-gray-300">We handle everything. Persona development, training, integration, testing. You just approve and go live.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold gradient-text mb-6">
+            Simple, Transparent Pricing
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            One setup fee to train Gideon on your business, then a simple monthly subscription. Cancel anytime.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+
+          <!-- Basic Plan -->
+          <article class="cyber-card pricing-card">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Basic</h3>
+            <div class="mb-6">
+              <div class="text-4xl font-bold text-white mb-1">$99<span class="text-lg text-gray-400">/mo</span></div>
+              <p class="text-sm text-gray-400 mb-4">+ $497 setup fee</p>
+              <p class="text-xs uppercase tracking-[0.3em] text-gray-500">Perfect for small local businesses</p>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span><strong>500 conversations/month</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Standard persona setup</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Claude + GPT-4 powered</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Lead capture forms</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Basic analytics dashboard</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Email support</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>1 week setup time</span>
+              </li>
+            </ul>
+            <a href="package-builder.html#ai" class="neon-button w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Professional Plan (RECOMMENDED) -->
+          <article class="cyber-card pricing-card border-2 border-magenta-500 relative">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span class="bg-magenta-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Most Popular</span>
+            </div>
+            <h3 class="text-2xl font-bold text-magenta-400 mb-2">Professional</h3>
+            <div class="mb-6">
+              <div class="text-4xl font-bold text-white mb-1">$299<span class="text-lg text-gray-400">/mo</span></div>
+              <p class="text-sm text-gray-400 mb-4">+ $997 setup fee</p>
+              <p class="text-xs uppercase tracking-[0.3em] text-gray-500">Recommended for growing businesses</p>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span><strong>2,000 conversations/month</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span><strong>Custom persona + brand voice</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span><strong>Action execution system</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span>CRM integration ready</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span>Full analytics + cost tracking</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span>Lead capture + smart routing</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span>Priority support</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-magenta-400 mt-0.5">✓</span>
+                <span>2 week custom setup</span>
+              </li>
+            </ul>
+            <a href="package-builder.html#ai" class="neon-button neon-button-magenta w-full text-center block">Get Started</a>
+          </article>
+
+          <!-- Business Plan -->
+          <article class="cyber-card pricing-card">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-2">Business</h3>
+            <div class="mb-6">
+              <div class="text-4xl font-bold text-white mb-1">$599<span class="text-lg text-gray-400">/mo</span></div>
+              <p class="text-sm text-gray-400 mb-4">+ $1,997 setup fee</p>
+              <p class="text-xs uppercase tracking-[0.3em] text-gray-500">For high-traffic sites & agencies</p>
+            </div>
+            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span><strong>5,000 conversations/month</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span><strong>Multiple custom personas</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span><strong>Advanced workflow automation</strong></span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Full CRM + tools integration</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>White-label option available</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Custom integrations</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Phone + email support</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-cyan-400 mt-0.5">✓</span>
+                <span>Dedicated success manager</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="neon-button w-full text-center block">Contact Us</a>
+          </article>
+        </div>
+
+        <!-- Pricing FAQ -->
+        <div class="cyber-card max-w-4xl mx-auto border-cyan-500/30">
+          <h3 class="text-2xl font-bold text-white mb-6">Pricing FAQs</h3>
+          <div class="space-y-4 text-gray-300">
+            <div>
+              <p class="font-semibold text-cyan-400 mb-2">What counts as a "conversation"?</p>
+              <p class="text-sm">One conversation = one visitor's complete chat session. If they ask 5 questions, that's still 1 conversation. Most businesses use 200-400/month.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-cyan-400 mb-2">What happens if I go over my limit?</p>
+              <p class="text-sm">We'll notify you at 80% usage. If you exceed, we charge $0.50/additional conversation (Professional plan) or can upgrade you to the next tier.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-cyan-400 mb-2">What's included in setup?</p>
+              <p class="text-sm">Persona development call, business knowledge training, brand voice customization, website integration, testing, and go-live support. Everything to get Gideon perfect for YOUR business.</p>
+            </div>
+            <div>
+              <p class="font-semibold text-cyan-400 mb-2">Can I cancel anytime?</p>
+              <p class="text-sm">Yes. No contracts. Cancel with 30 days notice. Setup fee is non-refundable after we begin training, but monthly billing stops when you cancel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-950/20 via-black to-magenta-950/20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold gradient-text mb-6">
+            The Math That Makes This a No-Brainer
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Let's say you're a service business charging $2,000 per client...
+          </p>
+        </div>
+
+        <div class="cyber-card border-2 border-cyan-500 max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 class="text-2xl font-bold text-red-400 mb-6">WITHOUT Gideon</h3>
+              <div class="space-y-4 text-gray-300">
+                <p>1,000 monthly visitors</p>
+                <p>2% contact you → <strong>20 leads</strong></p>
+                <p>50% missed (you're busy) → <strong>10 actual conversations</strong></p>
+                <p>10% convert → <strong class="text-red-400">1 client/month</strong></p>
+                <div class="pt-4 border-t border-gray-700">
+                  <p class="text-2xl font-bold text-white">$2,000/month revenue</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-cyan-400 mb-6">WITH Gideon</h3>
+              <div class="space-y-4 text-gray-300">
+                <p>1,000 monthly visitors</p>
+                <p>5% engage with Gideon → <strong>50 conversations</strong></p>
+                <p>100% captured (24/7 availability) → <strong>50 qualified leads</strong></p>
+                <p>20% convert → <strong class="text-cyan-400">10 clients/month</strong></p>
+                <div class="pt-4 border-t border-gray-700">
+                  <p class="text-2xl font-bold text-white">$20,000/month revenue</p>
+                  <p class="text-green-400 font-semibold mt-2">+$18,000/month increase</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 p-6 bg-gradient-to-r from-cyan-500/10 to-magenta-500/10 border border-cyan-500/30 rounded-lg text-center">
+            <p class="text-2xl font-bold text-white mb-2">Gideon Cost: $299/month</p>
+            <p class="text-xl text-cyan-300 font-semibold">ROI: 6,000% 🚀</p>
+            <p class="text-gray-400 mt-4 text-sm">Even if you get just ONE extra client per month, Gideon pays for itself 7x over.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold gradient-text mb-6">
+            Perfect For Every Business Type
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            We've deployed Gideon for dozens of industries. Here's how it helps specific businesses.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">Real Estate Agents</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Answer property questions 24/7</li>
+              <li>• Schedule property tours</li>
+              <li>• Capture buyer/seller leads</li>
+              <li>• Provide neighborhood info</li>
+            </ul>
+          </div>
+
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">Law Firms</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Pre-qualify cases 24/7</li>
+              <li>• Book consultations</li>
+              <li>• Answer practice area FAQs</li>
+              <li>• Collect case details</li>
+            </ul>
+          </div>
+
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">Healthcare Providers</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Answer insurance questions</li>
+              <li>• Book appointments</li>
+              <li>• Provide office hours/location</li>
+              <li>• Explain services offered</li>
+            </ul>
+          </div>
+
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">SaaS Companies</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Answer product questions</li>
+              <li>• Schedule demos</li>
+              <li>• Explain pricing tiers</li>
+              <li>• Qualify enterprise leads</li>
+            </ul>
+          </div>
+
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">E-commerce Stores</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Product recommendations</li>
+              <li>• Answer sizing/shipping FAQs</li>
+              <li>• Track order status</li>
+              <li>• Upsell related products</li>
+            </ul>
+          </div>
+
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">Consultants</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Pre-qualify opportunities</li>
+              <li>• Book discovery calls</li>
+              <li>• Explain methodology</li>
+              <li>• Share case studies</li>
+            </ul>
+          </div>
+
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">Restaurants</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Take reservations</li>
+              <li>• Answer menu questions</li>
+              <li>• Provide hours/location</li>
+              <li>• Handle catering inquiries</li>
+            </ul>
+          </div>
+
+          <div class="cyber-card">
+            <h3 class="text-lg font-bold text-cyan-400 mb-3">Agencies</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>• Qualify project leads</li>
+              <li>• Explain service packages</li>
+              <li>• Book strategy calls</li>
+              <li>• Share portfolio examples</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-950/30 via-black to-magenta-950/30 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-magenta-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-6">
+          Stop Losing Leads While You Sleep
+        </h2>
+        <p class="text-xl text-gray-300 mb-12 leading-relaxed">
+          Every day without Gideon is another day of missed opportunities. Get set up in 1 week and start capturing leads 24/7.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <a href="package-builder.html#ai" class="neon-button neon-button-magenta text-lg py-4 px-8">
+            Add Gideon to My Website
+          </a>
+          <a href="contact.html" class="neon-button neon-button-outline text-lg py-4 px-8">
+            Talk to a Human First
+          </a>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-400 text-sm">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>No credit card to start</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Setup in 1 week</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Cancel anytime</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-cyan-500 border-opacity-20 py-8">
+    <div class="max-w-6xl mx-auto text-center text-sm text-gray-500">
+      <p>&copy; 2025 Gideon Code Works. All rights reserved.</p>
+      <p class="mt-2">
+        <a href="index.html" class="hover:text-cyan-400 transition">Home</a> •
+        <a href="services.html" class="hover:text-cyan-400 transition">Services</a> •
+        <a href="contact.html" class="hover:text-cyan-400 transition">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js?v=4" defer></script>
+</body>
+</html>

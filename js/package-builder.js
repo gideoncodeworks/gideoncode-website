@@ -171,6 +171,41 @@ document.addEventListener('DOMContentLoaded', () => {
           details: ['Everything in Identity Kit', 'Comprehensive brand guidelines', 'Marketing materials (flyers, brochures)', 'Email signature templates', 'PowerPoint/Keynote templates', 'Social media brand kit', 'Icon & graphic library', 'Unlimited revisions']
         }
       ]
+    },
+    ai: {
+      description: 'AI-powered chatbots that engage visitors 24/7, capture leads, and never miss an opportunity.',
+      services: [
+        {
+          id: 'gideon-ai-basic',
+          name: 'Gideon AI Chatbot (Basic)',
+          price: 99,
+          setupFee: 497,
+          kind: 'monthly',
+          timeline: '1 week setup',
+          summary: '24/7 AI assistant for your website. Never miss a lead again with intelligent conversation.',
+          details: ['500 AI conversations/month', 'Standard persona setup', 'Powered by Claude + GPT-4', 'Email support', 'Basic analytics', 'Lead capture forms', 'Mobile responsive']
+        },
+        {
+          id: 'gideon-ai-pro',
+          name: 'Gideon AI Chatbot (Professional)',
+          price: 299,
+          setupFee: 997,
+          kind: 'monthly',
+          timeline: '2 weeks setup',
+          summary: 'Custom AI assistant trained on YOUR business. Answers questions, books appointments, captures leads.',
+          details: ['2,000 AI conversations/month', 'Custom persona + brand voice', 'Action execution system', 'CRM integration ready', 'Priority support', 'Full analytics + costs', 'Lead capture + routing', 'Multi-language support']
+        },
+        {
+          id: 'gideon-ai-business',
+          name: 'Gideon AI Chatbot (Business)',
+          price: 599,
+          setupFee: 1997,
+          kind: 'monthly',
+          timeline: '3-4 weeks setup',
+          summary: 'Enterprise AI system with multiple personas, advanced automation, and white-label options.',
+          details: ['5,000 AI conversations/month', 'Multiple custom personas', 'Advanced workflow automation', 'Full CRM integration', 'Phone + email support', 'White-label option', 'Custom integrations', 'Dedicated success manager']
+        }
+      ]
     }
   };
 
