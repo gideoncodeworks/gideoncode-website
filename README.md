@@ -19,21 +19,19 @@ A modern, cyberpunk-themed website for Gideon Code Works - building recurring re
 - **Contact Forms**: Working contact and careers application forms
 - **SEO Optimized**: Semantic HTML and proper meta tags
 
-## AI Experience Suite (Homepage)
+## Brand Highlights (Homepage)
 
-The homepage now stages a client-facing AI journey powered by Netlify Functions that proxy OpenAI GPT-4o and Anthropic Claude Sonnet. Modules:
+- **Gideon Hero Video** – Homepage hero pairs the sales pitch with the Gideon CRM animation (dual Claude + GPT‑4 routing) and streamlined funnel CTAs.
+- **AI CRM Command Center** – Section summarises 12 AI copilots (Deal Intelligence, Pipeline Heatmap, Forecast Copilot) with live imagery.
+- **CRM Demo Tour** – `crm-demo.html` mirrors the product UI, now with a “Back to GideonCode.com” link and Gideon animation embedded.
+- **Netlify Forms** – Contact and careers forms submit through Netlify (honeypot + thank-you redirect).
 
-- **Vision Gate Hero** – Intent input (text/voice) re-themes the hero copy in real time.
-- **Adaptive Concierge HUD** – Floating assistant that reads page context and offers predictive next moves.
-- **Predictive Scope Visualizer** – Three-step wizard outputting mission decks, metrics, and recommended actions.
-- **Vision Preview Reel** – Generates hero copy, palette, and motion beats for pitch-ready previews.
+### Next Steps
 
-### Backend TODO
-
-1. Store sessions only when users opt in (`scope-save`, `reel-save`), logging email + consent for follow up.
-2. Wire export actions (PDF, Notion) to backend services using the structured payloads returned by the wizard.
-3. Connect the preview reel to real media generation (Midjourney, DALL·E, or custom renderer) and stream progress.
-4. Add analytics/telemetry to tune prompts while respecting opt-in/out states noted in the UI.
+1. Finish pricing unification across services, plan details, and checkout pages.
+2. Refresh CRM demo narratives/screenshots as new AI features ship (Pipeline Nudges, Renewal Risk, etc.).
+3. Run a full accessibility sweep (skip links, focus outlines, color contrast).
+4. Add Gideon avatar/badge treatments where the brand speaks.
 
 ## Pages
 
