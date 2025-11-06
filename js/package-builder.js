@@ -17,6 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkoutButton = document.getElementById('checkout-builder');
   const clearCartButton = document.getElementById('clear-cart');
 
+  // Debug: Check if elements exist
+  if (!servicesList || !cartItems || !checkoutButton || !clearCartButton) {
+    console.error('Package builder elements not found:', {
+      servicesList: !!servicesList,
+      cartItems: !!cartItems,
+      checkoutButton: !!checkoutButton,
+      clearCartButton: !!clearCartButton
+    });
+    return;
+  }
+
   // Tab switching
   document.querySelectorAll('.builder-tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -32,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   clearCartButton.addEventListener('click', () => {
+    console.log('Clear cart clicked');
     state.cart = [];
     state.websiteType = null;
     state.websiteTier = null;
@@ -40,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderServices();
     renderCart();
   });
+  console.log('Clear cart button listener attached');
 
   checkoutButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -450,6 +463,8 @@ document.addEventListener('DOMContentLoaded', () => {
       : `$${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   }
 
+  console.log('Package builder initialized');
   renderServices();
   renderCart();
+  console.log('Initial render complete');
 });
