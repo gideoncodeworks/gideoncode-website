@@ -399,13 +399,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function calculateTotal() {
-    return state.cart
-      .filter(item => item.kind !== 'monthly')
-      .reduce((sum, item) => {
-        const basePrice = item.price;
-        const setupFee = item.setupFee || 0;
-        return sum + basePrice + setupFee;
-      }, 0);
+    return state.cart.reduce((sum, item) => {
+      const basePrice = item.price;
+      const setupFee = item.setupFee || 0;
+      // For deposit calculation: one-time items are full price, monthly items are first month
+      return sum + basePrice + setupFee;
+    }, 0);
   }
 
   function formatCurrency(value) {
