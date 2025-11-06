@@ -41,3 +41,5 @@
 | 2025-11-08 | Gideon Refactor | Consolidated ai-suite.js (883 lines) into main.js (496 lines) - 44% smaller. |
 | 2025-11-08 | Video Avatar | Added gideon-lives.mp4 (3MB) for animated concierge presence. |
 | 2025-11-08 | Code Cleanup | Deleted ai-suite-loader.js, simplified injection logic. |
+| 2025-11-08 | Package Builder Pricing Fix | Replaced GPT's hallucinated pricing with real services from services.html. |
+| 2025-11-08 | Gideon AI Product Launch | Full product launch: ai-chatbot.html landing page, 3 pricing tiers ($99-599/mo), package builder integration, email templates. |
