@@ -240,9 +240,20 @@ h4, h5, h6 {
 
 /* Outline Variant */
 .neon-button-outline {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid var(--primary-cyan);
   background: transparent;
-  border-color: var(--primary-cyan);
   color: var(--primary-cyan);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  z-index: 1;
 }
 
 .neon-button-outline:hover {
@@ -983,6 +994,112 @@ img[src*="logo" i] {
 .cta-split__caption {
   margin-top: 1.25rem;
   text-align: center;
+}
+
+.chapter-nav {
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  background: rgba(8, 47, 73, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.chapter-nav__label {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  color: rgba(148, 163, 184, 0.8);
+  margin-bottom: 1rem;
+}
+
+.chapter-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chapter-nav__list a {
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.85);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.chapter-nav__list a:hover {
+  border-color: rgba(59, 130, 246, 0.9);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.chapter-card {
+  border-left: 2px solid rgba(34, 211, 238, 0.35);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.chapter-card::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.8);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
+}
+
+.chapter-card__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  color: rgba(148, 163, 184, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.chapter-card__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.chapter-metrics {
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  background: rgba(2, 6, 23, 0.8);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.chapter-metric__value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #67e8f9;
+}
+
+.chapter-metric__label {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  color: rgba(148, 163, 184, 0.8);
+}
+
+.chapter-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.operating-grid article {
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes pulseGlow {
