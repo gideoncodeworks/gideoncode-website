@@ -185,21 +185,6 @@
           Real projects. Real results. From SaaS platforms to client websites, we build solutions that scale.
         </p>
 
-        <!-- Category Filters -->
-        <div class="flex flex-wrap justify-center gap-3 fade-in">
-          <button data-filter="all" class="filter-btn active inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyan-900 to-black border border-cyan-500 border-opacity-100 rounded-full text-sm font-semibold text-cyan-400 hover:border-opacity-100 transition cursor-pointer">
-            <span>✨</span> All Projects
-          </button>
-          <button data-filter="client" class="filter-btn inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-green-900 to-black border border-green-500 border-opacity-30 rounded-full text-sm font-semibold text-green-400 hover:border-opacity-100 transition cursor-pointer">
-            <span>🚀</span> Live Client Sites
-          </button>
-          <button data-filter="saas" class="filter-btn inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyan-900 to-black border border-cyan-500 border-opacity-30 rounded-full text-sm font-semibold text-cyan-400 hover:border-opacity-100 transition cursor-pointer">
-            <span>💼</span> SaaS Products
-          </button>
-          <button data-filter="demo" class="filter-btn inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-magenta-900 to-black border border-magenta-500 border-opacity-30 rounded-full text-sm font-semibold text-magenta-400 hover:border-opacity-100 transition cursor-pointer">
-            <span>🎨</span> Demo Templates
-          </button>
-        </div>
       </div>
     </section>
 
@@ -238,11 +223,13 @@
 
     <!-- Portfolio Grid -->
     <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="projects-heading">
-      <div class="max-w-7xl mx-auto">
-        <h2 id="projects-heading" class="sr-only">Our Projects</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+      <div class="max-w-7xl mx-auto space-y-16">
+        <div>
+          <div class="text-center mb-8">
+            <p class="text-sm uppercase tracking-[0.35em] text-cyan-300">Client Launches</p>
+            <h3 class="text-3xl font-bold text-white">Live builds in production with measurable revenue</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Project 1: Gideon Code Works -->
           <article class="cyber-card fade-in group portfolio-item" data-category="client">
             <div class="relative overflow-hidden mb-4 h-48 rounded bg-gray-900">
@@ -268,7 +255,90 @@
               Explore This Site →
             </a>
           </article>
+          <!-- Project 4: Teasers CLE -->
+          <article class="cyber-card fade-in group border border-green-500 border-opacity-30 portfolio-item" data-category="client">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/teasers-cle.jpg" alt="Teasers CLE nightlife website hero section" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-green-400 font-bold">Live Site</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-green-400">Teasers CLE</h3>
+              <span class="text-xs bg-green-500 bg-opacity-20 text-green-400 px-2 py-1 rounded">Client</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">
+              Premium nightlife and events website with immersive design, event management, gallery showcases, and dynamic menu system for Cleveland's upscale lounge.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">Next.js</span>
+              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">TypeScript</span>
+              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">Framer Motion</span>
+              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">Tailwind</span>
+            </div>
+            <a href="https://teaserscle.com" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 transition text-sm font-semibold">
+              Visit Site →
+            </a>
+          </article>
+          <!-- Project 5: iTrackerAFS -->
+          <article class="cyber-card fade-in group border border-orange-500 border-opacity-30 portfolio-item" data-category="client">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/itracker-afs.jpg" alt="Inventory tracking dashboard for iTrackerAFS" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-orange-400 font-bold">Client Success</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-orange-400">iTrackerAFS</h3>
+              <span class="text-xs bg-orange-500 bg-opacity-20 text-orange-400 px-2 py-1 rounded">Client</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">
+              Real-time inventory tracking PWA for Asphalt Fabrics & Supply. From whiteboard concept to production app with Firebase backend and admin controls.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">PWA</span>
+              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">Firebase</span>
+              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">Firestore</span>
+              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">JavaScript</span>
+            </div>
+            <span class="text-orange-400 text-sm font-semibold">
+              Private Client App
+            </span>
+          </article>
+          <!-- Project 7: BuyGeogrid -->
+          <article class="cyber-card fade-in group border border-teal-500 border-opacity-30 portfolio-item" data-category="client">
+            <div class="relative overflow-hidden mb-4 h-48 rounded">
+              <img src="images/portfolio/buygeogrid.jpg" alt="BuyGeogrid ecommerce storefront design" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
+              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-teal-400 font-bold">Live Site</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-teal-400">BuyGeogrid.com</h3>
+              <span class="text-xs bg-teal-500 bg-opacity-20 text-teal-400 px-2 py-1 rounded">Client</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">
+              E-commerce platform for Asphalt Fabrics & Supply selling geosynthetic products. Full product catalog, quote system, and DCP testing services.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">WordPress</span>
+              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">WooCommerce</span>
+              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">E-commerce</span>
+              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">SEO</span>
+            </div>
+            <a href="https://buygeogrid.com" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 transition text-sm font-semibold">
+              Visit Store →
+            </a>
+          </article>
+          </div>
+        </div>
 
+        <div>
+          <div class="text-center mb-8">
+            <p class="text-sm uppercase tracking-[0.35em] text-cyan-300">SaaS + Internal Tools</p>
+            <h3 class="text-3xl font-bold text-white">Products we own, operate, or license to clients</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Project 2: DinnerRoll -->
           <article class="cyber-card fade-in group portfolio-item" data-category="saas">
             <div class="relative overflow-hidden mb-4 h-48 rounded bg-gray-900">
@@ -295,7 +365,6 @@
               Coming to App Store →
             </span>
           </article>
-
           <!-- Project 3: CRM Platform - SaaS Product -->
           <article class="cyber-card fade-in group border-2 border-cyan-400 border-opacity-50 portfolio-item" data-category="saas">
             <div class="relative overflow-hidden mb-4 h-48 rounded bg-gray-900">
@@ -330,59 +399,6 @@
               </a>
             </div>
           </article>
-
-          <!-- Project 4: Teasers CLE -->
-          <article class="cyber-card fade-in group border border-green-500 border-opacity-30 portfolio-item" data-category="client">
-            <div class="relative overflow-hidden mb-4 h-48 rounded">
-              <img src="images/portfolio/teasers-cle.jpg" alt="Teasers CLE nightlife website hero section" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
-              <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span class="text-green-400 font-bold">Live Site</span>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-bold text-green-400">Teasers CLE</h3>
-              <span class="text-xs bg-green-500 bg-opacity-20 text-green-400 px-2 py-1 rounded">Client</span>
-            </div>
-            <p class="text-gray-400 text-sm mb-4">
-              Premium nightlife and events website with immersive design, event management, gallery showcases, and dynamic menu system for Cleveland's upscale lounge.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">Next.js</span>
-              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">TypeScript</span>
-              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">Framer Motion</span>
-              <span class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded">Tailwind</span>
-            </div>
-            <a href="https://teaserscle.com" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 transition text-sm font-semibold">
-              Visit Site →
-            </a>
-          </article>
-
-          <!-- Project 5: iTrackerAFS -->
-          <article class="cyber-card fade-in group border border-orange-500 border-opacity-30 portfolio-item" data-category="client">
-            <div class="relative overflow-hidden mb-4 h-48 rounded">
-              <img src="images/portfolio/itracker-afs.jpg" alt="Inventory tracking dashboard for iTrackerAFS" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
-              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span class="text-orange-400 font-bold">Client Success</span>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-bold text-orange-400">iTrackerAFS</h3>
-              <span class="text-xs bg-orange-500 bg-opacity-20 text-orange-400 px-2 py-1 rounded">Client</span>
-            </div>
-            <p class="text-gray-400 text-sm mb-4">
-              Real-time inventory tracking PWA for Asphalt Fabrics & Supply. From whiteboard concept to production app with Firebase backend and admin controls.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">PWA</span>
-              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">Firebase</span>
-              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">Firestore</span>
-              <span class="text-xs bg-gray-800 text-orange-400 px-2 py-1 rounded">JavaScript</span>
-            </div>
-            <span class="text-orange-400 text-sm font-semibold">
-              Private Client App
-            </span>
-          </article>
-
           <!-- Project 6: VidForge -->
           <article class="cyber-card fade-in group border-2 border-purple-400 border-opacity-50 portfolio-item" data-category="saas">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -411,33 +427,15 @@
               Launching Soon →
             </span>
           </article>
+          </div>
+        </div>
 
-          <!-- Project 7: BuyGeogrid -->
-          <article class="cyber-card fade-in group border border-teal-500 border-opacity-30 portfolio-item" data-category="client">
-            <div class="relative overflow-hidden mb-4 h-48 rounded">
-              <img src="images/portfolio/buygeogrid.jpg" alt="BuyGeogrid ecommerce storefront design" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" width="1280" height="720">
-              <div class="absolute inset-0 bg-black bg-opacity-45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span class="text-teal-400 font-bold">Live Site</span>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-bold text-teal-400">BuyGeogrid.com</h3>
-              <span class="text-xs bg-teal-500 bg-opacity-20 text-teal-400 px-2 py-1 rounded">Client</span>
-            </div>
-            <p class="text-gray-400 text-sm mb-4">
-              E-commerce platform for Asphalt Fabrics & Supply selling geosynthetic products. Full product catalog, quote system, and DCP testing services.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">WordPress</span>
-              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">WooCommerce</span>
-              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">E-commerce</span>
-              <span class="text-xs bg-gray-800 text-teal-400 px-2 py-1 rounded">SEO</span>
-            </div>
-            <a href="https://buygeogrid.com" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 transition text-sm font-semibold">
-              Visit Store →
-            </a>
-          </article>
-
+        <div>
+          <div class="text-center mb-8">
+            <p class="text-sm uppercase tracking-[0.35em] text-cyan-300">Demo Library</p>
+            <h3 class="text-3xl font-bold text-white">Industry templates and concepts ready to customize</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Project 8: Contractor Portfolio Sample -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -462,7 +460,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 9: Restaurant Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -487,7 +484,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 10: Fitness Gym Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -512,7 +508,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 11: Property Management Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -537,7 +532,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 12: Musician Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -562,7 +556,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 13: Educational Library Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -587,7 +580,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 14: E-commerce Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -612,7 +604,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 15: Professional Services Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -637,7 +628,6 @@
               View Demo →
             </a>
           </article>
-
           <!-- Project 16: Auto Services Demo -->
           <article class="cyber-card fade-in group portfolio-item" data-category="demo">
             <div class="relative overflow-hidden mb-4 h-48 rounded">
@@ -662,59 +652,13 @@
               View Demo →
             </a>
           </article>
-
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Filter Script -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-
-            // Update active button
-            filterBtns.forEach(b => {
-              b.classList.remove('active');
-              b.classList.remove('border-opacity-100');
-              b.classList.add('border-opacity-30');
-            });
-            this.classList.add('active');
-            this.classList.remove('border-opacity-30');
-            this.classList.add('border-opacity-100');
-
-            // Filter portfolio items
-            portfolioItems.forEach(item => {
-              if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                item.style.display = 'block';
-                // Re-trigger fade-in animation
-                item.classList.remove('fade-in');
-                setTimeout(() => item.classList.add('fade-in'), 10);
-              } else {
-                item.style.display = 'none';
-              }
-            });
-          });
-        });
-      });
-    </script>
-
-    <!-- Separate Demo Templates Section -->
-    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
-      <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-3xl font-bold gradient-text mb-4">Demo Templates Explained</h2>
-        <p class="text-gray-400 max-w-3xl mx-auto mb-8">
-          These demo sites showcase different industries and use cases. Each can be customized with your branding, content, and features. Use our <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline">CRM platform</a> to manage your business operations.
-        </p>
-        <a href="contact.html" class="neon-button text-sm">Request Custom Demo</a>
-      </div>
-    </section>
-
-    <!-- Your Project CTA Section -->
+<!-- Your Project CTA Section -->
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950 bg-opacity-20 text-center" aria-labelledby="cta-heading">
       <div class="max-w-4xl mx-auto fade-in">
         <h2 id="cta-heading" class="text-4xl font-bold gradient-text mb-6">
