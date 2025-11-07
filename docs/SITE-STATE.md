@@ -1,6 +1,6 @@
 ## Site State – 2025-11-07
 
-Snapshot reference for current production-ready layout after nav/CTA/portfolio updates.
+Snapshot reference for current production-ready layout after the latest nav/CTA/portfolio/about updates.
 
 ### Navigation
 - Desktop nav now shows `Web Services`, `CRM Platform`, `Portfolio` as primary links.
@@ -14,9 +14,14 @@ Snapshot reference for current production-ready layout after nav/CTA/portfolio u
 - Feature comparison drawer uses the new neon grid styling.
 
 ### Portfolio Page
-- Hero followed by Gideon showcase block using `gideon-lives.mp4`.
+- Hero now uses an inline two-column layout with `gideon-lives.mp4` beside the intro copy (no separate showcase block).
 - Projects grouped into three sections: Client Launches, SaaS + Internal Tools, Demo Library.
 - “Start Your Project” button links to `get-started.html`.
+
+### About Page
+- Hero → Gideon briefing → chapter nav (Origin, Pivot, AI Engine, Revenue Studio, AE Program) with a metrics band for proof.
+- Founder story rewritten into anchored chapter cards with CTA buttons (Build with Gideon / Join the Sales Engine).
+- Bottom half consolidated into a single “Operating System” block instead of separate What We Do / Mission / Values sections.
 
 ### Get Started Page
 - Includes Gideon CTA explaining Package Builder vs Plan Selector directly under the hero.
@@ -25,8 +30,9 @@ Snapshot reference for current production-ready layout after nav/CTA/portfolio u
 ### Package Builder
 - Pricing aligned with Services: Growth WaaS at $297/$252.50, Domination at $349/$299.
 - One-time builds mention support windows (30/60/90 days).
-- Gideon greeting block beneath the hero reinforces builder/selector workflow.
-- Apps/Web Apps tabs now configurable (mobile apps, SaaS/internal tools) plus branding packages.
 - Add-ons mirror Services (Gideon AI tiers + SEO packages).
 
-Reference commit: `18607e8` (portfolio restructure). Use this doc if you need to compare future changes.
+### Careers Page
+- Hero pairs the recruit copy with the Gideon video inline; CTA row links to the comp plan, “See What You’ll Sell” platform preview, and Apply.
+
+Use this document as a reference point if a future change needs to be rolled back. Current commit: `18607e8 Restructure portfolio sections by build type`.
