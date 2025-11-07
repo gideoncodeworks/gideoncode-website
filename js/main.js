@@ -63,6 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Desktop "More" dropdown accessibility + toggle
   const dropdownContainers = Array.from(document.querySelectorAll('.nav-dropdown-container'));
+  const dropdownHoverTimers = new WeakMap();
+
+  const openDropdown = (container) => {
+    const toggle = container.querySelector('.nav-dropdown-toggle');
+    const menu = container.querySelector('.nav-dropdown');
+    container.classList.add('is-open');
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    if (menu) {
+      menu.setAttribute('aria-hidden', 'false');
+    }
+  };
+
   const closeDropdown = (container) => {
     container.classList.remove('is-open');
     const toggle = container.querySelector('.nav-dropdown-toggle');
@@ -96,9 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isOpen) {
         closeDropdown(container);
       } else {
-        container.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        menu.setAttribute('aria-hidden', 'false');
+        openDropdown(container);
         menu.querySelector('a')?.focus();
       }
     });
@@ -109,6 +121,22 @@ document.addEventListener('DOMContentLoaded', function() {
         toggle.focus();
       }
     });
+
+    // Hover support with delay to prevent flicker
+    const registerHover = (el) => {
+      el.addEventListener('mouseenter', () => {
+        clearTimeout(dropdownHoverTimers.get(container));
+        openDropdown(container);
+      });
+      el.addEventListener('mouseleave', () => {
+        const timer = setTimeout(() => closeDropdown(container), 250);
+        dropdownHoverTimers.set(container, timer);
+      });
+    };
+
+    registerHover(container);
+    registerHover(toggle);
+    registerHover(menu);
   });
 
   if (dropdownContainers.length) {
