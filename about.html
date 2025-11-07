@@ -195,8 +195,13 @@
     <section class="pb-16 px-4 sm:px-6 lg:px-8 bg-black/70">
       <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div class="cta-split__copy text-left">
-          <p class="cta-split__eyebrow">Gideon’s Briefing</p>
-          <h2 class="text-4xl sm:text-5xl font-bold gradient-text mb-6">Meet Josh Stone, my architect.</h2>
+          <p class="cta-split__eyebrow">Gideon's Briefing</p>
+          <div class="flex items-center gap-6 mb-6">
+            <h2 class="text-4xl sm:text-5xl font-bold gradient-text">Meet Josh Stone, my architect.</h2>
+            <div class="flex-shrink-0">
+              <img src="images/about/josh-stone.jpg" alt="Josh Stone" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-cyan-500/50" width="112" height="112">
+            </div>
+          </div>
           <p class="text-gray-300 mb-4">
             I’m Gideon—the dual Claude + GPT-4 co-pilot living inside every Gideon Code Works launch. When a founder drops a wild request,
             I route it to Josh Stone. He’s the builder who turns napkin math into revenue engines.
@@ -270,21 +275,7 @@
   <!-- Founder Story -->
   <section class="py-12 px-4 sm:px-6 lg:px-8 bg-black" aria-labelledby="founder-heading">
     <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-        <!-- Photo -->
-        <div class="fade-in">
-          <div class="cyber-card p-0 overflow-hidden">
-            <div class="relative w-full" style="aspect-ratio: 2/3;">
-              <img src="images/about/josh-stone.jpg" alt="Josh Stone standing between architectural plans and glowing code screens" class="w-full h-full object-contain bg-gray-900" loading="lazy" width="1024" height="1536">
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-              <div class="absolute bottom-4 left-4 right-4">
-                <p class="text-sm uppercase tracking-widest text-cyan-400">Josh Stone</p>
-                <p class="text-lg font-semibold text-white">Founder • Builder • Vision Architect</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="max-w-3xl mx-auto">
 
         <!-- Story Content -->
         <div class="fade-in space-y-10 text-gray-300">
@@ -340,11 +331,12 @@
               world-class product and handle all fulfillment. You build recurring revenue, own your book of business, and can scale by recruiting
               and mentoring other Account Executives. No overhead. No product risk. Just performance-based income that compounds as you grow.
             </p>
-            <div class="chapter-cta">
-              <a href="package-builder.html" class="neon-button w-full sm:w-auto">Build with Gideon</a>
-              <a href="careers.html#apply" class="neon-button-outline w-full sm:w-auto">Join the Sales Engine</a>
-            </div>
           </article>
+
+          <div class="flex flex-wrap gap-4 mt-8">
+            <a href="package-builder.html" class="neon-button">Build with Gideon</a>
+            <a href="careers.html#apply" class="neon-button-outline">Join the Sales Engine</a>
+          </div>
 
           <p class="text-lg font-semibold text-magenta-400">
             If you're serious about scaling, I'm the partner who's already walked every path you're considering. This isn't a service—it's 44
