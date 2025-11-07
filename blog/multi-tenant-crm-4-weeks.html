@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- SEO Meta Tags -->
-  <title>Building a Multi-Tenant AI-Powered CRM in 4 Weeks (While Working a Day Job) | Gideon Codeworks</title>
+  <title>How I Built a Multi-Tenant AI CRM in 4 Weeks (While Working a Day Job) | Gideon Codeworks</title>
   <meta name="description" content="How one founder built a multi-tenant AI-powered CRM in just four weeks using Next.js, Firebase, and AI co-development tools. Real architecture, real results, no fluff.">
   <meta name="keywords" content="multi-tenant CRM, AI development, Next.js, Firebase, Claude Code, GPT Codex, SaaS architecture">
   <link rel="canonical" href="https://gideoncode.com/blog/multi-tenant-crm-4-weeks.html">
@@ -113,12 +113,12 @@
           <span class="text-gray-600 mx-2">•</span>
           <span class="text-xs text-gray-400">By Josh Stone</span>
           <span class="text-gray-600 mx-2">•</span>
-          <span class="text-xs text-cyan-400">5-7 min read</span>
+          <span class="text-xs text-cyan-400">7 min read</span>
         </div>
 
         <!-- Title -->
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-8 leading-tight">
-          Building a Multi-Tenant AI-Powered CRM in 4 Weeks (While Working a Day Job)
+          🚀 How I Built a Multi-Tenant AI CRM in 4 Weeks (While Working a Day Job)
         </h1>
 
         <!-- Featured Image / Gideon Video -->
@@ -136,222 +136,236 @@
         <div class="prose prose-invert prose-lg max-w-none">
 
           <p class="text-xl text-gray-300 leading-relaxed mb-8">
-            Most teams need a year and a small army to build what I shipped in four weeks.
-            No hype—just proof that the old "hire ten devs, spend half a year, hope it works" playbook is broken.
-            What replaced it? AI-leveraged architecture, ruthless scope management, and the willingness to actually ship.
+            Most teams need a year and a small army to build what I shipped in four weeks.<br>
+            No funding. No team. Just focus, architecture, and AI that pulls its weight.
           </p>
 
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">The Context: Nights, Weekends, and AI Co-Pilots</h2>
+          <p class="text-gray-300 leading-relaxed mb-8">
+            This wasn't a startup sprint with investors or interns — it was me, working construction by day and building a production-ready multi-tenant CRM by night. My question was simple:
+          </p>
+
+          <p class="text-gray-300 leading-relaxed mb-8 italic">
+            Could one person, armed with AI, ship enterprise-grade software in a month?
+          </p>
+
+          <p class="text-gray-300 leading-relaxed mb-12">
+            Spoiler: yes.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 1 — Foundation & "Smart Theft"</h2>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            I built this while working construction by day. No team, no funding—just me, Claude Code, GPT Codex, and the question: Could I actually pull this off?
+            The first rule of speed: don't rebuild solved problems.
           </p>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            Spoiler: Yes.
-          </p>
-
-          <p class="text-gray-300 leading-relaxed mb-6">The challenge:</p>
-
-          <ul class="list-disc list-inside text-gray-300 mb-6 space-y-2">
-            <li>Handle unlimited client workspaces with complete data isolation</li>
-            <li>Support five roles from platform owner down to client</li>
-            <li>Integrate AI that actually helps sales teams close deals</li>
-            <li>Process payments, track contracts, and scale cleanly</li>
+          <ul class="list-none text-gray-300 mb-6 space-y-2">
+            <li><strong class="text-cyan-400">Firebase</strong> handled authentication and data.</li>
+            <li><strong class="text-cyan-400">Next.js 14</strong> gave me server components and SSR.</li>
+            <li><strong class="text-cyan-400">TypeScript</strong> kept it sane.</li>
           </ul>
 
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 1 – Foundation & Smart Theft</h2>
-
           <p class="text-gray-300 leading-relaxed mb-6">
-            First rule of fast execution: don't rebuild solved problems.
-            Firebase for auth + data. Next.js 14 for the framework. TypeScript for sanity.
+            By Day 2 I had tenant isolation locked down — every record tagged with <code class="text-cyan-400 bg-gray-800 px-2 py-1 rounded">tenantId</code>, enforced by Firestore rules.<br>
+            By Day 4: a five-tier role system with clean permission helpers.<br>
+            By the end of Week 1: core CRM entities — Clients, Deals, Activities, Tasks, Tickets — all humming.
           </p>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            Day 1-2 → multi-tenant architecture: <code class="text-cyan-400 bg-gray-800 px-2 py-1 rounded">tenantId</code> on every record, Firestore rules enforcing boundaries, workspace switching for cross-tenant users.
+            AI wrote about 80% of the code. I reviewed, refactored, and shipped.
           </p>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            Day 3-4 → five-tier role system with permission helpers.
+          <p class="text-gray-300 leading-relaxed mb-8">
+            That's not cheating — that's leverage.
           </p>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            Day 5-7 → core CRM entities: Clients, Deals, Activities, Tasks, Tickets.
-          </p>
+          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 2 — Teaching the CRM to Think</h2>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            I didn't hand-code every line. AI generated 80%, I reviewed the rest.<br>
-            That's not cheating—that's leverage.
-          </p>
-
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 2 – Making the CRM Think</h2>
-
-          <p class="text-gray-300 leading-relaxed mb-6">
-            Most CRMs record data; ours predicts outcomes.
+            Most CRMs collect data. Ours interprets it.
           </p>
 
           <ul class="list-none text-gray-300 mb-6 space-y-3">
-            <li><strong class="text-cyan-400">AI Forecast Copilot</strong> analyzes every deal and flags slip risk based on velocity and engagement.</li>
-            <li><strong class="text-cyan-400">Deal Narrative Engine</strong> reads activities, maps sentiment, and builds executive dossiers.</li>
-            <li><strong class="text-cyan-400">Execution Tracking</strong> closes the loop—measuring which AI-recommended actions actually move the needle.</li>
+            <li><strong class="text-cyan-400">AI Forecast Copilot:</strong> flags at-risk deals based on velocity and engagement.</li>
+            <li><strong class="text-cyan-400">Deal Narrative Engine:</strong> reads activities, maps sentiment, and builds executive dossiers.</li>
+            <li><strong class="text-cyan-400">Execution Tracker:</strong> measures which AI-recommended actions actually drive results.</li>
           </ul>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            Predict → Act → Learn → Predict Better.
+            The cycle: <strong class="text-cyan-400">Predict → Act → Learn → Predict Better.</strong>
           </p>
 
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 3 – Making It Real</h2>
+          <p class="text-gray-300 leading-relaxed mb-8">
+            It stopped being a database and became a decision-maker.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 3 — Real-World Ready</h2>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            By week three we had a product, not a prototype.
+            By Week 3, it wasn't a prototype — it was a platform.
           </p>
 
           <ul class="list-none text-gray-300 mb-6 space-y-3">
-            <li><strong class="text-cyan-400">Self-Service Signup:</strong> tenants onboard in under two minutes.</li>
-            <li><strong class="text-cyan-400">Payment Integration:</strong> automated subscriptions and trials.</li>
-            <li><strong class="text-cyan-400">Custom Domains:</strong> white-label workspaces (crm.theirbusiness.com).</li>
+            <li><strong class="text-cyan-400">Self-Service Signup:</strong> onboard in two minutes.</li>
+            <li><strong class="text-cyan-400">Payment Integration:</strong> trials, billing, and subscriptions handled automatically.</li>
+            <li><strong class="text-cyan-400">Custom Domains:</strong> every tenant gets their own branded workspace (crm.theirbusiness.com).</li>
           </ul>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            Professional polish, no manual provisioning, no human bottlenecks.
+          <p class="text-gray-300 leading-relaxed mb-8">
+            No manual provisioning. No waiting. It scaled cleanly — the way modern SaaS should.
           </p>
 
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 4 – Polish & Personality</h2>
+          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Week 4 — Polish, Personality, and the "Gideon" Voice</h2>
 
           <p class="text-gray-300 leading-relaxed mb-6">
             Now it needed soul.
           </p>
 
-          <ul class="list-none text-gray-300 mb-6 space-y-3">
-            <li><strong class="text-cyan-400">"Gideon" Personality:</strong> an AI voice that's strategic, empathetic, and direct.</li>
-            <li><strong class="text-cyan-400">Client Health Scoring:</strong> predicts churn and upsell chances.</li>
-            <li><strong class="text-cyan-400">Smart Task Prioritization + Revenue Intelligence:</strong> surface what matters most.</li>
-            <li><strong class="text-cyan-400">Briefing Engine:</strong> semantic search across company content for live context.</li>
-          </ul>
-
           <p class="text-gray-300 leading-relaxed mb-6">
-            Then came UX polish: accessibility, responsive design, real-time validation—every detail that makes software feel finished.
+            I built Gideon, an AI persona that's strategic, empathetic, and direct — a virtual sales coach baked into every workflow.
           </p>
 
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">The Architecture That Made It Work</h2>
+          <p class="text-gray-300 leading-relaxed mb-6">Then came:</p>
 
-          <div class="bg-gray-800/50 border border-cyan-500/30 rounded-lg p-6 mb-6">
-            <ol class="list-decimal list-inside text-gray-300 space-y-3">
-              <li><strong class="text-cyan-400">AI Model Router</strong> — Smartly switches between OpenAI and Anthropic models for speed and cost-efficiency.</li>
-              <li><strong class="text-cyan-400">Context Builders</strong> — Aggregate deals, activities, and notes; hash results for caching.</li>
-              <li><strong class="text-cyan-400">Firebase Multi-Tenancy</strong> — tenantId-based data isolation, enforced by rules.</li>
-              <li><strong class="text-cyan-400">Execution Tracking System</strong> — Logs every AI-driven action + impact for continuous learning.</li>
-            </ol>
+          <ul class="list-none text-gray-300 mb-6 space-y-2">
+            <li><strong class="text-cyan-400">Client Health Scoring</strong> for churn prediction.</li>
+            <li><strong class="text-cyan-400">Smart Task Prioritization and Revenue Intelligence</strong> to spotlight what matters.</li>
+            <li><strong class="text-cyan-400">Briefing Engine</strong> for live semantic search across client content.</li>
+          </ul>
+
+          <p class="text-gray-300 leading-relaxed mb-8">
+            Finally, polish: accessibility, responsive design, real-time validation — all the details that make a build feel finished.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">🧠 The Architecture That Made It Possible</h2>
+
+          <div class="bg-gray-800/50 border border-cyan-500/30 rounded-lg p-6 mb-8">
+            <ul class="list-none text-gray-300 space-y-3">
+              <li><strong class="text-cyan-400">AI Model Router:</strong> switches between OpenAI and Anthropic for cost-smart performance.</li>
+              <li><strong class="text-cyan-400">Context Builders:</strong> aggregate and cache relevant deal data for every AI call.</li>
+              <li><strong class="text-cyan-400">Firebase Multi-Tenancy:</strong> secure tenant isolation with Firestore rules.</li>
+              <li><strong class="text-cyan-400">Execution Tracker:</strong> logs every AI action and its impact for continuous feedback loops.</li>
+            </ul>
           </div>
 
           <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">What It Actually Took</h2>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            <strong class="text-cyan-400">About 160 hours of focused build time.</strong><br>
-            That's the real metric.
+            <strong class="text-cyan-400">Roughly 160 hours of focused build time.</strong><br>
+            No meetings. No handoffs. No dependencies.
           </p>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            AI didn't replace me—it multiplied me. Where a team would need months, I compressed it into weeks.
+            AI didn't replace me — it multiplied me.
           </p>
 
-          <p class="text-gray-300 leading-relaxed mb-6">The gains came from:</p>
+          <p class="text-gray-300 leading-relaxed mb-6">The edge came from:</p>
 
-          <ul class="list-disc list-inside text-gray-300 mb-6 space-y-2">
+          <ul class="list-disc list-inside text-gray-300 mb-8 space-y-2">
             <li>Instant code generation + refactor suggestions</li>
-            <li>Zero handoff overhead</li>
-            <li>Fast context reuse across modules</li>
-            <li>Ruthless focus on shipping core functionality</li>
+            <li>Zero context switching</li>
+            <li>Ruthless prioritization of core functionality</li>
           </ul>
 
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">The Lessons</h2>
+          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Lessons Learned</h2>
 
-          <div class="space-y-6 mb-6">
+          <div class="space-y-6 mb-8">
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">1️⃣ AI is a Force Multiplier, Not a Replacement.</h3>
-              <p class="text-gray-300">It handles repetition; you provide direction.</p>
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">1️⃣ AI is a force multiplier, not a replacement.</h3>
+              <p class="text-gray-300">It automates repetition — you provide direction.</p>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">2️⃣ Domain Knowledge Beats Syntax.</h3>
-              <p class="text-gray-300">I knew how sales teams break; AI just helped me build the fix.</p>
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">2️⃣ Domain knowledge beats syntax.</h3>
+              <p class="text-gray-300">I knew how sales teams break; AI helped me build the fix.</p>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">3️⃣ Scope is the Difference Between Finished and Forever.</h3>
-              <p class="text-gray-300">We built what mattered now and saved "nice-to-haves" for later.</p>
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">3️⃣ Scope defines success.</h3>
+              <p class="text-gray-300">We built what mattered now — saved the rest for later.</p>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">4️⃣ Architecture Enables AI Leverage.</h3>
-              <p class="text-gray-300">Context builders + feedback loops = smarter, cheaper AI execution.</p>
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">4️⃣ Architecture enables AI.</h3>
+              <p class="text-gray-300">Context builders and feedback loops make smarter, cheaper systems.</p>
             </div>
 
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">5️⃣ Solo Doesn't Mean Slow.</h3>
-              <p class="text-gray-300">One focused builder with AI can ship faster than a 10-person team without it.</p>
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">5️⃣ Solo doesn't mean slow.</h3>
+              <p class="text-gray-300">One focused builder with AI can out-ship a 10-person team without it.</p>
             </div>
           </div>
 
-          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">The Results</h2>
+          <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Results</h2>
 
           <ul class="list-none text-gray-300 mb-6 space-y-2">
             <li>✅ Complete multi-tenant architecture</li>
-            <li>✅ Five-tier roles + permissions</li>
             <li>✅ Full CRM stack (Clients, Deals, Activities, Tasks, Tickets)</li>
-            <li>✅ Nine AI features that actually help sales teams</li>
-            <li>✅ Self-service signup + custom domains</li>
-            <li>✅ Deployed on Vercel, ready for real tenants</li>
+            <li>✅ Five-tier role system</li>
+            <li>✅ Nine working AI features</li>
+            <li>✅ Self-service onboarding and white-label domains</li>
+            <li>✅ Deployed on Vercel — production ready</li>
           </ul>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            A partner demo compared it to an $80K/year Salesforce setup—and admitted ours felt smarter.
+          <p class="text-gray-300 leading-relaxed mb-8">
+            A partner demo compared it to an $80K/year Salesforce setup — and admitted ours felt smarter.
           </p>
 
           <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">The Unfair Advantage</h2>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            Success in AI-era development requires three skills:<br>
-            <strong class="text-cyan-400">Domain expertise + Technical ability + AI leverage.</strong>
+            Modern builders need three overlapping skills:
           </p>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            Most builders have one or two. Having all three is a superpower.
+            <strong class="text-cyan-400">Domain expertise + technical ability + AI leverage.</strong><br>
+            Having all three is the new superpower.
           </p>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            I came from construction and sales. I taught myself to build software. Then I learned to let AI amplify both.
-            That's the triangle that changes everything.
+          <p class="text-gray-300 leading-relaxed mb-8">
+            I came from construction and sales. I learned to code. Then I learned to let AI amplify both.<br>
+            That triangle changes everything.
           </p>
 
           <h2 class="text-3xl font-bold gradient-text mt-12 mb-6">Final Thoughts</h2>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            The era of massive teams and massive budgets is over.<br>
-            The era of high-leverage builders is here.
+            The age of bloated teams and endless funding rounds is over.<br>
+            This is the age of high-leverage builders.
           </p>
 
           <p class="text-gray-300 leading-relaxed mb-6">
-            I didn't build this because I had permission. I built it because I could see it in my head.
-            If you can see it, you can build it.
+            I didn't wait for permission or a paycheck.<br>
+            I built it because I could see it — and AI helped me make it real.
           </p>
 
-          <p class="text-gray-300 leading-relaxed mb-12">
-            No funding required—just focus, architecture, and AI that pulls its weight.
+          <p class="text-gray-300 leading-relaxed mb-8">
+            If you can see it, you can build it.<br>
+            No investors required — just architecture, focus, and a co-pilot that never sleeps.
           </p>
 
           <div class="bg-gradient-to-r from-cyan-500/10 to-magenta-500/10 border border-cyan-500/30 rounded-lg p-6 mb-12">
-            <p class="text-sm text-gray-400 mb-2">Built with:</p>
-            <p class="text-gray-300">Claude Code, GPT Codex, Next.js, Firebase, TypeScript, and 160 hours of nights and weekends.</p>
+            <p class="text-sm font-bold text-cyan-400 mb-2">⚙️ Built With</p>
+            <p class="text-gray-300 mb-4">Claude Code • GPT Codex • Next.js 14 • Firebase • TypeScript<br>160 hours of nights and weekends</p>
           </div>
 
         </div>
 
+        <!-- Author Bio -->
+        <div class="border-t border-cyan-500/30 pt-12 mt-12">
+          <h3 class="text-xl font-bold gradient-text mb-4">✍️ About the Author</h3>
+          <p class="text-gray-300 mb-4">
+            <strong class="text-cyan-400">Josh Stone</strong> is the founder of Gideon Codeworks, where small businesses scale faster with AI-powered software and smart automation.
+          </p>
+          <p class="text-gray-300">
+            Follow the build journey on <a href="#" class="text-cyan-400 hover:text-cyan-300">LinkedIn</a> or explore more at <a href="../index.html" class="text-cyan-400 hover:text-cyan-300">GideonCode.com</a>.
+          </p>
+        </div>
+
         <!-- CTA Section -->
         <div class="border-t border-cyan-500/30 pt-12 mt-12 text-center">
-          <h3 class="text-2xl font-bold gradient-text mb-4">Want to see it live?</h3>
-          <p class="text-gray-300 mb-6">Book a demo and see how AI-leveraged development can transform your business.</p>
-          <a href="../get-started.html" class="neon-button text-lg px-8 py-3 inline-block">Book a Demo</a>
+          <h3 class="text-2xl font-bold gradient-text mb-4">👋 Want to See It in Action?</h3>
+          <p class="text-gray-300 mb-6">See how AI-leveraged development can transform your business.</p>
+          <a href="../get-started.html" class="neon-button text-lg px-8 py-3 inline-block">Book a Demo →</a>
         </div>
 
         <!-- Back to Blog -->
