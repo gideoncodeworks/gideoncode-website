@@ -383,5 +383,40 @@ f1a733f - Rebuild package builder with complete service catalog
 
 ---
 
-**Last Updated:** November 6, 2025 - 9:00 PM
+## November 7, 2025 - Codex Updates
+
+### Site-Wide Navigation Enhancement
+**Developer:** GPT Codex
+**Date:** November 6-7, 2025
+
+**Changes:**
+
+1. **Services Page Restructure** (`31b483e`)
+   - Reordered services sections for better flow
+   - Restored app maintenance service offerings
+   - 584 lines changed (324 additions, 260 deletions)
+
+2. **Navigation Standardization** (`eb0a1fe`)
+   - Updated 10 HTML files with consistent navigation
+   - Removed "AI Wizard" link from homepage navigation (plan-selector.html)
+   - Replaced with "Get Started" button pointing to get-started.html
+   - Enhanced contact page form layout
+   - Refined portfolio and services presentation
+   - Standardized headers/footers across all pages
+
+**Files Modified:**
+- Lorenzo.html, about.html, admin.html, careers.html, contact.html
+- form-success.html, index.html, portfolio.html, property-demo.html, services.html
+
+**Note:** AI Wizard (plan-selector.html) still accessible from:
+- package-builder.html navigation ✅
+- services.html page ✅
+- Direct URL: /plan-selector.html ✅
+
+**Impact:** Site-wide navigation now more streamlined with focus on "Get Started" CTA. AI Wizard remains available on package builder and services pages where users are already in the buying journey.
+
+---
+
+**Last Updated:** November 7, 2025 - 12:15 AM
 **Status:** All features deployed and tested ✅
+**Local Dev Server:** Running on http://localhost:8000
