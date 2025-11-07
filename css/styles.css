@@ -996,6 +996,21 @@ img[src*="logo" i] {
   text-align: center;
 }
 
+.builder-tab-bar {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.builder-tab-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.builder-tab {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
 .chapter-nav {
   border: 1px solid rgba(34, 211, 238, 0.25);
   border-radius: 1.25rem;
@@ -1100,6 +1115,60 @@ img[src*="logo" i] {
   padding: 1.5rem;
   background: rgba(15, 23, 42, 0.6);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-sidebar {
+  position: sticky;
+}
+
+@media (max-width: 1024px), (max-height: 720px) {
+  .sticky-sidebar {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-gideon-card {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+
+  .hero-gideon-card .cta-split__video {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+
+  .hero-gideon-card .cta-split__caption {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-gideon-card {
+    max-width: 210px;
+  }
+
+  .hero-gideon-card .cta-split__video {
+    max-width: 210px;
+  }
+
+  .builder-tab-bar {
+    gap: 0.5rem;
+  }
+
+  form .grid.grid-cols-2,
+  form .grid.grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  form .grid {
+    gap: 1rem !important;
+  }
+
+  form label {
+    font-size: 0.95rem;
+  }
 }
 
 @keyframes pulseGlow {
