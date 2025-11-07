@@ -107,9 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="text-sm text-gray-400 mb-6">Complete website delivered once. Can add Gideon AI Chatbot. (No ongoing hosting/management)</p>
 
         <div class="space-y-4">
-          ${renderOneTimeOption('starter', 'Starter Website', 2497, 'Up to 5 pages, mobile responsive, contact form, basic SEO, 1-year hosting included')}
-          ${renderOneTimeOption('growth', 'Growth Website', 3497, 'Up to 10 pages, advanced forms, enhanced SEO, blog, 1-year hosting included')}
-          ${renderOneTimeOption('domination', 'Domination Website', 4997, 'Unlimited pages, custom features, premium SEO, e-commerce ready, 1-year hosting included')}
+          ${renderOneTimeOption('starter', 'Starter Website', 2497, 'Up to 5 pages, mobile responsive, contact form, basic SEO • 30-day support window')}
+          ${renderOneTimeOption('growth', 'Growth Website', 3497, 'Up to 10 pages, advanced forms, enhanced SEO, blog • 60-day support window')}
+          ${renderOneTimeOption('domination', 'Domination Website', 4997, 'Unlimited pages, custom features, premium SEO, e-commerce ready • 90-day support window')}
         </div>
       </div>
 
@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="space-y-4">
           ${renderMonthlyAccordion('starter', 'Starter', 497, 250, 212.50, 900, 'Up to 5 pages, monthly updates, security monitoring, managed hosting')}
-          ${renderMonthlyAccordion('growth', 'Growth', 697, 250, 212.50, 900, 'Up to 10 pages, weekly updates, advanced forms, enhanced SEO, priority support')}
-          ${renderMonthlyAccordion('domination', 'Domination', 997, 297, 252.50, 1068, 'Unlimited pages, daily monitoring, custom features, premium SEO, 24/7 support')}
+          ${renderMonthlyAccordion('growth', 'Growth', 697, 297, 252.50, 1068, 'Up to 10 pages, weekly updates, advanced forms, enhanced SEO, priority support')}
+          ${renderMonthlyAccordion('domination', 'Domination', 997, 349, 299, 1200, 'Unlimited pages, daily monitoring, custom features, premium SEO, 24/7 concierge support')}
         </div>
       </div>
 
@@ -258,8 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
           ${canAddGideon ? renderAddOn('gideon-ai-basic', 'Gideon AI Chatbot (Basic)', 99, 497, '500 AI conversations/month, lead capture, email support') : ''}
           ${canAddGideon ? renderAddOn('gideon-ai-pro', 'Gideon AI Chatbot (Professional)', 299, 997, '2,000 conversations/month, custom persona, action system, priority support') : ''}
           ${canAddFull ? renderAddOn('social-media', 'Social Media Management', 250, 0, '12 posts/month, content creation, scheduling, engagement (Facebook/Instagram/LinkedIn)') : ''}
-          ${canAddFull ? renderAddOn('google-ads', 'Google Ads Setup & Management', 297, 0, 'Campaign setup, ad copy, optimization, reporting (ad budget paid separately)') : ''}
-          ${canAddFull ? renderAddOn('seo-starter', 'SEO Starter Package', 497, 0, 'Keyword research, on-page optimization, technical audit, monthly reports') : ''}
+          ${canAddFull ? renderAddOn('google-ads', 'Google SEO / Ads', 297, 0, 'Paid Google search campaigns for instant visibility. Includes keyword targeting, ad copy, optimization, and monthly ROI reporting (ad spend paid to Google).') : ''}
+          ${canAddFull ? renderAddOn('seo-starter', 'SEO Starter Package', 497, 0, 'Organic SEO tuning: keyword research, on-page fixes, local/schema setup, and monthly ranking reports for long-term traffic.') : ''}
           ${canAddFull ? renderAddOn('seo-growth', 'SEO Growth Package', 997, 0, 'Everything in Starter + content creation, competitive analysis, advanced link building') : ''}
         </div>
       </div>
