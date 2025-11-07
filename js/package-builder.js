@@ -87,9 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function renderServices() {
-    const websiteInCart = state.cart.some(item => item.category === 'website');
+    if (state.activeCategory === 'apps') {
+      servicesList.innerHTML = renderAppsSection();
+      attachEventListeners();
+      return;
+    }
 
-    // Render based on active category
+    if (state.activeCategory === 'branding') {
+      servicesList.innerHTML = renderBrandingSection();
+      attachEventListeners();
+      return;
+    }
+
     if (state.activeCategory !== 'web') {
       servicesList.innerHTML = `
         <div class="cyber-card text-center py-12">
@@ -99,6 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       return;
     }
+
+    const websiteInCart = state.cart.some(item => item.category === 'website');
 
     servicesList.innerHTML = `
       <!-- ONE-TIME BUILDS -->
@@ -297,6 +308,194 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
+  function renderAppsSection() {
+    return `
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">Mobile App Development</h3>
+        <p class="text-sm text-gray-400 mb-6">Launch native-feeling apps backed by Gideon’s product team.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          ${renderCustomCard('mobile-app', 'basic', {
+            name: 'Basic App',
+            price: 5000,
+            icon: '📱',
+            description: 'Single-platform build to validate your concept quickly.',
+            features: [
+              'Launch in ~21 days',
+              'Secure login + push notifications',
+              'Up to 5 custom screens'
+            ]
+          })}
+          ${renderCustomCard('mobile-app', 'pro', {
+            name: 'Pro App',
+            price: 9997,
+            icon: '🚀',
+            description: 'Cross-platform builds with automation and analytics baked in.',
+            features: [
+              'iOS + Android native quality',
+              'Custom backend + memberships',
+              'Analytics dashboard + monetization'
+            ]
+          })}
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          ${renderCustomCard('mobile-app', 'enterprise', {
+            name: 'Enterprise App',
+            price: 14997,
+            icon: '🏢',
+            pricePrefix: 'From ',
+            priceNote: 'Final scope confirmed after discovery',
+            description: 'Full-stack power with admin portals, integrations, and enterprise security.',
+            features: [
+              'Unlimited screens + API hooks',
+              'Dedicated PM + weekly standups',
+              'SOC-ready security posture'
+            ],
+            buttonLabel: 'Start Enterprise Build'
+          })}
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">Web Applications & SaaS</h3>
+        <p class="text-sm text-gray-400 mb-6">Dashboards, CRMs, and internal tools that automate operations.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          ${renderCustomCard('web-app', 'starter', {
+            name: 'Starter Web App',
+            price: 4997,
+            icon: '🧭',
+            description: 'Lightweight internal tool or MVP to replace spreadsheets.',
+            features: [
+              'Secure user auth',
+              'Dashboard + reporting',
+              'Google Sheets / Airtable sync'
+            ]
+          })}
+          ${renderCustomCard('web-app', 'pro', {
+            name: 'Professional SaaS',
+            price: 9997,
+            icon: '💼',
+            description: 'Client-ready SaaS platform with roles, billing, and custom APIs.',
+            features: [
+              'Multi-role permissions',
+              'Advanced dashboards',
+              'Automated alerts + auditing'
+            ]
+          })}
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          ${renderCustomCard('web-app', 'enterprise', {
+            name: 'Enterprise Platform',
+            price: 14997,
+            icon: '🏗️',
+            pricePrefix: 'From ',
+            priceNote: 'Multi-tenant + complex integrations',
+            description: 'Full-scale systems with analytics, security layers, and custom integrations.',
+            features: [
+              'Scalable architecture',
+              'Advanced access control',
+              'Dedicated technical lead'
+            ],
+            buttonLabel: 'Scope Enterprise Platform'
+          })}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderBrandingSection() {
+    return `
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">Branding & Design Systems</h3>
+        <p class="text-sm text-gray-400 mb-6">Give every touchpoint the same Gideon-level polish.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          ${renderCustomCard('branding', 'logo', {
+            name: 'Logo Design',
+            price: 497,
+            icon: '🎯',
+            description: 'Three concepts with revisions and delivery in every format.',
+            features: [
+              'PNG, SVG, PDF exports',
+              'Color + mono variations',
+              'Brand consult call'
+            ],
+            buttonLabel: 'Add Logo Package'
+          })}
+          ${renderCustomCard('branding', 'kit', {
+            name: 'Brand Identity Kit',
+            price: 1297,
+            icon: '🎨',
+            description: 'Full starter system to keep social, decks, and proposals aligned.',
+            features: [
+              'Logo + color palette',
+              'Typography system + style guide',
+              'Social + business card templates'
+            ],
+            buttonLabel: 'Add Identity Kit'
+          })}
+          ${renderCustomCard('branding', 'system', {
+            name: 'Complete Brand System',
+            price: 2497,
+            icon: '🪄',
+            description: 'Enterprise-grade identity suite with collateral and usage rules.',
+            features: [
+              'Comprehensive brand guide',
+              'Sales decks, proposals, ads',
+              'Unlimited revisions until approval'
+            ],
+            buttonLabel: 'Add Brand System'
+          })}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCustomCard(category, tier, options) {
+    const {
+      name,
+      price,
+      icon = '⚡',
+      description,
+      features = [],
+      pricePrefix = '',
+      priceNote = '',
+      buttonLabel
+    } = options;
+
+    const id = `${category}-${tier}`;
+    const selected = state.cart.some(item => item.id === id);
+    const priceLabel = `${pricePrefix}${formatCurrency(parseFloat(price))}`;
+
+    return `
+          <article class="cyber-card ${selected ? 'border-2 border-cyan-500' : ''}">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-3xl mb-2" aria-hidden="true">${icon}</div>
+                <h4 class="text-2xl font-bold text-white mb-2">${name}</h4>
+                <p class="text-gray-400">${description}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-3xl font-bold text-white">${priceLabel}</p>
+                ${priceNote ? `<p class="text-xs text-gray-500 mt-1">${priceNote}</p>` : ''}
+              </div>
+            </div>
+            ${features.length ? `
+            <ul class="space-y-3 text-gray-300 mb-6">
+              ${features.map(feature => `<li>✓ ${feature}</li>`).join('')}
+            </ul>` : ''}
+            <button
+              class="builder-toggle ${selected ? 'is-active' : ''}"
+              data-action="select-custom"
+              data-category="${category}"
+              data-id="${id}"
+              data-name="${name}"
+              data-price="${price}"
+            >
+              ${selected ? 'Selected' : (buttonLabel || 'Add to Build')}
+            </button>
+          </article>
+    `;
+  }
+
   function attachEventListeners() {
     servicesList.querySelectorAll('[data-action]').forEach(button => {
       button.addEventListener('click', (e) => {
@@ -316,6 +515,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else if (action === 'toggle-addon') {
           toggleAddOn(button.dataset);
+        }
+        else if (action === 'select-custom') {
+          selectCustomPackage(button.dataset);
         }
       });
     });
@@ -392,6 +594,28 @@ document.addEventListener('DOMContentLoaded', () => {
         price: parseFloat(price),
         kind: 'monthly',
         setupFee: parseFloat(setup)
+      });
+    }
+
+    renderServices();
+    renderCart();
+  }
+
+  function selectCustomPackage(data) {
+    const { category, id, name, price } = data;
+    const alreadySelected = state.cart.some(item => item.id === id);
+
+    if (alreadySelected) {
+      state.cart = state.cart.filter(item => item.id !== id);
+    } else {
+      state.cart = state.cart.filter(item => item.category !== category);
+      state.cart.push({
+        id,
+        category,
+        name,
+        price: parseFloat(price),
+        kind: 'one-time',
+        setupFee: 0
       });
     }
 
