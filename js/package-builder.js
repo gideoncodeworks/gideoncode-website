@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartBalance = document.getElementById('cart-balance');
   const checkoutButton = document.getElementById('checkout-builder');
   const clearCartButton = document.getElementById('clear-cart');
+  const builderSubcopy = document.getElementById('builder-subcopy');
 
   // Debug: Check if elements exist
   if (!servicesList || !cartItems || !checkoutButton || !clearCartButton) {
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.add('active');
 
       renderServices();
+      updateSubcopy(category);
     });
   });
 
@@ -87,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function renderServices() {
+    console.log('[Builder] Rendering category:', state.activeCategory);
     if (state.activeCategory === 'apps') {
       servicesList.innerHTML = renderAppsSection();
       attachEventListeners();
@@ -95,6 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (state.activeCategory === 'branding') {
       servicesList.innerHTML = renderBrandingSection();
+      attachEventListeners();
+      return;
+    }
+
+    if (state.activeCategory === 'ai') {
+      servicesList.innerHTML = renderAiSection();
       attachEventListeners();
       return;
     }
@@ -449,6 +458,90 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
+  function renderAiSection() {
+    const cards = [
+      {
+        id: 'gideon-ai-basic',
+        name: 'Gideon AI Chatbot – Basic',
+        price: 99,
+        setupFee: 497,
+        icon: '🤖',
+        label: 'Fast Launch',
+        description: 'Flip the switch on Gideon’s concierge in under a day.',
+        bullets: [
+          '500 conversations/month included',
+          'Lead capture + email handoff automation',
+          'Pre-built Gideon persona + scripts',
+          'Email support from our AI team'
+        ]
+      },
+      {
+        id: 'gideon-ai-pro',
+        name: 'Gideon AI Chatbot – Pro',
+        price: 299,
+        setupFee: 997,
+        icon: '⚡',
+        label: 'Most Popular',
+        description: 'Dual-model concierge with action automations.',
+        bullets: [
+          '2,000 conversations/month tracked',
+          'Custom persona + Claude/GPT routing',
+          'Calendar, CRM, and form actions',
+          'Priority support + quarterly tuning'
+        ]
+      }
+    ];
+
+    return `
+      <div class="mb-12">
+        <div class="text-center mb-8">
+          <p class="text-sm uppercase tracking-[0.35em] text-cyan-300">Gideon Concierge</p>
+          <h3 class="text-3xl font-bold text-white mb-3">Client-facing AI that actually closes.</h3>
+          <p class="text-gray-400 max-w-3xl mx-auto">
+            Drop Gideon on any website or portal. He already remembers Plan Selector answers, syncs to the builder, and keeps every lead warm.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          ${cards.map(renderAiCard).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderAiCard(card) {
+    const inCart = state.cart.some(item => item.id === card.id);
+
+    return `
+      <article class="cyber-card ${inCart ? 'border-2 border-magenta-500' : ''}">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-4xl mb-2" aria-hidden="true">${card.icon}</div>
+            <p class="text-xs uppercase tracking-[0.3em] text-cyan-300">${card.label}</p>
+            <h4 class="text-2xl font-bold text-white mb-1">${card.name}</h4>
+            <p class="text-gray-400">${card.description}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-3xl font-bold text-white">${formatCurrency(card.price)}<span class="text-sm text-gray-400">/mo</span></p>
+            <p class="text-xs text-yellow-400 mt-1">+ ${formatCurrency(card.setupFee)} setup</p>
+          </div>
+        </div>
+        <ul class="space-y-2 text-gray-300 mb-6">
+          ${card.bullets.map(bullet => `<li>✓ ${bullet}</li>`).join('')}
+        </ul>
+        <button
+          class="builder-toggle ${inCart ? 'is-active' : ''}"
+          data-action="toggle-addon"
+          data-id="${card.id}"
+          data-name="${card.name}"
+          data-price="${card.price}"
+          data-setup="${card.setupFee}"
+        >
+          ${inCart ? 'Remove from Build' : 'Add Gideon AI'}
+        </button>
+      </article>
+    `;
+  }
+
   function renderCustomCard(category, tier, options) {
     const {
       name,
@@ -687,8 +780,20 @@ document.addEventListener('DOMContentLoaded', () => {
       : `$${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   }
 
+  function updateSubcopy(category) {
+    if (!builderSubcopy) return;
+    const copy = {
+      web: 'Websites, funnels, SEO, and outbound fuel. Add modules to your cart—we’ll scope the rest on discovery.',
+      apps: 'Mobile apps and SaaS platforms built by the same crew who maintains them after launch.',
+      branding: 'Brand systems, logos, and collateral so every touchpoint feels like Gideon built it.',
+      ai: 'Deploy Gideon’s concierge on any site or portal. Pick Basic for fast lead capture or Pro for action automations.'
+    };
+    builderSubcopy.textContent = copy[category] || copy.web;
+  }
+
   console.log('Package builder initialized');
   renderServices();
+  updateSubcopy(state.activeCategory);
   renderCart();
   console.log('Initial render complete');
 });
