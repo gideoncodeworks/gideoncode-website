@@ -25,6 +25,7 @@ Snapshot reference for current production-ready layout after nav/CTA/portfolio u
 ### Package Builder
 - Pricing aligned with Services: Growth WaaS at $297/$252.50, Domination at $349/$299.
 - One-time builds mention support windows (30/60/90 days).
+- Gideon greeting block beneath the hero reinforces builder/selector workflow.
 - Apps/Web Apps tabs now configurable (mobile apps, SaaS/internal tools) plus branding packages.
 - Add-ons mirror Services (Gideon AI tiers + SEO packages).
 
