@@ -450,7 +450,7 @@ function initGideonConcierge() {
 
       // Check if booking is needed
       if (data.needsBooking) {
-        const bookingLink = '<br><br><a href="https://calendly.com/gideoncode/30min" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:8px 16px;background:linear-gradient(135deg, rgba(34,211,238,0.9), rgba(236,72,153,0.85));color:#0f172a;border-radius:8px;text-decoration:none;font-weight:600;">📅 Book a Call Now</a>';
+        const bookingLink = '<br><br><a href="https://calendly.com/josh-gideoncode/30min" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:8px 16px;background:linear-gradient(135deg, rgba(34,211,238,0.9), rgba(236,72,153,0.85));color:#0f172a;border-radius:8px;text-decoration:none;font-weight:600;">📅 Book a Call Now</a>';
         appendMessage('gideon', message + bookingLink);
       } else {
         appendMessage('gideon', message);
