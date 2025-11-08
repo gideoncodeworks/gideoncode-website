@@ -437,7 +437,13 @@ function initGideonConcierge() {
       }
 
       const data = await response.json();
-      const message = data.message || 'Pipeline mapped. Let\'s move.';
+      let message = data.message || 'Pipeline mapped. Let\'s move.';
+
+      // Turn bare URLs into clickable links if the AI response includes them
+      const urlRegex = /https?:\/\/[^\s<>"']+/g;
+      message = message.replace(urlRegex, (url) => {
+        return `<a href="${url}" target="_blank" rel="noopener" class="text-cyan-300 underline">${url}</a>`;
+      });
 
       // Check if booking is needed
       if (data.needsBooking) {
