@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Meta Tags -->
+  <title>Day One: From Layoff to Launch | Gideon Codeworks</title>
+  <meta name="description" content="The day I got laid off, most people would panic. I saw an opportunity. This is the beginning of my journey from construction company owner to AI-leveraged developer.">
+  <meta name="keywords" content="startup journey, career change, AI development, entrepreneurship, layoff story">
+  <link rel="canonical" href="https://gideoncode.com/blog/day-one-layoff-to-launch.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="fixed w-full top-0 z-50">
+      <nav class="site-nav bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0 flex items-center">
+              <a href="../index.html" aria-label="Gideon Code Works Home" class="flex items-center">
+                <img src="../images/gcw-logo.png" alt="Gideon Code Works logo" width="200" height="60">
+              </a>
+            </div>
+
+            <div class="nav-desktop-links items-center space-x-6">
+              <a href="../services.html#web" class="nav-link text-white hover:text-cyan-400">Web Services</a>
+              <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="nav-link text-white hover:text-cyan-400">CRM Platform</a>
+              <a href="../portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
+              <div class="relative nav-dropdown-container">
+                <button type="button" class="nav-link text-white hover:text-cyan-400 flex items-center gap-1 nav-dropdown-toggle" aria-haspopup="true">
+                  <span>More</span>
+                  <svg class="w-4 h-4 text-cyan-400 nav-dropdown-icon transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="nav-dropdown" role="menu">
+                  <div class="nav-dropdown-panel">
+                    <a href="../careers.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Join Sales Team</a>
+                    <a href="../about.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">About</a>
+                    <a href="../blog.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Blog</a>
+                    <a href="../contact.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Contact</a>
+                    <a href="../faq.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">FAQ</a>
+                  </div>
+                </div>
+              </div>
+              <a href="../get-started.html" class="neon-button text-sm py-2 px-4">Get Started</a>
+            </div>
+
+            <div class="nav-mobile-toggle">
+              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu">
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
+          <div class="flex flex-col p-6 space-y-6">
+            <a href="../index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
+            <a href="../services.html#web" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Web Services</a>
+            <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">CRM Platform</a>
+            <a href="../portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
+            <a href="../about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">About</a>
+            <a href="../blog.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Blog</a>
+            <a href="../contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
+            <a href="../careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Join Sales Team</a>
+            <a href="../faq.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">FAQ</a>
+            <a href="../get-started.html" class="mobile-menu-link neon-button text-sm py-2 px-4 text-center" role="menuitem">Get Started</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main role="main" id="main-content">
+
+    <article class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-8 text-sm">
+          <a href="../blog.html" class="text-cyan-400 hover:text-cyan-300">← Back to Blog</a>
+        </nav>
+
+        <!-- Meta Info -->
+        <div class="mb-6">
+          <span class="text-xs uppercase tracking-wider text-magenta-400">Company News</span>
+          <span class="text-gray-600 mx-2">•</span>
+          <span class="text-xs text-gray-400">October 17, 2025</span>
+          <span class="text-gray-600 mx-2">•</span>
+          <span class="text-xs text-gray-400">By Josh Stone</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-8 leading-tight">
+          Day One: From Layoff to Launch
+        </h1>
+
+        <!-- Article Content -->
+        <div class="prose prose-invert prose-lg max-w-none">
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            February 17th wasn't rock bottom. I'd already been there.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            That was the day I got laid off from Lorenzo's Dog Training Team. Just another Tuesday, really—except it was the Tuesday that forced me to finally confront a question I'd been dodging for months: <em>What the hell am I actually building here?</em>
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Let me back up.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Fall</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I'm 44 years old. I've got kids, an ex-wife, a stepdaughter, and a new partner who's watched me claw my way back from a wreckage I created myself. Life has been insane. And I mean <em>insane</em>—not the Instagram version where everything's a "journey" and every setback is a "plot twist." I mean the kind where you wake up some mornings and genuinely don't recognize the wreckage around you. Where you ask yourself how the guy who had it all became the guy who has nothing.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Because I <em>did</em> have it all once.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Custom home builds. Investment properties that actually cash-flowed. Crews that showed up when I called. Money in the bank. Momentum that felt unstoppable. I was scaling my construction company 40% year over year. I knew how to sequence trades, hit brutal deadlines, and deliver builds that families and developers could actually live with. I understood systems. I understood execution.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            What I didn't understand was how to manage myself when depression got its hooks in me.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I mismanaged everything. Not because I didn't know better—I absolutely knew better—but because I couldn't get out of my own head long enough to save what I'd built. I watched my company fall apart in slow motion. Opportunities I didn't chase. Phone calls I didn't return. Decisions I didn't make until it was too late to matter.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            From everything to nothing. That's not hyperbole—that's math.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The construction industry lost its soul for me, but the truth is I'd lost mine first. And when you're the founder, when you're the one everyone's counting on, your collapse doesn't just affect you. It affects everyone who believed in what you were building.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Last Job</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            So I took a job. Lorenzo's Dog Training Team.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            This wasn't supposed to be a stepping stone. This was supposed to be <em>it</em>—my last job. The place where I'd finally stop rebuilding and just... work. Use what I knew about operations and systems. Help them scale. Get a steady paycheck and stop white-knuckling my way through life.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            They brought me in to spearhead a new division. Something I could actually build. Something that felt like mine, even if it had someone else's name on the door.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            That year at Lorenzo's sharpened my sword in ways I didn't expect. It opened my eyes to the corporate world—to CRM architecture, to automation, to how scalable businesses actually operate when they're built on systems instead of sheer force of will. I learned how companies scale past the founder's hustle. How they create infrastructure that runs whether or not the visionary shows up that day.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I learned the difference between working <em>in</em> a business and working <em>on</em> a business.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            And for a while, it felt like I'd finally found where I was supposed to land.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Phone Call</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            February 17th, 2025. A Monday.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I was getting ready to walk out the door. Coffee made. Shoes on. Keys in hand. Just another morning heading to what was supposed to be my last job.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            My phone rang.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The kind of call where you know before you answer that nothing good is about to happen.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            "We're gonna have you stay home today."
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            That's it. That's how they told me.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Not a meeting. Not a conversation. Not even the courtesy of letting me come in to grab my things or say goodbye to people I'd worked with for a year.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Just: "Stay home."
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I stood there in my kitchen, still holding my keys, and felt the floor drop out.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The company had gone in a different direction. The division they'd brought me in to spearhead? Scrapped. And with it, my role. My last job. The thing I'd bet on being stable.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Gone.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I sat down at my kitchen table, staring at my phone after they hung up, and felt that familiar freefall. The one where you realize that no matter how hard you work, no matter how much value you bring, someone else's pivot can erase you in a single phone call.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            This wasn't supposed to happen. Not here. Not at the job that was supposed to be the <em>last</em> job. The one where I'd finally stop scrambling.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I've got kids who need me. An ex-wife. A stepdaughter who's watching how I handle adversity. And a partner who's been there through all of this—who watched me take the "last job" at Lorenzo's, who believed me when I said this time would be different, and who didn't flinch when I got that phone call on February 17th.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            She's seen me at my worst. Watched me rebuild from nothing. And when I got told to "stay home today," she didn't panic. She didn't question whether I'd figure it out. She just asked what I needed and gave me space to process it.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I don't say this enough, but that kind of support—the kind that doesn't try to fix you or rush you or tell you everything happens for a reason—that's what makes rebuilding possible. She's been steady when I couldn't be. And that matters more than I know how to articulate.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            For about 24 hours, I let myself feel it. The fear. The anger. The shame of being 44 and getting laid off from a job that was supposed to be the last time I had to start over.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            And then I remembered something I learned the first time I fell: you don't get destroyed by the hit. You get destroyed by staying down.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Pivot</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The next day—February 18th—I had an interview lined up.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Not because I'm some superhuman who bounces back instantly. Because I'd been preparing for this. I'd felt the writing on the wall at Lorenzo's for weeks, and I'd been quietly putting feelers out. Updating my resume. Taking calls. Doing what you do when you're not willing to be blindsided by life again.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            One week later, I was hired.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Better pay. More freedom. A day job at a geosynthetics company where I'd end up building buygeogrid.com and becoming Ohio's Tensar dealer. It's good work. Honest work. The kind of work that keeps the lights on and lets me breathe for the first time in years.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            It's also the kind of work that gave me space to think about what I <em>actually</em> wanted to build.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Because here's what I realized sitting at my kitchen table on February 17th: I wasn't upset about losing the job at Lorenzo's. I was upset that I'd spent another year building someone else's vision instead of my own.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Decision</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            That same week I got hired, I made a decision that changed everything.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I wasn't going to spend the rest of my life working <em>for</em> someone else's dream. Not again. Not after everything I'd survived. Not after clawing my way back from nothing once already.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Gideon Codeworks had been an idea—something I'd been tinkering with for months. Late nights teaching myself web development. Weekends building practice sites. Hours watching tutorials and reading documentation, trying to translate my builder's instincts into code.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            But it was still just an idea. A "someday" project. A safety blanket I told myself I'd pursue once conditions were perfect.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            February 17th killed "someday."
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            That layoff turned Gideon Codeworks from a nice idea into something non-negotiable. Not because I had some epiphany or moment of clarity—but because I finally got angry enough at myself to stop waiting for permission.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Permission to start. Permission to fail. Permission to build something that might not work.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I'd already failed spectacularly once. What was I protecting at this point?
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Build</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I still work the day job. Let me be crystal clear about that.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I'm not out here romanticizing the "quit everything and chase your dream" narrative. I'm not selling you the fantasy of passive income and laptop lifestyle and freedom from the 9-to-5. That's not my story. That's not most people's story. And anyone telling you otherwise is either lying or selling you something.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I've got responsibilities. Kids who need stability. A partner who deserves a functioning adult, not a dreamer who can't pay rent. Bills that arrive every month whether or not my entrepreneurial ambitions are panning out.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            So I work my day job at the geosynthetics company. I show up. I do good work. I build their web infrastructure and sell their products and earn my paycheck.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            And then I work on mine.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Every morning before work—coffee at 5 AM, code by 5:30. Every evening after work—dinner with the family, then back to the desk. Every weekend—Saturdays are for building, Sundays are for catching up on everything I didn't finish Saturday.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            That's Gideon Codeworks. Websites built to convert. SaaS platforms engineered for scale. Automation systems that give founders their time back. Digital infrastructure for people who need execution, not excuses.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            This isn't a side hustle. It's not a hobby. It's the thing I'm building while holding down stability, because that's what real looks like when you're 44 with responsibilities and you've already blown up your life once.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Lesson</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            This isn't a comeback story. It's a build story.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            There's a difference.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Comeback stories are about returning to where you were. About reclaiming what you lost. About proving to everyone who doubted you that you still had it all along.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Build stories are about using what you learned in the fall to construct something better than what you had before.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I've been to the top. I know what that looks like. Custom builds, flush bank accounts, the respect that comes with running a successful company. I also know what it looks like to lose it all because you couldn't manage yourself through the dark seasons.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            And here's what falling taught me that success never did:
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            <strong>How to build with intention instead of momentum.</strong> My first company grew fast because I could sell and execute. It collapsed because I never built systems that could survive my absence—or my depression. This time, I'm building infrastructure that works whether or not I'm having a good day.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            <strong>How to create opportunity beyond myself.</strong> I'm not just building Gideon Codeworks to replace my income. I'm building it to create paths for others—Account Executives who can build recurring revenue without the risk of starting from zero. People who bring relationships and close deals while we handle delivery. That's scalable. That's sustainable. That's bigger than just me.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            <strong>How to survive the gaps between success.</strong> There's no straight line from layoff to launch. There's the day job that pays bills. There's the late nights that build dreams. There's the tension of living in both worlds simultaneously and not letting either one suffer. I'm learning to be okay in the gap.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            <strong>How to measure success differently.</strong> This time, success isn't about how fast I can scale or how impressive the revenue numbers look on paper. It's about building something that doesn't collapse when life gets hard. It's about creating value for clients, opportunity for partners, and stability for my family. Everything else is just metrics.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Truth</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            February 17th tried to be an ending.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            February 18th became the launchpad.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I'm not where I was. The construction company is gone. The money's gone. The version of me who thought success meant never failing—he's gone too.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            But I'm not done building.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            I spent a year at Lorenzo's learning systems I didn't know I needed. I spent months teaching myself to code because I was tired of paying other people to build my visions. I spent years learning what it feels like to lose everything and deciding that losing once doesn't mean you stop building.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Now I'm building something that proves you can go from everything to nothing and still construct something that matters. Something that scales. Something that creates opportunity for more than just yourself.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Gideon Codeworks isn't a redemption arc. It's not a revenge play. It's not me trying to prove something to everyone who watched me fall.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            It's me building in public, with a day job and responsibilities and a history of spectacular failure—because that's the only way I know how to do this anymore.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Honestly. Intentionally. With the scars still visible.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            And this time, I know exactly what I'm doing.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Not because I have it all figured out. But because I've already survived not having it figured out, and I'm still here.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Still building.<br>
+            Still showing up.<br>
+            Still working a day job and coding until midnight.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            February 17th was just another Monday.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            February 18th was day one.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-12">
+            And I'm just getting started.
+          </p>
+
+          <div class="border-t border-cyan-500/30 pt-8 mt-8 text-center">
+            <p class="text-lg text-gray-400 mb-2">
+              <strong class="text-cyan-400">Josh Stone</strong><br>
+              Founder, Gideon Codeworks<br>
+              Still working a day job. Still building anyway.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Author Bio -->
+        <div class="border-t border-cyan-500/30 pt-12 mt-12">
+          <h3 class="text-xl font-bold gradient-text mb-4">✍️ About the Author</h3>
+          <p class="text-gray-300 mb-4">
+            <strong class="text-cyan-400">Josh Stone</strong> is the founder of Gideon Codeworks, where small businesses scale faster with AI-powered software and smart automation.
+          </p>
+          <p class="text-gray-300">
+            Follow the build journey on <a href="#" class="text-cyan-400 hover:text-cyan-300">LinkedIn</a> or explore more at <a href="../index.html" class="text-cyan-400 hover:text-cyan-300">GideonCode.com</a>.
+          </p>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="border-t border-cyan-500/30 pt-12 mt-12 text-center">
+          <h3 class="text-2xl font-bold gradient-text mb-4">👋 Ready to Start Your Journey?</h3>
+          <p class="text-gray-300 mb-6">See how AI-leveraged development can transform your business.</p>
+          <a href="../get-started.html" class="neon-button text-lg px-8 py-3 inline-block">Get Started →</a>
+        </div>
+
+        <!-- Back to Blog -->
+        <div class="border-t border-cyan-500/30 pt-12 mt-12">
+          <a href="../blog.html" class="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to all posts
+          </a>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-cyan-500 border-opacity-30 py-12 px-4 sm:px-6 lg:px-8" role="contentinfo">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="col-span-1 md:col-span-2">
+          <img src="../images/gcw-logo.png" alt="Gideon Code Works" width="200" height="60" loading="lazy">
+          <p class="text-gray-400 mb-4 mt-4">
+            Building recurring revenue websites for small businesses. Professional web presence made affordable.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-cyan-400 hover:text-cyan-300 transition" aria-label="Follow us on X (Twitter)">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M2.5 2h4.25l5.1 6.96L17 2h4.5l-7.45 9.33L22 22h-4.25l-5.65-7.86L6.4 22H1.9l7.6-9.95z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-cyan-400 hover:text-cyan-300 transition" aria-label="Follow us on Facebook">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.85 3.44 8.87 7.94 9.77v-6.91H7.42v-2.86H9.8V9.58c0-2.37 1.42-3.68 3.58-3.68 1.04 0 2.12.19 2.12.19v2.33h-1.19c-1.17 0-1.53.73-1.53 1.48v1.78h2.61l-.42 2.86h-2.19v6.91c4.5-.9 7.94-4.92 7.94-9.77z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-cyan-400 hover:text-cyan-300 transition" aria-label="Follow us on Instagram">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 2.5a4.5 4.5 0 11-4.5 4.5 4.5 4.5 0 014.5-4.5zm0 2a2.5 2.5 0 102.5 2.5 2.5 2.5 0 00-2.5-2.5zm5.25-3.25a1.25 1.25 0 11-1.25 1.25 1.25 1.25 0 011.25-1.25z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-cyan-400 hover:text-cyan-300 transition" aria-label="Connect on LinkedIn">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <nav aria-label="Footer navigation">
+          <h4 class="text-cyan-400 font-bold mb-4 uppercase tracking-wider">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="../index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
+            <li><a href="../services.html" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
+            <li><a href="../portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
+            <li><a href="../about.html" class="text-gray-400 hover:text-cyan-400 transition">About</a></li>
+            <li><a href="../blog.html" class="text-gray-400 hover:text-cyan-400 transition">Blog</a></li>
+            <li><a href="../careers.html" class="text-gray-400 hover:text-cyan-400 transition">Careers</a></li>
+            <li><a href="../contact.html" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+            <li><a href="../faq.html" class="text-gray-400 hover:text-cyan-400 transition">FAQ</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h4 class="text-cyan-400 font-bold mb-4 uppercase tracking-wider">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="tel:+12164632648" class="hover:text-cyan-400 transition">1-216-463-2648</a></li>
+            <li><a href="mailto:josh@gideoncode.com" class="hover:text-cyan-400 transition">josh@gideoncode.com</a></li>
+            <li><a href="mailto:info@gideoncode.com" class="hover:text-cyan-400 transition">info@gideoncode.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-cyan-500 border-opacity-30 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Gideon Code Works. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../js/main.js?v=4" defer></script>
+
+</body>
+</html>
