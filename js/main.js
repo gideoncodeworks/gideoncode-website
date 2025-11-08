@@ -379,7 +379,10 @@ function initGideonConcierge() {
     const bubble = document.createElement('div');
     bubble.className = `gideon-concierge__bubble ${author === 'gideon' ? 'gideon-concierge__bubble--gideon' : 'gideon-concierge__bubble--user'}`;
 
-    const safeText = escapeHTML(String(text || '')).replace(/\n/g, '<br>');
+    // Allow HTML in Gideon's responses (for links, formatting), but escape user input for security
+    const safeText = author === 'gideon'
+      ? String(text || '').replace(/\n/g, '<br>')
+      : escapeHTML(String(text || '')).replace(/\n/g, '<br>');
 
     if (author === 'gideon') {
       bubble.innerHTML = `<div class="gideon-concierge__meta-line">Gideon</div>${safeText}`;
