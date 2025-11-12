@@ -1,0 +1,136 @@
+.services-page {
+  min-height: 100vh;
+}
+
+.services-hero {
+  background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+  padding: 4rem 1.5rem 5rem;
+  text-align: center;
+}
+
+.services-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+.services-lead {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 2rem;
+}
+
+.services-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.service-detail {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.service-detail-icon {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.service-detail-content h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  color: var(--turnpike-red);
+}
+
+.service-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  list-style: none;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-features li {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.services-cta-section {
+  background: var(--turnpike-black);
+  color: #fff;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.services-cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.services-cta-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.services-cta-content p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+}
+
+.services-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .service-detail {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .service-detail-icon {
+    font-size: 4rem;
+  }
+
+  .services-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

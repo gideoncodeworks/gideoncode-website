@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600&family=Roboto:wght@400;500&display=swap');
+
+:root {
+  --turnpike-red: #e20000;
+  --turnpike-black: #000000;
+  --turnpike-cream: #f7f7f7;
+  --turnpike-gray: #c0c0c0;
+  --font-display: 'Bebas Neue', 'Oswald', sans-serif;
+  --font-body: 'Roboto', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--turnpike-cream);
+  color: var(--turnpike-black);
+  font-family: var(--font-body);
+}
+
+#root {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+}
