@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Started | Choose Your Path | Gideon Code Works</title>
-  <meta name="description" content="Choose how you'd like to get started: contact us directly, build a custom package, or use our AI wizard for personalized recommendations.">
+  <title>Get a Free Quote | Talk to a Specialist | Gideon Code Works</title>
+  <meta name="description" content="Get a free quote for your website, CRM, or SEO platform project. Talk to a specialist within 24 hours. No obligation consultation.">
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -84,177 +84,122 @@
   <section class="relative pt-32 pb-20 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
     <div class="container-custom relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-12">
         <h1 class="text-5xl md:text-6xl font-bold mb-6">
-          <span class="gradient-text">Choose Your Path</span>
+          <span class="gradient-text">Get a Free Quote</span>
         </h1>
-        <p class="text-xl text-gray-300">
-          Select the best way to get started with your project. All paths lead to the same great service.
+        <p class="text-xl text-gray-300 mb-4">
+          Talk to a specialist within 24 hours
         </p>
-      </div>
-      <!-- Gideon CTA -->
-      <div class="cta-split mt-12">
-        <div class="cta-split__copy">
-          <p class="cta-split__eyebrow">Powered by Gideon</p>
-          <h2 class="cta-split__title">Builder or AI? Gideon keeps you on rails.</h2>
-          <p class="cta-split__body">
-            Whether you self-assemble in the Package Builder or let Gideon interview you through the Plan Selector,
-            the same dual-brain AI (Claude + GPT-4) prepares the scope, estimates timeline, and syncs it to our team.
-          </p>
-          <ul class="cta-split__list">
-            <li>Builder = full shopping cart for websites, SaaS, branding, AI.</li>
-            <li>Plan Selector = five prompts and Gideon delivers a narrative scope.</li>
-            <li>Both paths drop into checkout + onboarding without repeating info.</li>
-          </ul>
-        </div>
-        <div class="cta-split__media hero-gideon-card">
-          <div class="cta-split__glow"></div>
-          <div class="cta-split__video">
-            <video autoplay muted loop playsinline>
-              <source src="media/gideon-lives.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="cta-split__caption">
-            <p class="text-sm uppercase tracking-[0.3em] text-cyan-200">Gideon Oversees Every Path</p>
-            <p class="text-base text-gray-200">The living logo is the co-pilot that remembers your answers and feeds the builders.</p>
-          </div>
-        </div>
+        <p class="text-gray-400">
+          Or call now: <a href="tel:+12164632648" class="text-cyan-400 hover:text-cyan-300 font-semibold">1-216-463-2648</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Three Options Section -->
+  <!-- Quote Request Form -->
   <section class="py-16 relative">
     <div class="container-custom">
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-        <!-- Option 1: Contact Form -->
-        <div class="card-dark border-2 border-cyan-500 border-opacity-30 hover:border-opacity-100 transition-all duration-300 group">
-          <div class="p-8">
-            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
+      <div class="max-w-2xl mx-auto">
+        <div class="cyber-card border-2 border-cyan-500 p-8 md:p-12">
+          <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/form-success.html">
+            <input type="hidden" name="form-name" value="quote-request">
+            <div class="hidden">
+              <label>Don't fill this out if you're human: <input name="bot-field"></label>
             </div>
 
-            <h2 class="text-2xl font-bold mb-4 text-white group-hover:text-cyan-400 transition-colors">
-              Contact Us Directly
-            </h2>
+            <!-- Product Selection -->
+            <div class="mb-8">
+              <label class="block text-cyan-400 font-semibold mb-4 text-lg">What are you interested in? *</label>
+              <div class="space-y-3">
+                <label class="flex items-start gap-3 p-4 bg-black/40 rounded-lg border border-cyan-500/30 hover:border-cyan-500/60 cursor-pointer transition">
+                  <input type="radio" name="product-interest" value="Website & Digital Services" required class="mt-1">
+                  <div>
+                    <p class="text-white font-semibold">Website & Digital Services</p>
+                    <p class="text-gray-400 text-sm">Websites, apps, branding, SEO, marketing</p>
+                  </div>
+                </label>
 
-            <p class="text-gray-400 mb-6 leading-relaxed">
-              Prefer to speak with our team? Fill out our contact form and we'll reach out to discuss your project needs and provide a custom quote.
-            </p>
+                <label class="flex items-start gap-3 p-4 bg-black/40 rounded-lg border border-magenta-500/30 hover:border-magenta-500/60 cursor-pointer transition">
+                  <input type="radio" name="product-interest" value="CRM Platform for Sales Teams" required class="mt-1">
+                  <div>
+                    <p class="text-white font-semibold">CRM Platform for Sales Teams</p>
+                    <p class="text-gray-400 text-sm">Enterprise sales software with AI forecasting</p>
+                  </div>
+                </label>
 
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-cyan-400 mt-1">✓</span>
-                <span>Personal consultation</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-cyan-400 mt-1">✓</span>
-                <span>Custom quote for your needs</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-cyan-400 mt-1">✓</span>
-                <span>Response within 24 hours</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-cyan-400 mt-1">✓</span>
-                <span>Call now: 1-216-463-2648</span>
-              </li>
-            </ul>
+                <label class="flex items-start gap-3 p-4 bg-black/40 rounded-lg border border-yellow-500/30 hover:border-yellow-500/60 cursor-pointer transition">
+                  <input type="radio" name="product-interest" value="AI SEO Platform for Agencies" required class="mt-1">
+                  <div>
+                    <p class="text-white font-semibold">AI SEO Platform for Agencies</p>
+                    <p class="text-gray-400 text-sm">26+ AI automation tools for agency clients</p>
+                  </div>
+                </label>
 
-            <a href="contact.html" class="neon-button w-full text-center block">
-              Contact Us
-            </a>
-          </div>
-        </div>
-
-        <!-- Option 2: À La Carte Menu -->
-        <div class="card-dark border-2 border-purple-500 border-opacity-30 hover:border-opacity-100 transition-all duration-300 group">
-          <div class="p-8">
-            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-              </svg>
+                <label class="flex items-start gap-3 p-4 bg-black/40 rounded-lg border border-cyan-500/30 hover:border-cyan-500/60 cursor-pointer transition">
+                  <input type="radio" name="product-interest" value="Multiple Products / Not Sure" required class="mt-1">
+                  <div>
+                    <p class="text-white font-semibold">Multiple Products / Not Sure</p>
+                    <p class="text-gray-400 text-sm">Let's discuss what's best for your business</p>
+                  </div>
+                </label>
+              </div>
             </div>
 
-            <h2 class="text-2xl font-bold mb-4 text-white group-hover:text-purple-400 transition-colors">
-              Build Your Gideon Stack
-            </h2>
+            <!-- Contact Info -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label for="name" class="block text-cyan-400 font-semibold mb-2">Name *</label>
+                <input type="text" id="name" name="name" required class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+              </div>
 
-            <p class="text-gray-400 mb-6 leading-relaxed">
-              Want hands-on control? Use the Gideon package builder to add websites, automation, and AI modules, then lock your build with a 50% deposit.
-            </p>
-
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-purple-400 mt-1">✓</span>
-                <span>Transparent pricing on every module</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-purple-400 mt-1">✓</span>
-                <span>Add automations, apps, and marketing fuel</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-purple-400 mt-1">✓</span>
-                <span>Instant 50% deposit checkout</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-purple-400 mt-1">✓</span>
-                <span>Change-order protection baked in</span>
-              </li>
-            </ul>
-
-            <a href="package-builder.html" class="neon-button w-full text-center block">
-              Launch Package Builder
-            </a>
-          </div>
-        </div>
-
-        <!-- Option 3: AI Wizard -->
-        <div class="card-dark border-2 border-green-500 border-opacity-30 hover:border-opacity-100 transition-all duration-300 group">
-          <div class="p-8">
-            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
+              <div>
+                <label for="phone" class="block text-cyan-400 font-semibold mb-2">Phone *</label>
+                <input type="tel" id="phone" name="phone" required class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+              </div>
             </div>
 
-            <h2 class="text-2xl font-bold mb-4 text-white group-hover:text-green-400 transition-colors">
-              Gideon AI Wizard
-            </h2>
+            <div class="mb-6">
+              <label for="email" class="block text-cyan-400 font-semibold mb-2">Email *</label>
+              <input type="email" id="email" name="email" required class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+            </div>
 
-            <p class="text-gray-400 mb-6 leading-relaxed">
-              Let Gideon interview you, score your goals, and recommend the build that will print revenue fastest.
+            <div class="mb-6">
+              <label for="company" class="block text-cyan-400 font-semibold mb-2">Company Name</label>
+              <input type="text" id="company" name="company" class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+            </div>
+
+            <div class="mb-8">
+              <label for="project-details" class="block text-cyan-400 font-semibold mb-2">Tell us about your project *</label>
+              <textarea id="project-details" name="project-details" rows="5" required class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none" placeholder="What are you looking to build or improve?"></textarea>
+            </div>
+
+            <button type="submit" class="neon-button neon-button-magenta w-full text-lg py-4">
+              Request Free Quote
+            </button>
+
+            <p class="text-center text-gray-400 text-sm mt-6">
+              We'll contact you within 24 hours to discuss your project
             </p>
-
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-green-400 mt-1">✓</span>
-                <span>Personalized recommendations in 5 questions</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-green-400 mt-1">✓</span>
-                <span>Gideon voice + contextual follow-up</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-green-400 mt-1">✓</span>
-                <span>Tailored to your goals and budget</span>
-              </li>
-              <li class="flex items-start gap-2 text-gray-300">
-                <span class="text-green-400 mt-1">✓</span>
-                <span>Instant plan recap + checkout path</span>
-              </li>
-            </ul>
-
-            <a href="plan-selector.html" class="neon-button w-full text-center block">
-              Run Gideon Wizard
-            </a>
-          </div>
+          </form>
         </div>
 
+        <!-- Trust Indicators -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <div class="text-center">
+            <div class="text-cyan-400 text-3xl font-bold mb-2">24 Hours</div>
+            <p class="text-gray-400">Response Time</p>
+          </div>
+          <div class="text-center">
+            <div class="text-cyan-400 text-3xl font-bold mb-2">No Obligation</div>
+            <p class="text-gray-400">Free Consultation</p>
+          </div>
+          <div class="text-center">
+            <div class="text-cyan-400 text-3xl font-bold mb-2">Custom Quote</div>
+            <p class="text-gray-400">Tailored to Your Needs</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -262,9 +207,12 @@
   <!-- Footer CTA -->
   <section class="py-16 bg-gradient-to-r from-cyan-900 via-purple-900 to-pink-900 bg-opacity-20">
     <div class="container-custom text-center">
-      <h2 class="text-3xl font-bold mb-4">Still Have Questions?</h2>
+      <h2 class="text-3xl font-bold mb-4">Prefer to Talk Now?</h2>
       <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-        Our team is here to help. Call us at <a href="tel:+12164632648" class="text-cyan-400 hover:underline">1-216-463-2648</a> or chat with us using the widget in the bottom right.
+        Call us directly at <a href="tel:+12164632648" class="text-cyan-400 hover:underline font-semibold text-xl">1-216-463-2648</a>
+      </p>
+      <p class="text-gray-400 text-sm">
+        Mon-Fri 9am-6pm ET • We'll answer your questions and provide pricing on the spot
       </p>
     </div>
   </section>
