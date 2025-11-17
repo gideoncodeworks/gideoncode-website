@@ -21,7 +21,7 @@ Want to see a 5-minute demo? I can show you exactly what it would look like on [
 Let me know!
 
 Josh
-Gideon Code Works
+Gideon Codeworks
 joshua@gideoncode.com
 216-463-2648
 
@@ -218,7 +218,7 @@ Josh
 ## PHONE SCRIPT (If Calling Instead of Email)
 
 **Opening:**
-"Hey [Client], it's Josh from Gideon Code Works. Got 5 minutes? I built something new for your website."
+"Hey [Client], it's Josh from Gideon Codeworks. Got 5 minutes? I built something new for your website."
 
 **Pitch:**
 "You know that AI CRM I built for my business? I packaged the chatbot part as a product. It's like having a smart assistant on your site 24/7 answering questions and capturing leads.

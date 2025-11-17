@@ -1,4 +1,4 @@
-# Gideon Code Works - Pricing Reference
+# Gideon Codeworks - Pricing Reference
 **Last Updated:** November 7, 2024
 **Purpose:** Complete service catalog with pricing
 

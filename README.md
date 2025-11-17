@@ -1,9 +1,9 @@
-# Gideon Code Works Website
+# Gideon Codeworks Website
 
 **Status:** ✅ Production Ready
 **Last Updated:** November 8, 2025
 
-A modern, cyberpunk-themed website for Gideon Code Works - AI-powered web development, CRM platforms, and digital infrastructure for businesses that want to scale fast.
+A modern, cyberpunk-themed website for Gideon Codeworks - AI-powered web development, CRM platforms, and digital infrastructure for businesses that want to scale fast.
 
 ---
 
@@ -273,6 +273,6 @@ Ready to integrate:
 
 ## 📄 License
 
-© 2025 Gideon Code Works. All rights reserved.
+© 2025 Gideon Codeworks. All rights reserved.
 
 **Built with Claude Code** 🤖

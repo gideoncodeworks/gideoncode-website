@@ -1,7 +1,7 @@
 {
   "name": "gideoncode-website",
   "version": "1.0.0",
-  "description": "Gideon Code Works website with automated screenshot tools",
+  "description": "Gideon Codeworks website with automated screenshot tools",
   "private": true,
   "scripts": {
     "screenshot": "node screenshot.js",
@@ -12,7 +12,7 @@
     "portfolio",
     "screenshots"
   ],
-  "author": "Gideon Code Works",
+  "author": "Gideon Codeworks",
   "license": "UNLICENSED",
   "devDependencies": {
     "puppeteer": "^21.11.0"

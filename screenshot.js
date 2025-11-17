@@ -26,7 +26,7 @@ const SCREENSHOTS = [
   {
     url: 'file://' + path.join(__dirname, 'index.html'),
     output: 'images/portfolio/gcw-site.jpg',
-    name: 'Gideon Code Works Homepage',
+    name: 'Gideon Codeworks Homepage',
     waitFor: 2000,
   },
   {

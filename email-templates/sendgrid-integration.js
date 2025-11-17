@@ -17,9 +17,9 @@ async function sendCheckoutConfirmation(customerData) {
     to: customerData.email,
     from: {
       email: 'support@gideoncode.com',
-      name: 'Gideon Code Works'
+      name: 'Gideon Codeworks'
     },
-    subject: 'Order Confirmed - Welcome to Gideon Code Works! 🎉',
+    subject: 'Order Confirmed - Welcome to Gideon Codeworks! 🎉',
     html: generateCheckoutEmail(customerData),
     categories: ['checkout-confirmation'],
     customArgs: {
@@ -46,9 +46,9 @@ async function sendPortalAccessEmail(customerData) {
     to: customerData.email,
     from: {
       email: 'support@gideoncode.com',
-      name: 'Gideon Code Works'
+      name: 'Gideon Codeworks'
     },
-    subject: 'Access Your Client Portal - Gideon Code Works',
+    subject: 'Access Your Client Portal - Gideon Codeworks',
     html: generatePortalEmail(customerData),
     categories: ['portal-access']
   };
@@ -71,7 +71,7 @@ async function sendOnboardingConfirmation(customerData) {
     to: customerData.email,
     from: {
       email: 'support@gideoncode.com',
-      name: 'Gideon Code Works'
+      name: 'Gideon Codeworks'
     },
     subject: 'Questionnaire Received - We\'re On It!',
     html: generateOnboardingEmail(customerData),
@@ -154,7 +154,7 @@ function generateOnboardingEmail(data) {
         </div>
         <p>We're excited to work with you!</p>
         <p style="margin-top: 32px;">
-          <strong>The Gideon Code Works Team</strong><br>
+          <strong>The Gideon Codeworks Team</strong><br>
           <a href="tel:+12164632648" style="color: #00ffff;">1-216-463-2648</a> |
           <a href="mailto:support@gideoncode.com" style="color: #00ffff;">support@gideoncode.com</a>
         </p>

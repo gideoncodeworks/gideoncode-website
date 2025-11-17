@@ -683,7 +683,7 @@ Subject: Transform Your Online Presence - Custom Website Proposal
 
 Hi [Client Name],
 
-Thank you for expressing interest in working with Gideon Code Works. Based on our conversation, I've put together a custom proposal for your ${brief.slice(0, 50)}...
+Thank you for expressing interest in working with Gideon Codeworks. Based on our conversation, I've put together a custom proposal for your ${brief.slice(0, 50)}...
 
 **Project Overview:**
 We'll build a professional, mobile-responsive website that showcases your products and enables seamless online ordering for your customers.
@@ -708,7 +708,7 @@ I'd love to discuss this further. When would be a good time for a brief call thi
 
 Best regards,
 Josh Stone
-Gideon Code Works
+Gideon Codeworks
 1-216-463-2648
       </div>
     </div>

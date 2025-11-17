@@ -55,7 +55,7 @@ export default function Footer() {
       <div className="footer-bottom">
         <p>&copy; {currentYear} Turnpike Recovery, LLC. All rights reserved.</p>
         <p className="footer-credit">
-          Website by <a href="https://gideoncodeworks.com" target="_blank" rel="noopener noreferrer">Gideon Code Works</a>
+          Website by <a href="https://gideoncodeworks.com" target="_blank" rel="noopener noreferrer">Gideon Codeworks</a>
         </p>
       </div>
     </footer>

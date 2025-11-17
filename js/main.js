@@ -1,4 +1,4 @@
-// Gideon Code Works - Main JavaScript
+// Gideon Codeworks - Main JavaScript
 
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -360,7 +360,7 @@ function initGideonConcierge() {
     { label: 'Pricing & Plans', prompt: 'Walk me through your pricing and revenue packages.' },
     { label: 'Launch Timeline', prompt: 'How fast can you launch a new website and CRM for me?' },
     { label: 'CRM Power', prompt: 'What can the Gideon CRM do for my sales team?' },
-    { label: 'Book a Call', prompt: 'Help me schedule a call with the Gideon Code Works team.' }
+    { label: 'Book a Call', prompt: 'Help me schedule a call with the Gideon Codeworks team.' }
   ];
 
   quickActions.forEach(action => {
@@ -401,7 +401,7 @@ function initGideonConcierge() {
 
   const buildContext = () => {
     const path = window.location.pathname || '/';
-    const title = document.title || 'Gideon Code Works';
+    const title = document.title || 'Gideon Codeworks';
     const hero = document.querySelector('#hero-heading')?.textContent?.trim();
     const state = window.gcAIState ? JSON.stringify(window.gcAIState) : 'No stored mission.';
 

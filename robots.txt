@@ -1,4 +1,4 @@
-# robots.txt for Gideon Code Works
+# robots.txt for Gideon Codeworks
 
 User-agent: *
 Allow: /

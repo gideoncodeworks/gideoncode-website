@@ -113,7 +113,7 @@ exports.handler = async (event, context) => {
           <div class="container">
             <div class="header">
               <h1>📋 Your Project Scope</h1>
-              <p>AI-powered blueprint from Gideon Code Works</p>
+              <p>AI-powered blueprint from Gideon Codeworks</p>
             </div>
 
             <p>Here's the project scope you generated with our AI Scope Visualizer:</p>
@@ -134,7 +134,7 @@ exports.handler = async (event, context) => {
             </center>
 
             <div class="footer">
-              <p><strong>Gideon Code Works</strong><br>
+              <p><strong>Gideon Codeworks</strong><br>
               Digital products that drive revenue<br>
               <a href="https://gideoncode.com">gideoncode.com</a> | <a href="tel:+12164632648">1-216-463-2648</a></p>
 

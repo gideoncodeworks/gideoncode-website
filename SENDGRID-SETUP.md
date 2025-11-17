@@ -1,4 +1,4 @@
-# SendGrid Email Setup - Gideon Code Works
+# SendGrid Email Setup - Gideon Codeworks
 
 ## Current Status: ✅ Almost Complete
 
@@ -53,7 +53,7 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{
     "personalizations": [{"to": [{"email": "josh@gideoncode.com"}]}],
-    "from": {"email": "support@gideoncode.com", "name": "Gideon Code Works"},
+    "from": {"email": "support@gideoncode.com", "name": "Gideon Codeworks"},
     "subject": "SendGrid Test",
     "content": [{"type": "text/plain", "value": "Test successful!"}]
   }'
@@ -120,7 +120,7 @@ const sendCheckoutEmail = async (customerData) => {
   const msg = {
     to: customerData.email,
     from: 'support@gideoncode.com',
-    subject: 'Order Confirmation - Gideon Code Works',
+    subject: 'Order Confirmation - Gideon Codeworks',
     templateId: 'd-xxxxxxxxxxxxx', // Get from SendGrid templates
     dynamicTemplateData: {
       firstName: customerData.firstName,
@@ -146,7 +146,7 @@ exports.sendCheckoutEmail = functions.https.onCall(async (data, context) => {
   const msg = {
     to: data.email,
     from: 'support@gideoncode.com',
-    subject: 'Welcome to Gideon Code Works!',
+    subject: 'Welcome to Gideon Codeworks!',
     html: generateEmailHTML(data)
   };
 

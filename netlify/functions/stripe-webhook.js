@@ -94,7 +94,7 @@ async function handleCheckoutCompleted(session) {
       const confirmationEmail = {
         to: customerEmail,
         from: process.env.SENDGRID_FROM_EMAIL || 'support@gideoncode.com',
-        subject: '🎉 Order Confirmed - Welcome to Gideon Code Works!',
+        subject: '🎉 Order Confirmed - Welcome to Gideon Codeworks!',
         html: `
           <!DOCTYPE html>
           <html>
@@ -167,7 +167,7 @@ async function handleCheckoutCompleted(session) {
 
                 <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
                   <p style="color: #888; font-size: 14px; margin: 0;">
-                    Gideon Code Works<br>
+                    Gideon Codeworks<br>
                     Building Digital Excellence
                   </p>
                 </div>
