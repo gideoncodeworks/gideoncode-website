@@ -2329,21 +2329,27 @@ textarea:focus-visible {
   .uppercase[class*="tracking-"] {
     letter-spacing: 0.1em !important;
   }
-  
-  /* Ensure all sections respect viewport width */
-  section, main, div {
+
+  /* Ensure sections respect viewport width but not all divs */
+  section, main {
     max-width: 100vw;
     overflow-x: hidden;
   }
-  
+
   /* Fix grid gaps that might cause overflow */
   .grid {
     gap: 1rem !important;
   }
-  
+
   /* Ensure images don't overflow */
   img, video {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Ensure mobile menu is visible and not clipped */
+  .mobile-menu {
+    overflow-x: visible !important;
+    z-index: 9999;
   }
 }
