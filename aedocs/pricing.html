@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pricing One-Pager | AE Docs | Gideon Codeworks</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .doc-content { max-width: 1000px; margin: 0 auto; }
+    .doc-content h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00FFFF; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,255,255,0.3); }
+    .doc-content h3 { font-size: 1.1rem; color: #FF00FF; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .doc-content p { color: #d1d5db; margin-bottom: 0.75rem; line-height: 1.6; }
+    .doc-content ul { color: #d1d5db; margin-bottom: 1rem; padding-left: 1.5rem; }
+    .doc-content li { margin-bottom: 0.25rem; }
+    .doc-content strong { color: #00FFFF; }
+    .doc-content table { width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.5rem; font-size: 0.9rem; }
+    .doc-content th { background: rgba(0,255,255,0.15); color: #00FFFF; padding: 0.5rem 0.75rem; text-align: left; font-weight: 600; border: 1px solid rgba(0,255,255,0.2); }
+    .doc-content td { padding: 0.5rem 0.75rem; border: 1px solid rgba(0,255,255,0.15); color: #d1d5db; }
+    .doc-content tr:hover td { background: rgba(0,255,255,0.05); }
+    .doc-content hr { border: none; border-top: 1px solid rgba(0,255,255,0.2); margin: 1.5rem 0; }
+    .highlight-box { background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(255,0,255,0.1) 100%); border: 1px solid rgba(0,255,255,0.3); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; }
+    .commission-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .commission-item { background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); padding: 0.75rem; border-radius: 0.5rem; }
+    .objection-box { background: rgba(255,0,255,0.1); border-left: 3px solid #FF00FF; padding: 0.75rem 1rem; margin: 0.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .locked-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+    .lock-box { background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%); border: 1px solid rgba(0, 255, 255, 0.3); padding: 3rem; border-radius: 1rem; max-width: 400px; width: 90%; }
+    .lock-input { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 255, 0.3); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; width: 100%; }
+    .lock-input:focus { outline: none; border-color: rgba(0, 255, 255, 0.8); }
+    .lock-btn { background: linear-gradient(90deg, #00FFFF, #FF00FF); color: black; font-weight: 700; padding: 0.75rem 2rem; border-radius: 0.5rem; width: 100%; cursor: pointer; }
+    .error-msg { color: #ff4444; font-size: 0.875rem; margin-top: 0.5rem; display: none; }
+    @media print { .no-print { display: none !important; } body { background: white !important; color: black !important; } .doc-content * { color: black !important; } }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+  <!-- Password Lock -->
+  <div id="lockOverlay" class="locked-overlay">
+    <div class="lock-box text-center">
+      <div class="text-6xl mb-4">🔐</div>
+      <h2 class="text-2xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;"><span class="gradient-text">AE DOCS</span></h2>
+      <p class="text-gray-400 mb-6">Enter access code to continue</p>
+      <form id="lockForm" onsubmit="return checkPassword(event)">
+        <input type="password" id="passwordInput" class="lock-input mb-4" placeholder="Access Code" autocomplete="off">
+        <p id="errorMsg" class="error-msg">Invalid access code. Try again.</p>
+        <button type="submit" class="lock-btn mt-2">UNLOCK ACCESS</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" style="display: none;">
+    <!-- Header -->
+    <header class="border-b border-cyan-500/20 bg-black/80 backdrop-blur-sm sticky top-0 z-50 no-print">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/aedocs/" class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">
+          <span class="gradient-text">GIDEON</span> <span class="text-white">AE DOCS</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <button onclick="window.print()" class="text-cyan-400 hover:text-cyan-300 text-sm">🖨️ Print</button>
+          <a href="/aedocs/" class="text-gray-400 hover:text-cyan-400 text-sm">← Back</a>
+          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">🔒</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Document -->
+    <article class="py-8 px-6">
+      <div class="doc-content">
+        <!-- Title -->
+        <div class="text-center mb-8">
+          <div class="text-4xl mb-3">💰</div>
+          <h1 class="text-2xl md:text-3xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+            <span class="gradient-text">PRICING QUICK REFERENCE</span>
+          </h1>
+          <p class="text-gray-400 text-sm">Print this. Keep it on your desk. Source: gideoncode.com/services</p>
+          <p class="text-green-400 font-semibold mt-2">All website packages include AI Chatbot at no extra charge!</p>
+        </div>
+
+        <hr>
+
+        <h2>WEBSITE PACKAGES (All Include AI Chatbot)</h2>
+
+        <h3>Entry Level</h3>
+        <table>
+          <thead><tr><th>Package</th><th>Setup</th><th>Monthly</th><th>Contract</th></tr></thead>
+          <tbody><tr><td><strong>Landing Page</strong></td><td>$199</td><td>$49.99</td><td>Month-to-month</td></tr></tbody>
+        </table>
+
+        <h3>Full Service WaaS (Website-as-a-Service)</h3>
+        <table>
+          <thead><tr><th>Tier</th><th>Setup</th><th>24-mo/month</th><th>12-mo/month</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Starter</strong></td><td>$497</td><td>$212.50</td><td>$250</td></tr>
+            <tr><td><strong>Growth</strong></td><td>$697</td><td>$252.50</td><td>$297</td></tr>
+            <tr><td><strong>Domination</strong></td><td>$997</td><td>$299</td><td>$349</td></tr>
+          </tbody>
+        </table>
+
+        <h3>One-Time Build (Client owns it)</h3>
+        <table>
+          <thead><tr><th>Tier</th><th>Price</th><th>Includes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Starter</strong></td><td>$2,497</td><td>5 pages, 30-day support</td></tr>
+            <tr><td><strong>Growth</strong></td><td>$3,497</td><td>10 pages, 60-day support</td></tr>
+            <tr><td><strong>Domination</strong></td><td>$4,997</td><td>Unlimited pages, 90-day support</td></tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <h2>ADD-ONS</h2>
+
+        <h3>Marketing & SEO (Starts Immediately Upon Signing)</h3>
+        <table>
+          <thead><tr><th>Service</th><th>Setup</th><th>Monthly</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Social Media</strong></td><td>$0</td><td>$250</td></tr>
+            <tr><td><strong>Google Ads</strong></td><td>$0</td><td>$297 + ad spend</td></tr>
+            <tr><td><strong>Organic SEO</strong></td><td>$0</td><td>$497</td></tr>
+            <tr><td><strong>SEO Growth Package</strong></td><td>$0</td><td>$997</td></tr>
+          </tbody>
+        </table>
+
+        <h3>E-commerce</h3>
+        <table>
+          <thead><tr><th>Service</th><th>Setup</th><th>Monthly</th></tr></thead>
+          <tbody><tr><td><strong>E-commerce Platform</strong></td><td>$500</td><td>$50</td></tr></tbody>
+        </table>
+
+        <hr>
+
+        <h2>BRANDING (One-Time)</h2>
+        <table>
+          <thead><tr><th>Service</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Logo Design</strong></td><td>$497</td></tr>
+            <tr><td><strong>Brand Identity Kit</strong></td><td>$1,297</td></tr>
+            <tr><td><strong>Complete Brand System</strong></td><td>$2,497</td></tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <h2>YOUR COMMISSIONS</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Setup Fees</strong></td><td>30%</td></tr>
+            <tr><td><strong>Monthly Recurring</strong></td><td>20%</td></tr>
+            <tr><td><strong>Team Level 1</strong></td><td>5%</td></tr>
+            <tr><td><strong>Team Level 2</strong></td><td>3%</td></tr>
+            <tr><td><strong>Team Level 3</strong></td><td>2%</td></tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <h2>QUICK COMMISSION MATH</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <h3>Setup Commissions (30%)</h3>
+            <div class="commission-grid">
+              <div class="commission-item">$199 setup = <strong style="color:#00FF00">$60</strong></div>
+              <div class="commission-item">$497 setup = <strong style="color:#00FF00">$149</strong></div>
+              <div class="commission-item">$697 setup = <strong style="color:#00FF00">$209</strong></div>
+              <div class="commission-item">$997 setup = <strong style="color:#00FF00">$299</strong></div>
+              <div class="commission-item">$2,497 = <strong style="color:#00FF00">$749</strong></div>
+              <div class="commission-item">$3,497 = <strong style="color:#00FF00">$1,049</strong></div>
+              <div class="commission-item">$4,997 = <strong style="color:#00FF00">$1,499</strong></div>
+            </div>
+          </div>
+          <div>
+            <h3>Monthly Commissions (20%)</h3>
+            <div class="commission-grid">
+              <div class="commission-item">$49.99/mo = <strong style="color:#00FF00">$10/mo</strong></div>
+              <div class="commission-item">$212.50/mo = <strong style="color:#00FF00">$42.50/mo</strong></div>
+              <div class="commission-item">$252.50/mo = <strong style="color:#00FF00">$50.50/mo</strong></div>
+              <div class="commission-item">$299/mo = <strong style="color:#00FF00">$59.80/mo</strong></div>
+              <div class="commission-item">$250/mo = <strong style="color:#00FF00">$50/mo</strong></div>
+              <div class="commission-item">$497/mo = <strong style="color:#00FF00">$99.40/mo</strong></div>
+              <div class="commission-item">$997/mo = <strong style="color:#00FF00">$199.40/mo</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2>PACKAGE COMBOS (Quick Math)</h2>
+
+        <div class="highlight-box">
+          <h3 style="margin-top: 0;">Small Business Starter</h3>
+          <p>Starter WaaS 24-mo + Social Media</p>
+          <p><strong>Client pays:</strong> $497 setup + $462.50/mo</p>
+          <p><strong>You earn:</strong> $149 + $92.50/mo = <strong style="color:#00FF00">$1,259/year</strong></p>
+        </div>
+
+        <div class="highlight-box">
+          <h3 style="margin-top: 0;">Growth Bundle</h3>
+          <p>Growth WaaS 24-mo + Social + Google Ads</p>
+          <p><strong>Client pays:</strong> $697 setup + $799.50/mo</p>
+          <p><strong>You earn:</strong> $209 + $159.90/mo = <strong style="color:#00FF00">$2,127.80/year</strong></p>
+        </div>
+
+        <div class="highlight-box">
+          <h3 style="margin-top: 0;">Full Digital Presence</h3>
+          <p>Domination WaaS 24-mo + Social + SEO Growth + Brand Kit</p>
+          <p><strong>Client pays:</strong> $2,294 setup + $1,546/mo</p>
+          <p><strong>You earn:</strong> $688 + $309.20/mo = <strong style="color:#00FF00">$4,398.40/year</strong></p>
+        </div>
+
+        <hr>
+
+        <h2>WHAT'S INCLUDED</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+          <div class="commission-item">
+            <h3 style="margin-top: 0;">Landing Page ($49.99/mo)</h3>
+            <p class="text-sm">1 page, mobile responsive, contact form, hosting, SSL, 99.9% uptime</p>
+          </div>
+          <div class="commission-item">
+            <h3 style="margin-top: 0;">Starter WaaS ($212.50-250/mo)</h3>
+            <p class="text-sm">5 pages, mobile responsive, contact form, SEO-ready, hosting, monthly updates, security, support</p>
+          </div>
+          <div class="commission-item">
+            <h3 style="margin-top: 0;">Growth WaaS ($252.50-297/mo)</h3>
+            <p class="text-sm">10 pages, advanced forms, blog setup, weekly updates, priority support</p>
+          </div>
+          <div class="commission-item">
+            <h3 style="margin-top: 0;">Domination WaaS ($299-349/mo)</h3>
+            <p class="text-sm">Unlimited pages, custom features, e-commerce ready, blog + CMS, daily monitoring, 24/7 support</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2>OBJECTION BUSTERS</h2>
+
+        <div class="objection-box">
+          <p><strong>"Too expensive"</strong> → "What's one new customer worth to you?"</p>
+        </div>
+        <div class="objection-box">
+          <p><strong>"Need to think"</strong> → "What specifically? Let me help clarify."</p>
+        </div>
+        <div class="objection-box">
+          <p><strong>"DIY with Wix"</strong> → "Do you want to spend weekends on your website?"</p>
+        </div>
+        <div class="objection-box">
+          <p><strong>"My friend can do it"</strong> → "Will they be there at 2am when it breaks?"</p>
+        </div>
+
+        <hr>
+
+        <p class="text-center text-gray-500 text-sm">Source of truth: gideoncode.com/services</p>
+
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyan-500/20 py-6 px-6 no-print">
+      <div class="max-w-6xl mx-auto text-center">
+        <a href="/aedocs/" class="text-cyan-400 hover:text-cyan-300">← Back to AE Docs</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const CORRECT_HASH = 'ae_access_granted';
+    const STORAGE_KEY = 'gideon_ae_auth';
+    function hashPassword(pwd) { if (pwd === 'gideon2024') return CORRECT_HASH; return 'invalid'; }
+    function checkPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('passwordInput').value;
+      if (hashPassword(pwd) === CORRECT_HASH) { sessionStorage.setItem(STORAGE_KEY, CORRECT_HASH); unlockContent(); }
+      else { document.getElementById('errorMsg').style.display = 'block'; document.getElementById('passwordInput').value = ''; }
+      return false;
+    }
+    function unlockContent() { document.getElementById('lockOverlay').style.display = 'none'; document.getElementById('mainContent').style.display = 'block'; }
+    function logout() { sessionStorage.removeItem(STORAGE_KEY); location.reload(); }
+    window.onload = function() { if (sessionStorage.getItem(STORAGE_KEY) === CORRECT_HASH) unlockContent(); };
+  </script>
+</body>
+</html>

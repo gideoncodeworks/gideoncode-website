@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Client Onboarding | AE Docs | Gideon Codeworks</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .doc-content { max-width: 900px; margin: 0 auto; }
+    .doc-content h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00FFFF; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,255,255,0.3); }
+    .doc-content h3 { font-size: 1.1rem; color: #FF00FF; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .doc-content p { color: #d1d5db; margin-bottom: 0.75rem; line-height: 1.6; }
+    .doc-content ul, .doc-content ol { color: #d1d5db; margin-bottom: 1rem; padding-left: 1.5rem; }
+    .doc-content li { margin-bottom: 0.5rem; }
+    .doc-content strong { color: #00FFFF; }
+    .doc-content hr { border: none; border-top: 1px solid rgba(0,255,255,0.2); margin: 2rem 0; }
+    .step-box { background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(255,0,255,0.05) 100%); border: 1px solid rgba(0,255,255,0.3); border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background: linear-gradient(90deg, #00FFFF, #FF00FF); color: black; font-weight: bold; border-radius: 50%; margin-right: 0.75rem; font-size: 1.25rem; }
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(0,255,255,0.1); }
+    .checklist li:last-child { border-bottom: none; }
+    .checkbox { width: 1.25rem; height: 1.25rem; border: 2px solid rgba(0,255,255,0.5); border-radius: 0.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .timeline-card { background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); padding: 1rem; border-radius: 0.5rem; }
+    .timeline-card h4 { color: #FF00FF; margin: 0 0 0.5rem; font-size: 0.9rem; }
+    .email-template { background: rgba(0,0,0,0.5); border: 1px solid rgba(0,255,255,0.3); padding: 1rem; border-radius: 0.5rem; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; color: #9ca3af; margin: 1rem 0; }
+    .issue-box { background: rgba(255,0,0,0.1); border-left: 3px solid #ff4444; padding: 0.75rem 1rem; margin: 0.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .solution { color: #00FF00; }
+    .locked-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+    .lock-box { background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%); border: 1px solid rgba(0, 255, 255, 0.3); padding: 3rem; border-radius: 1rem; max-width: 400px; width: 90%; }
+    .lock-input { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 255, 0.3); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; width: 100%; }
+    .lock-input:focus { outline: none; border-color: rgba(0, 255, 255, 0.8); }
+    .lock-btn { background: linear-gradient(90deg, #00FFFF, #FF00FF); color: black; font-weight: 700; padding: 0.75rem 2rem; border-radius: 0.5rem; width: 100%; cursor: pointer; }
+    .error-msg { color: #ff4444; font-size: 0.875rem; margin-top: 0.5rem; display: none; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+  <!-- Password Lock -->
+  <div id="lockOverlay" class="locked-overlay">
+    <div class="lock-box text-center">
+      <div class="text-6xl mb-4">🔐</div>
+      <h2 class="text-2xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;"><span class="gradient-text">AE DOCS</span></h2>
+      <p class="text-gray-400 mb-6">Enter access code to continue</p>
+      <form id="lockForm" onsubmit="return checkPassword(event)">
+        <input type="password" id="passwordInput" class="lock-input mb-4" placeholder="Access Code" autocomplete="off">
+        <p id="errorMsg" class="error-msg">Invalid access code. Try again.</p>
+        <button type="submit" class="lock-btn mt-2">UNLOCK ACCESS</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" style="display: none;">
+    <!-- Header -->
+    <header class="border-b border-cyan-500/20 bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/aedocs/" class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">
+          <span class="gradient-text">GIDEON</span> <span class="text-white">AE DOCS</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="/aedocs/" class="text-gray-400 hover:text-cyan-400 text-sm">← Back</a>
+          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">🔒</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Document -->
+    <article class="py-8 px-6">
+      <div class="doc-content">
+        <!-- Title -->
+        <div class="text-center mb-8">
+          <div class="text-4xl mb-3">✅</div>
+          <h1 class="text-2xl md:text-3xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+            <span class="gradient-text">CLIENT ONBOARDING CHECKLIST</span>
+          </h1>
+          <p class="text-gray-400 text-sm">What happens after you close the deal</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-box">
+          <h2 style="margin-top: 0; border: none;"><span class="step-number">1</span>Collect Payment & Sign Contract</h2>
+          <p><strong>Before anything starts, you need:</strong></p>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Signed service agreement/contract</span></li>
+            <li><div class="checkbox"></div><span>Setup fee payment collected (or payment plan confirmed)</span></li>
+            <li><div class="checkbox"></div><span>First month payment collected (or billed on contract start date)</span></li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>Payment Methods:</strong></p>
+          <ul>
+            <li>Credit card (preferred)</li>
+            <li>ACH bank transfer</li>
+            <li>Check (setup only, not recurring)</li>
+          </ul>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-box">
+          <h2 style="margin-top: 0; border: none;"><span class="step-number">2</span>Collect Client Information</h2>
+          <p>Send the client intake form or collect:</p>
+
+          <h3>Business Information</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Business name (legal name)</span></li>
+            <li><div class="checkbox"></div><span>Business address</span></li>
+            <li><div class="checkbox"></div><span>Phone number</span></li>
+            <li><div class="checkbox"></div><span>Email address</span></li>
+            <li><div class="checkbox"></div><span>Website URL (if existing)</span></li>
+            <li><div class="checkbox"></div><span>Industry/business type</span></li>
+          </ul>
+
+          <h3>Contact Information</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Primary contact name</span></li>
+            <li><div class="checkbox"></div><span>Primary contact email</span></li>
+            <li><div class="checkbox"></div><span>Primary contact phone</span></li>
+            <li><div class="checkbox"></div><span>Secondary contact (optional)</span></li>
+          </ul>
+
+          <h3>Domain & Hosting Access (if applicable)</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Current domain registrar (GoDaddy, Namecheap, etc.)</span></li>
+            <li><div class="checkbox"></div><span>Domain login credentials</span></li>
+            <li><div class="checkbox"></div><span>Current hosting login (if migrating)</span></li>
+          </ul>
+
+          <h3>Branding Assets</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Logo files (PNG, SVG preferred)</span></li>
+            <li><div class="checkbox"></div><span>Brand colors (hex codes if available)</span></li>
+            <li><div class="checkbox"></div><span>Photos of business/team/products</span></li>
+            <li><div class="checkbox"></div><span>Existing marketing materials</span></li>
+          </ul>
+
+          <h3>Website Content</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>About the business (who they are, what they do)</span></li>
+            <li><div class="checkbox"></div><span>Services/products offered</span></li>
+            <li><div class="checkbox"></div><span>Contact information to display</span></li>
+            <li><div class="checkbox"></div><span>Social media links</span></li>
+            <li><div class="checkbox"></div><span>Any specific content they want included</span></li>
+          </ul>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-box">
+          <h2 style="margin-top: 0; border: none;"><span class="step-number">3</span>Handoff to Production</h2>
+          <p><strong>After collecting client info:</strong></p>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Log the deal in CRM (Sales Pipeline → Closed Won)</span></li>
+            <li><div class="checkbox"></div><span>Create client record in CRM</span></li>
+            <li><div class="checkbox"></div><span>Upload all client assets to shared folder</span></li>
+            <li><div class="checkbox"></div><span>Notify production team (Joshua) with details</span></li>
+          </ul>
+
+          <p><strong>Include in handoff:</strong></p>
+          <ul>
+            <li>Client name</li>
+            <li>Package purchased</li>
+            <li>Add-ons included</li>
+            <li>Contract term</li>
+            <li>Target launch date</li>
+            <li>Special requests/notes</li>
+          </ul>
+
+          <h3>Standard Timeline</h3>
+          <div class="timeline-grid">
+            <div class="timeline-card"><h4>Landing Page</h4><p>1 week</p></div>
+            <div class="timeline-card"><h4>Starter</h4><p>2-3 weeks</p></div>
+            <div class="timeline-card"><h4>Growth</h4><p>3-4 weeks</p></div>
+            <div class="timeline-card"><h4>Domination</h4><p>4-6 weeks</p></div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-box">
+          <h2 style="margin-top: 0; border: none;"><span class="step-number">4</span>Client Communication Schedule</h2>
+
+          <div class="timeline-grid">
+            <div class="timeline-card">
+              <h4>Day 1 (After signing)</h4>
+              <ul class="checklist" style="margin: 0;">
+                <li><div class="checkbox"></div><span>Send welcome email</span></li>
+                <li><div class="checkbox"></div><span>Confirm receipt of payment</span></li>
+                <li><div class="checkbox"></div><span>Request missing intake info</span></li>
+              </ul>
+            </div>
+
+            <div class="timeline-card">
+              <h4>Day 3</h4>
+              <ul class="checklist" style="margin: 0;">
+                <li><div class="checkbox"></div><span>Follow up on missing items</span></li>
+                <li><div class="checkbox"></div><span>Confirm production has started</span></li>
+              </ul>
+            </div>
+
+            <div class="timeline-card">
+              <h4>Week 1</h4>
+              <ul class="checklist" style="margin: 0;">
+                <li><div class="checkbox"></div><span>Send progress update</span></li>
+                <li><div class="checkbox"></div><span>Share initial designs</span></li>
+              </ul>
+            </div>
+
+            <div class="timeline-card">
+              <h4>Pre-Launch</h4>
+              <ul class="checklist" style="margin: 0;">
+                <li><div class="checkbox"></div><span>Schedule review call</span></li>
+                <li><div class="checkbox"></div><span>Get design/content approval</span></li>
+                <li><div class="checkbox"></div><span>Confirm launch date</span></li>
+              </ul>
+            </div>
+
+            <div class="timeline-card" style="border-color: #00FF00;">
+              <h4 style="color: #00FF00;">Launch Day</h4>
+              <ul class="checklist" style="margin: 0;">
+                <li><div class="checkbox"></div><span>Notify client site is live</span></li>
+                <li><div class="checkbox"></div><span>Walk through the site</span></li>
+                <li><div class="checkbox"></div><span>Explain support contact</span></li>
+              </ul>
+            </div>
+
+            <div class="timeline-card">
+              <h4>Week 1 Post-Launch</h4>
+              <ul class="checklist" style="margin: 0;">
+                <li><div class="checkbox"></div><span>Check in on satisfaction</span></li>
+                <li><div class="checkbox"></div><span>Ask for referrals</span></li>
+                <li><div class="checkbox"></div><span>Request Google review</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-box">
+          <h2 style="margin-top: 0; border: none;"><span class="step-number">5</span>Welcome Email Template</h2>
+          <div class="email-template">Subject: Welcome to Gideon Codeworks!
+
+Hi [First Name],
+
+Welcome to Gideon Codeworks! We're excited to work with you.
+
+Here's what happens next:
+
+1. Our team is reviewing your information and will begin work on your [package name] within the next 24-48 hours.
+
+2. You'll receive a progress update within the first week.
+
+3. Target launch date: [date]
+
+If you haven't already, please send us:
+- Your logo files
+- Any photos you'd like on your website
+- A brief description of your business
+
+You can reply to this email or reach us at:
+- Email: [support email]
+- Phone: [phone number]
+
+We're thrilled to have you as a client!
+
+Best,
+[Your Name]
+Gideon Codeworks</div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step-box">
+          <h2 style="margin-top: 0; border: none;"><span class="step-number">6</span>Add-On Specific Onboarding</h2>
+
+          <h3>Social Media Management</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Social media login credentials (or add as admin)</span></li>
+            <li><div class="checkbox"></div><span>Brand voice guidelines</span></li>
+            <li><div class="checkbox"></div><span>Content themes/topics</span></li>
+            <li><div class="checkbox"></div><span>Products/services to promote</span></li>
+            <li><div class="checkbox"></div><span>Any content restrictions</span></li>
+          </ul>
+
+          <h3>Google Ads</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Target location(s)</span></li>
+            <li><div class="checkbox"></div><span>Target keywords (if known)</span></li>
+            <li><div class="checkbox"></div><span>Monthly ad budget (in addition to management fee)</span></li>
+            <li><div class="checkbox"></div><span>Google Ads account access (or we create one)</span></li>
+          </ul>
+
+          <h3>SEO (Organic or Growth)</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Target keywords (if known)</span></li>
+            <li><div class="checkbox"></div><span>Competitors to outrank</span></li>
+            <li><div class="checkbox"></div><span>Service areas/locations</span></li>
+            <li><div class="checkbox"></div><span>Google Business Profile access</span></li>
+          </ul>
+
+          <h3>E-commerce</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Product list with descriptions</span></li>
+            <li><div class="checkbox"></div><span>Product photos</span></li>
+            <li><div class="checkbox"></div><span>Pricing</span></li>
+            <li><div class="checkbox"></div><span>Shipping information</span></li>
+            <li><div class="checkbox"></div><span>Payment processor preference (Stripe/PayPal)</span></li>
+            <li><div class="checkbox"></div><span>Inventory management needs</span></li>
+          </ul>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="step-box">
+          <h2 style="margin-top: 0; border: none;"><span class="step-number">7</span>Internal Tracking</h2>
+
+          <h3>Update CRM</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Move deal to "Closed Won"</span></li>
+            <li><div class="checkbox"></div><span>Log commission amount</span></li>
+            <li><div class="checkbox"></div><span>Set recurring commission reminder</span></li>
+            <li><div class="checkbox"></div><span>Create client record</span></li>
+            <li><div class="checkbox"></div><span>Add contract end date reminder</span></li>
+          </ul>
+
+          <h3>Documentation</h3>
+          <ul class="checklist">
+            <li><div class="checkbox"></div><span>Save signed contract</span></li>
+            <li><div class="checkbox"></div><span>Save payment confirmation</span></li>
+            <li><div class="checkbox"></div><span>Log all client communications</span></li>
+            <li><div class="checkbox"></div><span>Note any special agreements/promises made</span></li>
+          </ul>
+        </div>
+
+        <hr>
+
+        <h2>Common Issues & Solutions</h2>
+
+        <div class="issue-box">
+          <p><strong>Client isn't responding to intake requests</strong></p>
+          <p class="solution">→ Wait 2 days, then call directly. If no response in a week, put project on hold. Document attempts to reach them.</p>
+        </div>
+
+        <div class="issue-box">
+          <p><strong>Client wants changes after signing</strong></p>
+          <p class="solution">→ Small clarifications: Handle normally. Scope changes: Discuss with Joshua, may require contract amendment.</p>
+        </div>
+
+        <div class="issue-box">
+          <p><strong>Client is unhappy during production</strong></p>
+          <p class="solution">→ Address concerns immediately. Loop in Joshua if needed. Document all issues and resolutions.</p>
+        </div>
+
+        <div class="issue-box">
+          <p><strong>Payment issues</strong></p>
+          <p class="solution">→ First month failed: Contact client immediately. Recurring failed: Automatic retry, then contact. Disputes: Escalate to Joshua.</p>
+        </div>
+
+        <hr>
+
+        <h2>Your Commission Timeline</h2>
+        <ul>
+          <li><strong>Setup commission:</strong> Paid after first payment clears</li>
+          <li><strong>Monthly commission:</strong> Paid monthly as long as client stays active</li>
+          <li><strong>Commission on hold if:</strong> Payment fails, contract dispute</li>
+        </ul>
+
+        <hr>
+
+        <p class="text-center text-gray-500">Questions? Contact Joshua directly.</p>
+
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyan-500/20 py-6 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <a href="/aedocs/" class="text-cyan-400 hover:text-cyan-300">← Back to AE Docs</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const CORRECT_HASH = 'ae_access_granted';
+    const STORAGE_KEY = 'gideon_ae_auth';
+    function hashPassword(pwd) { if (pwd === 'gideon2024') return CORRECT_HASH; return 'invalid'; }
+    function checkPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('passwordInput').value;
+      if (hashPassword(pwd) === CORRECT_HASH) { sessionStorage.setItem(STORAGE_KEY, CORRECT_HASH); unlockContent(); }
+      else { document.getElementById('errorMsg').style.display = 'block'; document.getElementById('passwordInput').value = ''; }
+      return false;
+    }
+    function unlockContent() { document.getElementById('lockOverlay').style.display = 'none'; document.getElementById('mainContent').style.display = 'block'; }
+    function logout() { sessionStorage.removeItem(STORAGE_KEY); location.reload(); }
+    window.onload = function() { if (sessionStorage.getItem(STORAGE_KEY) === CORRECT_HASH) unlockContent(); };
+  </script>
+</body>
+</html>

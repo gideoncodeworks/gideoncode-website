@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sales Playbook | AE Docs | Gideon Codeworks</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .doc-content { max-width: 900px; margin: 0 auto; }
+    .doc-content h2 { font-family: 'Orbitron', sans-serif; font-size: 1.75rem; color: #00FFFF; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,255,255,0.3); }
+    .doc-content h3 { font-size: 1.25rem; color: #FF00FF; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .doc-content p { color: #d1d5db; margin-bottom: 1rem; line-height: 1.7; }
+    .doc-content ul, .doc-content ol { color: #d1d5db; margin-bottom: 1rem; padding-left: 1.5rem; }
+    .doc-content li { margin-bottom: 0.5rem; }
+    .doc-content blockquote { background: rgba(0,255,255,0.1); border-left: 4px solid #00FFFF; padding: 1rem 1.5rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .doc-content blockquote p { color: #e5e7eb; margin: 0; font-style: italic; }
+    .doc-content strong { color: #00FFFF; }
+    .doc-content table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; }
+    .doc-content th { background: rgba(0,255,255,0.15); color: #00FFFF; padding: 0.75rem 1rem; text-align: left; font-weight: 600; border: 1px solid rgba(0,255,255,0.2); }
+    .doc-content td { padding: 0.75rem 1rem; border: 1px solid rgba(0,255,255,0.15); color: #d1d5db; }
+    .doc-content tr:hover td { background: rgba(0,255,255,0.05); }
+    .doc-content hr { border: none; border-top: 1px solid rgba(0,255,255,0.2); margin: 2rem 0; }
+    .highlight-box { background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(255,0,255,0.1) 100%); border: 1px solid rgba(0,255,255,0.3); padding: 1.5rem; border-radius: 0.75rem; margin: 1.5rem 0; }
+    .locked-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+    .lock-box { background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%); border: 1px solid rgba(0, 255, 255, 0.3); padding: 3rem; border-radius: 1rem; max-width: 400px; width: 90%; }
+    .lock-input { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 255, 0.3); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; width: 100%; }
+    .lock-input:focus { outline: none; border-color: rgba(0, 255, 255, 0.8); box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+    .lock-btn { background: linear-gradient(90deg, #00FFFF, #FF00FF); color: black; font-weight: 700; padding: 0.75rem 2rem; border-radius: 0.5rem; width: 100%; cursor: pointer; }
+    .error-msg { color: #ff4444; font-size: 0.875rem; margin-top: 0.5rem; display: none; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+  <!-- Password Lock -->
+  <div id="lockOverlay" class="locked-overlay">
+    <div class="lock-box text-center">
+      <div class="text-6xl mb-4">🔐</div>
+      <h2 class="text-2xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;"><span class="gradient-text">AE DOCS</span></h2>
+      <p class="text-gray-400 mb-6">Enter access code to continue</p>
+      <form id="lockForm" onsubmit="return checkPassword(event)">
+        <input type="password" id="passwordInput" class="lock-input mb-4" placeholder="Access Code" autocomplete="off">
+        <p id="errorMsg" class="error-msg">Invalid access code. Try again.</p>
+        <button type="submit" class="lock-btn mt-2">UNLOCK ACCESS</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" style="display: none;">
+    <!-- Header -->
+    <header class="border-b border-cyan-500/20 bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/aedocs/" class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">
+          <span class="gradient-text">GIDEON</span> <span class="text-white">AE DOCS</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="/aedocs/" class="text-gray-400 hover:text-cyan-400 text-sm">← Back to Index</a>
+          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">🔒 Lock</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Document -->
+    <article class="py-12 px-6">
+      <div class="doc-content">
+        <!-- Title -->
+        <div class="text-center mb-12">
+          <div class="text-5xl mb-4">📘</div>
+          <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Orbitron', sans-serif;">
+            <span class="gradient-text">SALES PLAYBOOK</span>
+          </h1>
+          <p class="text-gray-400">Source of truth: gideoncode.com/services</p>
+        </div>
+
+        <!-- Welcome -->
+        <div class="highlight-box">
+          <h2 style="margin-top: 0; border: none;">Welcome to the Team</h2>
+          <p>You're now an Account Executive at Gideon Codeworks. We build websites and digital solutions for small businesses. This playbook will teach you how to sell, what to say, and how to earn.</p>
+          <p><strong>Your earning potential:</strong></p>
+          <ul>
+            <li>30% of every setup fee you close</li>
+            <li>20% of every monthly recurring payment (forever, as long as client stays)</li>
+            <li>After 10 closed deals: Build your own team and earn 5%/3%/2% on their sales</li>
+          </ul>
+        </div>
+
+        <hr>
+
+        <h2>What We Sell</h2>
+
+        <h3>Website Packages (All Include AI Chatbot)</h3>
+        <p>Every website we build includes a 24/7 AI chatbot that answers customer questions automatically. This is a major differentiator - most agencies charge extra for this.</p>
+
+        <p><strong>Entry Level:</strong></p>
+        <table>
+          <thead><tr><th>Package</th><th>Setup</th><th>Monthly</th><th>Your Commission</th></tr></thead>
+          <tbody><tr><td><strong>Landing Page</strong></td><td>$199</td><td>$49.99</td><td>$60 + $10/mo</td></tr></tbody>
+        </table>
+
+        <p><strong>Full Service WaaS (Website-as-a-Service):</strong></p>
+        <table>
+          <thead><tr><th>Tier</th><th>Setup</th><th>24-mo</th><th>12-mo</th><th>Your Commission (24-mo)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Starter</strong></td><td>$497</td><td>$212.50/mo</td><td>$250/mo</td><td>$149 + $42.50/mo</td></tr>
+            <tr><td><strong>Growth</strong></td><td>$697</td><td>$252.50/mo</td><td>$297/mo</td><td>$209 + $50.50/mo</td></tr>
+            <tr><td><strong>Domination</strong></td><td>$997</td><td>$299/mo</td><td>$349/mo</td><td>$299 + $59.80/mo</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>One-Time Builds (Client owns it):</strong></p>
+        <table>
+          <thead><tr><th>Tier</th><th>Price</th><th>Your Commission</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Starter</strong></td><td>$2,497</td><td>$749</td></tr>
+            <tr><td><strong>Growth</strong></td><td>$3,497</td><td>$1,049</td></tr>
+            <tr><td><strong>Domination</strong></td><td>$4,997</td><td>$1,499</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Add-Ons (Stack these for bigger deals)</h3>
+
+        <p><strong>Marketing & SEO (starts immediately upon signing):</strong></p>
+        <table>
+          <thead><tr><th>Service</th><th>Monthly</th><th>Your Commission</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Social Media</strong></td><td>$250</td><td>$50/mo</td></tr>
+            <tr><td><strong>Google Ads</strong></td><td>$297 + ad spend</td><td>$59.40/mo</td></tr>
+            <tr><td><strong>Organic SEO</strong></td><td>$497</td><td>$99.40/mo</td></tr>
+            <tr><td><strong>SEO Growth Package</strong></td><td>$997</td><td>$199.40/mo</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>E-commerce:</strong></p>
+        <table>
+          <thead><tr><th>Service</th><th>Setup</th><th>Monthly</th><th>Your Commission</th></tr></thead>
+          <tbody><tr><td><strong>E-commerce</strong></td><td>$500</td><td>$50</td><td>$150 + $10/mo</td></tr></tbody>
+        </table>
+
+        <p><strong>Branding (One-time):</strong></p>
+        <table>
+          <thead><tr><th>Service</th><th>Price</th><th>Your Commission</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Logo Design</strong></td><td>$497</td><td>$149</td></tr>
+            <tr><td><strong>Brand Identity Kit</strong></td><td>$1,297</td><td>$389</td></tr>
+            <tr><td><strong>Complete Brand System</strong></td><td>$2,497</td><td>$749</td></tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Billing Structure</h2>
+        <p>Understanding when clients pay is crucial for closing deals and setting expectations.</p>
+
+        <h3>Payment Schedule</h3>
+        <table>
+          <thead><tr><th>Item Type</th><th>At Signing</th><th>At Delivery</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Website Setup Fees</strong></td><td>50%</td><td>50%</td></tr>
+            <tr><td><strong>One-Time Builds</strong></td><td>50%</td><td>50%</td></tr>
+            <tr><td><strong>Branding Services</strong></td><td>50%</td><td>50%</td></tr>
+            <tr><td><strong>E-commerce Setup</strong></td><td>50% ($250)</td><td>50% ($250)</td></tr>
+            <tr><td><strong>Marketing & SEO</strong></td><td>Prorated first month</td><td>N/A (starts immediately)</td></tr>
+          </tbody>
+        </table>
+
+        <h3>When Monthly Billing Starts</h3>
+        <ul>
+          <li><strong>Marketing & SEO (Social, Ads, SEO):</strong> Starts immediately upon signing. First month is prorated based on signing date.</li>
+          <li><strong>Website Monthly (WaaS):</strong> Starts when website is delivered. First month is prorated.</li>
+          <li><strong>Hosting & E-commerce:</strong> Starts when website is delivered. First month is prorated.</li>
+        </ul>
+
+        <h3>Billing Cycle Sync</h3>
+        <p>All services sync to the 1st of the month. Example:</p>
+        <ol>
+          <li>Client signs October 10 for Growth WaaS + SEO</li>
+          <li><strong>At signing:</strong> 50% of setup ($348.50) + prorated SEO for Oct 10-31 (~$337)</li>
+          <li><strong>November 1:</strong> Full SEO payment ($497) - first full billing cycle</li>
+          <li><strong>Website delivers November 15:</strong> 50% balance ($348.50) + prorated WaaS for Nov 15-30 (~$126)</li>
+          <li><strong>December 1 and ongoing:</strong> All services synced ($252.50 + $497 = $749.50/mo)</li>
+        </ol>
+        <p><strong>Contract term starts from the first full billing cycle after website delivery.</strong></p>
+
+        <hr>
+
+        <h2>The Sales Conversation</h2>
+
+        <h3>Step 1: Discovery (5 minutes)</h3>
+        <p><strong>Open with:</strong></p>
+        <blockquote><p>"Hey [Name], thanks for taking the time. Before I dive into anything, I'd love to learn a bit about your business. What do you do?"</p></blockquote>
+
+        <p><strong>Key questions to ask:</strong></p>
+        <ol>
+          <li>"Do you currently have a website?"</li>
+          <li>"How are you getting customers right now?"</li>
+          <li>"What's your biggest challenge with your online presence?"</li>
+          <li>"Have you worked with a web company before? How did that go?"</li>
+          <li>"If we could wave a magic wand, what would your ideal website do for you?"</li>
+        </ol>
+
+        <p><strong>Listen for pain points:</strong></p>
+        <ul>
+          <li>"My website is old/outdated" → Rebuild with WaaS</li>
+          <li>"I don't have a website" → Starter or Growth</li>
+          <li>"I'm not getting leads" → Website + SEO</li>
+          <li>"I spend too much time answering the same questions" → Good news - AI chatbot is included!</li>
+          <li>"I'm on social media but not consistent" → Social Media add-on</li>
+          <li>"I want to sell online" → E-commerce add-on</li>
+        </ul>
+
+        <h3>Step 2: Present the Solution (5 minutes)</h3>
+        <p><strong>Match their pain to our product:</strong></p>
+        <blockquote><p>"Based on what you've told me, here's what I'd recommend..."</p></blockquote>
+
+        <p><strong>For someone with no website:</strong></p>
+        <blockquote><p>"The Starter package is perfect for you. For $497 to get started and $212.50/month on a 24-month contract, you get a professional 5-page website, we handle all the tech, updates, security, everything. You focus on running your business."</p></blockquote>
+
+        <p><strong>For someone wanting leads:</strong></p>
+        <blockquote><p>"I'd recommend Growth with our Organic SEO package. The website is $697 setup, $252.50/month, plus $497/month for SEO. We build you a site designed to convert, then optimize it to rank on Google. Most clients see improvement within 3-6 months."</p></blockquote>
+
+        <p><strong>For someone wanting full digital presence:</strong></p>
+        <blockquote><p>"For a business like yours, the Domination package with SEO makes the most sense. You get unlimited pages, 24/7 support, and every website includes an AI chatbot that answers questions for your customers automatically. Add our SEO package and we handle your Google rankings too. Total is about $997 setup plus around $796/month - you're getting a full digital team for less than one employee."</p></blockquote>
+
+        <h3>Step 3: Handle Objections</h3>
+
+        <p><strong>"It's too expensive"</strong></p>
+        <blockquote><p>"I totally get it. Let me ask you this - how much is a new customer worth to you? If this website brings you even one new customer a month, does it pay for itself?"</p></blockquote>
+        <blockquote><p>"We also have a Landing Page option at $49.99/month if budget is tight. It's a single page, but it's professional and gets you online."</p></blockquote>
+
+        <p><strong>"I need to think about it"</strong></p>
+        <blockquote><p>"Absolutely, take your time. What specifically do you need to think through? Maybe I can help clarify."</p></blockquote>
+        <blockquote><p>"Is it the price, the timing, or something about what's included?"</p></blockquote>
+
+        <p><strong>"I can build it myself with Wix/Squarespace"</strong></p>
+        <blockquote><p>"You definitely can. The question is - do you want to spend your weekends fighting with a website builder, or do you want to focus on your actual business? We handle everything so you don't have to think about it."</p></blockquote>
+
+        <p><strong>"My nephew/friend can do it cheaper"</strong></p>
+        <blockquote><p>"That's great if they can! Here's what I'd ask them: Will they be available at 2am if the site goes down? Will they handle security updates? Will they still be around in 2 years? We're a business - this is all we do, and we're not going anywhere."</p></blockquote>
+
+        <p><strong>"I had a bad experience with a web company before"</strong></p>
+        <blockquote><p>"I hear that a lot, honestly. That's exactly why we do month-to-month after the initial contract. If we're not delivering, you can leave. We have to earn your business every month."</p></blockquote>
+
+        <p><strong>"What's the difference between WaaS and One-Time Build?"</strong></p>
+        <blockquote><p>"Great question. With WaaS, we build it AND manage it forever - updates, security, hosting, support, everything. With One-Time, we build it, hand it over, and you manage it yourself or pay us hourly if you need help. Most small businesses prefer WaaS because they don't want to deal with the tech."</p></blockquote>
+
+        <h3>Step 4: Close</h3>
+        <p><strong>Trial close:</strong></p>
+        <blockquote><p>"Does this sound like what you're looking for?"</p></blockquote>
+
+        <p><strong>Assumptive close:</strong></p>
+        <blockquote><p>"Great, let's get you set up. I just need a few details to get started..."</p></blockquote>
+
+        <p><strong>Urgency (use sparingly):</strong></p>
+        <blockquote><p>"If we get the paperwork done this week, we can have your site live in about 2-3 weeks. Want to lock that in?"</p></blockquote>
+
+        <p><strong>If they need time:</strong></p>
+        <blockquote><p>"No problem. I'll send you a summary of what we discussed. When's a good time to follow up - Thursday or Friday?"</p></blockquote>
+
+        <hr>
+
+        <h2>Your Commission Examples</h2>
+
+        <div class="highlight-box">
+          <h3 style="margin-top: 0;">Scenario 1: Simple Sale</h3>
+          <ul>
+            <li>Starter WaaS 24-month: $497 setup + $212.50/month</li>
+            <li><strong>You earn:</strong> $149 upfront + $42.50/month</li>
+            <li><strong>Year 1 total:</strong> $149 + ($42.50 x 12) = <strong style="color: #00FF00;">$659</strong></li>
+            <li><strong>Year 2 and beyond:</strong> $510/year passive income</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <h3 style="margin-top: 0;">Scenario 2: Mid-Size Package</h3>
+          <ul>
+            <li>Growth WaaS 24-mo + Social Media</li>
+            <li>Setup: $697</li>
+            <li>Monthly: $252.50 + $250 = $502.50</li>
+            <li><strong>You earn:</strong> $209 upfront + $100.50/month</li>
+            <li><strong>Year 1 total:</strong> $209 + ($100.50 x 12) = <strong style="color: #00FF00;">$1,415</strong></li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <h3 style="margin-top: 0;">Scenario 3: Full Stack Sale</h3>
+          <ul>
+            <li>Domination WaaS 24-mo + Social + Organic SEO + Brand Kit</li>
+            <li>Setup: $997 + $1,297 = $2,294</li>
+            <li>Monthly: $299 + $250 + $497 = $1,046</li>
+            <li><strong>You earn:</strong> $688 upfront + $209.20/month</li>
+            <li><strong>Year 1 total:</strong> $688 + ($209.20 x 12) = <strong style="color: #00FF00;">$3,198</strong></li>
+          </ul>
+        </div>
+
+        <hr>
+
+        <h2>The 10-Deal Unlock: Building Your Team</h2>
+        <p>After you close 10 deals, you unlock the ability to recruit your own sales reps.</p>
+
+        <p><strong>Why this matters:</strong></p>
+        <ul>
+          <li>Level 1: You earn <strong>5%</strong> on your direct recruit's monthly sales</li>
+          <li>Level 2: You earn <strong>3%</strong> on their recruit's monthly sales</li>
+          <li>Level 3: You earn <strong>2%</strong> on the third level down</li>
+        </ul>
+
+        <p><strong>Example:</strong></p>
+        <p>You recruit Sarah. Sarah sells a Growth package ($252.50/month).</p>
+        <ul>
+          <li>Sarah earns: $50.50/month (her 20%)</li>
+          <li>You earn: $12.63/month (your 5% override)</li>
+          <li>That's passive income from her work</li>
+        </ul>
+
+        <p><strong>The math gets real:</strong></p>
+        <ul>
+          <li>5 reps each selling $1,000/month in recurring = $50/month to you (5%)</li>
+          <li>Their 5 reps each selling $1,000/month = $30/month to you (3%)</li>
+          <li>That's $80/month you didn't have to close yourself</li>
+        </ul>
+
+        <p><strong>Focus first on your 10 deals. Then think about recruiting.</strong></p>
+
+        <hr>
+
+        <h2>Daily Activities</h2>
+
+        <h3>What Good Reps Do Every Day:</h3>
+        <ol>
+          <li><strong>Prospect (1-2 hours)</strong>
+            <ul>
+              <li>Google "[your city] + businesses" and look for bad/no websites</li>
+              <li>Check Facebook local business groups</li>
+              <li>Ask current clients for referrals</li>
+              <li>LinkedIn outreach to business owners</li>
+            </ul>
+          </li>
+          <li><strong>Reach Out (20-30 contacts/day)</strong>
+            <ul>
+              <li>Cold calls, emails, DMs</li>
+              <li>Follow up with warm leads</li>
+              <li>"Just checking in" calls to old prospects</li>
+            </ul>
+          </li>
+          <li><strong>Book Meetings (goal: 2-3/day)</strong>
+            <ul>
+              <li>Phone or Zoom consultations</li>
+              <li>In-person if local</li>
+            </ul>
+          </li>
+          <li><strong>Close (goal: 2-4 deals/week)</strong>
+            <ul>
+              <li>Follow up on proposals</li>
+              <li>Handle objections</li>
+              <li>Get the signature</li>
+            </ul>
+          </li>
+        </ol>
+
+        <hr>
+
+        <h2>Getting Started Checklist</h2>
+        <ul>
+          <li>☐ Read this playbook completely</li>
+          <li>☐ Memorize the tier pricing (Starter, Growth, Domination)</li>
+          <li>☐ Practice the pitch out loud 10 times</li>
+          <li>☐ Make your first 20 prospecting calls</li>
+          <li>☐ Book your first meeting</li>
+          <li>☐ Close your first deal</li>
+          <li>☐ Repeat until you hit 10 deals</li>
+          <li>☐ Unlock recruiting and build your team</li>
+        </ul>
+
+        <hr>
+
+        <div class="highlight-box text-center">
+          <h2 style="margin-top: 0; border: none;">Questions?</h2>
+          <p>Contact Joshua Stone directly for:</p>
+          <ul style="list-style: none; padding: 0;">
+            <li>• Product questions</li>
+            <li>• Pricing exceptions</li>
+            <li>• Difficult objections</li>
+            <li>• Commission questions</li>
+          </ul>
+          <p class="text-2xl mt-4" style="color: #00FFFF;"><strong>Now go sell.</strong></p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyan-500/20 py-8 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <a href="/aedocs/" class="text-cyan-400 hover:text-cyan-300">← Back to AE Docs</a>
+        <p class="text-gray-500 text-sm mt-4">Internal Documentation • Gideon Codeworks</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const CORRECT_HASH = 'ae_access_granted';
+    const STORAGE_KEY = 'gideon_ae_auth';
+    function hashPassword(pwd) { if (pwd === 'gideon2024') return CORRECT_HASH; return 'invalid'; }
+    function checkPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('passwordInput').value;
+      if (hashPassword(pwd) === CORRECT_HASH) { sessionStorage.setItem(STORAGE_KEY, CORRECT_HASH); unlockContent(); }
+      else { document.getElementById('errorMsg').style.display = 'block'; document.getElementById('passwordInput').value = ''; }
+      return false;
+    }
+    function unlockContent() { document.getElementById('lockOverlay').style.display = 'none'; document.getElementById('mainContent').style.display = 'block'; }
+    function logout() { sessionStorage.removeItem(STORAGE_KEY); location.reload(); }
+    window.onload = function() { if (sessionStorage.getItem(STORAGE_KEY) === CORRECT_HASH) unlockContent(); };
+  </script>
+</body>
+</html>

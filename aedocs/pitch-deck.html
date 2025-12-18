@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pitch Deck Outline | AE Docs | Gideon Codeworks</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .doc-content { max-width: 900px; margin: 0 auto; }
+    .doc-content h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00FFFF; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,255,255,0.3); }
+    .doc-content h3 { font-size: 1.1rem; color: #FF00FF; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .doc-content p { color: #d1d5db; margin-bottom: 0.75rem; line-height: 1.6; }
+    .doc-content ul { color: #d1d5db; margin-bottom: 1rem; padding-left: 1.5rem; }
+    .doc-content li { margin-bottom: 0.5rem; }
+    .doc-content strong { color: #00FFFF; }
+    .doc-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .doc-content th { background: rgba(0,255,255,0.15); color: #00FFFF; padding: 0.5rem 0.75rem; text-align: left; font-weight: 600; border: 1px solid rgba(0,255,255,0.2); }
+    .doc-content td { padding: 0.5rem 0.75rem; border: 1px solid rgba(0,255,255,0.15); color: #d1d5db; }
+    .doc-content hr { border: none; border-top: 1px solid rgba(0,255,255,0.2); margin: 2rem 0; }
+    .slide-card { background: linear-gradient(135deg, rgba(0,255,255,0.08) 0%, rgba(255,0,255,0.05) 100%); border: 1px solid rgba(0,255,255,0.3); border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; position: relative; }
+    .slide-number { position: absolute; top: -0.75rem; left: 1rem; background: linear-gradient(90deg, #00FFFF, #FF00FF); color: black; font-weight: bold; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.85rem; }
+    .slide-title { font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: #00FFFF; margin-bottom: 1rem; }
+    .highlight-box { background: rgba(0,255,255,0.1); border-left: 3px solid #00FFFF; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .objection-box { background: rgba(255,0,255,0.1); border-left: 3px solid #FF00FF; padding: 0.75rem 1rem; margin: 0.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .tip-box { background: rgba(0,255,0,0.1); border-left: 3px solid #00FF00; padding: 0.75rem 1rem; margin: 0.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .response { color: #00FF00; margin-top: 0.25rem; }
+    .locked-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+    .lock-box { background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%); border: 1px solid rgba(0, 255, 255, 0.3); padding: 3rem; border-radius: 1rem; max-width: 400px; width: 90%; }
+    .lock-input { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 255, 0.3); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; width: 100%; }
+    .lock-input:focus { outline: none; border-color: rgba(0, 255, 255, 0.8); }
+    .lock-btn { background: linear-gradient(90deg, #00FFFF, #FF00FF); color: black; font-weight: 700; padding: 0.75rem 2rem; border-radius: 0.5rem; width: 100%; cursor: pointer; }
+    .error-msg { color: #ff4444; font-size: 0.875rem; margin-top: 0.5rem; display: none; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+  <!-- Password Lock -->
+  <div id="lockOverlay" class="locked-overlay">
+    <div class="lock-box text-center">
+      <div class="text-6xl mb-4">🔐</div>
+      <h2 class="text-2xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;"><span class="gradient-text">AE DOCS</span></h2>
+      <p class="text-gray-400 mb-6">Enter access code to continue</p>
+      <form id="lockForm" onsubmit="return checkPassword(event)">
+        <input type="password" id="passwordInput" class="lock-input mb-4" placeholder="Access Code" autocomplete="off">
+        <p id="errorMsg" class="error-msg">Invalid access code. Try again.</p>
+        <button type="submit" class="lock-btn mt-2">UNLOCK ACCESS</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" style="display: none;">
+    <!-- Header -->
+    <header class="border-b border-cyan-500/20 bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/aedocs/" class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">
+          <span class="gradient-text">GIDEON</span> <span class="text-white">AE DOCS</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="/aedocs/" class="text-gray-400 hover:text-cyan-400 text-sm">← Back</a>
+          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">🔒</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Document -->
+    <article class="py-8 px-6">
+      <div class="doc-content">
+        <!-- Title -->
+        <div class="text-center mb-8">
+          <div class="text-4xl mb-3">🎯</div>
+          <h1 class="text-2xl md:text-3xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+            <span class="gradient-text">PITCH DECK OUTLINE</span>
+          </h1>
+          <p class="text-gray-400 text-sm">Use this structure for client presentations (Zoom, in-person, or PDF)</p>
+        </div>
+
+        <!-- Slides -->
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 1</span>
+          <div class="slide-title">Cover</div>
+          <div class="text-center py-4">
+            <p class="text-3xl font-bold" style="font-family: 'Orbitron', sans-serif;"><span class="gradient-text">GIDEON CODEWORKS</span></p>
+            <p class="text-xl text-gray-300 italic">Websites That Work For Your Business</p>
+            <p class="text-gray-500 mt-4">[Your name]<br>[Your contact info]</p>
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 2</span>
+          <div class="slide-title">The Problem</div>
+          <p><strong>Most small business websites are:</strong></p>
+          <ul>
+            <li>Outdated or non-existent</li>
+            <li>Not mobile-friendly</li>
+            <li>Not generating leads</li>
+            <li>Expensive to maintain</li>
+            <li>Built by someone who disappeared</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>The result:</strong> Lost customers, missed opportunities, wasted money.
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 3</span>
+          <div class="slide-title">The Solution</div>
+          <p class="text-xl" style="color: #00FFFF;"><strong>Gideon Codeworks: Website-as-a-Service</strong></p>
+          <p>We build, host, and manage your website - so you can focus on your business.</p>
+          <ul>
+            <li>Professional website</li>
+            <li>Fast hosting</li>
+            <li>Security & updates</li>
+            <li>Ongoing support</li>
+            <li>No technical headaches</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>One monthly payment. Everything handled.</strong>
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 4</span>
+          <div class="slide-title">How It Works</div>
+          <ol style="padding-left: 1.5rem;">
+            <li><strong>Step 1:</strong> We learn about your business</li>
+            <li><strong>Step 2:</strong> We build your website (2-4 weeks)</li>
+            <li><strong>Step 3:</strong> We launch and manage it forever</li>
+            <li><strong>Step 4:</strong> You get leads, we handle the tech</li>
+          </ol>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 5</span>
+          <div class="slide-title">Our Packages</div>
+          <table>
+            <thead><tr><th>Package</th><th>Best For</th><th>Monthly</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Starter</strong></td><td>New businesses</td><td>$212.50</td></tr>
+              <tr><td><strong>Growth</strong></td><td>Growing businesses</td><td>$252.50</td></tr>
+              <tr><td><strong>Domination</strong></td><td>Established businesses</td><td>$299</td></tr>
+            </tbody>
+          </table>
+          <p class="text-green-400 text-sm"><em>All packages include hosting, updates, security, support, and AI chatbot.</em></p>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 6</span>
+          <div class="slide-title">What's Included</div>
+          <p><strong>Every package includes:</strong></p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+            <div>
+              <ul>
+                <li>Custom design (not templates)</li>
+                <li>Mobile responsive</li>
+                <li>Fast hosting (99.9% uptime)</li>
+                <li>SSL security certificate</li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li>Regular updates</li>
+                <li>Ongoing support</li>
+                <li>SEO-ready structure</li>
+                <li style="color: #00FF00;"><strong>24/7 AI Chatbot</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 7</span>
+          <div class="slide-title">Add-Ons (Optional)</div>
+          <p><strong>Grow even faster with:</strong></p>
+          <table>
+            <thead><tr><th>Service</th><th>What It Does</th><th>Monthly</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Social Media</strong></td><td>We post for you</td><td>$250</td></tr>
+              <tr><td><strong>Google Ads</strong></td><td>Get found on Google</td><td>$297</td></tr>
+              <tr><td><strong>SEO</strong></td><td>Rank higher organically</td><td>$497-997</td></tr>
+              <tr><td><strong>E-commerce</strong></td><td>Sell products online</td><td>$50</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 8</span>
+          <div class="slide-title">Our Work</div>
+          <p class="text-gray-400 italic">[Insert 3-4 screenshots of client websites]</p>
+          <p><strong>Recent projects:</strong></p>
+          <ul>
+            <li>[Client 1] - [Industry]</li>
+            <li>[Client 2] - [Industry]</li>
+            <li>[Client 3] - [Industry]</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Tip:</strong> Visit gideoncode.com/portfolio for examples
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 9</span>
+          <div class="slide-title">What Clients Say</div>
+          <p class="text-gray-400 italic">[Insert 2-3 testimonials]</p>
+          <blockquote style="background: rgba(0,255,255,0.1); border-left: 4px solid #00FFFF; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1rem 0;">
+            <p style="color: #e5e7eb; font-style: italic; margin: 0;">"Quote from happy client about the experience and results."</p>
+            <p style="color: #9ca3af; margin: 0.5rem 0 0; font-size: 0.9rem;">— Client Name, Business Name</p>
+          </blockquote>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 10</span>
+          <div class="slide-title">Why Gideon Codeworks?</div>
+          <p><strong>We're different because:</strong></p>
+          <ol style="padding-left: 1.5rem;">
+            <li><strong>No disappearing act</strong> - We're a real company, not a freelancer</li>
+            <li><strong>You own nothing technical</strong> - We handle it all</li>
+            <li><strong>Transparent pricing</strong> - No hidden fees</li>
+            <li><strong>Month-to-month</strong> after initial term</li>
+            <li><strong>Real support</strong> - Talk to a human, not a chatbot</li>
+          </ol>
+        </div>
+
+        <div class="slide-card" style="border-color: #00FF00;">
+          <span class="slide-number" style="background: #00FF00;">SLIDE 11</span>
+          <div class="slide-title" style="color: #00FF00;">The Investment</div>
+          <p><strong>Recommended for [Client Name]:</strong></p>
+          <p class="text-xl">[Package Name] - $XXX setup + $XXX/month</p>
+          <p><strong>Includes:</strong></p>
+          <ul>
+            <li>[List what's included]</li>
+            <li>[Specific to their needs]</li>
+          </ul>
+          <p><strong>Timeline:</strong> Live in X weeks</p>
+          <div class="tip-box">
+            <strong>Customize this slide for each prospect!</strong>
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 12</span>
+          <div class="slide-title">What Happens Next</div>
+          <p><strong>Ready to get started?</strong></p>
+          <ol style="padding-left: 1.5rem;">
+            <li>Sign the agreement today</li>
+            <li>We collect your business info</li>
+            <li>Work begins this week</li>
+            <li>Your new website launches in [X] weeks</li>
+          </ol>
+          <div class="highlight-box">
+            <strong>Let's build something great.</strong>
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <span class="slide-number">SLIDE 13</span>
+          <div class="slide-title">Questions?</div>
+          <div class="text-center py-4">
+            <p class="text-xl"><strong>[Your Name]</strong></p>
+            <p class="text-gray-400">[Your Phone]<br>[Your Email]</p>
+            <p class="text-cyan-400 text-lg mt-4">www.gideoncode.com</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2>Pitch Deck Usage Notes</h2>
+
+        <h3>Before the Meeting</h3>
+        <ul>
+          <li>Know their business (check their current website, social media)</li>
+          <li>Customize slide 11 with their recommended package</li>
+          <li>Prepare 2-3 questions to ask them</li>
+        </ul>
+
+        <h3>During the Meeting</h3>
+        <div class="tip-box">
+          <ul style="margin: 0;">
+            <li>Spend more time on slides 2-4 (problem/solution)</li>
+            <li>Don't rush through pricing - let them absorb</li>
+            <li>Ask questions throughout, don't just present</li>
+          </ul>
+        </div>
+
+        <h3>Objection Responses</h3>
+
+        <div class="objection-box">
+          <p><strong>"Can I see more examples?"</strong></p>
+          <p class="response">→ Visit gideoncode.com/portfolio or schedule a follow-up with specific examples</p>
+        </div>
+
+        <div class="objection-box">
+          <p><strong>"What if I want to cancel?"</strong></p>
+          <p class="response">→ After the initial term, you can cancel anytime. We have to earn your business.</p>
+        </div>
+
+        <div class="objection-box">
+          <p><strong>"Why not just use Wix/Squarespace?"</strong></p>
+          <p class="response">→ You can, but then you're the tech person. We handle everything so you don't have to.</p>
+        </div>
+
+        <div class="objection-box">
+          <p><strong>"I need to think about it."</strong></p>
+          <p class="response">→ Of course. What specifically would help you decide?</p>
+        </div>
+
+        <h3>After the Meeting</h3>
+        <ul>
+          <li>Send follow-up email within 24 hours</li>
+          <li>Include proposal/quote</li>
+          <li>Schedule follow-up call for 2-3 days later</li>
+        </ul>
+
+        <hr>
+
+        <h2>Creating the Actual Deck</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="highlight-box">
+            <h4 style="color: #00FFFF; margin-top: 0;">Option 1: Google Slides</h4>
+            <ul style="margin: 0; font-size: 0.9rem;">
+              <li>Create from this outline</li>
+              <li>Use brand colors</li>
+              <li>Keep it simple</li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <h4 style="color: #FF00FF; margin-top: 0;">Option 2: PDF</h4>
+            <ul style="margin: 0; font-size: 0.9rem;">
+              <li>Design in Canva or Figma</li>
+              <li>Export as PDF</li>
+              <li>Email to prospects</li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <h4 style="color: #00FF00; margin-top: 0;">Option 3: No Deck</h4>
+            <ul style="margin: 0; font-size: 0.9rem;">
+              <li>For quick calls, just talk</li>
+              <li>Use gideoncode.com/services</li>
+              <li>Screen share the website</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <p class="text-center text-gray-500">Need the brand colors or logo files? Ask Joshua.</p>
+
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyan-500/20 py-6 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <a href="/aedocs/" class="text-cyan-400 hover:text-cyan-300">← Back to AE Docs</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const CORRECT_HASH = 'ae_access_granted';
+    const STORAGE_KEY = 'gideon_ae_auth';
+    function hashPassword(pwd) { if (pwd === 'gideon2024') return CORRECT_HASH; return 'invalid'; }
+    function checkPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('passwordInput').value;
+      if (hashPassword(pwd) === CORRECT_HASH) { sessionStorage.setItem(STORAGE_KEY, CORRECT_HASH); unlockContent(); }
+      else { document.getElementById('errorMsg').style.display = 'block'; document.getElementById('passwordInput').value = ''; }
+      return false;
+    }
+    function unlockContent() { document.getElementById('lockOverlay').style.display = 'none'; document.getElementById('mainContent').style.display = 'block'; }
+    function logout() { sessionStorage.removeItem(STORAGE_KEY); location.reload(); }
+    window.onload = function() { if (sessionStorage.getItem(STORAGE_KEY) === CORRECT_HASH) unlockContent(); };
+  </script>
+</body>
+</html>

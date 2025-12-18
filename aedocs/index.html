@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AE Documentation | Gideon Codeworks</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .doc-card {
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    .doc-card:hover {
+      border-color: rgba(0, 255, 255, 0.5);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+      transform: translateY(-4px);
+    }
+    .locked-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lock-box {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      padding: 3rem;
+      border-radius: 1rem;
+      max-width: 400px;
+      width: 90%;
+    }
+    .lock-input {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      color: white;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .lock-input:focus {
+      outline: none;
+      border-color: rgba(0, 255, 255, 0.8);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+    .lock-btn {
+      background: linear-gradient(90deg, #00FFFF, #FF00FF);
+      color: black;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .lock-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    }
+    .error-msg {
+      color: #ff4444;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+  <!-- Password Lock Overlay -->
+  <div id="lockOverlay" class="locked-overlay">
+    <div class="lock-box text-center">
+      <div class="text-6xl mb-4">🔐</div>
+      <h2 class="text-2xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+        <span class="gradient-text">AE DOCS</span>
+      </h2>
+      <p class="text-gray-400 mb-6">Enter access code to continue</p>
+      <form id="lockForm" onsubmit="return checkPassword(event)">
+        <input
+          type="password"
+          id="passwordInput"
+          class="lock-input mb-4"
+          placeholder="Access Code"
+          autocomplete="off"
+        >
+        <p id="errorMsg" class="error-msg">Invalid access code. Try again.</p>
+        <button type="submit" class="lock-btn mt-2">
+          UNLOCK ACCESS
+        </button>
+      </form>
+      <p class="text-gray-500 text-xs mt-6">Authorized personnel only</p>
+    </div>
+  </div>
+
+  <!-- Main Content (hidden until unlocked) -->
+  <div id="mainContent" style="display: none;">
+    <!-- Header -->
+    <header class="border-b border-cyan-500/20 bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">
+          <span class="gradient-text">GIDEON</span>
+          <span class="text-white">CODEWORKS</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <span class="text-cyan-400 text-sm">AE Documentation</span>
+          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">
+            🔒 Lock
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Orbitron', sans-serif;">
+          <span class="gradient-text">ACCOUNT EXECUTIVE</span>
+        </h1>
+        <h2 class="text-2xl md:text-3xl text-gray-300 mb-6" style="font-family: 'Orbitron', sans-serif;">
+          DOCUMENTATION CENTER
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          Everything you need to close deals and onboard clients. Sales playbooks, pricing guides, commission calculators, and more.
+        </p>
+      </div>
+    </section>
+
+    <!-- Documents Grid -->
+    <section class="pb-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Sales Playbook -->
+          <a href="/aedocs/sales-playbook.html" class="doc-card rounded-xl p-6 block">
+            <div class="text-4xl mb-4">📘</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Sales Playbook</h3>
+            <p class="text-gray-400 text-sm mb-4">
+              Complete guide to selling Gideon services. Pricing, objection handling, commission structure, and closing techniques.
+            </p>
+            <span class="text-cyan-400 text-sm font-semibold">Read Guide →</span>
+          </a>
+
+          <!-- Pricing One-Pager -->
+          <a href="/aedocs/pricing.html" class="doc-card rounded-xl p-6 block">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Pricing One-Pager</h3>
+            <p class="text-gray-400 text-sm mb-4">
+              Quick reference for all package pricing, add-ons, and your commission rates. Print it, memorize it.
+            </p>
+            <span class="text-cyan-400 text-sm font-semibold">View Pricing →</span>
+          </a>
+
+          <!-- Commission Calculator -->
+          <a href="/aedocs/commissions.html" class="doc-card rounded-xl p-6 block">
+            <div class="text-4xl mb-4">🧮</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Commission Calculator</h3>
+            <p class="text-gray-400 text-sm mb-4">
+              Calculate your earnings on any deal. Setup fees, monthly recurring, team overrides, and income projections.
+            </p>
+            <span class="text-cyan-400 text-sm font-semibold">Calculate →</span>
+          </a>
+
+          <!-- Client Onboarding -->
+          <a href="/aedocs/onboarding.html" class="doc-card rounded-xl p-6 block">
+            <div class="text-4xl mb-4">✅</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Client Onboarding</h3>
+            <p class="text-gray-400 text-sm mb-4">
+              Step-by-step checklist for getting new clients set up. From signing to launch and beyond.
+            </p>
+            <span class="text-cyan-400 text-sm font-semibold">View Checklist →</span>
+          </a>
+
+          <!-- Pitch Deck -->
+          <a href="/aedocs/pitch-deck.html" class="doc-card rounded-xl p-6 block">
+            <div class="text-4xl mb-4">🎯</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Pitch Deck Outline</h3>
+            <p class="text-gray-400 text-sm mb-4">
+              Structure for client presentations. Slides, talking points, and objection responses for Zoom or in-person.
+            </p>
+            <span class="text-cyan-400 text-sm font-semibold">View Deck →</span>
+          </a>
+
+          <!-- Quick Links -->
+          <div class="doc-card rounded-xl p-6">
+            <div class="text-4xl mb-4">🔗</div>
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">Quick Links</h3>
+            <ul class="text-sm space-y-2">
+              <li><a href="/services.html" target="_blank" class="text-gray-400 hover:text-cyan-400">→ Services Page (Public)</a></li>
+              <li><a href="/get-started.html" target="_blank" class="text-gray-400 hover:text-cyan-400">→ Get Started Form</a></li>
+              <li><a href="/portfolio.html" target="_blank" class="text-gray-400 hover:text-cyan-400">→ Portfolio</a></li>
+              <li><a href="https://gideon-dashboard.vercel.app" target="_blank" class="text-gray-400 hover:text-cyan-400">→ CRM Dashboard</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyan-500/20 py-8 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-500 text-sm">
+          Internal Documentation • Not for distribution •
+          <span class="text-cyan-400">Gideon Codeworks</span>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple password protection (client-side)
+    // Password: gideon2024 (change this!)
+    const CORRECT_HASH = 'ae_access_granted';
+    const STORAGE_KEY = 'gideon_ae_auth';
+
+    function hashPassword(pwd) {
+      // Simple hash - in production use proper auth
+      if (pwd === 'gideon2024') return CORRECT_HASH;
+      return 'invalid';
+    }
+
+    function checkPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('passwordInput').value;
+      const hash = hashPassword(pwd);
+
+      if (hash === CORRECT_HASH) {
+        sessionStorage.setItem(STORAGE_KEY, hash);
+        unlockContent();
+        return false;
+      } else {
+        document.getElementById('errorMsg').style.display = 'block';
+        document.getElementById('passwordInput').value = '';
+        return false;
+      }
+    }
+
+    function unlockContent() {
+      document.getElementById('lockOverlay').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    }
+
+    function logout() {
+      sessionStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+
+    // Check if already authenticated
+    window.onload = function() {
+      if (sessionStorage.getItem(STORAGE_KEY) === CORRECT_HASH) {
+        unlockContent();
+      }
+    };
+  </script>
+</body>
+</html>
