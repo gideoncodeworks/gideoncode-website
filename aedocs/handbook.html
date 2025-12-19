@@ -30,11 +30,10 @@
     .section-box { background: linear-gradient(135deg, rgba(0,255,255,0.08) 0%, rgba(255,0,255,0.05) 100%); border: 1px solid rgba(0,255,255,0.3); border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; }
     .highlight-box { background: rgba(0,255,255,0.1); border-left: 3px solid #00FFFF; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
     .warning-box { background: rgba(255,0,0,0.1); border-left: 3px solid #ff4444; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
-    .success-box { background: rgba(0,255,0,0.1); border-left: 3px solid #00FF00; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
     .script-box { background: rgba(0,0,0,0.5); border: 1px solid rgba(0,255,255,0.3); padding: 1rem; border-radius: 0.5rem; font-style: italic; color: #e5e7eb; margin: 1rem 0; }
     .checklist { list-style: none; padding: 0; }
     .checklist li { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.25rem 0; }
-    .checklist li::before { content: "☐"; color: #00FFFF; }
+    .checklist li::before { content: "[ ]"; color: #00FFFF; font-family: monospace; }
     .locked-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; }
     .lock-box { background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%); border: 1px solid rgba(0, 255, 255, 0.3); padding: 3rem; border-radius: 1rem; max-width: 400px; width: 90%; }
     .lock-input { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 255, 0.3); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; width: 100%; }
@@ -70,8 +69,8 @@
           <span class="gradient-text">GIDEON</span> <span class="text-white">AE DOCS</span>
         </a>
         <div class="flex items-center gap-4">
-          <a href="/aedocs/" class="text-gray-400 hover:text-cyan-400 text-sm">← Back</a>
-          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">🔒</button>
+          <a href="/aedocs/" class="text-gray-400 hover:text-cyan-400 text-sm">Back to Docs</a>
+          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">Lock</button>
         </div>
       </div>
     </header>
@@ -81,440 +80,670 @@
       <div class="doc-content">
         <!-- Title -->
         <div class="text-center mb-8">
-          <div class="text-5xl mb-4">📖</div>
           <h1 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
             <span class="gradient-text">ACCOUNT EXECUTIVE</span>
           </h1>
           <h2 class="text-2xl text-gray-300 mb-4" style="font-family: 'Orbitron', sans-serif; border: none; margin-top: 0;">HANDBOOK</h2>
-          <p class="text-gray-400">Your complete guide to succeeding at Gideon Codeworks</p>
-          <p class="text-gray-500 text-sm mt-2">Last Updated: December 2024</p>
+          <p class="text-gray-400">Version 1.0</p>
+          <p class="text-gray-500 text-sm mt-2">Effective: December 2024</p>
         </div>
+
+        <p class="text-gray-300 text-center mb-8">This handbook provides comprehensive guidance for Account Executives representing Gideon Codeworks. All representatives are expected to familiarize themselves with this material and adhere to the policies and procedures outlined herein.</p>
 
         <!-- Table of Contents -->
         <div class="toc">
           <h3 style="color: #00FFFF; margin-top: 0;">TABLE OF CONTENTS</h3>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-            <a href="#about">1. About Gideon Codeworks</a>
-            <a href="#role">2. Your Role as an AE</a>
-            <a href="#compensation">3. Compensation</a>
-            <a href="#products">4. What We Sell</a>
-            <a href="#sales-process">5. The Sales Process</a>
-            <a href="#tools">6. Tools & Systems</a>
+            <a href="#overview">1. Company Overview</a>
+            <a href="#role">2. Account Executive Role</a>
+            <a href="#compensation">3. Compensation Structure</a>
+            <a href="#products">4. Products & Services</a>
+            <a href="#sales">5. Sales Methodology</a>
+            <a href="#systems">6. Systems & Resources</a>
             <a href="#standards">7. Professional Standards</a>
-            <a href="#communication">8. Communication Guidelines</a>
-            <a href="#problems">9. Handling Problems</a>
-            <a href="#team">10. Building Your Team</a>
-            <a href="#faq">11. FAQs</a>
-            <a href="#reference">12. Quick Reference</a>
+            <a href="#communication">8. Communication Protocols</a>
+            <a href="#issues">9. Issue Resolution</a>
+            <a href="#team">10. Team Development</a>
+            <a href="#faq">11. FAQ</a>
+            <a href="#reference">12. Reference Guide</a>
           </div>
         </div>
 
         <hr>
 
-        <!-- Section 1 -->
-        <h2 id="about">1. About Gideon Codeworks</h2>
+        <!-- Section 1: Company Overview -->
+        <h2 id="overview">1. COMPANY OVERVIEW</h2>
 
-        <div class="section-box">
-          <h3 style="margin-top: 0;">Who We Are</h3>
-          <p>Gideon Codeworks is a web design and digital marketing agency based in Cleveland, Ohio, serving small businesses nationwide. We specialize in <strong>Website-as-a-Service (WaaS)</strong> - we build, host, and manage websites so business owners can focus on running their business.</p>
-        </div>
+        <h3>About Gideon Codeworks</h3>
+        <p>Gideon Codeworks is a web design and digital marketing agency headquartered in Cleveland, Ohio, serving small and medium-sized businesses nationwide. The company specializes in <strong>Website-as-a-Service (WaaS)</strong>—a comprehensive model that includes website development, hosting, and ongoing management under a single monthly subscription.</p>
 
-        <h3>What Makes Us Different</h3>
+        <h3>Value Proposition</h3>
         <ul>
-          <li><strong>No disappearing act</strong> - We're a real company, not a freelancer who might vanish</li>
-          <li><strong>Everything included</strong> - Hosting, updates, security, support - one monthly price</li>
-          <li><strong>AI-powered</strong> - Every website includes a 24/7 AI chatbot at no extra charge</li>
-          <li><strong>Month-to-month</strong> - After the initial term, clients can cancel anytime</li>
-          <li><strong>Real support</strong> - Clients talk to humans, not bots</li>
+          <li><strong>Reliable Partnership</strong> — Established agency with dedicated support infrastructure</li>
+          <li><strong>All-Inclusive Service</strong> — Hosting, updates, security, and support included in monthly pricing</li>
+          <li><strong>AI Integration</strong> — All websites include 24/7 AI-powered chat functionality at no additional cost</li>
+          <li><strong>Flexible Terms</strong> — Month-to-month service after initial contract period</li>
+          <li><strong>Human Support</strong> — Direct access to support personnel</li>
         </ul>
 
-        <h3>Our Mission</h3>
-        <p>Help small businesses compete online with professional websites and digital marketing they can actually afford.</p>
+        <h3>Mission Statement</h3>
+        <p>To provide small businesses with enterprise-quality web presence and digital marketing solutions at accessible price points.</p>
 
         <hr>
 
-        <!-- Section 2 -->
-        <h2 id="role">2. Your Role as an Account Executive</h2>
+        <!-- Section 2: Role -->
+        <h2 id="role">2. ACCOUNT EXECUTIVE ROLE</h2>
 
-        <h3>What You Do</h3>
+        <h3>Position Overview</h3>
+        <p>Account Executives (AEs) serve as the primary client-facing representatives for Gideon Codeworks. Core responsibilities include:</p>
         <ol>
-          <li><strong>Find prospects</strong> - Identify small businesses that need our services</li>
-          <li><strong>Start conversations</strong> - Reach out and build relationships</li>
-          <li><strong>Understand needs</strong> - Learn what each business needs to succeed online</li>
-          <li><strong>Present solutions</strong> - Match our services to their problems</li>
-          <li><strong>Close deals</strong> - Get the signature and payment</li>
-          <li><strong>Hand off to production</strong> - We build it, you move to the next prospect</li>
+          <li><strong>Lead Generation</strong> — Identify and qualify prospective clients</li>
+          <li><strong>Relationship Development</strong> — Establish and nurture business relationships</li>
+          <li><strong>Needs Assessment</strong> — Evaluate client requirements and business objectives</li>
+          <li><strong>Solution Presentation</strong> — Align company services with client needs</li>
+          <li><strong>Deal Closure</strong> — Secure signed agreements and initial payments</li>
+          <li><strong>Client Transition</strong> — Transfer closed accounts to production team</li>
         </ol>
 
+        <h3>Scope Limitations</h3>
         <div class="warning-box">
-          <h4 style="color: #ff4444; margin-top: 0;">What You DON'T Do</h4>
-          <ul style="margin: 0;">
-            <li>Build websites (our production team handles that)</li>
-            <li>Provide technical support</li>
-            <li>Collect payments directly</li>
-            <li>Set custom pricing</li>
+          <p style="margin: 0;"><strong>Account Executives do NOT:</strong></p>
+          <ul style="margin: 0.5rem 0 0 0;">
+            <li>Perform website development or technical work</li>
+            <li>Provide post-sale technical support</li>
+            <li>Process payments (all transactions occur through company systems)</li>
+            <li>Authorize custom pricing without management approval</li>
           </ul>
         </div>
 
-        <h3>Your Status: Independent Contractor</h3>
+        <h3>Contractor Status</h3>
+        <p>Account Executives operate as <strong>Independent Contractors</strong>, not employees. This classification entails:</p>
         <ul>
-          <li>You set your own hours</li>
-          <li>You work from wherever you want</li>
-          <li>You're responsible for your own taxes</li>
-          <li>You can work for other companies (just not direct competitors)</li>
-          <li>Your income is directly tied to your results</li>
+          <li>Flexible scheduling and work location</li>
+          <li>Responsibility for self-employment taxes</li>
+          <li>Permission to maintain other business relationships (excluding direct competitors)</li>
+          <li>No entitlement to employee benefits (health insurance, PTO, retirement, etc.)</li>
+          <li>Performance-based compensation</li>
         </ul>
 
-        <h3>Success Expectations</h3>
+        <h3>Performance Benchmarks</h3>
+        <p>While no mandatory quotas exist, successful representatives typically maintain the following activity levels:</p>
         <table>
-          <thead><tr><th>Activity</th><th>Daily Target</th><th>Weekly Result</th></tr></thead>
-          <tbody>
-            <tr><td>Prospecting</td><td>1-2 hours</td><td>100+ contacts identified</td></tr>
-            <tr><td>Outreach</td><td>20-30 contacts</td><td>10-15 conversations</td></tr>
-            <tr><td>Meetings</td><td>2-3 booked</td><td>10-15 meetings held</td></tr>
-            <tr><td>Deals</td><td>—</td><td>2-4 closed</td></tr>
-          </tbody>
+          <tr><th>Activity</th><th>Daily Target</th><th>Weekly Result</th></tr>
+          <tr><td>Prospecting</td><td>1-2 hours</td><td>100+ contacts identified</td></tr>
+          <tr><td>Outreach</td><td>20-30 contacts</td><td>10-15 conversations</td></tr>
+          <tr><td>Meetings</td><td>2-3 scheduled</td><td>10-15 conducted</td></tr>
+          <tr><td>Closed Deals</td><td>—</td><td>2-4</td></tr>
         </table>
+        <p><em>Note: Initial ramp-up period typically requires 2-4 weeks for new representatives.</em></p>
 
         <hr>
 
-        <!-- Section 3 -->
-        <h2 id="compensation">3. Compensation & How You Get Paid</h2>
+        <!-- Section 3: Compensation -->
+        <h2 id="compensation">3. COMPENSATION STRUCTURE</h2>
 
+        <h3>Commission Rates</h3>
         <div class="section-box">
-          <h3 style="margin-top: 0;">Commission Structure</h3>
-          <p><strong style="font-size: 1.25rem; color: #00FF00;">Setup/One-Time Fees: 30%</strong></p>
-          <p>Website setup fees, one-time builds, branding services, e-commerce setup</p>
-          <p><strong style="font-size: 1.25rem; color: #00FF00;">Monthly Recurring Fees: 20%</strong></p>
-          <p>WaaS monthly fees, hosting, marketing services, e-commerce monthly</p>
+          <h3 style="margin-top: 0;">One-Time/Setup Fees: 30%</h3>
+          <ul>
+            <li>Website setup fees</li>
+            <li>One-time development projects</li>
+            <li>Branding services</li>
+            <li>E-commerce setup fees</li>
+          </ul>
+
+          <h3>Monthly Recurring Fees: 20%</h3>
+          <ul>
+            <li>WaaS subscription fees</li>
+            <li>Hosting services</li>
+            <li>Marketing services (Social Media, Google Ads, SEO)</li>
+            <li>E-commerce monthly fees</li>
+          </ul>
         </div>
 
-        <h3>Example Deal</h3>
+        <h3>Example Calculation</h3>
         <div class="highlight-box">
-          <p><strong>You sell Growth WaaS:</strong> $697 setup + $252.50/month</p>
-          <ul style="margin: 0;">
-            <li>Setup commission: $697 × 30% = <strong style="color: #00FF00;">$209.10</strong> (one-time)</li>
-            <li>Monthly commission: $252.50 × 20% = <strong style="color: #00FF00;">$50.50/month</strong> (ongoing)</li>
-            <li>Year 1 total: $209 + ($50.50 × 12) = <strong style="color: #00FF00;">$815</strong></li>
+          <p style="margin: 0;"><strong>Growth WaaS Package</strong> ($697 setup + $252.50/month)</p>
+          <ul style="margin: 0.5rem 0 0 0;">
+            <li>Setup commission: $697 x 30% = <strong>$209.10</strong> (one-time)</li>
+            <li>Monthly commission: $252.50 x 20% = <strong>$50.50</strong> (ongoing)</li>
+            <li>Year 1 total: $209.10 + ($50.50 x 12) = <strong>$815.10</strong></li>
           </ul>
         </div>
 
-        <h3>Team Override Commissions (After 10 Deals)</h3>
+        <h3>Team Override Commissions</h3>
+        <p>Upon closing <strong>ten (10) verified deals</strong>, representatives become eligible to recruit additional AEs and earn override commissions:</p>
         <table>
-          <thead><tr><th>Level</th><th>Who</th><th>Override Rate</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Your direct recruit</td><td style="color: #00FF00;">5% of their monthly</td></tr>
-            <tr><td>2</td><td>Their recruit</td><td style="color: #00FF00;">3% of their monthly</td></tr>
-            <tr><td>3</td><td>Third generation</td><td style="color: #00FF00;">2% of their monthly</td></tr>
-          </tbody>
+          <tr><th>Level</th><th>Relationship</th><th>Override Rate</th></tr>
+          <tr><td>1</td><td>Direct Recruit</td><td>5% of monthly recurring</td></tr>
+          <tr><td>2</td><td>Second Generation</td><td>3% of monthly recurring</td></tr>
+          <tr><td>3</td><td>Third Generation</td><td>2% of monthly recurring</td></tr>
         </table>
+        <p><em>Override rates apply to collected monthly recurring revenue, not commission amounts.</em></p>
 
-        <h3>When You Get Paid</h3>
+        <h3>Payment Schedule</h3>
         <ul>
-          <li>Commissions paid on <strong>collected revenue only</strong></li>
-          <li>Payment schedule: <strong>15th of each month</strong></li>
-          <li>Method: Direct deposit or check</li>
-          <li>Minimum payout: $50</li>
+          <li>Commissions are calculated on <strong>collected revenue only</strong></li>
+          <li>Payment date: <strong>15th of each month</strong> for prior month's collections</li>
+          <li>Payment methods: Direct deposit or check</li>
+          <li>Minimum payout threshold: $50 (amounts below threshold roll forward)</li>
         </ul>
 
-        <hr>
-
-        <!-- Section 4 -->
-        <h2 id="products">4. What We Sell</h2>
-
-        <h3>Website Packages (All Include AI Chatbot)</h3>
+        <h3>Commission Reference Table</h3>
         <table>
-          <thead><tr><th>Package</th><th>Setup</th><th>Monthly (24-mo)</th><th>Best For</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Landing Page</strong></td><td>$199</td><td>$49.99</td><td>Side hustles, testing</td></tr>
-            <tr><td><strong>Starter WaaS</strong></td><td>$497</td><td>$212.50</td><td>New businesses</td></tr>
-            <tr><td><strong>Growth WaaS</strong></td><td>$697</td><td>$252.50</td><td>Growing businesses</td></tr>
-            <tr><td><strong>Domination WaaS</strong></td><td>$997</td><td>$299</td><td>Established businesses</td></tr>
-          </tbody>
-        </table>
-
-        <h3>Add-On Services</h3>
-        <table>
-          <thead><tr><th>Service</th><th>Monthly</th><th>Your Commission</th></tr></thead>
-          <tbody>
-            <tr><td>Social Media</td><td>$250</td><td style="color: #00FF00;">$50/mo</td></tr>
-            <tr><td>Google Ads</td><td>$297 + ad spend</td><td style="color: #00FF00;">$59.40/mo</td></tr>
-            <tr><td>Organic SEO</td><td>$497</td><td style="color: #00FF00;">$99.40/mo</td></tr>
-            <tr><td>SEO Growth</td><td>$997</td><td style="color: #00FF00;">$199.40/mo</td></tr>
-          </tbody>
-        </table>
-
-        <h3>Branding (One-Time)</h3>
-        <table>
-          <thead><tr><th>Service</th><th>Price</th><th>Your Commission (30%)</th></tr></thead>
-          <tbody>
-            <tr><td>Logo Design</td><td>$497</td><td style="color: #00FF00;">$149</td></tr>
-            <tr><td>Brand Identity Kit</td><td>$1,297</td><td style="color: #00FF00;">$389</td></tr>
-            <tr><td>Complete Brand System</td><td>$2,497</td><td style="color: #00FF00;">$749</td></tr>
-          </tbody>
+          <tr><th>Package</th><th>Setup Commission</th><th>Monthly Commission</th><th>Year 1 Total</th></tr>
+          <tr><td>Landing Page</td><td>$60</td><td>$10</td><td>$180</td></tr>
+          <tr><td>Starter WaaS</td><td>$149</td><td>$42.50</td><td>$659</td></tr>
+          <tr><td>Growth WaaS</td><td>$209</td><td>$50.50</td><td>$815</td></tr>
+          <tr><td>Domination WaaS</td><td>$299</td><td>$59.80</td><td>$1,017</td></tr>
+          <tr><td>Growth + Social + SEO</td><td>$209</td><td>$150</td><td>$2,009</td></tr>
         </table>
 
         <hr>
 
-        <!-- Section 5 -->
-        <h2 id="sales-process">5. The Sales Process</h2>
+        <!-- Section 4: Products -->
+        <h2 id="products">4. PRODUCTS & SERVICES</h2>
 
-        <h3>Step 1: Prospecting</h3>
-        <p><strong>Where to find prospects:</strong></p>
+        <p><em>All packages include AI chatbot functionality</em></p>
+
+        <h3>Landing Page — $199 setup + $49.99/month</h3>
         <ul>
-          <li>Google "[city] + [business type]" - look for bad/no websites</li>
-          <li>Facebook local business groups</li>
-          <li>LinkedIn business owners</li>
-          <li>Referrals from current clients</li>
-          <li>Local networking events</li>
+          <li>Single-page design, mobile responsive</li>
+          <li>Contact form integration</li>
+          <li>Hosting and SSL included</li>
+          <li>Target market: New ventures, simple service businesses</li>
         </ul>
 
-        <h3>Step 2: Outreach</h3>
+        <h3>Starter WaaS — $497 setup + $212.50/month (24-mo) or $250/month (12-mo)</h3>
+        <ul>
+          <li>5-page website</li>
+          <li>Mobile responsive design</li>
+          <li>Contact form integration</li>
+          <li>SEO-optimized structure</li>
+          <li>Monthly maintenance and security updates</li>
+          <li>Target market: New businesses, straightforward service providers</li>
+        </ul>
+
+        <h3>Growth WaaS — $697 setup + $252.50/month (24-mo) or $297/month (12-mo)</h3>
+        <ul>
+          <li>10-page website</li>
+          <li>Advanced form functionality</li>
+          <li>Blog integration</li>
+          <li>Weekly maintenance updates</li>
+          <li>Priority support access</li>
+          <li>Target market: Growing businesses, content-focused organizations</li>
+        </ul>
+
+        <h3>Domination WaaS — $997 setup + $299/month (24-mo) or $349/month (12-mo)</h3>
+        <ul>
+          <li>Unlimited pages</li>
+          <li>Custom feature development</li>
+          <li>E-commerce ready infrastructure</li>
+          <li>Blog and CMS integration</li>
+          <li>Daily monitoring</li>
+          <li>24/7 support availability</li>
+          <li>Target market: Established businesses, complex requirements</li>
+        </ul>
+
+        <h3>One-Time Development Projects</h3>
+        <table>
+          <tr><th>Tier</th><th>Price</th><th>Pages</th><th>Post-Launch Support</th></tr>
+          <tr><td>Starter</td><td>$2,497</td><td>5</td><td>30 days</td></tr>
+          <tr><td>Growth</td><td>$3,497</td><td>10</td><td>60 days</td></tr>
+          <tr><td>Domination</td><td>$4,997</td><td>Unlimited</td><td>90 days</td></tr>
+        </table>
+
+        <h3>Digital Marketing Services</h3>
+        <table>
+          <tr><th>Service</th><th>Monthly Fee</th><th>Representative Commission</th></tr>
+          <tr><td>Social Media Management</td><td>$250</td><td>$50</td></tr>
+          <tr><td>Google Ads Management</td><td>$297 + ad spend</td><td>$59.40</td></tr>
+          <tr><td>Organic SEO</td><td>$497</td><td>$99.40</td></tr>
+          <tr><td>SEO Growth Package</td><td>$997</td><td>$199.40</td></tr>
+        </table>
+
+        <h3>Branding Services</h3>
+        <table>
+          <tr><th>Service</th><th>Price</th><th>Representative Commission</th></tr>
+          <tr><td>Logo Design</td><td>$497</td><td>$149</td></tr>
+          <tr><td>Brand Identity Kit</td><td>$1,297</td><td>$389</td></tr>
+          <tr><td>Complete Brand System</td><td>$2,497</td><td>$749</td></tr>
+        </table>
+
+        <hr>
+
+        <!-- Section 5: Sales -->
+        <h2 id="sales">5. SALES METHODOLOGY</h2>
+
+        <h3>Phase 1: Prospecting</h3>
+        <p><strong>Lead Sources:</strong></p>
+        <ul>
+          <li>Search engine queries: "[location] + [business type]" — identify businesses with inadequate web presence</li>
+          <li>Local business groups on social platforms</li>
+          <li>LinkedIn professional networking</li>
+          <li>Client referrals</li>
+          <li>Industry networking events</li>
+          <li>Business networking organizations (BNI, chambers of commerce)</li>
+        </ul>
+
+        <p><strong>Qualification Criteria:</strong></p>
+        <ul>
+          <li>No existing website</li>
+          <li>Outdated or poorly functioning website</li>
+          <li>Non-mobile-responsive design</li>
+          <li>Limited online presence beyond social media</li>
+          <li>Competitors with superior web presence</li>
+        </ul>
+
+        <h3>Phase 2: Initial Contact</h3>
+        <p><strong>Telephone Script:</strong></p>
         <div class="script-box">
-          <strong>Cold Call Script:</strong><br>
-          "Hi, is this [Name]? This is [Your Name] with Gideon Codeworks. I was looking at local [industry] businesses and noticed [observation about their online presence]. Do you have 30 seconds?"
+          "Good [morning/afternoon], this is [Name] with Gideon Codeworks. I specialize in helping [industry] businesses improve their online presence. I noticed [specific observation]. Do you have a moment to discuss?"
         </div>
 
-        <h3>Step 3: Discovery</h3>
-        <p><strong>Key questions:</strong></p>
+        <p><strong>Email Template:</strong></p>
+        <div class="script-box">
+          <p style="margin: 0;"><strong>Subject:</strong> Inquiry Regarding [Business Name] Online Presence</p>
+          <p style="margin-top: 0.5rem;">[Name],</p>
+          <p>While researching [service type] providers in [location], I came across [Business Name]. I noticed [specific observation regarding their current web presence].</p>
+          <p>Gideon Codeworks specializes in professional website solutions for [industry] businesses. Would you be available for a brief call this week?</p>
+          <p style="margin-bottom: 0;">Regards,<br>[Your Name]<br>Account Executive, Gideon Codeworks</p>
+        </div>
+
+        <h3>Phase 3: Discovery</h3>
+        <p><strong>Essential Questions:</strong></p>
         <ol>
-          <li>"Do you currently have a website?"</li>
-          <li>"How are you getting customers right now?"</li>
-          <li>"What's your biggest challenge with your online presence?"</li>
-          <li>"Have you worked with a web company before?"</li>
-          <li>"If you could wave a magic wand, what would your ideal website do?"</li>
+          <li>"Does your business currently have a website?"</li>
+          <li>"What are your primary customer acquisition channels?"</li>
+          <li>"What challenges do you face with your current online presence?"</li>
+          <li>"Have you worked with web development companies previously?"</li>
+          <li>"What would an ideal website accomplish for your business?"</li>
         </ol>
 
-        <h3>Step 4: Handling Objections</h3>
+        <h3>Phase 4: Presentation</h3>
+        <p>Present solutions aligned with identified needs. Key differentiators to emphasize:</p>
+        <ul>
+          <li>AI chatbot included at no additional cost</li>
+          <li>Comprehensive service (client focuses on core business)</li>
+          <li>Month-to-month flexibility after initial term</li>
+          <li>Direct support from company personnel</li>
+        </ul>
+
+        <h3>Phase 5: Objection Management</h3>
         <table>
-          <thead><tr><th>Objection</th><th>Response</th></tr></thead>
-          <tbody>
-            <tr><td>"Too expensive"</td><td>"What's one new customer worth to you?"</td></tr>
-            <tr><td>"Need to think"</td><td>"What specifically? Maybe I can help clarify."</td></tr>
-            <tr><td>"I can use Wix"</td><td>"Do you want to spend weekends on your website?"</td></tr>
-            <tr><td>"My nephew can do it"</td><td>"Will they be there at 2am when it breaks?"</td></tr>
-          </tbody>
+          <tr><th>Objection</th><th>Response Strategy</th></tr>
+          <tr><td>"Price is too high"</td><td>"What is the lifetime value of a new customer? If this generates one additional customer monthly, does the ROI justify the investment?"</td></tr>
+          <tr><td>"Need time to consider"</td><td>"Certainly. What specific aspects require consideration? I may be able to provide clarification."</td></tr>
+          <tr><td>"Can use DIY platforms"</td><td>"That's an option. The question becomes whether your time is best spent managing a website or operating your business."</td></tr>
+          <tr><td>"Know someone who can do it"</td><td>"Will they provide ongoing support? Will they be available if issues arise at critical times?"</td></tr>
+          <tr><td>"Previous negative experience"</td><td>"That's precisely why our service includes month-to-month terms after the initial period. We maintain accountability."</td></tr>
         </table>
 
-        <h3>Step 5: Closing</h3>
-        <div class="script-box">
-          <strong>Trial close:</strong> "Does this sound like what you're looking for?"<br><br>
-          <strong>Assumptive close:</strong> "Great, let's get you set up. I just need a few details..."
-        </div>
+        <h3>Phase 6: Closing</h3>
+        <p><strong>Trial Close:</strong> "Does this solution address your requirements?"</p>
+        <p><strong>Assumptive Close:</strong> "Excellent. Let's proceed with setup. I'll need a few details..."</p>
+        <p><strong>Scheduling Follow-up:</strong> "When would be an appropriate time to reconnect—Thursday or Friday?"</p>
+
+        <h3>Phase 7: Transition to Production</h3>
+        <p>Post-signature process:</p>
+        <ol>
+          <li>Log transaction in CRM system</li>
+          <li>Collect client intake information</li>
+          <li>Notify production team</li>
+          <li>Send client welcome communication</li>
+          <li>Proceed to next opportunity</li>
+        </ol>
 
         <hr>
 
-        <!-- Section 6 -->
-        <h2 id="tools">6. Tools & Systems</h2>
+        <!-- Section 6: Systems -->
+        <h2 id="systems">6. SYSTEMS & RESOURCES</h2>
 
-        <h3>CRM Dashboard</h3>
-        <p>Use the CRM to:</p>
+        <h3>CRM Platform</h3>
+        <p>All representatives have access to the company CRM system. Required usage includes:</p>
         <ul>
-          <li>Log all leads and prospects</li>
-          <li>Track your pipeline</li>
-          <li>Record conversation notes</li>
-          <li>See your commissions</li>
-          <li>Hand off closed deals</li>
+          <li>Logging all leads and prospects</li>
+          <li>Maintaining pipeline records</li>
+          <li>Documenting conversation notes</li>
+          <li>Monitoring commission status</li>
+          <li>Processing deal handoffs</li>
         </ul>
-
-        <div class="warning-box">
-          <strong>Rule:</strong> If it's not in the CRM, it didn't happen. Log everything.
+        <div class="highlight-box">
+          <p style="margin: 0;"><strong>Policy:</strong> All client interactions must be documented in the CRM.</p>
         </div>
 
-        <h3>Sales Materials</h3>
-        <p>Available here at gideoncode.com/aedocs:</p>
+        <h3>Communication Infrastructure</h3>
+        <ul>
+          <li><strong>Email:</strong> Personal email or company-provided @gideoncode.com address</li>
+          <li><strong>Phone:</strong> Personal device</li>
+          <li><strong>Video Conferencing:</strong> Company-provided Zoom access</li>
+          <li><strong>Internal Communication:</strong> For management inquiries and escalations</li>
+        </ul>
+
+        <h3>Sales Documentation</h3>
+        <p>Available at gideoncode.com/aedocs (credentials provided post-contract):</p>
         <ul>
           <li>Sales Playbook</li>
-          <li>Pricing Quick Reference</li>
+          <li>Pricing Reference Guide</li>
           <li>Commission Calculator</li>
           <li>Client Onboarding Checklist</li>
-          <li>Pitch Deck Outline</li>
+          <li>Presentation Outline</li>
         </ul>
 
-        <hr>
-
-        <!-- Section 7 -->
-        <h2 id="standards">7. Professional Standards</h2>
-
-        <div class="success-box">
-          <h4 style="color: #00FF00; margin-top: 0;">DO:</h4>
-          <ul style="margin: 0;">
-            <li>Be honest and transparent</li>
-            <li>Be on time for all meetings</li>
-            <li>Follow up when you say you will</li>
-            <li>Admit when you don't know something</li>
-          </ul>
-        </div>
-
-        <div class="warning-box">
-          <h4 style="color: #ff4444; margin-top: 0;">DON'T:</h4>
-          <ul style="margin: 0;">
-            <li>Make promises we can't keep</li>
-            <li>Guarantee specific rankings or leads</li>
-            <li>Badmouth competitors</li>
-            <li>Use high-pressure tactics</li>
-          </ul>
-        </div>
-
-        <h3>What You Can Promise</h3>
-        <ul>
-          <li>✅ "We'll build you a professional website"</li>
-          <li>✅ "Hosting, updates, and security are included"</li>
-          <li>✅ "Every site includes an AI chatbot"</li>
-          <li>❌ Never promise specific rankings, leads, or revenue</li>
-        </ul>
-
-        <hr>
-
-        <!-- Section 8 -->
-        <h2 id="communication">8. Communication Guidelines</h2>
-
-        <h3>Response Times</h3>
+        <h3>Client-Facing Resources</h3>
         <table>
-          <thead><tr><th>Channel</th><th>Expected Response</th></tr></thead>
-          <tbody>
-            <tr><td>Prospect inquiry</td><td>Within 4 hours (business hours)</td></tr>
-            <tr><td>Client question</td><td>Within 24 hours</td></tr>
-            <tr><td>Joshua/internal</td><td>Within 24 hours</td></tr>
-          </tbody>
+          <tr><th>Resource</th><th>URL</th></tr>
+          <tr><td>Company Website</td><td>gideoncode.com</td></tr>
+          <tr><td>Services & Pricing</td><td>gideoncode.com/services</td></tr>
+          <tr><td>Portfolio</td><td>gideoncode.com/portfolio</td></tr>
+          <tr><td>Client Intake Form</td><td>gideoncode.com/get-started</td></tr>
         </table>
 
-        <h3>When to Escalate to Joshua</h3>
+        <hr>
+
+        <!-- Section 7: Standards -->
+        <h2 id="standards">7. PROFESSIONAL STANDARDS</h2>
+
+        <h3>Required Behaviors</h3>
         <ul>
-          <li>Pricing exceptions requested</li>
-          <li>Unhappy client situations</li>
-          <li>Technical questions you can't answer</li>
-          <li>Deals over $5,000</li>
-          <li>Anything that feels "off"</li>
+          <li>Maintain honesty and transparency in all communications</li>
+          <li>Present professional appearance appropriate to context</li>
+          <li>Honor all scheduled appointments</li>
+          <li>Follow through on all commitments</li>
+          <li>Acknowledge knowledge limitations ("I'll research that and follow up")</li>
+        </ul>
+
+        <h3>Prohibited Behaviors</h3>
+        <div class="warning-box">
+          <ul style="margin: 0;">
+            <li>Making unauthorized commitments</li>
+            <li>Guaranteeing specific outcomes (rankings, leads, revenue figures)</li>
+            <li>Disparaging competitors</li>
+            <li>Employing high-pressure or deceptive tactics</li>
+            <li>Misrepresenting contractor status as employment</li>
+          </ul>
+        </div>
+
+        <h3>Authorized Claims</h3>
+        <p><strong>Permitted Statements:</strong></p>
+        <ul>
+          <li>"We build professional websites"</li>
+          <li>"Hosting, updates, and security are included"</li>
+          <li>"Ongoing support is provided"</li>
+          <li>"All websites include AI chatbot functionality"</li>
+          <li>"Month-to-month terms apply after initial contract"</li>
+        </ul>
+
+        <p><strong>Prohibited Statements:</strong></p>
+        <ul>
+          <li>Specific search ranking guarantees</li>
+          <li>Lead volume guarantees</li>
+          <li>Revenue increase projections</li>
+          <li>ROI guarantees</li>
+          <li>Features not included in standard packages</li>
+        </ul>
+
+        <h3>Pricing Authority</h3>
+        <ul>
+          <li>Standard pricing only; no unauthorized modifications</li>
+          <li>Discount requests require management approval</li>
+          <li>Never negotiate below published rates without authorization</li>
         </ul>
 
         <hr>
 
-        <!-- Section 9 -->
-        <h2 id="problems">9. Handling Problems</h2>
+        <!-- Section 8: Communication -->
+        <h2 id="communication">8. COMMUNICATION PROTOCOLS</h2>
 
-        <h3>Client Wants to Cancel</h3>
+        <h3>Response Time Requirements</h3>
+        <table>
+          <tr><th>Channel</th><th>Maximum Response Time</th></tr>
+          <tr><td>Prospect Inquiry</td><td>4 hours (business hours)</td></tr>
+          <tr><td>Client Question</td><td>24 hours</td></tr>
+          <tr><td>Internal Communication</td><td>24 hours</td></tr>
+        </table>
+
+        <h3>Escalation Criteria</h3>
+        <p>Escalate to management when:</p>
+        <ul>
+          <li>Pricing exceptions are requested</li>
+          <li>Client dissatisfaction occurs</li>
+          <li>Technical questions exceed representative knowledge</li>
+          <li>Deal value exceeds $5,000</li>
+          <li>Any situation raising concerns</li>
+        </ul>
+
+        <h3>Email Signature Format</h3>
+        <div class="script-box" style="font-style: normal;">
+          [Name]<br>
+          Account Executive | Gideon Codeworks<br>
+          [Phone Number]<br>
+          gideoncode.com
+        </div>
+
+        <h3>Social Media Guidelines</h3>
+        <p>When referencing Gideon Codeworks publicly:</p>
+        <ul>
+          <li>Maintain professional tone</li>
+          <li>Avoid unsubstantiated claims</li>
+          <li>Protect confidential information</li>
+          <li>Seek approval when uncertain</li>
+        </ul>
+
+        <hr>
+
+        <!-- Section 9: Issues -->
+        <h2 id="issues">9. ISSUE RESOLUTION</h2>
+
+        <h3>Cancellation Requests</h3>
         <ol>
-          <li>Don't panic - it happens</li>
-          <li>Find out why (we learn from this)</li>
-          <li>If fixable, escalate to Joshua</li>
-          <li>Process professionally if they're set on leaving</li>
+          <li>Remain professional</li>
+          <li>Document reason for cancellation</li>
+          <li>Escalate to management if issue is resolvable</li>
+          <li>Process cancellation professionally if client confirms</li>
+          <li>Note: Recurring commissions cease; no clawback on past payments</li>
         </ol>
 
         <h3>Payment Issues</h3>
         <table>
-          <thead><tr><th>Situation</th><th>Action</th></tr></thead>
-          <tbody>
-            <tr><td>First payment fails</td><td>Reach out to client immediately</td></tr>
-            <tr><td>Recurring fails</td><td>System retries; you may be notified</td></tr>
-            <tr><td>Disputed charge</td><td>Escalate to Joshua immediately</td></tr>
-          </tbody>
+          <tr><th>Situation</th><th>Action</th></tr>
+          <tr><td>Initial payment failure</td><td>Contact client per production notification</td></tr>
+          <tr><td>Recurring payment failure</td><td>System retries automatically; may require follow-up</td></tr>
+          <tr><td>Disputed charge</td><td>Escalate to management immediately</td></tr>
         </table>
 
+        <h3>Production Concerns</h3>
+        <p>If client expresses dissatisfaction during production:</p>
+        <ol>
+          <li>Document the specific concern</li>
+          <li>Acknowledge client frustration</li>
+          <li>Escalate to management as appropriate</li>
+          <li>Maintain client communication</li>
+          <li>Maintain professional relationships with internal teams</li>
+        </ol>
+
+        <h3>Scope Creep</h3>
+        <ul>
+          <li><strong>Minor clarifications:</strong> Handle within normal scope</li>
+          <li><strong>Additional features/pages:</strong> "That would require the [higher tier] package"</li>
+          <li><strong>Uncertain situations:</strong> Escalate to management</li>
+        </ul>
+
         <hr>
 
-        <!-- Section 10 -->
-        <h2 id="team">10. Building Your Team</h2>
+        <!-- Section 10: Team -->
+        <h2 id="team">10. TEAM DEVELOPMENT</h2>
+
+        <h3>Eligibility Requirements</h3>
+        <p>Recruitment privileges unlock after closing <strong>ten (10) verified deals</strong>.</p>
+
+        <h3>Override Structure</h3>
+        <p>Percentage of recruited representatives' monthly recurring revenue:</p>
+        <ul>
+          <li><strong>Level 1</strong> (direct recruit): 5%</li>
+          <li><strong>Level 2</strong> (second generation): 3%</li>
+          <li><strong>Level 3</strong> (third generation): 2%</li>
+        </ul>
 
         <div class="highlight-box">
-          After you close <strong>10 verified deals</strong>, you unlock the ability to recruit other AEs.
+          <p style="margin: 0;"><strong>Example:</strong> Recruited representative sells Growth WaaS + Social ($502.50/month)</p>
+          <ul style="margin: 0.5rem 0 0 0;">
+            <li>Representative earns: $100.50/month (20%)</li>
+            <li>Recruiting AE earns: $25.13/month (5% override)</li>
+          </ul>
         </div>
 
-        <h3>How Overrides Work</h3>
-        <p><strong>Example:</strong> Your recruit Sarah sells Growth WaaS + Social ($502.50/mo)</p>
+        <h3>Recruitment Guidelines</h3>
         <ul>
-          <li>Sarah earns: $100.50/mo (her 20%)</li>
-          <li>You earn: <strong style="color: #00FF00;">$25.13/mo</strong> (your 5% override)</li>
-          <li>That's passive income from her work</li>
+          <li>Prioritize personal sales performance before recruitment</li>
+          <li>Seek candidates with sales experience or established networks</li>
+          <li>Establish clear expectations regarding commission-only compensation</li>
+          <li>Demonstrate personal results as proof of concept</li>
+          <li>Provide guidance and mentorship</li>
         </ul>
 
-        <h3>Recruiting Tips</h3>
+        <h3>Team Leader Responsibilities</h3>
         <ul>
-          <li>Focus on your own sales first</li>
-          <li>Look for people with sales experience or strong networks</li>
-          <li>Set clear expectations (100% commission)</li>
-          <li>Share your own results as proof</li>
+          <li>Assist with new representative training</li>
+          <li>Provide responsive support for questions</li>
+          <li>Share effective strategies and techniques</li>
+          <li>Maintain accountability standards</li>
+          <li>Escalate issues to management as needed</li>
         </ul>
 
         <hr>
 
-        <!-- Section 11 -->
-        <h2 id="faq">11. Frequently Asked Questions</h2>
+        <!-- Section 11: FAQ -->
+        <h2 id="faq">11. FREQUENTLY ASKED QUESTIONS</h2>
 
-        <p><strong>Q: How long to close my first deal?</strong><br>
-        A: Most AEs close within 2-4 weeks. Focus on activity volume early on.</p>
+        <p><strong>Q: What is the typical timeline for closing an initial deal?</strong><br>
+        A: Most representatives close their first deal within 2-4 weeks. Timeline varies based on activity volume and prior experience.</p>
 
-        <p><strong>Q: Can I sell in any location?</strong><br>
-        A: Yes. No territory restrictions. We serve clients nationwide.</p>
+        <p><strong>Q: Are there geographic restrictions on sales territory?</strong><br>
+        A: No. The company serves clients nationwide without territory limitations.</p>
 
-        <p><strong>Q: Do I need to be technical?</strong><br>
-        A: No. Understand what we offer, but you don't need to build websites.</p>
+        <p><strong>Q: How are non-standard client requests handled?</strong><br>
+        A: Contact management. Accommodation may be possible, or an explanation will be provided.</p>
+
+        <p><strong>Q: Is technical expertise required?</strong><br>
+        A: No. Product knowledge is necessary; technical implementation knowledge is not.</p>
+
+        <p><strong>Q: Can existing website owners be prospects?</strong><br>
+        A: Yes. Many clients are website rebuilds. Poor existing sites represent opportunities.</p>
 
         <p><strong>Q: Can I sell to friends and family?</strong><br>
-        A: Yes, but family member sales require prior approval.</p>
+        A: Yes, though family member sales require prior management approval for commission eligibility.</p>
 
-        <p><strong>Q: What if I want to take a break?</strong><br>
-        A: You're independent. Take time off whenever. Recurring commissions continue.</p>
+        <p><strong>Q: What happens during extended time away?</strong><br>
+        A: As an independent contractor, scheduling is flexible. Recurring commissions continue as long as clients remain active.</p>
+
+        <p><strong>Q: What support exists for underperformance?</strong><br>
+        A: While no mandatory quotas exist, management provides coaching and support for representatives seeking assistance.</p>
+
+        <p><strong>Q: Can personal marketing materials be used?</strong><br>
+        A: All marketing materials require management approval prior to use.</p>
+
+        <p><strong>Q: How are commission balances monitored?</strong><br>
+        A: The CRM dashboard displays current and pending commission information.</p>
 
         <hr>
 
-        <!-- Section 12 -->
-        <h2 id="reference">12. Quick Reference</h2>
+        <!-- Section 12: Reference -->
+        <h2 id="reference">12. REFERENCE GUIDE</h2>
 
-        <h3>Commission Quick Math</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div>
-            <p><strong>30% of Setup Fees:</strong></p>
-            <ul>
-              <li>$199 → <span style="color: #00FF00;">$60</span></li>
-              <li>$497 → <span style="color: #00FF00;">$149</span></li>
-              <li>$697 → <span style="color: #00FF00;">$209</span></li>
-              <li>$997 → <span style="color: #00FF00;">$299</span></li>
-              <li>$2,497 → <span style="color: #00FF00;">$749</span></li>
-            </ul>
-          </div>
-          <div>
-            <p><strong>20% of Monthly Fees:</strong></p>
-            <ul>
-              <li>$49.99 → <span style="color: #00FF00;">$10</span></li>
-              <li>$212.50 → <span style="color: #00FF00;">$42.50</span></li>
-              <li>$252.50 → <span style="color: #00FF00;">$50.50</span></li>
-              <li>$299 → <span style="color: #00FF00;">$59.80</span></li>
-              <li>$497 → <span style="color: #00FF00;">$99.40</span></li>
-            </ul>
+        <h3>Key Resources</h3>
+        <table>
+          <tr><th>Resource</th><th>URL</th></tr>
+          <tr><td>Company Website</td><td>gideoncode.com</td></tr>
+          <tr><td>Services & Pricing</td><td>gideoncode.com/services</td></tr>
+          <tr><td>Portfolio</td><td>gideoncode.com/portfolio</td></tr>
+          <tr><td>AE Documentation</td><td>gideoncode.com/aedocs</td></tr>
+          <tr><td>CRM System</td><td>Provided upon onboarding</td></tr>
+        </table>
+
+        <h3>Commission Quick Reference</h3>
+        <div class="section-box">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+              <p style="color: #00FFFF; font-weight: bold; margin-bottom: 0.5rem;">30% of Setup Fees:</p>
+              <ul style="margin: 0;">
+                <li>$199 = $60</li>
+                <li>$497 = $149</li>
+                <li>$697 = $209</li>
+                <li>$997 = $299</li>
+                <li>$2,497 = $749</li>
+              </ul>
+            </div>
+            <div>
+              <p style="color: #00FFFF; font-weight: bold; margin-bottom: 0.5rem;">20% of Monthly Fees:</p>
+              <ul style="margin: 0;">
+                <li>$49.99 = $10</li>
+                <li>$212.50 = $42.50</li>
+                <li>$252.50 = $50.50</li>
+                <li>$299 = $59.80</li>
+                <li>$497 = $99.40</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <h3>Daily Checklist</h3>
+        <h3>Daily Activity Checklist</h3>
         <ul class="checklist">
-          <li>1-2 hours prospecting</li>
-          <li>20-30 outreach attempts</li>
+          <li>Complete 1-2 hours of prospecting</li>
+          <li>Execute 20-30 outreach attempts</li>
           <li>Follow up on pending conversations</li>
-          <li>Log all activity in CRM</li>
-          <li>Check for leads/inquiries</li>
+          <li>Document all activity in CRM</li>
+          <li>Monitor for incoming leads/inquiries</li>
+        </ul>
+
+        <h3>Weekly Activity Checklist</h3>
+        <ul class="checklist">
+          <li>Review pipeline status</li>
+          <li>Follow up on pending proposals</li>
+          <li>Review commission reports</li>
+          <li>Plan upcoming week's activities</li>
         </ul>
 
         <hr>
 
-        <div class="section-box text-center">
-          <h2 style="margin-top: 0; border: none;">Welcome to the Team</h2>
-          <p class="text-2xl" style="color: #00FF00;"><strong>Now go sell.</strong></p>
+        <!-- Acknowledgment -->
+        <h2>ACKNOWLEDGMENT</h2>
+        <p>By receiving this handbook, the representative acknowledges:</p>
+        <ul>
+          <li>Review and understanding of all contents</li>
+          <li>Agreement to adhere to stated guidelines and policies</li>
+          <li>Understanding of independent contractor status</li>
+          <li>Commitment to professional representation of Gideon Codeworks</li>
+          <li>Agreement to use only approved pricing and materials</li>
+        </ul>
+
+        <div class="highlight-box">
+          <p style="margin: 0;"><strong>This handbook does not constitute an employment contract.</strong> Refer to the Independent Sales Representative Agreement for binding contractual terms.</p>
         </div>
 
-        <p class="text-center text-gray-500 text-sm mt-8">© 2024 Gideon Codeworks. Internal use only.</p>
+        <hr>
+
+        <p class="text-center text-gray-500 text-sm" style="margin-top: 2rem;">
+          For questions regarding this handbook, contact company management.<br><br>
+          &copy; 2024 Gideon Codeworks. Internal use only. Distribution prohibited.
+        </p>
 
       </div>
     </article>
 
-    <!-- Navigation buttons -->
+    <!-- Navigation -->
     <div class="nav-buttons">
-      <button class="nav-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="nav-btn">Top</button>
+      <button onclick="window.print()" class="nav-btn">Print</button>
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-cyan-500/20 py-6 px-6">
+    <footer class="border-t border-cyan-500/20 py-8 px-6">
       <div class="max-w-6xl mx-auto text-center">
-        <a href="/aedocs/" class="text-cyan-400 hover:text-cyan-300">← Back to AE Docs</a>
+        <p class="text-gray-500 text-sm">
+          Internal Documentation | Not for distribution |
+          <span class="text-cyan-400">Gideon Codeworks</span>
+        </p>
       </div>
     </footer>
   </div>
