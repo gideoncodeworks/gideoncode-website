@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AE Handbook | AE Docs | Gideon Codeworks</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .doc-content { max-width: 900px; margin: 0 auto; }
+    .doc-content h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00FFFF; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,255,255,0.3); }
+    .doc-content h3 { font-size: 1.1rem; color: #FF00FF; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .doc-content p { color: #d1d5db; margin-bottom: 0.75rem; line-height: 1.7; }
+    .doc-content ul, .doc-content ol { color: #d1d5db; margin-bottom: 1rem; padding-left: 1.5rem; }
+    .doc-content li { margin-bottom: 0.5rem; }
+    .doc-content strong { color: #00FFFF; }
+    .doc-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    .doc-content th { background: rgba(0,255,255,0.15); color: #00FFFF; padding: 0.5rem 0.75rem; text-align: left; font-weight: 600; border: 1px solid rgba(0,255,255,0.2); }
+    .doc-content td { padding: 0.5rem 0.75rem; border: 1px solid rgba(0,255,255,0.15); color: #d1d5db; }
+    .doc-content hr { border: none; border-top: 1px solid rgba(0,255,255,0.2); margin: 2rem 0; }
+    .toc { background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); border-radius: 0.75rem; padding: 1.5rem; margin: 2rem 0; }
+    .toc a { color: #00FFFF; text-decoration: none; display: block; padding: 0.25rem 0; }
+    .toc a:hover { color: #FF00FF; }
+    .section-box { background: linear-gradient(135deg, rgba(0,255,255,0.08) 0%, rgba(255,0,255,0.05) 100%); border: 1px solid rgba(0,255,255,0.3); border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; }
+    .highlight-box { background: rgba(0,255,255,0.1); border-left: 3px solid #00FFFF; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .warning-box { background: rgba(255,0,0,0.1); border-left: 3px solid #ff4444; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .success-box { background: rgba(0,255,0,0.1); border-left: 3px solid #00FF00; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .script-box { background: rgba(0,0,0,0.5); border: 1px solid rgba(0,255,255,0.3); padding: 1rem; border-radius: 0.5rem; font-style: italic; color: #e5e7eb; margin: 1rem 0; }
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.25rem 0; }
+    .checklist li::before { content: "☐"; color: #00FFFF; }
+    .locked-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+    .lock-box { background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%); border: 1px solid rgba(0, 255, 255, 0.3); padding: 3rem; border-radius: 1rem; max-width: 400px; width: 90%; }
+    .lock-input { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 255, 0.3); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; width: 100%; }
+    .lock-input:focus { outline: none; border-color: rgba(0, 255, 255, 0.8); }
+    .lock-btn { background: linear-gradient(90deg, #00FFFF, #FF00FF); color: black; font-weight: 700; padding: 0.75rem 2rem; border-radius: 0.5rem; width: 100%; cursor: pointer; }
+    .error-msg { color: #ff4444; font-size: 0.875rem; margin-top: 0.5rem; display: none; }
+    .nav-buttons { position: fixed; bottom: 2rem; right: 2rem; display: flex; gap: 0.5rem; z-index: 100; }
+    .nav-btn { background: rgba(0,0,0,0.8); border: 1px solid rgba(0,255,255,0.3); color: #00FFFF; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-size: 0.85rem; }
+    .nav-btn:hover { background: rgba(0,255,255,0.2); }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+  <!-- Password Lock -->
+  <div id="lockOverlay" class="locked-overlay">
+    <div class="lock-box text-center">
+      <div class="text-6xl mb-4">🔐</div>
+      <h2 class="text-2xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;"><span class="gradient-text">AE DOCS</span></h2>
+      <p class="text-gray-400 mb-6">Enter access code to continue</p>
+      <form id="lockForm" onsubmit="return checkPassword(event)">
+        <input type="password" id="passwordInput" class="lock-input mb-4" placeholder="Access Code" autocomplete="off">
+        <p id="errorMsg" class="error-msg">Invalid access code. Try again.</p>
+        <button type="submit" class="lock-btn mt-2">UNLOCK ACCESS</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" style="display: none;">
+    <!-- Header -->
+    <header class="border-b border-cyan-500/20 bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/aedocs/" class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif;">
+          <span class="gradient-text">GIDEON</span> <span class="text-white">AE DOCS</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="/aedocs/" class="text-gray-400 hover:text-cyan-400 text-sm">← Back</a>
+          <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">🔒</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Document -->
+    <article class="py-8 px-6">
+      <div class="doc-content">
+        <!-- Title -->
+        <div class="text-center mb-8">
+          <div class="text-5xl mb-4">📖</div>
+          <h1 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+            <span class="gradient-text">ACCOUNT EXECUTIVE</span>
+          </h1>
+          <h2 class="text-2xl text-gray-300 mb-4" style="font-family: 'Orbitron', sans-serif; border: none; margin-top: 0;">HANDBOOK</h2>
+          <p class="text-gray-400">Your complete guide to succeeding at Gideon Codeworks</p>
+          <p class="text-gray-500 text-sm mt-2">Last Updated: December 2024</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+          <h3 style="color: #00FFFF; margin-top: 0;">TABLE OF CONTENTS</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+            <a href="#about">1. About Gideon Codeworks</a>
+            <a href="#role">2. Your Role as an AE</a>
+            <a href="#compensation">3. Compensation</a>
+            <a href="#products">4. What We Sell</a>
+            <a href="#sales-process">5. The Sales Process</a>
+            <a href="#tools">6. Tools & Systems</a>
+            <a href="#standards">7. Professional Standards</a>
+            <a href="#communication">8. Communication Guidelines</a>
+            <a href="#problems">9. Handling Problems</a>
+            <a href="#team">10. Building Your Team</a>
+            <a href="#faq">11. FAQs</a>
+            <a href="#reference">12. Quick Reference</a>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Section 1 -->
+        <h2 id="about">1. About Gideon Codeworks</h2>
+
+        <div class="section-box">
+          <h3 style="margin-top: 0;">Who We Are</h3>
+          <p>Gideon Codeworks is a web design and digital marketing agency based in Cleveland, Ohio, serving small businesses nationwide. We specialize in <strong>Website-as-a-Service (WaaS)</strong> - we build, host, and manage websites so business owners can focus on running their business.</p>
+        </div>
+
+        <h3>What Makes Us Different</h3>
+        <ul>
+          <li><strong>No disappearing act</strong> - We're a real company, not a freelancer who might vanish</li>
+          <li><strong>Everything included</strong> - Hosting, updates, security, support - one monthly price</li>
+          <li><strong>AI-powered</strong> - Every website includes a 24/7 AI chatbot at no extra charge</li>
+          <li><strong>Month-to-month</strong> - After the initial term, clients can cancel anytime</li>
+          <li><strong>Real support</strong> - Clients talk to humans, not bots</li>
+        </ul>
+
+        <h3>Our Mission</h3>
+        <p>Help small businesses compete online with professional websites and digital marketing they can actually afford.</p>
+
+        <hr>
+
+        <!-- Section 2 -->
+        <h2 id="role">2. Your Role as an Account Executive</h2>
+
+        <h3>What You Do</h3>
+        <ol>
+          <li><strong>Find prospects</strong> - Identify small businesses that need our services</li>
+          <li><strong>Start conversations</strong> - Reach out and build relationships</li>
+          <li><strong>Understand needs</strong> - Learn what each business needs to succeed online</li>
+          <li><strong>Present solutions</strong> - Match our services to their problems</li>
+          <li><strong>Close deals</strong> - Get the signature and payment</li>
+          <li><strong>Hand off to production</strong> - We build it, you move to the next prospect</li>
+        </ol>
+
+        <div class="warning-box">
+          <h4 style="color: #ff4444; margin-top: 0;">What You DON'T Do</h4>
+          <ul style="margin: 0;">
+            <li>Build websites (our production team handles that)</li>
+            <li>Provide technical support</li>
+            <li>Collect payments directly</li>
+            <li>Set custom pricing</li>
+          </ul>
+        </div>
+
+        <h3>Your Status: Independent Contractor</h3>
+        <ul>
+          <li>You set your own hours</li>
+          <li>You work from wherever you want</li>
+          <li>You're responsible for your own taxes</li>
+          <li>You can work for other companies (just not direct competitors)</li>
+          <li>Your income is directly tied to your results</li>
+        </ul>
+
+        <h3>Success Expectations</h3>
+        <table>
+          <thead><tr><th>Activity</th><th>Daily Target</th><th>Weekly Result</th></tr></thead>
+          <tbody>
+            <tr><td>Prospecting</td><td>1-2 hours</td><td>100+ contacts identified</td></tr>
+            <tr><td>Outreach</td><td>20-30 contacts</td><td>10-15 conversations</td></tr>
+            <tr><td>Meetings</td><td>2-3 booked</td><td>10-15 meetings held</td></tr>
+            <tr><td>Deals</td><td>—</td><td>2-4 closed</td></tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <!-- Section 3 -->
+        <h2 id="compensation">3. Compensation & How You Get Paid</h2>
+
+        <div class="section-box">
+          <h3 style="margin-top: 0;">Commission Structure</h3>
+          <p><strong style="font-size: 1.25rem; color: #00FF00;">Setup/One-Time Fees: 30%</strong></p>
+          <p>Website setup fees, one-time builds, branding services, e-commerce setup</p>
+          <p><strong style="font-size: 1.25rem; color: #00FF00;">Monthly Recurring Fees: 20%</strong></p>
+          <p>WaaS monthly fees, hosting, marketing services, e-commerce monthly</p>
+        </div>
+
+        <h3>Example Deal</h3>
+        <div class="highlight-box">
+          <p><strong>You sell Growth WaaS:</strong> $697 setup + $252.50/month</p>
+          <ul style="margin: 0;">
+            <li>Setup commission: $697 × 30% = <strong style="color: #00FF00;">$209.10</strong> (one-time)</li>
+            <li>Monthly commission: $252.50 × 20% = <strong style="color: #00FF00;">$50.50/month</strong> (ongoing)</li>
+            <li>Year 1 total: $209 + ($50.50 × 12) = <strong style="color: #00FF00;">$815</strong></li>
+          </ul>
+        </div>
+
+        <h3>Team Override Commissions (After 10 Deals)</h3>
+        <table>
+          <thead><tr><th>Level</th><th>Who</th><th>Override Rate</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Your direct recruit</td><td style="color: #00FF00;">5% of their monthly</td></tr>
+            <tr><td>2</td><td>Their recruit</td><td style="color: #00FF00;">3% of their monthly</td></tr>
+            <tr><td>3</td><td>Third generation</td><td style="color: #00FF00;">2% of their monthly</td></tr>
+          </tbody>
+        </table>
+
+        <h3>When You Get Paid</h3>
+        <ul>
+          <li>Commissions paid on <strong>collected revenue only</strong></li>
+          <li>Payment schedule: <strong>15th of each month</strong></li>
+          <li>Method: Direct deposit or check</li>
+          <li>Minimum payout: $50</li>
+        </ul>
+
+        <hr>
+
+        <!-- Section 4 -->
+        <h2 id="products">4. What We Sell</h2>
+
+        <h3>Website Packages (All Include AI Chatbot)</h3>
+        <table>
+          <thead><tr><th>Package</th><th>Setup</th><th>Monthly (24-mo)</th><th>Best For</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Landing Page</strong></td><td>$199</td><td>$49.99</td><td>Side hustles, testing</td></tr>
+            <tr><td><strong>Starter WaaS</strong></td><td>$497</td><td>$212.50</td><td>New businesses</td></tr>
+            <tr><td><strong>Growth WaaS</strong></td><td>$697</td><td>$252.50</td><td>Growing businesses</td></tr>
+            <tr><td><strong>Domination WaaS</strong></td><td>$997</td><td>$299</td><td>Established businesses</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Add-On Services</h3>
+        <table>
+          <thead><tr><th>Service</th><th>Monthly</th><th>Your Commission</th></tr></thead>
+          <tbody>
+            <tr><td>Social Media</td><td>$250</td><td style="color: #00FF00;">$50/mo</td></tr>
+            <tr><td>Google Ads</td><td>$297 + ad spend</td><td style="color: #00FF00;">$59.40/mo</td></tr>
+            <tr><td>Organic SEO</td><td>$497</td><td style="color: #00FF00;">$99.40/mo</td></tr>
+            <tr><td>SEO Growth</td><td>$997</td><td style="color: #00FF00;">$199.40/mo</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Branding (One-Time)</h3>
+        <table>
+          <thead><tr><th>Service</th><th>Price</th><th>Your Commission (30%)</th></tr></thead>
+          <tbody>
+            <tr><td>Logo Design</td><td>$497</td><td style="color: #00FF00;">$149</td></tr>
+            <tr><td>Brand Identity Kit</td><td>$1,297</td><td style="color: #00FF00;">$389</td></tr>
+            <tr><td>Complete Brand System</td><td>$2,497</td><td style="color: #00FF00;">$749</td></tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <!-- Section 5 -->
+        <h2 id="sales-process">5. The Sales Process</h2>
+
+        <h3>Step 1: Prospecting</h3>
+        <p><strong>Where to find prospects:</strong></p>
+        <ul>
+          <li>Google "[city] + [business type]" - look for bad/no websites</li>
+          <li>Facebook local business groups</li>
+          <li>LinkedIn business owners</li>
+          <li>Referrals from current clients</li>
+          <li>Local networking events</li>
+        </ul>
+
+        <h3>Step 2: Outreach</h3>
+        <div class="script-box">
+          <strong>Cold Call Script:</strong><br>
+          "Hi, is this [Name]? This is [Your Name] with Gideon Codeworks. I was looking at local [industry] businesses and noticed [observation about their online presence]. Do you have 30 seconds?"
+        </div>
+
+        <h3>Step 3: Discovery</h3>
+        <p><strong>Key questions:</strong></p>
+        <ol>
+          <li>"Do you currently have a website?"</li>
+          <li>"How are you getting customers right now?"</li>
+          <li>"What's your biggest challenge with your online presence?"</li>
+          <li>"Have you worked with a web company before?"</li>
+          <li>"If you could wave a magic wand, what would your ideal website do?"</li>
+        </ol>
+
+        <h3>Step 4: Handling Objections</h3>
+        <table>
+          <thead><tr><th>Objection</th><th>Response</th></tr></thead>
+          <tbody>
+            <tr><td>"Too expensive"</td><td>"What's one new customer worth to you?"</td></tr>
+            <tr><td>"Need to think"</td><td>"What specifically? Maybe I can help clarify."</td></tr>
+            <tr><td>"I can use Wix"</td><td>"Do you want to spend weekends on your website?"</td></tr>
+            <tr><td>"My nephew can do it"</td><td>"Will they be there at 2am when it breaks?"</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Step 5: Closing</h3>
+        <div class="script-box">
+          <strong>Trial close:</strong> "Does this sound like what you're looking for?"<br><br>
+          <strong>Assumptive close:</strong> "Great, let's get you set up. I just need a few details..."
+        </div>
+
+        <hr>
+
+        <!-- Section 6 -->
+        <h2 id="tools">6. Tools & Systems</h2>
+
+        <h3>CRM Dashboard</h3>
+        <p>Use the CRM to:</p>
+        <ul>
+          <li>Log all leads and prospects</li>
+          <li>Track your pipeline</li>
+          <li>Record conversation notes</li>
+          <li>See your commissions</li>
+          <li>Hand off closed deals</li>
+        </ul>
+
+        <div class="warning-box">
+          <strong>Rule:</strong> If it's not in the CRM, it didn't happen. Log everything.
+        </div>
+
+        <h3>Sales Materials</h3>
+        <p>Available here at gideoncode.com/aedocs:</p>
+        <ul>
+          <li>Sales Playbook</li>
+          <li>Pricing Quick Reference</li>
+          <li>Commission Calculator</li>
+          <li>Client Onboarding Checklist</li>
+          <li>Pitch Deck Outline</li>
+        </ul>
+
+        <hr>
+
+        <!-- Section 7 -->
+        <h2 id="standards">7. Professional Standards</h2>
+
+        <div class="success-box">
+          <h4 style="color: #00FF00; margin-top: 0;">DO:</h4>
+          <ul style="margin: 0;">
+            <li>Be honest and transparent</li>
+            <li>Be on time for all meetings</li>
+            <li>Follow up when you say you will</li>
+            <li>Admit when you don't know something</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4 style="color: #ff4444; margin-top: 0;">DON'T:</h4>
+          <ul style="margin: 0;">
+            <li>Make promises we can't keep</li>
+            <li>Guarantee specific rankings or leads</li>
+            <li>Badmouth competitors</li>
+            <li>Use high-pressure tactics</li>
+          </ul>
+        </div>
+
+        <h3>What You Can Promise</h3>
+        <ul>
+          <li>✅ "We'll build you a professional website"</li>
+          <li>✅ "Hosting, updates, and security are included"</li>
+          <li>✅ "Every site includes an AI chatbot"</li>
+          <li>❌ Never promise specific rankings, leads, or revenue</li>
+        </ul>
+
+        <hr>
+
+        <!-- Section 8 -->
+        <h2 id="communication">8. Communication Guidelines</h2>
+
+        <h3>Response Times</h3>
+        <table>
+          <thead><tr><th>Channel</th><th>Expected Response</th></tr></thead>
+          <tbody>
+            <tr><td>Prospect inquiry</td><td>Within 4 hours (business hours)</td></tr>
+            <tr><td>Client question</td><td>Within 24 hours</td></tr>
+            <tr><td>Joshua/internal</td><td>Within 24 hours</td></tr>
+          </tbody>
+        </table>
+
+        <h3>When to Escalate to Joshua</h3>
+        <ul>
+          <li>Pricing exceptions requested</li>
+          <li>Unhappy client situations</li>
+          <li>Technical questions you can't answer</li>
+          <li>Deals over $5,000</li>
+          <li>Anything that feels "off"</li>
+        </ul>
+
+        <hr>
+
+        <!-- Section 9 -->
+        <h2 id="problems">9. Handling Problems</h2>
+
+        <h3>Client Wants to Cancel</h3>
+        <ol>
+          <li>Don't panic - it happens</li>
+          <li>Find out why (we learn from this)</li>
+          <li>If fixable, escalate to Joshua</li>
+          <li>Process professionally if they're set on leaving</li>
+        </ol>
+
+        <h3>Payment Issues</h3>
+        <table>
+          <thead><tr><th>Situation</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>First payment fails</td><td>Reach out to client immediately</td></tr>
+            <tr><td>Recurring fails</td><td>System retries; you may be notified</td></tr>
+            <tr><td>Disputed charge</td><td>Escalate to Joshua immediately</td></tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <!-- Section 10 -->
+        <h2 id="team">10. Building Your Team</h2>
+
+        <div class="highlight-box">
+          After you close <strong>10 verified deals</strong>, you unlock the ability to recruit other AEs.
+        </div>
+
+        <h3>How Overrides Work</h3>
+        <p><strong>Example:</strong> Your recruit Sarah sells Growth WaaS + Social ($502.50/mo)</p>
+        <ul>
+          <li>Sarah earns: $100.50/mo (her 20%)</li>
+          <li>You earn: <strong style="color: #00FF00;">$25.13/mo</strong> (your 5% override)</li>
+          <li>That's passive income from her work</li>
+        </ul>
+
+        <h3>Recruiting Tips</h3>
+        <ul>
+          <li>Focus on your own sales first</li>
+          <li>Look for people with sales experience or strong networks</li>
+          <li>Set clear expectations (100% commission)</li>
+          <li>Share your own results as proof</li>
+        </ul>
+
+        <hr>
+
+        <!-- Section 11 -->
+        <h2 id="faq">11. Frequently Asked Questions</h2>
+
+        <p><strong>Q: How long to close my first deal?</strong><br>
+        A: Most AEs close within 2-4 weeks. Focus on activity volume early on.</p>
+
+        <p><strong>Q: Can I sell in any location?</strong><br>
+        A: Yes. No territory restrictions. We serve clients nationwide.</p>
+
+        <p><strong>Q: Do I need to be technical?</strong><br>
+        A: No. Understand what we offer, but you don't need to build websites.</p>
+
+        <p><strong>Q: Can I sell to friends and family?</strong><br>
+        A: Yes, but family member sales require prior approval.</p>
+
+        <p><strong>Q: What if I want to take a break?</strong><br>
+        A: You're independent. Take time off whenever. Recurring commissions continue.</p>
+
+        <hr>
+
+        <!-- Section 12 -->
+        <h2 id="reference">12. Quick Reference</h2>
+
+        <h3>Commission Quick Math</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <p><strong>30% of Setup Fees:</strong></p>
+            <ul>
+              <li>$199 → <span style="color: #00FF00;">$60</span></li>
+              <li>$497 → <span style="color: #00FF00;">$149</span></li>
+              <li>$697 → <span style="color: #00FF00;">$209</span></li>
+              <li>$997 → <span style="color: #00FF00;">$299</span></li>
+              <li>$2,497 → <span style="color: #00FF00;">$749</span></li>
+            </ul>
+          </div>
+          <div>
+            <p><strong>20% of Monthly Fees:</strong></p>
+            <ul>
+              <li>$49.99 → <span style="color: #00FF00;">$10</span></li>
+              <li>$212.50 → <span style="color: #00FF00;">$42.50</span></li>
+              <li>$252.50 → <span style="color: #00FF00;">$50.50</span></li>
+              <li>$299 → <span style="color: #00FF00;">$59.80</span></li>
+              <li>$497 → <span style="color: #00FF00;">$99.40</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Daily Checklist</h3>
+        <ul class="checklist">
+          <li>1-2 hours prospecting</li>
+          <li>20-30 outreach attempts</li>
+          <li>Follow up on pending conversations</li>
+          <li>Log all activity in CRM</li>
+          <li>Check for leads/inquiries</li>
+        </ul>
+
+        <hr>
+
+        <div class="section-box text-center">
+          <h2 style="margin-top: 0; border: none;">Welcome to the Team</h2>
+          <p class="text-2xl" style="color: #00FF00;"><strong>Now go sell.</strong></p>
+        </div>
+
+        <p class="text-center text-gray-500 text-sm mt-8">© 2024 Gideon Codeworks. Internal use only.</p>
+
+      </div>
+    </article>
+
+    <!-- Navigation buttons -->
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyan-500/20 py-6 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <a href="/aedocs/" class="text-cyan-400 hover:text-cyan-300">← Back to AE Docs</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const CORRECT_HASH = 'ae_access_granted';
+    const STORAGE_KEY = 'gideon_ae_auth';
+    function hashPassword(pwd) { if (pwd === 'gideon2024') return CORRECT_HASH; return 'invalid'; }
+    function checkPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('passwordInput').value;
+      if (hashPassword(pwd) === CORRECT_HASH) { sessionStorage.setItem(STORAGE_KEY, CORRECT_HASH); unlockContent(); }
+      else { document.getElementById('errorMsg').style.display = 'block'; document.getElementById('passwordInput').value = ''; }
+      return false;
+    }
+    function unlockContent() { document.getElementById('lockOverlay').style.display = 'none'; document.getElementById('mainContent').style.display = 'block'; }
+    function logout() { sessionStorage.removeItem(STORAGE_KEY); location.reload(); }
+    window.onload = function() { if (sessionStorage.getItem(STORAGE_KEY) === CORRECT_HASH) unlockContent(); };
+  </script>
+</body>
+</html>
