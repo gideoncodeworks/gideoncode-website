@@ -1,7 +1,20 @@
-# Redirects for Netlify
+# Clean URLs for AE pages
+/emma       /emma.html
+/trevin     /trevin.html
 
-# Redirect default Netlify subdomain to primary domain (update with your actual domain)
-# https://gideoncodeworks.netlify.app/* https://www.gideoncode.com/:splat 301!
+# Clean URLs for city pages
+/pittsburgh   /pittsburgh.html
+/hilton-head  /hilton-head.html
+/columbia     /columbia.html
+/savannah     /savannah.html
+/columbus     /columbus.html
 
-# SPA fallback (in case you add client-side routing later)
-# /* /index.html 200
+# Other common pages
+/services     /services.html
+/portfolio    /portfolio.html
+/about        /about.html
+/careers      /careers.html
+/faq          /faq.html
+/blog         /blog.html
+/start        /get-started.html
+/contact      /get-started.html
