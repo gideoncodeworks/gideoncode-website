@@ -469,6 +469,11 @@ function initGideonConcierge() {
       return;
     }
 
+    // Hide quick actions after first message
+    if (quickContainer) {
+      quickContainer.style.display = 'none';
+    }
+
     appendMessage('user', trimmed);
     inputField.value = '';
     requestGideon(trimmed);
