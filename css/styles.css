@@ -2381,3 +2381,47 @@ textarea:focus-visible {
     max-width: none !important;
   }
 }
+
+/* Mobile Chat - Full Screen */
+@media (max-width: 640px) {
+  .gideon-concierge__panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gideon-concierge__panel.is-open {
+    transform: none;
+  }
+
+  .gideon-concierge__messages {
+    flex: 1;
+    max-height: none;
+    min-height: 0;
+  }
+
+  .gideon-concierge__quick {
+    flex-shrink: 0;
+  }
+
+  .gideon-concierge__composer {
+    flex-shrink: 0;
+    padding-bottom: calc(1.35rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .gideon-concierge__input {
+    font-size: 16px; /* Prevent iOS zoom */
+  }
+
+  .gideon-concierge__button {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
