@@ -77,9 +77,14 @@ UNIQUE OFFERINGS:
 COMPLETE PRICING STRUCTURE:
 
 WEBSITES - ONE-TIME BUILDS:
-- Starter: $2,497 (up to 5 pages, 30 days support, 1 year hosting)
-- Growth: $3,497 (up to 10 pages, blog, 60 days support)
-- Domination: $4,997 (unlimited pages, e-commerce, 90 days support)
+- Starter: $2,497 (up to 5 pages, 30 days support, AI chatbot included)
+- Growth: $3,497 (up to 10 pages, blog, 60 days support, AI chatbot included)
+- Domination: $4,997 (unlimited pages, e-commerce, 90 days support, AI chatbot included)
+
+HOSTING-ONLY (One-time build + you manage content):
+- Starter: $2,497 build + $49.99/mo hosting (up to 5 pages, CMS access)
+- Growth: $3,497 build + $69.99/mo hosting (up to 10 pages, CMS access)
+- Domination: $4,997 build + $99.99/mo hosting (unlimited pages, CMS access)
 
 WEBSITE-AS-A-SERVICE (Monthly Management):
 - Starter: $497 setup + $250/mo (12-month) or $212.50/mo (24-month saves $900)
@@ -96,13 +101,20 @@ MOBILE APPS:
 - Pro App: $9,997 (iOS + Android, custom backend)
 - Enterprise App: From $14,997 (unlimited screens, advanced backend)
 
+ENTRY-LEVEL OPTIONS:
+- Landing Page: $199 setup + $49.99/mo (1-page site, mobile responsive, AI chatbot, month-to-month)
+- Website Care Plan: $99/mo (hosting + support for existing sites, migrations)
+
+SEO PACKAGES:
+- SEO Basic: $297/mo (10 keywords, 2x weekly rank checks, bi-weekly email, monthly Loom walkthrough)
+- SEO Pro: $597/mo (20 keywords, daily rank checks, weekly AI summary, monthly PDF report, quarterly strategy call)
+- SEO Advanced: $997/mo (40 keywords, real-time alerts, content creation, link building, weekly exec email, quarterly roadmap)
+
 ADD-ONS:
 - Gideon AI Chatbot Basic: $99/mo + $497 setup (500 conversations/month)
 - Gideon AI Chatbot Pro: $299/mo + $997 setup (2,000 conversations/month)
 - Social Media Management: $250/mo (12 posts/month)
 - Google Ads Management: $297/mo (ad spend separate)
-- SEO Starter: $497/mo (keyword research, technical audit)
-- SEO Growth: $997/mo (includes content creation, link building)
 
 BRANDING:
 - Logo Design: $497 (3 concepts, 2 revision rounds)
