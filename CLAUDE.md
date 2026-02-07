@@ -4,6 +4,30 @@
 
 When you add a chatbot to a client website, it needs to send lead data to the Gideon Dashboard so the client can see their leads in their portal.
 
+### How It Works
+
+Single endpoint for all clients:
+```
+POST https://dashboard.gideoncode.com/api/public/[domain]/leads
+```
+
+The webhook automatically:
+- Looks up the client by domain
+- Creates lead under that client's account
+- Client sees it in their portal
+
+### New Client Setup (3 Steps)
+
+1. **Copy the chatbot code** with lead extraction + webhook call (see below)
+2. **Set env vars on Vercel**:
+   - `GIDEON_WEBHOOK_URL=https://dashboard.gideoncode.com`
+   - `SITE_DOMAIN=clients-domain.vercel.app`
+3. **Update client record** in Gideon Dashboard with matching domain
+
+That's it. No new endpoints needed.
+
+---
+
 ### 1. Environment Variables
 
 Add these to the client's `.env.local`:
