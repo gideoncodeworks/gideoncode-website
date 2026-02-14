@@ -112,12 +112,57 @@
       "closes": "18:00"
     },
     "sameAs": [
-      "https://twitter.com/gideoncodeworks",
-      "https://linkedin.com/company/gideoncodeworks"
+      "https://x.com/gideoncode",
+      "https://facebook.com/GideonCodeworks",
+      "https://www.instagram.com/gideoncodeworks/",
+      "https://www.linkedin.com/company/gideon-codeworks/"
     ],
     "paymentAccepted": "Cash, Credit Card, Debit Card",
     "currenciesAccepted": "USD",
     "foundingDate": "2024"
+  }
+  </script>
+
+  <!-- Speakable Schema for Voice Assistants & AI -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Cleveland Web Design for Small Businesses",
+    "description": "Professional website design and development for small businesses in Cleveland, Ohio. Monthly plans starting at $212.50/mo with hosting, updates, and support included.",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#hero-heading", ".hero-slide-in p.text-xl", "#direct-answer-pricing"]
+    },
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Small Business Web Design",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Gideon Codeworks"
+      },
+      "description": "Professional website design for small businesses. Get a free consultation for a professional website that brings in customers. Hosting, updates, and support included.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Monthly Web Service",
+          "price": "212.50",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "212.50",
+            "priceCurrency": "USD",
+            "unitText": "month"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "One-Time Website Build",
+          "price": "2497",
+          "priceCurrency": "USD"
+        }
+      ]
+    }
   }
   </script>
 </head>
@@ -237,6 +282,15 @@
         </div>
       </div>
     </section>
+
+    <!-- Direct Answer Summary for AI Engines -->
+    <aside id="direct-answer-pricing" class="py-8 px-4 sm:px-6 lg:px-8 bg-cyan-950/20 border-y border-cyan-500/20">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-gray-200 leading-relaxed">
+          <strong class="text-cyan-400">How much does web design cost in Cleveland?</strong> At Gideon Codeworks, professional websites for small businesses start at $212.50/month with hosting, updates, and support included. One-time builds start at $2,497. Most websites are live within 2-4 weeks. We serve restaurants, contractors, salons, and service businesses across Cleveland, Akron, Canton, and all of Ohio. Call 1-216-463-2648 for a free consultation.
+        </p>
+      </div>
+    </aside>
 
     <!-- What We Build -->
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950/20">
