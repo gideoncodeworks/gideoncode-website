@@ -18,6 +18,18 @@ const VIEWPORT = {
 
 const SCREENSHOTS = [
   {
+    url: 'https://ksmasonryrestoration.com',
+    output: 'images/portfolio/ks-masonry.jpg',
+    name: 'KS Masonry Restoration',
+    waitFor: 3000,
+  },
+  {
+    url: 'https://goodcattery.com',
+    output: 'images/portfolio/good-cattery.jpg',
+    name: 'Good Cattery',
+    waitFor: 3000,
+  },
+  {
     url: 'https://gideoncode.com/crm-demo.html',
     output: 'images/portfolio/crm-platform.jpg',
     name: 'Live CRM Demo',
@@ -145,7 +157,8 @@ async function main() {
   console.log('🚀 Starting automated screenshot capture...\n');
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: 'new',
+    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
