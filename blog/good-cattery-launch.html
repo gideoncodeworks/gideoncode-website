@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="iNLOfAUD-SpV-McgX3bLDUMPkUKaXrbN5YLc8vPrUnA">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF9QHH6T3S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DF9QHH6T3S');
+  </script>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Meta Tags -->
+  <title>How We Built a Scam-Proof Cat Breeder Marketplace | Gideon Codeworks</title>
+  <meta name="description" content="Pet scams cost buyers millions every year. Here's how we built GoodCattery—a verified Maine Coon breeder marketplace with escrow payments and scam protection.">
+  <meta name="keywords" content="pet scams, Maine Coon breeders, verified cat breeders, breeder marketplace, avoid pet scams, GoodCattery, cat breeder verification">
+  <meta name="author" content="Josh Stone">
+  <link rel="canonical" href="https://gideoncode.com/blog/good-cattery-launch.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://gideoncode.com/blog/good-cattery-launch.html">
+  <meta property="og:title" content="How We Built a Scam-Proof Cat Breeder Marketplace">
+  <meta property="og:description" content="Pet scams cost buyers millions every year. Here's how we built GoodCattery—a verified breeder marketplace that protects both buyers and breeders.">
+  <meta property="og:image" content="https://gideoncode.com/images/portfolio/good-cattery.jpg">
+  <meta property="og:site_name" content="Gideon Codeworks">
+  <meta property="article:published_time" content="2026-02-28T00:00:00Z">
+  <meta property="article:author" content="Josh Stone">
+  <meta property="article:section" content="Case Studies">
+  <meta property="article:tag" content="marketplace">
+  <meta property="article:tag" content="case study">
+  <meta property="article:tag" content="web development">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://gideoncode.com/blog/good-cattery-launch.html">
+  <meta name="twitter:title" content="How We Built a Scam-Proof Cat Breeder Marketplace">
+  <meta name="twitter:description" content="Pet scams cost buyers millions. Here's how we built GoodCattery—a verified breeder marketplace with real protection.">
+  <meta name="twitter:image" content="https://gideoncode.com/images/portfolio/good-cattery.jpg">
+  <meta name="twitter:creator" content="@gideoncodeworks">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How We Built a Scam-Proof Cat Breeder Marketplace",
+    "description": "Pet scams cost buyers millions every year. Here's how we built GoodCattery—a verified Maine Coon breeder marketplace with escrow payments and scam protection.",
+    "image": "https://gideoncode.com/images/portfolio/good-cattery.jpg",
+    "datePublished": "2026-02-28T00:00:00Z",
+    "dateModified": "2026-02-28T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "Josh Stone",
+      "url": "https://gideoncode.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Gideon Codeworks",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gideoncode.com/images/gcw-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gideoncode.com/blog/good-cattery-launch.html"
+    },
+    "articleSection": "Case Studies",
+    "keywords": ["pet scams", "Maine Coon breeders", "verified cat breeders", "breeder marketplace", "web development", "case study"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="fixed w-full top-0 z-50">
+      <nav class="site-nav bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0 flex items-center">
+              <a href="../index.html" aria-label="Gideon Codeworks Home" class="flex items-center">
+                <img src="../images/gcw-logo.png" alt="Gideon Codeworks logo" width="200" height="60">
+              </a>
+            </div>
+
+            <div class="nav-desktop-links items-center space-x-6">
+              <a href="../services.html" class="nav-link text-white hover:text-cyan-400">Services</a>
+              <a href="../portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
+              <a href="../about.html" class="nav-link text-white hover:text-cyan-400">About</a>
+              <a href="../team.html" class="nav-link text-white hover:text-cyan-400">Team</a>
+              <a href="../careers.html" class="nav-link text-white hover:text-cyan-400">Careers</a>
+              <a href="../faq.html" class="nav-link text-white hover:text-cyan-400">FAQ</a>
+              <a href="../blog.html" class="nav-link text-white hover:text-cyan-400">Blog</a>
+              <a href="../get-started.html" class="neon-button text-sm py-2 px-4" aria-label="Get started with your website project">Free Consultation</a>
+            </div>
+
+            <div class="nav-mobile-toggle">
+              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu">
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
+          <div class="flex flex-col p-6 space-y-6">
+            <a href="../index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
+            <a href="../services.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Services</a>
+            <a href="../portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
+            <a href="../about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">About</a>
+            <a href="../team.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">Team</a>
+            <a href="../careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Careers</a>
+            <a href="../faq.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">FAQ</a>
+            <a href="../blog.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Blog</a>
+            <a href="../get-started.html" class="mobile-menu-link neon-button text-sm py-2 px-4 text-center" role="menuitem">Free Consultation</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main role="main" id="main-content">
+
+    <article class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-8 text-sm">
+          <a href="/blog.html" class="text-cyan-400 hover:text-cyan-300">&larr; Back to Blog</a>
+        </nav>
+
+        <!-- Meta Info -->
+        <div class="mb-6">
+          <span class="text-xs uppercase tracking-wider text-purple-400">Case Study</span>
+          <span class="text-gray-600 mx-2">&bull;</span>
+          <span class="text-xs text-gray-400">February 28, 2026</span>
+          <span class="text-gray-600 mx-2">&bull;</span>
+          <span class="text-xs text-gray-400">By Josh Stone</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-8 leading-tight">
+          How We Built a Scam-Proof Cat Breeder Marketplace
+        </h1>
+
+        <!-- Article Content -->
+        <div class="prose prose-invert prose-lg max-w-none">
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Every year, thousands of people lose money to pet scams. They find a cute kitten online, send a deposit, and never hear from the "breeder" again. The photos were stolen. The cattery didn't exist. The money is gone.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            When the team behind GoodCattery came to us, they had a mission: <strong>build a marketplace where this can't happen.</strong>
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Here's how we did it.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Problem Is Bigger Than You Think</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Pet scams aren't a minor inconvenience. According to the Better Business Bureau, Americans lose over <strong>$2 million annually</strong> to pet-related fraud. And that's just what gets reported.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The scam is simple and brutal:
+          </p>
+
+          <ul class="text-xl text-gray-300 leading-relaxed mb-8 list-disc list-inside space-y-2">
+            <li>Scammer creates a fake breeder website or social media page</li>
+            <li>They steal photos of kittens from real breeders</li>
+            <li>Buyer falls in love, sends a $500-$2,000 deposit</li>
+            <li>Scammer disappears. No kitten. No refund. No recourse.</li>
+          </ul>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Maine Coons are especially targeted because of their high prices ($1,500-$3,000+). Scammers know buyers are willing to pay—and wait—for a quality kitten.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The existing solutions? Basically none. Facebook groups try to warn people. Reddit threads share known scammers. But there was no centralized, <em>verified</em> marketplace where buyers could shop with confidence.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Until now.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">What GoodCattery Needed</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The client came to us with a clear vision: create a trusted marketplace specifically for Maine Coon breeders and buyers. Not just a directory—a platform with real protection built in.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            They needed:
+          </p>
+
+          <div class="bg-gray-900 border border-cyan-500 border-opacity-30 rounded-lg p-6 mb-8">
+            <ul class="text-lg text-gray-300 space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-cyan-400 font-bold">1.</span>
+                <span><strong class="text-white">Breeder Verification</strong> — Every cattery vetted before they can list. TICA/CFA registration checks, health testing reviews, veterinary references.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-cyan-400 font-bold">2.</span>
+                <span><strong class="text-white">Secure Payments</strong> — Deposits held in escrow until the kitten is delivered. Buyer protection guaranteed.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-cyan-400 font-bold">3.</span>
+                <span><strong class="text-white">Scam Database</strong> — A community-driven resource to identify and expose fraudulent "breeders" before they steal from anyone else.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-cyan-400 font-bold">4.</span>
+                <span><strong class="text-white">Application Management</strong> — Tools for breeders to manage inquiries, track applications, and communicate with potential buyers.</span>
+              </li>
+            </ul>
+          </div>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            This wasn't a simple directory website. This was a full marketplace platform with payment processing, user authentication, verification workflows, and admin controls.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Tech Behind Trust</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            We built GoodCattery on a modern stack designed for security, speed, and scale:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-gray-900 border border-purple-500 border-opacity-30 rounded-lg p-6">
+              <h4 class="text-lg font-bold text-purple-400 mb-2">Frontend</h4>
+              <p class="text-gray-400">Next.js with React for fast, SEO-friendly pages. Server-side rendering means breeders get found on Google.</p>
+            </div>
+            <div class="bg-gray-900 border border-purple-500 border-opacity-30 rounded-lg p-6">
+              <h4 class="text-lg font-bold text-purple-400 mb-2">Payments</h4>
+              <p class="text-gray-400">Stripe Connect for marketplace payments. Funds held securely until delivery confirmed. Automatic payouts to breeders.</p>
+            </div>
+            <div class="bg-gray-900 border border-purple-500 border-opacity-30 rounded-lg p-6">
+              <h4 class="text-lg font-bold text-purple-400 mb-2">Verification System</h4>
+              <p class="text-gray-400">Custom workflow for document submission, manual review, and approval. Bad actors don't make it through.</p>
+            </div>
+            <div class="bg-gray-900 border border-purple-500 border-opacity-30 rounded-lg p-6">
+              <h4 class="text-lg font-bold text-purple-400 mb-2">Scam Database</h4>
+              <p class="text-gray-400">Community-submitted reports with admin moderation. Searchable by name, email, phone, or website.</p>
+            </div>
+          </div>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The verification system was the most critical piece. Anyone can claim to be a breeder. We built a process that requires:
+          </p>
+
+          <ul class="text-xl text-gray-300 leading-relaxed mb-8 list-disc list-inside space-y-2">
+            <li>Proof of TICA or CFA registration</li>
+            <li>Documentation of health testing protocols</li>
+            <li>Veterinary references (we actually call them)</li>
+            <li>Photo verification to prevent stolen images</li>
+          </ul>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Only after passing this review can a cattery list on the platform. The barrier is intentionally high. That's the point.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">Why This Matters</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            GoodCattery isn't just another pet website. It's infrastructure for an industry that desperately needed it.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            For <strong>buyers</strong>: Shop with confidence. Every cattery is verified. Every payment is protected. No more gambling with deposits.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            For <strong>breeders</strong>: Stand out from the scammers. The verification badge means something. Manage applications professionally. Get paid securely.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            For the <strong>industry</strong>: A rising tide lifts all boats. When buyers trust the process, they're more willing to pay fair prices for quality kittens from ethical breeders.
+          </p>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">The Result</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            GoodCattery launched and is now live at <a href="https://goodcattery.com" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300">goodcattery.com</a>.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            The platform is actively onboarding verified breeders, building its scam database, and creating a safer marketplace for Maine Coon enthusiasts.
+          </p>
+
+          <div class="bg-gradient-to-r from-purple-900/30 to-cyan-900/30 border border-purple-500 border-opacity-30 rounded-lg p-8 mb-8">
+            <p class="text-xl text-white leading-relaxed mb-4">
+              "We knew what we wanted to build, but we needed a team that could actually execute it. Gideon Codeworks understood the vision immediately and built exactly what we needed—a platform that puts trust first."
+            </p>
+            <p class="text-gray-400">— GoodCattery Founding Team</p>
+          </div>
+
+          <h2 class="text-3xl font-bold gradient-text mb-6 mt-12">Building Something That Matters</h2>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            This project reminded us why we do this work.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            Not every website is life-changing. But sometimes you get to build something that solves a real problem. Something that protects people. Something that makes an industry better.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            GoodCattery is one of those projects.
+          </p>
+
+          <p class="text-xl text-gray-300 leading-relaxed mb-8">
+            If you have an idea for a platform, marketplace, or tool that solves a real problem—we'd love to hear about it. <a href="../get-started.html" class="text-cyan-400 hover:text-cyan-300">Let's talk</a>.
+          </p>
+
+        </div>
+
+        <!-- Tags -->
+        <div class="mt-12 pt-8 border-t border-gray-800">
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs bg-gray-800 text-purple-400 px-3 py-1 rounded-full">Case Study</span>
+            <span class="text-xs bg-gray-800 text-purple-400 px-3 py-1 rounded-full">Marketplace</span>
+            <span class="text-xs bg-gray-800 text-purple-400 px-3 py-1 rounded-full">Next.js</span>
+            <span class="text-xs bg-gray-800 text-purple-400 px-3 py-1 rounded-full">Stripe</span>
+            <span class="text-xs bg-gray-800 text-purple-400 px-3 py-1 rounded-full">Pet Industry</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-gradient-to-r from-cyan-900/30 to-magenta-900/30 border border-cyan-500 border-opacity-30 rounded-lg p-8 text-center">
+          <h3 class="text-2xl font-bold text-white mb-4">Have a Marketplace Idea?</h3>
+          <p class="text-gray-300 mb-6">We build platforms that solve real problems. Let's talk about yours.</p>
+          <a href="../get-started.html" class="neon-button">Get a Free Consultation</a>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-cyan-500 border-opacity-30 py-12 px-4 sm:px-6 lg:px-8" role="contentinfo">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+        <div class="col-span-1 md:col-span-2">
+          <img src="../images/gcw-logo.png" alt="Gideon Codeworks" class="h-12 w-auto mb-4">
+          <p class="text-gray-400 text-sm">Professional websites for small businesses. Simple pricing, full service, real support.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../services.html" class="text-gray-400 hover:text-cyan-400 transition">Website Design</a></li>
+            <li><a href="../services.html#seo" class="text-gray-400 hover:text-cyan-400 transition">SEO</a></li>
+            <li><a href="../services.html" class="text-gray-400 hover:text-cyan-400 transition">Hosting & Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../about.html" class="text-gray-400 hover:text-cyan-400 transition">About</a></li>
+            <li><a href="../portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
+            <li><a href="../blog.html" class="text-gray-400 hover:text-cyan-400 transition">Blog</a></li>
+            <li><a href="../careers.html" class="text-gray-400 hover:text-cyan-400 transition">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="tel:+12164632648" class="text-gray-400 hover:text-cyan-400 transition">1-216-463-2648</a></li>
+            <li><a href="mailto:josh@gideoncode.com" class="text-gray-400 hover:text-cyan-400 transition">josh@gideoncode.com</a></li>
+            <li><a href="../get-started.html" class="text-cyan-400 hover:text-cyan-300 transition">Free Consultation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+        <p>&copy; 2026 Gideon Codeworks. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileMenuButton.querySelector('.hamburger').classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
