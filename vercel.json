@@ -1,5 +1,6 @@
 {
-  "buildCommand": null,
+  "buildCommand": "",
+  "installCommand": "npm install --production=false",
   "outputDirectory": ".",
   "framework": null,
   "rewrites": [
