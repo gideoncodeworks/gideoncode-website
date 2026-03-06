@@ -59,7 +59,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (territory) fullMessage = `Territory: ${territory}\n${fullMessage}`
     if (assignedRep) fullMessage = `Assigned Rep: ${assignedRep}\n${fullMessage}`
 
-    const response = await fetch(`${dashboardUrl}/api/leads/webhook`, {
+    const response = await fetch(`${dashboardUrl}/api/form-submissions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (!response.ok) {
       console.error('Dashboard webhook failed:', result)
     } else {
-      console.log('Lead created:', result.leadId)
+      console.log('Form submission created:', result.submissionId)
     }
 
     // Redirect to success page
