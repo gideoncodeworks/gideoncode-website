@@ -11,12 +11,15 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    console.log('=== FORM WEBHOOK TRIGGERED ===');
+    console.log('Raw body:', event.body);
+
     const payload = JSON.parse(event.body);
+    console.log('Parsed payload:', JSON.stringify(payload, null, 2));
 
     // Netlify wraps form data in a 'payload' object for submission-created events
     const formData = payload.data || payload;
-
-    console.log('Form submission received:', formData);
+    console.log('Form data extracted:', JSON.stringify(formData, null, 2));
 
     // Extract form fields (matching get-started.html form)
     const {
@@ -42,6 +45,9 @@ exports.handler = async (event, context) => {
     // Send to dashboard
     const dashboardUrl = process.env.DASHBOARD_URL || 'https://dashboard.gideoncode.com';
     const webhookSecret = process.env.LEADS_WEBHOOK_SECRET;
+
+    console.log('Dashboard URL:', dashboardUrl);
+    console.log('Webhook secret exists:', !!webhookSecret);
 
     if (!webhookSecret) {
       console.error('LEADS_WEBHOOK_SECRET not configured');
