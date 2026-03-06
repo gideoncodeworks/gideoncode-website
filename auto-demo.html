@@ -18,7 +18,7 @@
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="stylesheet" href="css/professional-dark.css">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -40,8 +40,9 @@
       transform: scale(1.05);
     }
   </style>
+  <link rel="stylesheet" href="css/chatbot.css">
 </head>
-<body class="bg-gray-100">
+<body>
 
   <!-- Demo Banner -->
   <div class="gradient-orange text-white text-center py-3 px-4 font-bold">
@@ -49,71 +50,48 @@
   </div>
 
   <!-- Header -->
-    <!-- Header & Navigation -->
-  <header>
-    <div class="fixed w-full top-0 z-50">
-      <nav class="site-nav bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30" role="navigation" aria-label="Main navigation">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-20">
-            <div class="flex-shrink-0 flex items-center">
-              <a href="index.html" aria-label="Gideon Codeworks Home" class="flex items-center">
-                <img src="images/gcw-logo.png" alt="Gideon Codeworks logo - cyberpunk tech design with cyan to magenta gradient" width="200" height="60">
-              </a>
-            </div>
+      <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="images/gcw-logo-horizontal.png" alt="Gideon Codeworks">
+      </a>
 
-            <div class="nav-desktop-links items-center space-x-6">
-              <a href="services.html#web" class="nav-link text-white hover:text-cyan-400">Web Services</a>
-              <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="nav-link text-white hover:text-cyan-400">CRM Platform</a>
-              <a href="portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
-              <div class="relative nav-dropdown-container">
-                <button type="button" class="nav-link text-white hover:text-cyan-400 flex items-center gap-1 nav-dropdown-toggle" aria-haspopup="true" aria-controls="nav-more-menu">
-                  <span>More</span>
-                  <svg class="w-4 h-4 text-cyan-400 nav-dropdown-icon transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div id="nav-more-menu" class="nav-dropdown" role="menu" aria-hidden="true">
-                  <div class="nav-dropdown-panel">
-                    <a href="careers.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Join Sales Team</a>
-                    <a href="about.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">About</a>
-                    <a href="contact.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">Contact</a>
-                    <a href="faq.html" class="nav-dropdown-link px-4 py-2 text-sm text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition" role="menuitem">FAQ</a>
-                  </div>
-                </div>
-              </div>
-              <a href="get-started.html" class="neon-button text-sm py-2 px-4" aria-label="Get started with your website project">Free Consultation</a>
-            </div>
+      <div class="nav-links">
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="careers.html" class="nav-link">Careers</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="get-started.html" class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.875rem;">
+          Free Consultation
+        </a>
+      </div>
 
-            <div class="nav-mobile-toggle">
-              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Toggle mobile menu">
-                <div class="hamburger">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </button>
-            </div>
-          </div>
+      <button class="nav-mobile-toggle" id="mobile-menu-btn">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed border-l border-cyan-500 border-opacity-30 shadow-2xl" role="menu">
-          <div class="flex flex-col p-6 space-y-6">
-            <a href="index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Home</a>
-            <a href="services.html#web" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Web Services</a>
-            <a href="https://platform.gideoncode.com" target="_blank" rel="noopener noreferrer" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">CRM Platform</a>
-            <a href="portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Portfolio</a>
-            <a href="about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">About</a>
-            <a href="team.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">Team</a>
-            <a href="contact.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Contact</a>
-            <a href="careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">Join Sales Team</a>
-            <a href="faq.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg" role="menuitem">FAQ</a>
-            <a href="get-started.html" class="mobile-menu-link neon-button text-sm py-2 px-4 text-center" role="menuitem">Free Consultation</a>
-          </div>
-        </div>
-      </nav>
+      </button>
     </div>
-  </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="careers.html">Careers</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="get-started.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Free Consultation</a>
+    </div>
+  </nav>
+
 
 
   <!-- Hero Section -->
@@ -581,15 +559,64 @@
   </section>
 
   <!-- Footer -->
-  <footer class="gradient-orange py-8 px-4 text-center text-white">
-    <p class="mb-4">&copy; 2026 Precision Auto Repair. All rights reserved.</p>
-    <p class="text-sm text-white/80">
-      This is a demo website built by <a href="index.html" class="underline font-bold">Gideon Codeworks</a>
-    </p>
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size: 1.25rem; font-weight: 700; color: #f1f5f9;">Gideon Codeworks</div>
+          <p>Professional websites for small businesses. Simple pricing, full service, real support.</p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Website Design</a></li>
+            <li><a href="services.html#seo">SEO Services</a></li>
+            <li><a href="services.html">Hosting & Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+12164632648">216-463-2648</a></li>
+            <li><a href="mailto:josh@gideoncode.com">josh@gideoncode.com</a></li>
+            <li><a href="get-started.html">Free Consultation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gideon Codeworks. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
-  <script src="js/main.js?v=5" defer></script>
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburger = mobileBtn.querySelector('.hamburger');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  </script>
 
 
-  </body>
+
+    <script src="js/chatbot.js"></script>
+</body>
 </html>

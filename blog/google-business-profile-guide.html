@@ -38,8 +38,8 @@
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=6">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/professional-dark.css">
+  
 
   <!-- Structured Data - BlogPosting -->
   <script type="application/ld+json">
@@ -69,54 +69,52 @@
     }
   }
   </script>
+  <link rel="stylesheet" href="../css/chatbot.css">
 </head>
-<body class="bg-black text-white font-inter">
+<body>
 
-  <!-- Header & Navigation -->
-  <header>
-    <div class="fixed w-full top-0 z-50">
-      <nav class="site-nav bg-black bg-opacity-95 backdrop-blur-sm border-b border-cyan-500 border-opacity-30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-20">
-            <div class="flex-shrink-0 flex items-center">
-              <a href="../index.html" class="flex items-center">
-                <img src="../images/gcw-logo.png" alt="Gideon Codeworks logo" width="200" height="60">
-              </a>
-            </div>
+    <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">
+        <img src="../images/gcw-logo-horizontal.png" alt="Gideon Codeworks">
+      </a>
 
-            <div class="nav-desktop-links items-center space-x-6">
-              <a href="../services.html" class="nav-link text-white hover:text-cyan-400">Services</a>
-              <a href="../portfolio.html" class="nav-link text-white hover:text-cyan-400">Portfolio</a>
-              <a href="../about.html" class="nav-link text-white hover:text-cyan-400">About</a>
-              <a href="../careers.html" class="nav-link text-white hover:text-cyan-400">Careers</a>
-              <a href="../faq.html" class="nav-link text-white hover:text-cyan-400">FAQ</a>
-              <a href="../blog.html" class="nav-link text-white hover:text-cyan-400">Blog</a>
-              <a href="../get-started.html" class="neon-button text-sm py-2 px-4">Free Consultation</a>
-            </div>
+      <div class="nav-links">
+        <a href="../services.html" class="nav-link">Services</a>
+        <a href="../portfolio.html" class="nav-link">Portfolio</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../team.html" class="nav-link">Team</a>
+        <a href="../careers.html" class="nav-link">Careers</a>
+        <a href="../faq.html" class="nav-link">FAQ</a>
+        <a href="../blog.html" class="nav-link">Blog</a>
+        <a href="../get-started.html" class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.875rem;">
+          Free Consultation
+        </a>
+      </div>
 
-            <div class="nav-mobile-toggle">
-              <button id="mobile-menu-button" class="text-cyan-400 focus:outline-none">
-                <div class="hamburger"><span></span><span></span><span></span></div>
-              </button>
-            </div>
-          </div>
+      <button class="nav-mobile-toggle" id="mobile-menu-btn">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-
-        <div id="mobile-menu" class="mobile-menu fixed border-l border-cyan-500 border-opacity-30 shadow-2xl">
-          <div class="flex flex-col p-6 space-y-6">
-            <a href="../index.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">Home</a>
-            <a href="../services.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">Services</a>
-            <a href="../portfolio.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">Portfolio</a>
-            <a href="../about.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">About</a>
-            <a href="../careers.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">Careers</a>
-            <a href="../faq.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">FAQ</a>
-            <a href="../blog.html" class="mobile-menu-link text-white hover:text-cyan-400 text-lg">Blog</a>
-            <a href="../get-started.html" class="mobile-menu-link neon-button text-sm py-2 px-4 text-center">Free Consultation</a>
-          </div>
-        </div>
-      </nav>
+      </button>
     </div>
-  </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="../services.html">Services</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../about.html">About</a>
+      <a href="../team.html">Team</a>
+      <a href="../careers.html">Careers</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../get-started.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Free Consultation</a>
+    </div>
+  </nav>
+
 
   <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
     <article class="max-w-3xl mx-auto">
@@ -408,17 +406,62 @@
       </div>
 
       <!-- Author Bio -->
-      <footer class="mt-16 pt-8 border-t border-cyan-500/30">
-        <div class="flex items-start gap-4">
-          <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-magenta-500 rounded-full flex items-center justify-center text-2xl font-bold">JS</div>
-          <div>
-            <p class="font-bold text-white">Josh Stone</p>
-            <p class="text-gray-400 text-sm">Founder of Gideon Codeworks. Former construction company owner who learned to code. Now builds websites for small businesses who don't want to deal with the tech stuff.</p>
-          </div>
+        <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size: 1.25rem; font-weight: 700; color: #f1f5f9;">Gideon Codeworks</div>
+          <p>Professional websites for small businesses. Simple pricing, full service, real support.</p>
         </div>
-      </footer>
 
-    </article>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="../services.html">Website Design</a></li>
+            <li><a href="../services.html#seo">SEO Services</a></li>
+            <li><a href="../services.html">Hosting & Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../portfolio.html">Portfolio</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+12164632648">216-463-2648</a></li>
+            <li><a href="mailto:josh@gideoncode.com">josh@gideoncode.com</a></li>
+            <li><a href="../get-started.html">Free Consultation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gideon Codeworks. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburger = mobileBtn.querySelector('.hamburger');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  </script>
+</article>
   </main>
 
   <!-- Related Posts -->
@@ -441,39 +484,62 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black border-t border-cyan-500 border-opacity-30 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div class="col-span-1 md:col-span-2">
-          <img src="../images/gcw-logo.png" alt="Gideon Codeworks" width="200" height="60" loading="lazy">
-          <p class="text-gray-400 mb-4 mt-4">
-            Professional websites for small businesses. No tech headaches. Just results.
-          </p>
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size: 1.25rem; font-weight: 700; color: #f1f5f9;">Gideon Codeworks</div>
+          <p>Professional websites for small businesses. Simple pricing, full service, real support.</p>
         </div>
-        <nav>
-          <h4 class="text-cyan-400 font-bold mb-4 uppercase tracking-wider">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="../index.html" class="text-gray-400 hover:text-cyan-400 transition">Home</a></li>
-            <li><a href="../services.html" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
-            <li><a href="../portfolio.html" class="text-gray-400 hover:text-cyan-400 transition">Portfolio</a></li>
-            <li><a href="../blog.html" class="text-gray-400 hover:text-cyan-400 transition">Blog</a></li>
-            <li><a href="../get-started.html" class="text-gray-400 hover:text-cyan-400 transition">Free Consultation</a></li>
-          </ul>
-        </nav>
+
         <div>
-          <h4 class="text-cyan-400 font-bold mb-4 uppercase tracking-wider">Contact</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="tel:+12164632648" class="hover:text-cyan-400 transition">216-463-2648</a></li>
-            <li><a href="mailto:josh@gideoncode.com" class="hover:text-cyan-400 transition">josh@gideoncode.com</a></li>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="../services.html">Website Design</a></li>
+            <li><a href="../services.html#seo">SEO Services</a></li>
+            <li><a href="../services.html">Hosting & Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../portfolio.html">Portfolio</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+12164632648">216-463-2648</a></li>
+            <li><a href="mailto:josh@gideoncode.com">josh@gideoncode.com</a></li>
+            <li><a href="../get-started.html">Free Consultation</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-cyan-500 border-opacity-30 pt-8 text-center text-gray-400">
+
+      <div class="footer-bottom">
         <p>&copy; 2026 Gideon Codeworks. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="../js/main.js?v=4" defer></script>
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburger = mobileBtn.querySelector('.hamburger');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  </script>
+
+  <script src="../js/chatbot.js"></script>
 </body>
 </html>
