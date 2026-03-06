@@ -421,7 +421,7 @@ function initGideonConcierge() {
   const requestGideon = async (prompt) => {
     setLoading(true);
     try {
-      const response = await fetch('/.netlify/functions/ai-gateway', {
+      const response = await fetch('/api/ai-gateway', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
