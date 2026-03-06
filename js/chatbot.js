@@ -40,10 +40,10 @@ class GideonChatbot {
     return visitorId;
   }
 
-  // Send message to dashboard for persistence via Netlify function
+  // Send message to dashboard for persistence via Vercel function
   async persistMessage(role, content) {
     try {
-      const response = await fetch('/.netlify/functions/chat-persist', {
+      const response = await fetch('/api/chat-persist', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

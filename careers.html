@@ -276,8 +276,8 @@
         </div>
 
         <div class="service-card" style="border: 2px solid var(--primary); padding: 2rem;">
-          <form name="careers-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/form-success.html">
-            <input type="hidden" name="form-name" value="careers-form">
+          <form name="careers-form" method="POST" action="/api/form-submit">
+            <input type="hidden" name="_redirect" value="/form-success.html">
             <div style="display: none;">
               <label>Don't fill this out if you're human: <input name="bot-field"></label>
             </div>

@@ -92,8 +92,8 @@
       <div class="section-container">
         <div style="max-width: 600px; margin: 0 auto;">
           <div class="service-card" style="border: 2px solid var(--primary); padding: 2rem;">
-            <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/quote-success.html">
-              <input type="hidden" name="form-name" value="quote-request">
+            <form name="quote-request" method="POST" action="/api/form-submit">
+              <!-- Honeypot for spam protection -->
               <div style="display: none;">
                 <label>Don't fill this out if you're human: <input name="bot-field"></label>
               </div>
