@@ -5,6 +5,15 @@
   publish = "."
   functions = "netlify/functions"
 
+# Trigger form-to-dashboard function when forms are submitted
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"
+
+# Note: Form submission notifications are configured in Netlify UI:
+# Site Settings → Forms → Form notifications → Outgoing webhook
+# URL: /.netlify/functions/form-to-dashboard
+# This sends form data to our dashboard CRM
+
 [[redirects]]
   from = "/home"
   to = "/"

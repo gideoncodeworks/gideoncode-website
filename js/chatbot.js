@@ -13,6 +13,10 @@ class GideonChatbot {
     // Determine base path for assets (handles subdirectories like /blog/)
     this.basePath = window.location.pathname.includes('/blog/') ? '../' : '';
 
+    // Dashboard integration for chat persistence
+    this.sessionId = null;
+    this.visitorId = this.getOrCreateVisitorId();
+
     // Don't show widget on chat page
     if (window.location.pathname.includes('chat.html')) {
       return;
@@ -24,6 +28,47 @@ class GideonChatbot {
     window.addEventListener('resize', () => {
       this.isMobile = window.innerWidth < 640;
     });
+  }
+
+  // Generate or retrieve persistent visitor ID
+  getOrCreateVisitorId() {
+    let visitorId = localStorage.getItem('gideon_visitor_id');
+    if (!visitorId) {
+      visitorId = 'v_' + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
+      localStorage.setItem('gideon_visitor_id', visitorId);
+    }
+    return visitorId;
+  }
+
+  // Send message to dashboard for persistence via Netlify function
+  async persistMessage(role, content) {
+    try {
+      const response = await fetch('/.netlify/functions/chat-persist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          visitorId: this.visitorId,
+          sessionId: this.sessionId,
+          role,
+          content,
+          pageUrl: window.location.href,
+          userAgent: navigator.userAgent,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // Store session ID for subsequent messages
+        if (data.sessionId && !this.sessionId) {
+          this.sessionId = data.sessionId;
+        }
+      }
+    } catch (error) {
+      // Silently fail - don't disrupt chat experience
+      console.debug('Chat persistence error:', error);
+    }
   }
 
   init() {
@@ -400,6 +445,10 @@ class GideonChatbot {
     if (sender === 'user') {
       document.getElementById('quick-actions').innerHTML = '';
     }
+
+    // Persist message to dashboard
+    const role = sender === 'bot' ? 'assistant' : 'user';
+    this.persistMessage(role, text);
   }
 }
 
