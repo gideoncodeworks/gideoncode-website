@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chat with Gideon AI | Gideon Codeworks</title>
+  <meta name="description" content="Chat with our AI assistant to learn about our web design services, pricing, and how we can help your business.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Professional Dark Theme -->
+  <link rel="stylesheet" href="css/professional-dark.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .chat-page {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      height: 100dvh;
+      background: #0f172a;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      padding-top: max(12px, env(safe-area-inset-top));
+    }
+
+    .chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .chat-avatar img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .chat-info h1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+    }
+
+    .chat-info p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      margin: 2px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .call-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .call-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message {
+      display: flex;
+      gap: 8px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-bot {
+      justify-content: flex-start;
+    }
+
+    .message-user {
+      justify-content: flex-end;
+    }
+
+    .message-avatar {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .message-avatar img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .message-bubble {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .message-bot .message-bubble {
+      background: #1e293b;
+      color: #f1f5f9;
+      border-bottom-left-radius: 4px;
+    }
+
+    .message-user .message-bubble {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message-bubble strong {
+      color: #3b82f6;
+    }
+
+    .message-user .message-bubble strong {
+      color: white;
+    }
+
+    .message-bubble a {
+      color: #60a5fa;
+      text-decoration: underline;
+    }
+
+    .quick-actions {
+      padding: 0 16px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .quick-action-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quick-action-btn:hover {
+      background: #334155;
+      border-color: #3b82f6;
+    }
+
+    .chat-input-container {
+      padding: 12px 16px;
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+      background: #0f172a;
+      border-top: 1px solid #1e293b;
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 24px;
+      padding: 12px 18px;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .chat-input:focus {
+      border-color: #3b82f6;
+    }
+
+    .chat-input::placeholder {
+      color: #64748b;
+    }
+
+    .send-btn {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-page">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <a href="index.html" class="back-btn" aria-label="Go back">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </a>
+        <div class="chat-avatar">
+          <img src="images/gcw-g-icon.png" alt="G">
+        </div>
+        <div class="chat-info">
+          <h1>Gideon AI Assistant</h1>
+          <p><span class="status-dot"></span> Online</p>
+        </div>
+      </div>
+      <a href="tel:+12164632648" class="call-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Call
+      </a>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chat-messages">
+      <!-- Messages inserted here -->
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions" id="quick-actions">
+      <!-- Quick action buttons inserted here -->
+    </div>
+
+    <!-- Input -->
+    <div class="chat-input-container">
+      <input
+        type="text"
+        class="chat-input"
+        id="chat-input"
+        placeholder="Type your message..."
+        autocomplete="off"
+        enterkeyhint="send"
+      >
+      <button class="send-btn" id="send-btn" aria-label="Send message">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Chat state
+    const messagesContainer = document.getElementById('chat-messages');
+    const quickActionsContainer = document.getElementById('quick-actions');
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    // Add welcome message
+    setTimeout(() => {
+      addBotMessage("Hi! 👋 I'm the Gideon AI Assistant. I'm here to help you find the perfect web solution for your business. What can I help you with today?");
+      showQuickActions([
+        { text: "💰 Pricing & Plans", action: "pricing" },
+        { text: "🎨 Services Overview", action: "services" },
+        { text: "⚡ How It Works", action: "how-it-works" },
+        { text: "📞 Talk to a Human", action: "contact" }
+      ]);
+    }, 500);
+
+    // Event listeners
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      addUserMessage(text);
+      input.value = '';
+      quickActionsContainer.innerHTML = '';
+
+      setTimeout(() => processUserMessage(text), 500);
+    }
+
+    function addBotMessage(text) {
+      const div = document.createElement('div');
+      div.className = 'message message-bot';
+      div.innerHTML = `
+        <div class="message-avatar"><img src="images/gcw-g-icon.png" alt="G"></div>
+        <div class="message-bubble">${formatText(text)}</div>
+      `;
+      messagesContainer.appendChild(div);
+      scrollToBottom();
+    }
+
+    function addUserMessage(text) {
+      const div = document.createElement('div');
+      div.className = 'message message-user';
+      div.innerHTML = `<div class="message-bubble">${text}</div>`;
+      messagesContainer.appendChild(div);
+      scrollToBottom();
+    }
+
+    function formatText(text) {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
+        .replace(/\n/g, '<br>');
+    }
+
+    function scrollToBottom() {
+      setTimeout(() => {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 100);
+    }
+
+    function showQuickActions(actions) {
+      quickActionsContainer.innerHTML = actions.map(a =>
+        `<button class="quick-action-btn" data-action="${a.action}">${a.text}</button>`
+      ).join('');
+
+      quickActionsContainer.querySelectorAll('.quick-action-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          handleQuickAction(e.target.dataset.action, e.target.textContent);
+        });
+      });
+    }
+
+    function handleQuickAction(action, text) {
+      addUserMessage(text);
+      quickActionsContainer.innerHTML = '';
+
+      setTimeout(() => {
+        switch(action) {
+          case 'pricing': handlePricing(); break;
+          case 'services': handleServices(); break;
+          case 'how-it-works': handleHowItWorks(); break;
+          case 'contact': handleContact(); break;
+          case 'plan-selector': window.location.href = 'plan-selector.html'; break;
+        }
+      }, 500);
+    }
+
+    function handlePricing() {
+      addBotMessage(
+        "We offer flexible pricing options:\n\n" +
+        "💼 **Website Packages:**\n" +
+        "• Starter: $997 upfront + $97/mo\n" +
+        "• Growth: $1,497 upfront + $147/mo\n" +
+        "• Domination: $1,997 upfront + $197/mo\n\n" +
+        "All packages include hosting, updates, and support. 50% deposit to start."
+      );
+      showQuickActions([
+        { text: "🤖 Find My Perfect Plan", action: "plan-selector" },
+        { text: "📋 See All Services", action: "services" },
+        { text: "📞 Talk to Sales", action: "contact" }
+      ]);
+    }
+
+    function handleServices() {
+      addBotMessage(
+        "We specialize in helping small businesses succeed online:\n\n" +
+        "🌐 **Website Development**\n" +
+        "Professional, mobile-responsive websites\n\n" +
+        "💼 **CRM Platform**\n" +
+        "Manage sales and track commissions\n\n" +
+        "📱 **Mobile Apps**\n" +
+        "Native iOS & Android applications\n\n" +
+        "All solutions include SEO and ongoing support."
+      );
+      showQuickActions([
+        { text: "💰 View Pricing", action: "pricing" },
+        { text: "📞 Talk to Sales", action: "contact" }
+      ]);
+    }
+
+    function handleHowItWorks() {
+      addBotMessage(
+        "Our process is simple:\n\n" +
+        "**1️⃣ Choose Your Plan**\n" +
+        "Browse our packages\n\n" +
+        "**2️⃣ Checkout & Questionnaire**\n" +
+        "Pay 50% deposit and fill out details\n\n" +
+        "**3️⃣ Onboarding Call**\n" +
+        "We call within 24-48 hours\n\n" +
+        "**4️⃣ Build & Launch**\n" +
+        "We build with regular updates\n\n" +
+        "**5️⃣ Ongoing Support**\n" +
+        "Monthly plans include maintenance"
+      );
+      showQuickActions([
+        { text: "💰 View Pricing", action: "pricing" },
+        { text: "🚀 Get Started", action: "contact" }
+      ]);
+    }
+
+    function handleContact() {
+      addBotMessage(
+        "Here's how to reach our team:\n\n" +
+        "📞 **Phone:** [216-463-2648](tel:+12164632648)\n\n" +
+        "📧 **Email:** josh@gideoncode.com\n\n" +
+        "💬 **Contact Form:** [Click here](/get-started.html)\n\n" +
+        "We typically respond within a few hours!"
+      );
+      showQuickActions([
+        { text: "💰 View Pricing First", action: "pricing" },
+        { text: "🎨 See Services", action: "services" }
+      ]);
+    }
+
+    function processUserMessage(message) {
+      const msg = message.toLowerCase();
+
+      if (msg.includes('price') || msg.includes('cost')) {
+        handlePricing();
+      } else if (msg.includes('service') || msg.includes('what do you')) {
+        handleServices();
+      } else if (msg.includes('how') || msg.includes('process')) {
+        handleHowItWorks();
+      } else if (msg.includes('contact') || msg.includes('call') || msg.includes('human')) {
+        handleContact();
+      } else {
+        addBotMessage(
+          "I can help with:\n\n" +
+          "💰 Pricing and packages\n" +
+          "🎨 Services we offer\n" +
+          "⚡ How our process works\n" +
+          "📞 Contact information\n\n" +
+          "What would you like to know?"
+        );
+        showQuickActions([
+          { text: "💰 Pricing", action: "pricing" },
+          { text: "🎨 Services", action: "services" },
+          { text: "📞 Contact", action: "contact" }
+        ]);
+      }
+    }
+  </script>
+</body>
+</html>

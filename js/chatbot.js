@@ -1,23 +1,59 @@
 /**
  * AI Chatbot Widget for Gideon Code Works
  * Provides live help and guidance to visitors
+ * Mobile: Links to full-page chat for better UX
  */
 
 class GideonChatbot {
   constructor() {
     this.isOpen = false;
     this.messages = [];
+    this.isMobile = window.innerWidth < 640;
+
+    // Determine base path for assets (handles subdirectories like /blog/)
+    this.basePath = window.location.pathname.includes('/blog/') ? '../' : '';
+
+    // Don't show widget on chat page
+    if (window.location.pathname.includes('chat.html')) {
+      return;
+    }
+
     this.init();
+
+    // Listen for resize to update mobile state
+    window.addEventListener('resize', () => {
+      this.isMobile = window.innerWidth < 640;
+    });
   }
 
   init() {
     this.createChatWidget();
     this.attachEventListeners();
-    this.addWelcomeMessage();
+    if (!this.isMobile) {
+      this.addWelcomeMessage();
+    }
   }
 
   createChatWidget() {
     const widget = document.createElement('div');
+
+    // On mobile, show a link to the chat page instead of popup
+    if (this.isMobile) {
+      // Use basePath for subdirectory handling
+      const chatPath = this.basePath + 'chat.html';
+      widget.innerHTML = `
+        <a href="${chatPath}" id="chatbot-toggle" class="chatbot-toggle" aria-label="Chat with us">
+          <svg class="chatbot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="chatbot-notification-badge">1</span>
+        </a>
+      `;
+      document.body.appendChild(widget);
+      return;
+    }
+
+    // Desktop: Full popup widget
     widget.innerHTML = `
       <!-- Chat Button -->
       <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chat">
@@ -35,7 +71,7 @@ class GideonChatbot {
       <div id="chatbot-window" class="chatbot-window hidden">
         <div class="chatbot-header">
           <div class="flex items-center">
-            <div class="chatbot-avatar"><img src="images/gcw-g-icon.png" alt="G"></div>
+            <div class="chatbot-avatar"><img src="${this.basePath}images/gcw-g-icon.png" alt="G"></div>
             <div>
               <div class="chatbot-title">Gideon AI Assistant</div>
               <div class="chatbot-status">
@@ -80,6 +116,9 @@ class GideonChatbot {
   }
 
   attachEventListeners() {
+    // On mobile, the button is a link - no event listeners needed
+    if (this.isMobile) return;
+
     const toggleBtn = document.getElementById('chatbot-toggle');
     const minimizeBtn = document.getElementById('chatbot-minimize');
     const sendBtn = document.getElementById('chatbot-send');
@@ -350,7 +389,7 @@ class GideonChatbot {
       .replace(/\n/g, '<br>');
 
     messageDiv.innerHTML = `
-      ${sender === 'bot' ? '<div class="message-avatar"><img src="images/gcw-g-icon.png" alt="G"></div>' : ''}
+      ${sender === 'bot' ? `<div class="message-avatar"><img src="${this.basePath}images/gcw-g-icon.png" alt="G"></div>` : ''}
       <div class="message-bubble">${formattedText}</div>
     `;
 
