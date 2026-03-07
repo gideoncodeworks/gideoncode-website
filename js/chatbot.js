@@ -1,6 +1,6 @@
 /**
- * Gideon AI Assistant - Conversational Chatbot
- * Natural, friendly conversation with smart lead capture
+ * Gideon AI Assistant - REAL AI Chatbot
+ * Connected to Claude/GPT via /api/ai-gateway
  */
 
 class GideonChatbot {
@@ -9,143 +9,14 @@ class GideonChatbot {
     this.isMobile = window.innerWidth < 640;
     this.basePath = window.location.pathname.includes('/blog/') ? '../' : '';
 
-    // Conversation state
-    this.conversationStage = 'greeting'; // greeting, discovery, capturing, chatting
-    this.lead = { name: null, phone: null, email: null, reason: null };
-    this.askedFor = [];
-    this.messageCount = 0;
+    // Conversation history for context
+    this.history = [];
+    this.lead = { name: null, phone: null, email: null };
+    this.isTyping = false;
 
     if (window.location.pathname.includes('chat.html')) return;
     this.init();
   }
-
-  // Everything we know
-  info = {
-    phone: "216-463-2648",
-    email: "josh@gideoncode.com",
-    hours: "Mon-Fri 9am-6pm ET",
-    timeline: "2-4 weeks",
-
-    monthlyPricing: {
-      starter: "$497 setup + $212.50/mo",
-      growth: "$697 setup + $252.50/mo (most popular)",
-      domination: "$997 setup + $299/mo"
-    },
-
-    onetimePricing: {
-      starter: "$2,497",
-      growth: "$3,497",
-      domination: "$4,997"
-    },
-
-    locations: "Cleveland, Findlay (Ohio), Phoenix (Arizona), and nationwide",
-
-    team: {
-      josh: "Josh Stone, Founder - Cleveland",
-      findlay: "Kenley, Marqelle, Jake, Hayden - Findlay",
-      phoenix: "Luke - Phoenix"
-    },
-
-    services: "website design, hosting, SEO, Google Ads, e-commerce, content writing",
-
-    industries: "contractors, medical/dental, restaurants, salons, real estate, professional services"
-  };
-
-  // Conversation responses - more natural and varied
-  responses = {
-    greetings: [
-      "Hey there! 👋 I'm the Gideon AI. What brings you here today?",
-      "Hi! 👋 Welcome to Gideon Codeworks. What can I help you with?",
-      "Hey! 👋 I'm here to help. Looking for a website or just exploring?"
-    ],
-
-    askName: [
-      "By the way, what's your name? I'd love to know who I'm chatting with!",
-      "I didn't catch your name - what should I call you?",
-      "What's your name, by the way?"
-    ],
-
-    gotName: [
-      "Nice to meet you, {name}! 🙌",
-      "Great to meet you, {name}!",
-      "Hey {name}! Love it. 👊"
-    ],
-
-    askPhone: [
-      "What's the best number to reach you at? Our team can give you a quick call to discuss.",
-      "Got a phone number? We can have someone reach out to chat more about your project.",
-      "What's your phone number? We'd love to connect you with our team."
-    ],
-
-    askEmail: [
-      "And your email? Just so we can send you some info.",
-      "What email should we use to follow up?",
-      "Drop your email and we'll send you details."
-    ],
-
-    askReason: [
-      "What kind of project are you thinking about?",
-      "Tell me a bit about what you're looking for.",
-      "What's on your mind - new website, redesign, something else?"
-    ],
-
-    thanks: [
-      "Perfect! Our team will reach out within 24 hours. In the meantime, anything else I can help with?",
-      "Awesome, you're all set! Someone will call you soon. Anything else you want to know?",
-      "Got it! We'll be in touch. Want to know more about our process or pricing while you wait?"
-    ],
-
-    pricing: `Here's the quick breakdown:
-
-**Monthly Plans** (best value):
-• Starter: $497 setup + $212/mo
-• Growth: $697 setup + $252/mo ⭐
-• Domination: $997 setup + $299/mo
-
-**One-Time Builds**:
-• Starter: $2,497
-• Growth: $3,497
-• Domination: $4,997
-
-Monthly includes hosting, updates, and support. Which sounds right for you?`,
-
-    process: `Super simple:
-
-1️⃣ **Free consultation** - we chat about your business
-2️⃣ **We build it** - you send logo/content, we do the rest
-3️⃣ **Review together** - quick calls to refine
-4️⃣ **Launch!** - usually 2-4 weeks
-
-Want to get started?`,
-
-    services: `We do it all:
-
-🌐 **Websites** - custom, mobile-friendly, fast
-🔧 **Hosting & support** - we handle everything
-✍️ **Content** - we write or polish your copy
-📈 **SEO** - get found on Google
-🛒 **E-commerce** - sell products online
-📱 **Google Ads** - drive traffic fast
-
-What sounds most relevant to you?`,
-
-    whyUs: `Here's why people choose us:
-
-✅ **We handle everything** - no DIY builders
-✅ **Real humans** - call or text us anytime
-✅ **Fast** - most sites live in 2-4 weeks
-✅ **Affordable** - from $212/month
-✅ **Guarantee** - 30-day satisfaction promise
-
-Want to chat with the team?`,
-
-    contact: `Here's how to reach us:
-
-📞 **216-463-2648** (Mon-Fri 9-6 ET)
-📧 josh@gideoncode.com
-
-Or I can grab your info and have someone call you - which works better?`
-  };
 
   init() {
     this.createWidget();
@@ -206,29 +77,24 @@ Or I can grab your info and have someone call you - which works better?`
     if (this.isOpen) document.getElementById('chatbot-input').focus();
   }
 
-  pick(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
-
   greet() {
-    this.say(this.pick(this.responses.greetings));
+    this.say("Hey there! 👋 I'm Gideon, your AI concierge. I can help you figure out exactly what you need - whether it's a new website, app, or just exploring your options. What brings you here today?");
     this.quickActions([
-      { text: "💰 Pricing", action: "pricing" },
-      { text: "🎨 Services", action: "services" },
-      { text: "📞 Talk to someone", action: "contact" }
+      { text: "💰 Pricing info", action: "pricing" },
+      { text: "🚀 I need a website", action: "website" },
+      { text: "💬 Just exploring", action: "exploring" }
     ]);
   }
 
-  say(text, delay = 0) {
-    setTimeout(() => {
-      const c = document.getElementById('chatbot-messages');
-      if (!c) return;
-      const d = document.createElement('div');
-      d.className = 'chatbot-message chatbot-message-bot';
-      d.innerHTML = `<div class="message-avatar"><img src="${this.basePath}images/gcw-g-icon.png" alt="G"></div><div class="message-bubble">${this.format(text)}</div>`;
-      c.appendChild(d);
-      c.scrollTop = c.scrollHeight;
-    }, delay);
+  say(text) {
+    const c = document.getElementById('chatbot-messages');
+    if (!c) return;
+    const d = document.createElement('div');
+    d.className = 'chatbot-message chatbot-message-bot';
+    d.innerHTML = `<div class="message-avatar"><img src="${this.basePath}images/gcw-g-icon.png" alt="G"></div><div class="message-bubble">${this.format(text)}</div>`;
+    c.appendChild(d);
+    c.scrollTop = c.scrollHeight;
+    this.history.push({ role: 'assistant', content: text });
   }
 
   userSay(text) {
@@ -239,7 +105,10 @@ Or I can grab your info and have someone call you - which works better?`
     d.innerHTML = `<div class="message-bubble">${text}</div>`;
     c.appendChild(d);
     c.scrollTop = c.scrollHeight;
-    this.messageCount++;
+    this.history.push({ role: 'user', content: text });
+
+    // Extract any contact info they share
+    this.extractInfo(text);
   }
 
   format(text) {
@@ -248,15 +117,33 @@ Or I can grab your info and have someone call you - which works better?`
       .replace(/\n/g, '<br>');
   }
 
+  showTyping() {
+    const c = document.getElementById('chatbot-messages');
+    if (!c) return;
+    const d = document.createElement('div');
+    d.className = 'chatbot-message chatbot-message-bot typing-indicator';
+    d.id = 'typing-indicator';
+    d.innerHTML = `<div class="message-avatar"><img src="${this.basePath}images/gcw-g-icon.png" alt="G"></div><div class="message-bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>`;
+    c.appendChild(d);
+    c.scrollTop = c.scrollHeight;
+  }
+
+  hideTyping() {
+    const t = document.getElementById('typing-indicator');
+    if (t) t.remove();
+  }
+
   quickActions(actions) {
     const c = document.getElementById('chatbot-quick-actions');
     if (!c) return;
     c.innerHTML = actions.map(a => `<button class="quick-action-btn" data-action="${a.action}">${a.text}</button>`).join('');
     c.querySelectorAll('.quick-action-btn').forEach(btn => {
       btn.onclick = (e) => {
-        this.userSay(e.target.textContent);
+        const text = e.target.textContent;
+        const action = e.target.dataset.action;
+        this.userSay(text);
         this.clearActions();
-        this.handleAction(e.target.dataset.action);
+        this.handleAction(action, text);
       };
     });
   }
@@ -266,335 +153,139 @@ Or I can grab your info and have someone call you - which works better?`
     if (c) c.innerHTML = '';
   }
 
-  handleAction(action) {
-    setTimeout(() => {
-      switch(action) {
-        case 'pricing':
-          this.say(this.responses.pricing);
-          this.tryCapture();
-          break;
-        case 'services':
-          this.say(this.responses.services);
-          this.tryCapture();
-          break;
-        case 'process':
-          this.say(this.responses.process);
-          this.tryCapture();
-          break;
-        case 'whyus':
-          this.say(this.responses.whyUs);
-          this.tryCapture();
-          break;
-        case 'contact':
-          this.say(this.responses.contact);
-          setTimeout(() => this.startCapture(), 1500);
-          break;
-        case 'yes_call':
-          this.startCapture();
-          break;
-        case 'no_thanks':
-          this.say("No problem! Let me know if you have any other questions. 😊");
-          this.quickActions([
-            { text: "💰 Pricing", action: "pricing" },
-            { text: "⚡ How it works", action: "process" }
-          ]);
-          break;
-      }
-    }, 400);
+  async handleAction(action, text) {
+    // Map quick actions to good prompts for the AI
+    const prompts = {
+      pricing: "Tell me about your pricing and packages",
+      website: "I need a new website for my business",
+      exploring: "I'm just exploring my options right now",
+      contact: "I'd like to talk to someone on your team",
+      services: "What services do you offer?"
+    };
+
+    await this.getAIResponse(prompts[action] || text);
   }
 
-  tryCapture() {
-    // After showing info, try to get their contact if we don't have it
-    if (!this.lead.name && !this.lead.phone) {
-      setTimeout(() => {
-        this.quickActions([
-          { text: "📞 Have someone call me", action: "yes_call" },
-          { text: "Just browsing", action: "no_thanks" }
-        ]);
-      }, 500);
-    } else {
-      setTimeout(() => {
-        this.quickActions([
-          { text: "💰 Pricing", action: "pricing" },
-          { text: "⚡ Process", action: "process" },
-          { text: "🏆 Why us", action: "whyus" }
-        ]);
-      }, 500);
-    }
-  }
-
-  startCapture() {
-    this.conversationStage = 'capturing';
-    if (!this.lead.name) {
-      this.say(this.pick(this.responses.askName));
-      this.askedFor.push('name');
-    } else if (!this.lead.phone) {
-      this.say(this.pick(this.responses.askPhone));
-      this.askedFor.push('phone');
-    } else if (!this.lead.email) {
-      this.say(this.pick(this.responses.askEmail));
-      this.askedFor.push('email');
-    } else {
-      this.finishCapture();
-    }
-  }
-
-  send() {
+  async send() {
     const input = document.getElementById('chatbot-input');
     const msg = input.value.trim();
-    if (!msg) return;
+    if (!msg || this.isTyping) return;
+
     this.userSay(msg);
     input.value = '';
     this.clearActions();
 
-    setTimeout(() => this.process(msg), 400);
+    await this.getAIResponse(msg);
   }
 
-  process(msg) {
-    const m = msg.toLowerCase();
+  async getAIResponse(userMessage) {
+    this.isTyping = true;
+    this.showTyping();
 
-    // If we're capturing info
-    if (this.conversationStage === 'capturing') {
-      this.captureInfo(msg);
-      return;
+    // Build context from conversation history
+    const context = this.history.slice(-10).map(m => `${m.role}: ${m.content}`).join('\n');
+    const leadInfo = this.lead.name ? `\nVisitor name: ${this.lead.name}` : '';
+    const pageInfo = `\nCurrent page: ${window.location.pathname}`;
+
+    try {
+      const response = await fetch('/api/ai-gateway', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          kind: 'concierge',
+          payload: {
+            context: context + leadInfo + pageInfo,
+            question: userMessage
+          }
+        })
+      });
+
+      this.hideTyping();
+      this.isTyping = false;
+
+      if (!response.ok) {
+        throw new Error('API error');
+      }
+
+      const data = await response.json();
+      this.say(data.message || "I'm having trouble connecting right now. Give us a call at 216-463-2648!");
+
+      // Show booking CTA if AI suggests it
+      if (data.needsBooking) {
+        this.quickActions([
+          { text: "📞 Call 216-463-2648", action: "call" },
+          { text: "📅 Schedule a call", action: "schedule" }
+        ]);
+      } else {
+        // Show relevant follow-ups
+        this.showContextualActions(userMessage);
+      }
+
+    } catch (error) {
+      console.error('Chat error:', error);
+      this.hideTyping();
+      this.isTyping = false;
+
+      // Fallback response
+      this.say("I'm having a moment here 😅 But don't worry - you can reach our team directly at **216-463-2648** or shoot an email to **josh@gideoncode.com**. We typically respond within a few hours!");
+      this.quickActions([
+        { text: "📞 Call now", action: "call" },
+        { text: "💰 Show pricing", action: "pricing" }
+      ]);
     }
+  }
 
-    // Check if they gave us info naturally
-    if (this.extractInfo(msg)) return;
+  showContextualActions(lastMessage) {
+    const m = lastMessage.toLowerCase();
 
-    // Handle name corrections
-    if (m.match(/my name (isn't|isnt|is not|aint|ain't)|that's not my name|not my name|wrong name/)) {
-      this.lead.name = null;
-      this.say("Oh sorry about that! What should I call you?");
-      this.conversationStage = 'capturing';
-      this.askedFor.push('name');
-      return;
-    }
-
-    // Handle "my name is X"
-    const nameMatch = m.match(/(?:my name is|i'm|im|i am|call me|this is) ([a-z]+)/i);
-    if (nameMatch) {
-      this.lead.name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1);
-      this.say(this.pick(this.responses.gotName).replace('{name}', this.lead.name) + " How can I help you today?");
+    if (m.includes('price') || m.includes('cost')) {
+      this.quickActions([
+        { text: "📞 Talk to sales", action: "contact" },
+        { text: "🚀 Get started", action: "website" }
+      ]);
+    } else if (m.includes('website') || m.includes('site')) {
+      this.quickActions([
+        { text: "💰 See pricing", action: "pricing" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
+    } else {
       this.quickActions([
         { text: "💰 Pricing", action: "pricing" },
         { text: "🎨 Services", action: "services" },
-        { text: "📞 Talk to someone", action: "contact" }
-      ]);
-      return;
-    }
-
-    // Handle "who are you" type questions
-    if (m.match(/who are you|what are you|tell me about you|about yourself|your name/)) {
-      this.say("I'm the Gideon AI Assistant! 🤖 I help visitors learn about our web design services, pricing, and connect them with our team. I'm not a real person, but I can answer most questions - and if I can't, I'll get you to someone who can!");
-      this.quickActions([
-        { text: "💰 Pricing", action: "pricing" },
-        { text: "🎨 Services", action: "services" },
-        { text: "📞 Talk to a human", action: "contact" }
-      ]);
-      return;
-    }
-
-    // Intent matching
-    if (m.match(/price|cost|how much|pricing|package|plan/)) {
-      this.say(this.responses.pricing);
-      this.tryCapture();
-    }
-    else if (m.match(/service|what do you|offer|help with/)) {
-      this.say(this.responses.services);
-      this.tryCapture();
-    }
-    else if (m.match(/process|how does|how do you|work|timeline|long/)) {
-      this.say(this.responses.process);
-      this.tryCapture();
-    }
-    else if (m.match(/why|different|better|choose you/)) {
-      this.say(this.responses.whyUs);
-      this.tryCapture();
-    }
-    else if (m.match(/contact|call|phone|talk|speak|human|person|email/)) {
-      this.say(this.responses.contact);
-      setTimeout(() => this.startCapture(), 1500);
-    }
-    else if (m.match(/^(hello|hi|hey|howdy|yo|sup|hola|what'?s up)$/i)) {
-      this.say("Hey there! 👋 What can I help you with today?");
-      this.quickActions([
-        { text: "💰 Pricing", action: "pricing" },
-        { text: "🎨 Services", action: "services" },
-        { text: "📞 Talk to someone", action: "contact" }
-      ]);
-    }
-    else if (m.match(/thank|thanks|thx/)) {
-      this.say("You're welcome! 😊 Anything else I can help with?");
-    }
-    else if (m.match(/website|site|web/)) {
-      this.say("Nice! We build custom websites for small businesses. Are you looking for a new site or redesigning an existing one?");
-      this.quickActions([
-        { text: "🆕 New website", action: "new_site" },
-        { text: "🔄 Redesign", action: "redesign" }
-      ]);
-    }
-    else if (m.match(/^(new|start|need a site|build)$/i)) {
-      this.lead.reason = "New website";
-      this.say("Awesome, a new website! What kind of business is it for?");
-      this.quickActions([
-        { text: "💰 Show me pricing", action: "pricing" },
-        { text: "📞 Talk to someone", action: "contact" }
-      ]);
-    }
-    else if (m.match(/redesign|redo|update my|existing|current site/)) {
-      this.lead.reason = "Redesign";
-      this.say("Got it, a redesign! We can definitely help with that. Want to see pricing or talk to someone?");
-      this.quickActions([
-        { text: "💰 Show me pricing", action: "pricing" },
-        { text: "📞 Talk to someone", action: "contact" }
-      ]);
-    }
-    else if (m.match(/ecommerce|e-commerce|shop|store|sell online/)) {
-      this.lead.reason = "E-commerce";
-      this.say("E-commerce, nice! We build online stores with Shopify and WooCommerce. Want to learn more?");
-      this.quickActions([
-        { text: "💰 Show me pricing", action: "pricing" },
-        { text: "📞 Talk to someone", action: "contact" }
-      ]);
-    }
-    else if (m.match(/no|nope|nah|not really|nevermind|never mind/)) {
-      this.say("No worries! I'm here if you have any questions. 😊");
-      this.quickActions([
-        { text: "💰 Pricing", action: "pricing" },
-        { text: "🎨 Services", action: "services" }
-      ]);
-    }
-    else if (m.match(/yes|yeah|yep|sure|ok|okay/)) {
-      this.say("Great! What would you like to know more about?");
-      this.quickActions([
-        { text: "💰 Pricing", action: "pricing" },
-        { text: "🎨 Services", action: "services" },
-        { text: "📞 Talk to someone", action: "contact" }
-      ]);
-    }
-    else {
-      // Don't assume unknown messages are names - just offer help
-      this.say("I'm not sure I understood that. I can help with pricing, services, or connect you with our team!");
-      this.quickActions([
-        { text: "💰 Pricing", action: "pricing" },
-        { text: "🎨 Services", action: "services" },
-        { text: "📞 Talk to someone", action: "contact" }
+        { text: "📞 Contact", action: "contact" }
       ]);
     }
   }
 
   extractInfo(msg) {
-    // Check if they naturally gave us contact info
+    // Extract phone
     const phoneMatch = msg.match(/(\d{3}[-.\s]?\d{3}[-.\s]?\d{4})/);
+    if (phoneMatch) this.lead.phone = phoneMatch[1];
+
+    // Extract email
     const emailMatch = msg.match(/([^\s@]+@[^\s@]+\.[^\s@]+)/);
+    if (emailMatch) this.lead.email = emailMatch[1];
 
-    if (phoneMatch && !this.lead.phone) {
-      this.lead.phone = phoneMatch[1];
-      this.say("Got your number! 📱");
-      if (!this.lead.email) {
-        setTimeout(() => {
-          this.say(this.pick(this.responses.askEmail));
-          this.conversationStage = 'capturing';
-          this.askedFor.push('email');
-        }, 800);
-      } else {
-        this.finishCapture();
-      }
-      return true;
+    // Extract name from "I'm X" or "my name is X"
+    const nameMatch = msg.match(/(?:i'm|im|i am|my name is|call me|this is) ([a-z]+)/i);
+    if (nameMatch) this.lead.name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1);
+
+    // Send lead data if we have contact info
+    if (this.lead.phone || this.lead.email) {
+      this.sendLead();
     }
-
-    if (emailMatch && !this.lead.email) {
-      this.lead.email = emailMatch[1];
-      this.say("Got your email! 📧");
-      if (!this.lead.phone) {
-        setTimeout(() => {
-          this.say(this.pick(this.responses.askPhone));
-          this.conversationStage = 'capturing';
-          this.askedFor.push('phone');
-        }, 800);
-      } else {
-        this.finishCapture();
-      }
-      return true;
-    }
-
-    return false;
-  }
-
-  captureInfo(msg) {
-    const lastAsked = this.askedFor[this.askedFor.length - 1];
-
-    if (lastAsked === 'name') {
-      this.lead.name = msg.split(' ')[0]; // Take first word as name
-      this.say(this.pick(this.responses.gotName).replace('{name}', this.lead.name));
-
-      setTimeout(() => {
-        this.say(this.pick(this.responses.askPhone));
-        this.askedFor.push('phone');
-      }, 800);
-    }
-    else if (lastAsked === 'phone') {
-      const phoneMatch = msg.match(/(\d{3}[-.\s]?\d{3}[-.\s]?\d{4}|\d{10})/);
-      if (phoneMatch) {
-        this.lead.phone = phoneMatch[1];
-        this.say("Perfect! 📱");
-        setTimeout(() => {
-          this.say(this.pick(this.responses.askEmail));
-          this.askedFor.push('email');
-        }, 600);
-      } else {
-        this.say("Hmm, I need a 10-digit phone number. Try again?");
-      }
-    }
-    else if (lastAsked === 'email') {
-      const emailMatch = msg.match(/([^\s@]+@[^\s@]+\.[^\s@]+)/);
-      if (emailMatch) {
-        this.lead.email = emailMatch[1];
-        this.say("Got it! 📧");
-        setTimeout(() => {
-          if (!this.lead.reason) {
-            this.say(this.pick(this.responses.askReason));
-            this.askedFor.push('reason');
-          } else {
-            this.finishCapture();
-          }
-        }, 600);
-      } else {
-        this.say("That doesn't look like an email. Can you double-check it?");
-      }
-    }
-    else if (lastAsked === 'reason') {
-      this.lead.reason = msg;
-      this.finishCapture();
-    }
-  }
-
-  finishCapture() {
-    this.conversationStage = 'chatting';
-    this.sendLead();
-
-    this.say(this.pick(this.responses.thanks));
-    setTimeout(() => {
-      this.quickActions([
-        { text: "💰 See pricing", action: "pricing" },
-        { text: "⚡ How it works", action: "process" }
-      ]);
-    }, 500);
   }
 
   sendLead() {
-    console.log('🎉 Lead captured:', this.lead);
-
-    // Send to backend
     try {
       fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...this.lead,
-          source: 'chatbot',
+          source: 'chatbot-ai',
           page: window.location.href,
+          conversation: this.history.slice(-6),
           timestamp: new Date().toISOString()
         })
       }).catch(() => {});
@@ -602,10 +293,34 @@ Or I can grab your info and have someone call you - which works better?`
   }
 }
 
+// Add typing indicator styles
+const style = document.createElement('style');
+style.textContent = `
+  .typing-indicator .message-bubble {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+  }
+  .typing-indicator .dot {
+    width: 8px;
+    height: 8px;
+    background: #64748b;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+  }
+  .typing-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
+  .typing-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
+  @keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+  }
+`;
+document.head.appendChild(style);
+
 // Start
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => new GideonChatbot());
 } else {
   new GideonChatbot();
 }
-// Cache bust: 1772837843
