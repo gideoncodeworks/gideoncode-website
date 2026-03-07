@@ -362,6 +362,39 @@ Or I can grab your info and have someone call you - which works better?`
     // Check if they gave us info naturally
     if (this.extractInfo(msg)) return;
 
+    // Handle name corrections
+    if (m.match(/my name (isn't|isnt|is not|aint|ain't)|that's not my name|not my name|wrong name/)) {
+      this.lead.name = null;
+      this.say("Oh sorry about that! What should I call you?");
+      this.conversationStage = 'capturing';
+      this.askedFor.push('name');
+      return;
+    }
+
+    // Handle "my name is X"
+    const nameMatch = m.match(/(?:my name is|i'm|im|i am|call me|this is) ([a-z]+)/i);
+    if (nameMatch) {
+      this.lead.name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1);
+      this.say(this.pick(this.responses.gotName).replace('{name}', this.lead.name) + " How can I help you today?");
+      this.quickActions([
+        { text: "💰 Pricing", action: "pricing" },
+        { text: "🎨 Services", action: "services" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
+      return;
+    }
+
+    // Handle "who are you" type questions
+    if (m.match(/who are you|what are you|tell me about you|about yourself|your name/)) {
+      this.say("I'm the Gideon AI Assistant! 🤖 I help visitors learn about our web design services, pricing, and connect them with our team. I'm not a real person, but I can answer most questions - and if I can't, I'll get you to someone who can!");
+      this.quickActions([
+        { text: "💰 Pricing", action: "pricing" },
+        { text: "🎨 Services", action: "services" },
+        { text: "📞 Talk to a human", action: "contact" }
+      ]);
+      return;
+    }
+
     // Intent matching
     if (m.match(/price|cost|how much|pricing|package|plan/)) {
       this.say(this.responses.pricing);
@@ -383,18 +416,13 @@ Or I can grab your info and have someone call you - which works better?`
       this.say(this.responses.contact);
       setTimeout(() => this.startCapture(), 1500);
     }
-    else if (m.match(/hello|hi|hey|howdy|yo|sup/)) {
-      if (!this.lead.name) {
-        this.say("Hey! 👋 " + this.pick(this.responses.askName));
-        this.askedFor.push('name');
-        this.conversationStage = 'capturing';
-      } else {
-        this.say(`Hey ${this.lead.name}! What can I help you with?`);
-        this.quickActions([
-          { text: "💰 Pricing", action: "pricing" },
-          { text: "🎨 Services", action: "services" }
-        ]);
-      }
+    else if (m.match(/^(hello|hi|hey|howdy|yo|sup|hola|what'?s up)$/i)) {
+      this.say("Hey there! 👋 What can I help you with today?");
+      this.quickActions([
+        { text: "💰 Pricing", action: "pricing" },
+        { text: "🎨 Services", action: "services" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
     }
     else if (m.match(/thank|thanks|thx/)) {
       this.say("You're welcome! 😊 Anything else I can help with?");
@@ -406,43 +434,53 @@ Or I can grab your info and have someone call you - which works better?`
         { text: "🔄 Redesign", action: "redesign" }
       ]);
     }
-    else if (m.match(/new|start|need a site|build/)) {
+    else if (m.match(/^(new|start|need a site|build)$/i)) {
       this.lead.reason = "New website";
-      this.say("Awesome! A new website - exciting! " + this.pick(this.responses.askName));
-      this.conversationStage = 'capturing';
-      this.askedFor.push('name');
+      this.say("Awesome, a new website! What kind of business is it for?");
+      this.quickActions([
+        { text: "💰 Show me pricing", action: "pricing" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
     }
-    else if (m.match(/redesign|redo|update|existing|current/)) {
+    else if (m.match(/redesign|redo|update my|existing|current site/)) {
       this.lead.reason = "Redesign";
-      this.say("Got it, a redesign! We can definitely help. " + this.pick(this.responses.askName));
-      this.conversationStage = 'capturing';
-      this.askedFor.push('name');
+      this.say("Got it, a redesign! We can definitely help with that. Want to see pricing or talk to someone?");
+      this.quickActions([
+        { text: "💰 Show me pricing", action: "pricing" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
     }
-    else if (m.match(/ecommerce|e-commerce|shop|store|sell/)) {
+    else if (m.match(/ecommerce|e-commerce|shop|store|sell online/)) {
       this.lead.reason = "E-commerce";
-      this.say("E-commerce, nice! We do Shopify and WooCommerce. " + this.pick(this.responses.askName));
-      this.conversationStage = 'capturing';
-      this.askedFor.push('name');
+      this.say("E-commerce, nice! We build online stores with Shopify and WooCommerce. Want to learn more?");
+      this.quickActions([
+        { text: "💰 Show me pricing", action: "pricing" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
+    }
+    else if (m.match(/no|nope|nah|not really|nevermind|never mind/)) {
+      this.say("No worries! I'm here if you have any questions. 😊");
+      this.quickActions([
+        { text: "💰 Pricing", action: "pricing" },
+        { text: "🎨 Services", action: "services" }
+      ]);
+    }
+    else if (m.match(/yes|yeah|yep|sure|ok|okay/)) {
+      this.say("Great! What would you like to know more about?");
+      this.quickActions([
+        { text: "💰 Pricing", action: "pricing" },
+        { text: "🎨 Services", action: "services" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
     }
     else {
-      // They said something we don't understand - maybe it's their name?
-      if (msg.split(' ').length <= 3 && !m.match(/[0-9@]/)) {
-        // Probably a name
-        this.lead.name = msg.split(' ')[0];
-        this.say(this.pick(this.responses.gotName).replace('{name}', this.lead.name) + " What brings you to Gideon Codeworks today?");
-        this.quickActions([
-          { text: "🆕 Need a website", action: "new_site" },
-          { text: "🔄 Redesign existing", action: "redesign" },
-          { text: "💰 Just checking pricing", action: "pricing" }
-        ]);
-      } else {
-        this.say("I'm here to help! I can tell you about our pricing, services, or connect you with the team. What sounds good?");
-        this.quickActions([
-          { text: "💰 Pricing", action: "pricing" },
-          { text: "🎨 Services", action: "services" },
-          { text: "📞 Talk to someone", action: "contact" }
-        ]);
-      }
+      // Don't assume unknown messages are names - just offer help
+      this.say("I'm not sure I understood that. I can help with pricing, services, or connect you with our team!");
+      this.quickActions([
+        { text: "💰 Pricing", action: "pricing" },
+        { text: "🎨 Services", action: "services" },
+        { text: "📞 Talk to someone", action: "contact" }
+      ]);
     }
   }
 
