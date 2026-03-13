@@ -14,8 +14,21 @@ class GideonChatbot {
     this.lead = { name: null, phone: null, email: null };
     this.isTyping = false;
 
+    // Session tracking for dashboard persistence
+    this.visitorId = this.getOrCreateVisitorId();
+    this.sessionId = null;
+
     if (window.location.pathname.includes('chat.html')) return;
     this.init();
+  }
+
+  getOrCreateVisitorId() {
+    let visitorId = localStorage.getItem('gideon_visitor_id');
+    if (!visitorId) {
+      visitorId = 'v_' + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
+      localStorage.setItem('gideon_visitor_id', visitorId);
+    }
+    return visitorId;
   }
 
   init() {
@@ -95,6 +108,9 @@ class GideonChatbot {
     c.appendChild(d);
     c.scrollTop = c.scrollHeight;
     this.history.push({ role: 'assistant', content: text });
+
+    // Persist to dashboard
+    this.persistMessage('assistant', text);
   }
 
   userSay(text) {
@@ -109,6 +125,9 @@ class GideonChatbot {
 
     // Extract any contact info they share
     this.extractInfo(text);
+
+    // Persist to dashboard
+    this.persistMessage('user', text);
   }
 
   format(text) {
@@ -290,6 +309,38 @@ class GideonChatbot {
         })
       }).catch(() => {});
     } catch(e) {}
+  }
+
+  // Persist message to dashboard for admin visibility
+  async persistMessage(role, content) {
+    try {
+      const response = await fetch('/.netlify/functions/chat-persist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          visitorId: this.visitorId,
+          sessionId: this.sessionId,
+          role,
+          content,
+          pageUrl: window.location.href,
+          userAgent: navigator.userAgent,
+          visitorName: this.lead.name,
+          visitorEmail: this.lead.email,
+          visitorPhone: this.lead.phone,
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // Store session ID for subsequent messages
+        if (data.sessionId && !this.sessionId) {
+          this.sessionId = data.sessionId;
+        }
+      }
+    } catch (e) {
+      // Silently fail - don't break chat experience
+      console.debug('Chat persist failed:', e);
+    }
   }
 }
 
