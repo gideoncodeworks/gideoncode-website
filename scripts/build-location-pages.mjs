@@ -75,22 +75,22 @@ function escapeHtml(str) {
 
 function generatePage(page) {
   const painPointsHtml = page.painPoints.map(p =>
-    `            <li class="flex items-start gap-3">
-              <span class="text-red-400 text-xl mt-0.5">&#10007;</span>
-              <span class="text-gray-300">${escapeHtml(p)}</span>
-            </li>`
+    `              <li style="padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span style="color: #ef4444; font-size: 1.125rem;">&#10007;</span>
+                <span>${escapeHtml(p)}</span>
+              </li>`
   ).join('\n');
 
   const faqHtml = page.faqItems.map((item, i) =>
-    `          <div class="cyber-card">
-            <button onclick="toggleFaq(${i})" class="w-full text-left flex justify-between items-center">
-              <h3 class="text-lg font-bold text-cyan-400 pr-4">${escapeHtml(item.question)}</h3>
-              <span id="faq-icon-${i}" class="text-cyan-400 text-2xl flex-shrink-0 transition-transform">+</span>
-            </button>
-            <div id="faq-answer-${i}" class="hidden mt-4">
-              <p class="text-gray-300 leading-relaxed">${escapeHtml(item.answer)}</p>
-            </div>
-          </div>`
+    `            <div class="service-card" style="cursor: pointer;" onclick="toggleFaq(${i})">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-size: 1.125rem; color: var(--primary); padding-right: 1rem;">${escapeHtml(item.question)}</h3>
+                <span id="faq-icon-${i}" style="color: var(--primary); font-size: 1.5rem; flex-shrink: 0; transition: transform 0.2s;">+</span>
+              </div>
+              <div id="faq-answer-${i}" style="display: none; margin-top: 1rem;">
+                <p style="color: var(--text-secondary); line-height: 1.7;">${escapeHtml(item.answer)}</p>
+              </div>
+            </div>`
   ).join('\n');
 
   return `<!DOCTYPE html>
@@ -118,6 +118,7 @@ function generatePage(page) {
   <meta property="og:image" content="https://gideoncode.com/images/gcw-og-image.png">
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/gcw-g-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/professional-dark.css">
   <link rel="stylesheet" href="/css/chatbot.css">
@@ -129,56 +130,8 @@ function generatePage(page) {
   <script type="application/ld+json">
   ${generateFAQSchema(page.faqItems)}
   </script>
-
-  <style>
-    .gradient-text {
-      background: linear-gradient(135deg, #00FFFF 0%, #FF00FF 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .cyber-card {
-      background: rgba(0, 255, 255, 0.05);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    .cyber-card:hover {
-      border-color: #00FFFF;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
-    }
-    .neon-button {
-      display: inline-block;
-      border: 2px solid #00FFFF;
-      color: #00FFFF;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 1rem 2rem;
-      font-weight: 600;
-      font-size: 0.875rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-    .neon-button:hover {
-      background: rgba(0, 255, 255, 0.1);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-    }
-    .neon-button-outline {
-      border-color: rgba(0, 255, 255, 0.5);
-      color: rgba(0, 255, 255, 0.8);
-    }
-    .stat-card {
-      background: rgba(0, 255, 255, 0.08);
-      border: 1px solid rgba(0, 255, 255, 0.2);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      text-align: center;
-    }
-  </style>
 </head>
-<body class="bg-black text-white">
+<body>
 
   <!-- Navigation -->
   <nav class="nav">
@@ -224,230 +177,237 @@ function generatePage(page) {
   <main>
 
     <!-- Hero Section -->
-    <section class="min-h-[80dvh] flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-cyan-950/10 to-black">
-      <div class="max-w-4xl mx-auto text-center space-y-8">
-        <p class="text-sm uppercase tracking-[0.4em] text-cyan-300">${escapeHtml(page.service)} &bull; ${escapeHtml(page.city)}, ${escapeHtml(page.stateAbbr)}</p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-          <span class="gradient-text">${escapeHtml(page.heroHeadline)}</span>
+    <section class="hero" style="padding-top: 8rem; padding-bottom: 4rem;">
+      <div class="hero-container" style="display: block; text-align: center;">
+        <div class="hero-badge" style="margin: 0 auto 1.5rem;">
+          ${escapeHtml(page.service)} &bull; ${escapeHtml(page.city)}, ${escapeHtml(page.stateAbbr)}
+        </div>
+        <h1 style="margin-bottom: 1.5rem;">
+          <span class="text-gradient">${escapeHtml(page.heroHeadline)}</span>
         </h1>
-        <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        <p style="max-width: 700px; margin: 0 auto 2rem; font-size: 1.25rem;">
           ${escapeHtml(page.heroSubheadline)}
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#contact" class="neon-button">Get Your Free Website Audit</a>
-          <a href="tel:+12164632648" class="neon-button neon-button-outline">Call Now: (216) 463-2648</a>
+        <div class="hero-buttons" style="justify-content: center;">
+          <a href="#contact" class="btn btn-primary">Get Your Free Website Audit</a>
+          <a href="tel:+12164632648" class="btn btn-outline">Call: (216) 463-2648</a>
         </div>
       </div>
     </section>
 
-    <!-- Problem / Local Angle Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950/20">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">
-          <span class="gradient-text">The ${escapeHtml(page.city)} ${escapeHtml(page.trade)} Problem</span>
-        </h2>
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+      <div class="trust-container">
+        <div class="trust-item"><span class="trust-icon">&#10003;</span><span>Custom Code</span></div>
+        <div class="trust-item"><span class="trust-icon">&#10003;</span><span>No Templates</span></div>
+        <div class="trust-item"><span class="trust-icon">&#10003;</span><span>Hosting Included</span></div>
+        <div class="trust-item"><span class="trust-icon">&#10003;</span><span>One Point of Contact</span></div>
+        <div class="trust-item"><span class="trust-icon">&#10003;</span><span>Real Support</span></div>
+      </div>
+    </section>
 
-        <div class="max-w-3xl mx-auto mb-12">
-          <p class="text-lg text-gray-300 leading-relaxed">
+    <!-- Problem / Local Angle Section -->
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>The ${escapeHtml(page.city)} ${escapeHtml(page.trade)} Problem</h2>
+        </div>
+
+        <div style="max-width: 750px; margin: 0 auto 3rem;">
+          <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary);">
             ${escapeHtml(page.localAngle)}
           </p>
         </div>
 
         <!-- Pain Points -->
-        <div class="cyber-card max-w-3xl mx-auto mb-12">
-          <h3 class="text-xl font-bold text-white mb-6">Sound familiar?</h3>
-          <ul class="space-y-4">
+        <div class="service-card" style="max-width: 750px; margin: 0 auto 3rem; border: 2px solid var(--border);">
+          <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Sound familiar?</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary);">
 ${painPointsHtml}
           </ul>
         </div>
 
         <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          <div class="stat-card">
-            <p class="text-2xl font-bold text-cyan-400">${escapeHtml(page.stats.searchVolume)}</p>
-            <p class="text-gray-400 text-sm mt-1">monthly searches for<br>"${escapeHtml(page.stats.searchTerm)}"</p>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 800px; margin: 0 auto;">
+          <div class="service-card" style="text-align: center; padding: 1.25rem;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">${escapeHtml(page.stats.searchVolume)}</div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">monthly searches for<br>"${escapeHtml(page.stats.searchTerm)}"</p>
           </div>
-          <div class="stat-card">
-            <p class="text-2xl font-bold text-cyan-400">${escapeHtml(page.stats.avgResponseTime)}</p>
-            <p class="text-gray-400 text-sm mt-1">avg response time<br>to new leads</p>
+          <div class="service-card" style="text-align: center; padding: 1.25rem;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">${escapeHtml(page.stats.avgResponseTime)}</div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">avg response time<br>to new leads</p>
           </div>
-          <div class="stat-card">
-            <p class="text-2xl font-bold text-red-400">${escapeHtml(page.stats.missedCallRate)}</p>
-            <p class="text-gray-400 text-sm mt-1">of calls go<br>unanswered</p>
+          <div class="service-card" style="text-align: center; padding: 1.25rem;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: #ef4444;">${escapeHtml(page.stats.missedCallRate)}</div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">of calls go<br>unanswered</p>
           </div>
-          <div class="stat-card">
-            <p class="text-2xl font-bold text-green-400">78%</p>
-            <p class="text-gray-400 text-sm mt-1">of local searches lead<br>to in-store visits</p>
+          <div class="service-card" style="text-align: center; padding: 1.25rem;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--success);">78%</div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">of local searches lead<br>to in-store visits</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Services Overview -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">
-          <span class="gradient-text">What We Do for ${escapeHtml(page.trade)} in ${escapeHtml(page.city)}</span>
-        </h2>
-        <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          No templates. No outsourcing. Custom code, one point of contact, real results.
-        </p>
+    <section class="section section-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>What We Do for ${escapeHtml(page.trade)} in ${escapeHtml(page.city)}</h2>
+          <p>No templates. No outsourcing. Custom code, one point of contact, real results.</p>
+        </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="cyber-card">
-            <div class="text-3xl mb-3">&#127760;</div>
-            <h3 class="text-lg font-bold text-cyan-400 mb-2">Custom Website</h3>
-            <p class="text-gray-300 text-sm">A fast, mobile-first website built to convert visitors into phone calls. Not a template — built specifically for ${escapeHtml(page.tradeSlug)} in ${escapeHtml(page.city)}.</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">&#127760;</div>
+            <h3>Custom Website</h3>
+            <p>A fast, mobile-first website built to convert visitors into phone calls. Not a template — built specifically for ${escapeHtml(page.tradeSlug)} in ${escapeHtml(page.city)}.</p>
           </div>
-          <div class="cyber-card">
-            <div class="text-3xl mb-3">&#128269;</div>
-            <h3 class="text-lg font-bold text-cyan-400 mb-2">Local SEO</h3>
-            <p class="text-gray-300 text-sm">Show up when ${escapeHtml(page.city)} homeowners search for ${escapeHtml(page.tradeSlug)}. Google Business Profile optimization, local citations, and review management.</p>
+          <div class="service-card">
+            <div class="service-icon">&#128269;</div>
+            <h3>Local SEO</h3>
+            <p>Show up when ${escapeHtml(page.city)} homeowners search for ${escapeHtml(page.tradeSlug)}. Google Business Profile optimization, local citations, and review management.</p>
           </div>
-          <div class="cyber-card">
-            <div class="text-3xl mb-3">&#128200;</div>
-            <h3 class="text-lg font-bold text-cyan-400 mb-2">Google Ads</h3>
-            <p class="text-gray-300 text-sm">Targeted ads that put you at the top of search results immediately. We manage your budget so you get calls, not wasted clicks.</p>
+          <div class="service-card">
+            <div class="service-icon">&#128200;</div>
+            <h3>Google Ads</h3>
+            <p>Targeted ads that put you at the top of search results immediately. We manage your budget so you get calls, not wasted clicks.</p>
           </div>
-          <div class="cyber-card">
-            <div class="text-3xl mb-3">&#128241;</div>
-            <h3 class="text-lg font-bold text-cyan-400 mb-2">Social Media</h3>
-            <p class="text-gray-300 text-sm">Professional presence on Facebook and Instagram. Before/after project photos, reviews, and content that builds trust with homeowners.</p>
+          <div class="service-card">
+            <div class="service-icon">&#128241;</div>
+            <h3>Social Media</h3>
+            <p>Professional presence on Facebook and Instagram. Before/after project photos, reviews, and content that builds trust with homeowners.</p>
           </div>
-          <div class="cyber-card">
-            <div class="text-3xl mb-3">&#129302;</div>
-            <h3 class="text-lg font-bold text-cyan-400 mb-2">AI Chatbot</h3>
-            <p class="text-gray-300 text-sm">Never miss a lead — even at 2am. Our AI chatbot answers questions, captures contact info, and books appointments while you sleep.</p>
+          <div class="service-card">
+            <div class="service-icon">&#129302;</div>
+            <h3>AI Chatbot</h3>
+            <p>Never miss a lead — even at 2am. Our AI chatbot answers questions, captures contact info, and books appointments while you sleep.</p>
           </div>
-          <div class="cyber-card">
-            <div class="text-3xl mb-3">&#9733;</div>
-            <h3 class="text-lg font-bold text-cyan-400 mb-2">Review Management</h3>
-            <p class="text-gray-300 text-sm">Automated review requests after every job. More 5-star Google reviews = more trust = more calls. Simple as that.</p>
+          <div class="service-card">
+            <div class="service-icon">&#9733;</div>
+            <h3>Review Management</h3>
+            <p>Automated review requests after every job. More 5-star Google reviews = more trust = more calls. Simple as that.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Leaky Bucket Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-cyan-950/20 to-black">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8">
-          <span class="gradient-text">You Don't Need More Advertising</span>
-        </h2>
-        <h3 class="text-xl text-gray-300 text-center mb-12">You need to stop losing the leads you already get.</h3>
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>You Don't Need More Advertising</h2>
+          <p>You need to stop losing the leads you already get.</p>
+        </div>
 
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-          <div class="cyber-card border-red-500/30">
-            <h4 class="text-lg font-bold text-red-400 mb-4">The Leaky Bucket</h4>
-            <ul class="space-y-3 text-gray-300">
-              <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> Slow website that loses mobile visitors</li>
-              <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> No online booking or easy way to call</li>
-              <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> Missed calls going to voicemail</li>
-              <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> No follow-up on inquiries</li>
-              <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> Few or outdated Google reviews</li>
+        <div class="features-grid" style="max-width: 900px; margin: 0 auto 3rem;">
+          <div class="service-card" style="border: 2px solid rgba(239, 68, 68, 0.3);">
+            <h3 style="color: #ef4444; margin-bottom: 1rem;">The Leaky Bucket</h3>
+            <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2.2;">
+              <li>&#10007; Slow website that loses mobile visitors</li>
+              <li>&#10007; No online booking or easy way to call</li>
+              <li>&#10007; Missed calls going to voicemail</li>
+              <li>&#10007; No follow-up on inquiries</li>
+              <li>&#10007; Few or outdated Google reviews</li>
             </ul>
           </div>
-          <div class="cyber-card border-green-500/30">
-            <h4 class="text-lg font-bold text-green-400 mb-4">The Fix</h4>
-            <ul class="space-y-3 text-gray-300">
-              <li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Fast site that loads in under 2 seconds</li>
-              <li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Click-to-call and online scheduling</li>
-              <li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> AI chatbot catches every lead 24/7</li>
-              <li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Automated follow-up sequences</li>
-              <li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Review requests after every completed job</li>
+          <div class="service-card" style="border: 2px solid rgba(16, 185, 129, 0.3);">
+            <h3 style="color: var(--success); margin-bottom: 1rem;">The Fix</h3>
+            <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 2.2;">
+              <li>&#10003; Fast site that loads in under 2 seconds</li>
+              <li>&#10003; Click-to-call and online scheduling</li>
+              <li>&#10003; AI chatbot catches every lead 24/7</li>
+              <li>&#10003; Automated follow-up sequences</li>
+              <li>&#10003; Review requests after every completed job</li>
             </ul>
           </div>
         </div>
 
-        <div class="text-center">
-          <p class="text-xl text-gray-300 mb-6">This isn't an additional expense — it's <strong class="text-cyan-400">revenue recovery</strong>.</p>
-          <a href="#contact" class="neon-button">Find Out What You're Losing</a>
+        <div style="text-align: center;">
+          <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 1.5rem;">This isn't an additional expense — it's <strong style="color: var(--primary);">revenue recovery</strong>.</p>
+          <a href="#contact" class="btn btn-primary">Find Out What You're Losing</a>
         </div>
       </div>
     </section>
 
     <!-- Social Proof -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-8">
-          <span class="gradient-text">Trusted by Contractors Across the Country</span>
-        </h2>
-        <div class="grid md:grid-cols-3 gap-6 mb-12">
-          <div class="stat-card">
-            <p class="text-3xl font-bold text-cyan-400">50+</p>
-            <p class="text-gray-400 mt-1">Websites Built</p>
+    <section class="section section-alt">
+      <div class="section-container" style="text-align: center;">
+        <div class="section-header">
+          <h2>Trusted by Contractors Across the Country</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 600px; margin: 0 auto 2rem;">
+          <div class="service-card" style="text-align: center; padding: 1.5rem;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">50+</div>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">Websites Built</p>
           </div>
-          <div class="stat-card">
-            <p class="text-3xl font-bold text-cyan-400">31</p>
-            <p class="text-gray-400 mt-1">Industry Templates</p>
+          <div class="service-card" style="text-align: center; padding: 1.5rem;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">31</div>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">Industry Templates</p>
           </div>
-          <div class="stat-card">
-            <p class="text-3xl font-bold text-cyan-400">24/7</p>
-            <p class="text-gray-400 mt-1">AI Lead Capture</p>
+          <div class="service-card" style="text-align: center; padding: 1.5rem;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">24/7</div>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">AI Lead Capture</p>
           </div>
         </div>
-        <p class="text-gray-400 italic">"We're adding testimonials from ${escapeHtml(page.city)} contractors as we grow in this market. In the meantime, ask us for references."</p>
+        <p style="color: var(--text-muted); font-style: italic;">"We're adding testimonials from ${escapeHtml(page.city)} contractors as we grow in this market. In the meantime, ask us for references."</p>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-cyan-950/20">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">
-          <span class="gradient-text">Frequently Asked Questions</span>
-        </h2>
-        <div class="space-y-4">
+    <section class="section">
+      <div class="section-container" style="max-width: 750px;">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
 ${faqHtml}
         </div>
       </div>
     </section>
 
     <!-- Contact Form -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-            <span class="gradient-text">Ready to Stop Leaving Money on the Table?</span>
-          </h2>
-          <p class="text-xl text-gray-300">
-            Free website audit for ${escapeHtml(page.city)} ${escapeHtml(page.tradeSlug)}. No obligation. No sales pitch. Just an honest look at where you're losing leads.
-          </p>
+    <section id="contact" class="section section-alt">
+      <div class="section-container" style="max-width: 700px;">
+        <div class="section-header">
+          <h2>Ready to Stop Leaving Money on the Table?</h2>
+          <p>Free website audit for ${escapeHtml(page.city)} ${escapeHtml(page.tradeSlug)}. No obligation. No sales pitch. Just an honest look at where you're losing leads.</p>
         </div>
 
-        <div class="cyber-card border-2 border-cyan-500 p-8">
+        <div class="service-card" style="border: 2px solid var(--primary); padding: 2rem;">
           <form name="location-contact" method="POST" action="/api/form-submit">
             <input type="hidden" name="_redirect" value="/form-success.html">
             <input type="hidden" name="source-page" value="${escapeHtml(page.slug)}">
             <input type="hidden" name="territory" value="${escapeHtml(page.city)}, ${escapeHtml(page.stateAbbr)}">
-            <div class="hidden">
+            <div style="display: none;">
               <label>Don't fill this out if you're human: <input name="bot-field"></label>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <div>
-                <label for="name" class="block text-cyan-400 font-semibold mb-2">Name *</label>
-                <input type="text" id="name" name="name" required class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+                <label for="name" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Name *</label>
+                <input type="text" id="name" name="name" required style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
               </div>
               <div>
-                <label for="phone" class="block text-cyan-400 font-semibold mb-2">Phone *</label>
-                <input type="tel" id="phone" name="phone" required class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+                <label for="phone" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Phone *</label>
+                <input type="tel" id="phone" name="phone" required style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
               </div>
             </div>
 
-            <div class="mb-6">
-              <label for="email" class="block text-cyan-400 font-semibold mb-2">Email *</label>
-              <input type="email" id="email" name="email" required class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+            <div style="margin-bottom: 1rem;">
+              <label for="email" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Email *</label>
+              <input type="email" id="email" name="email" required style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
             </div>
 
-            <div class="mb-6">
-              <label for="company" class="block text-cyan-400 font-semibold mb-2">Company Name</label>
-              <input type="text" id="company" name="company" class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+            <div style="margin-bottom: 1rem;">
+              <label for="company" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Company Name</label>
+              <input type="text" id="company" name="company" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
               <div>
-                <label for="service-interest" class="block text-cyan-400 font-semibold mb-2">What do you need?</label>
-                <select id="service-interest" name="service-interest" class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+                <label for="service-interest" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">What do you need?</label>
+                <select id="service-interest" name="service-interest" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
                   <option value="">Select one...</option>
                   <option value="website">Website</option>
                   <option value="seo">SEO</option>
@@ -458,8 +418,8 @@ ${faqHtml}
                 </select>
               </div>
               <div>
-                <label for="trade" class="block text-cyan-400 font-semibold mb-2">Your Trade</label>
-                <select id="trade" name="trade" class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none">
+                <label for="trade" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Your Trade</label>
+                <select id="trade" name="trade" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
                   <option value="">Select one...</option>
                   <option value="plumber"${page.tradeSlug === 'plumbers' ? ' selected' : ''}>Plumber</option>
                   <option value="roofer"${page.tradeSlug === 'roofers' ? ' selected' : ''}>Roofer</option>
@@ -471,18 +431,32 @@ ${faqHtml}
               </div>
             </div>
 
-            <div class="mb-8">
-              <label for="message" class="block text-cyan-400 font-semibold mb-2">Tell us about your business</label>
-              <textarea id="message" name="message" rows="4" class="w-full bg-black/60 border border-cyan-500/40 rounded px-4 py-3 text-white focus:border-cyan-500 focus:outline-none" placeholder="What does your business do? Do you have a current website?"></textarea>
+            <div style="margin-bottom: 1.5rem;">
+              <label for="message" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Tell us about your business</label>
+              <textarea id="message" name="message" rows="4" placeholder="What does your business do? Do you have a current website?" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary); resize: vertical;"></textarea>
             </div>
 
-            <button type="submit" class="neon-button w-full text-lg py-4">
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.125rem;">
               Get My Free Website Audit
             </button>
           </form>
         </div>
 
-        <p class="text-gray-500 mt-6 text-center">Or call directly: <a href="tel:+12164632648" class="text-cyan-400 hover:underline">(216) 463-2648</a> &bull; <a href="mailto:josh@gideoncode.com" class="text-cyan-400 hover:underline">josh@gideoncode.com</a></p>
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 1.5rem;">
+          Or call directly: <a href="tel:+12164632648" style="color: var(--primary);">(216) 463-2648</a> &bull; <a href="mailto:josh@gideoncode.com" style="color: var(--primary);">josh@gideoncode.com</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <h2>${escapeHtml(page.city)} ${escapeHtml(page.trade)} — Let's Talk</h2>
+        <p>Get a professional website that brings in customers. Free consultation, no obligation.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#contact" class="btn btn-primary">Schedule Free Consultation</a>
+          <a href="tel:+12164632648" class="btn btn-outline">Call: 216-463-2648</a>
+        </div>
       </div>
     </section>
 
@@ -503,6 +477,7 @@ ${faqHtml}
             <li><a href="/services.html">Website Design</a></li>
             <li><a href="/services.html#seo">SEO Services</a></li>
             <li><a href="/services.html">Hosting & Support</a></li>
+            <li><a href="/services/">Contractor Marketing</a></li>
           </ul>
         </div>
 
@@ -546,8 +521,13 @@ ${faqHtml}
     function toggleFaq(index) {
       const answer = document.getElementById('faq-answer-' + index);
       const icon = document.getElementById('faq-icon-' + index);
-      answer.classList.toggle('hidden');
-      icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+      if (answer.style.display === 'none') {
+        answer.style.display = 'block';
+        icon.textContent = '−';
+      } else {
+        answer.style.display = 'none';
+        icon.textContent = '+';
+      }
     }
   </script>
 
@@ -558,18 +538,17 @@ ${faqHtml}
 
 // Generate the services index page
 function generateIndexPage(pages) {
-  // Group by city, trade, service
   const cities = [...new Set(pages.map(p => p.city))].sort();
   const trades = [...new Set(pages.map(p => p.trade))].sort();
   const services = [...new Set(pages.map(p => p.service))].sort();
 
   const pageLinks = pages.map(p =>
-    `          <a href="/services/${p.slug}.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">${escapeHtml(p.service)} for ${escapeHtml(p.trade)}</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">${escapeHtml(p.city)}, ${escapeHtml(p.stateAbbr)}</span>
+    `          <a href="/services/${p.slug}.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">${escapeHtml(p.service)} for ${escapeHtml(p.trade)}</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">${escapeHtml(p.city)}, ${escapeHtml(p.stateAbbr)}</span>
             </div>
-            <p class="text-gray-400 text-sm">${escapeHtml(p.metaDescription)}</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">${escapeHtml(p.metaDescription)}</p>
           </a>`
   ).join('\n');
 
@@ -592,47 +571,30 @@ function generateIndexPage(pages) {
   <link rel="canonical" href="https://gideoncode.com/services/">
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/gcw-g-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/professional-dark.css">
   <link rel="stylesheet" href="/css/chatbot.css">
 
   <style>
-    .gradient-text {
-      background: linear-gradient(135deg, #00FFFF 0%, #FF00FF 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .cyber-card {
-      background: rgba(0, 255, 255, 0.05);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    .cyber-card:hover {
-      border-color: #00FFFF;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
-    }
     .filter-btn {
       padding: 0.5rem 1rem;
-      border: 1px solid rgba(0, 255, 255, 0.3);
+      border: 1px solid var(--border);
       border-radius: 2rem;
-      color: rgba(0, 255, 255, 0.7);
+      color: var(--text-secondary);
       font-size: 0.875rem;
       cursor: pointer;
       transition: all 0.2s;
       background: transparent;
     }
     .filter-btn:hover, .filter-btn.active {
-      background: rgba(0, 255, 255, 0.15);
-      border-color: #00FFFF;
-      color: #00FFFF;
+      background: rgba(59, 130, 246, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
-<body class="bg-black text-white">
+<body>
 
   <!-- Navigation -->
   <nav class="nav">
@@ -667,35 +629,43 @@ function generateIndexPage(pages) {
   </nav>
 
   <main>
-    <section class="py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <p class="text-sm uppercase tracking-[0.4em] text-cyan-300 mb-4">Nationwide Service</p>
-          <h1 class="text-4xl sm:text-5xl font-bold mb-4">
-            <span class="gradient-text">Digital Marketing for Contractors</span>
-          </h1>
-          <p class="text-xl text-gray-300">Websites, SEO, and Google Ads built for home services companies. Find your city below.</p>
+
+    <section class="hero" style="padding-top: 8rem; padding-bottom: 4rem;">
+      <div class="hero-container" style="display: block; text-align: center;">
+        <div class="hero-badge" style="margin: 0 auto 1.5rem;">
+          Nationwide Service
         </div>
+        <h1 style="margin-bottom: 1.5rem;">
+          <span class="text-gradient">Digital Marketing for Contractors</span>
+        </h1>
+        <p style="max-width: 700px; margin: 0 auto; font-size: 1.25rem;">
+          Websites, SEO, and Google Ads built for home services companies. Find your city below.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-container" style="max-width: 800px;">
 
         <!-- Filters -->
-        <div class="mb-8">
-          <div class="mb-4">
-            <p class="text-gray-400 text-sm mb-2 font-semibold">Filter by City:</p>
-            <div class="flex flex-wrap gap-2">
+        <div style="margin-bottom: 2rem;">
+          <div style="margin-bottom: 1rem;">
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 600;">Filter by City:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
               <button class="filter-btn active" onclick="filterPages('all', 'city', this)">All</button>
 ${cities.map(c => `              <button class="filter-btn" onclick="filterPages('${c}', 'city', this)">${c}</button>`).join('\n')}
             </div>
           </div>
-          <div class="mb-4">
-            <p class="text-gray-400 text-sm mb-2 font-semibold">Filter by Trade:</p>
-            <div class="flex flex-wrap gap-2">
+          <div style="margin-bottom: 1rem;">
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 600;">Filter by Trade:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
               <button class="filter-btn active" onclick="filterPages('all', 'trade', this)">All</button>
 ${trades.map(t => `              <button class="filter-btn" onclick="filterPages('${t}', 'trade', this)">${t}</button>`).join('\n')}
             </div>
           </div>
           <div>
-            <p class="text-gray-400 text-sm mb-2 font-semibold">Filter by Service:</p>
-            <div class="flex flex-wrap gap-2">
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 600;">Filter by Service:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
               <button class="filter-btn active" onclick="filterPages('all', 'service', this)">All</button>
 ${services.map(s => `              <button class="filter-btn" onclick="filterPages('${s}', 'service', this)">${s}</button>`).join('\n')}
             </div>
@@ -703,11 +673,12 @@ ${services.map(s => `              <button class="filter-btn" onclick="filterPag
         </div>
 
         <!-- Page Listing -->
-        <div id="page-list" class="space-y-4">
+        <div id="page-list" style="display: flex; flex-direction: column; gap: 1rem;">
 ${pageLinks}
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -724,6 +695,7 @@ ${pageLinks}
             <li><a href="/services.html">Website Design</a></li>
             <li><a href="/services.html#seo">SEO Services</a></li>
             <li><a href="/services.html">Hosting & Support</a></li>
+            <li><a href="/services/">Contractor Marketing</a></li>
           </ul>
         </div>
         <div>
@@ -764,10 +736,8 @@ ${pageLinks}
 
     function filterPages(value, type, btn) {
       filters[type] = value;
-      // Update active button
       btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      // Filter cards
       const cards = document.querySelectorAll('#page-list > a');
       cards.forEach((card, i) => {
         const p = pageData[i];

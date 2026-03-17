@@ -17,47 +17,30 @@
   <link rel="canonical" href="https://gideoncode.com/services/">
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/gcw-g-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/professional-dark.css">
   <link rel="stylesheet" href="/css/chatbot.css">
 
   <style>
-    .gradient-text {
-      background: linear-gradient(135deg, #00FFFF 0%, #FF00FF 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .cyber-card {
-      background: rgba(0, 255, 255, 0.05);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    .cyber-card:hover {
-      border-color: #00FFFF;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
-    }
     .filter-btn {
       padding: 0.5rem 1rem;
-      border: 1px solid rgba(0, 255, 255, 0.3);
+      border: 1px solid var(--border);
       border-radius: 2rem;
-      color: rgba(0, 255, 255, 0.7);
+      color: var(--text-secondary);
       font-size: 0.875rem;
       cursor: pointer;
       transition: all 0.2s;
       background: transparent;
     }
     .filter-btn:hover, .filter-btn.active {
-      background: rgba(0, 255, 255, 0.15);
-      border-color: #00FFFF;
-      color: #00FFFF;
+      background: rgba(59, 130, 246, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
-<body class="bg-black text-white">
+<body>
 
   <!-- Navigation -->
   <nav class="nav">
@@ -92,21 +75,29 @@
   </nav>
 
   <main>
-    <section class="py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <p class="text-sm uppercase tracking-[0.4em] text-cyan-300 mb-4">Nationwide Service</p>
-          <h1 class="text-4xl sm:text-5xl font-bold mb-4">
-            <span class="gradient-text">Digital Marketing for Contractors</span>
-          </h1>
-          <p class="text-xl text-gray-300">Websites, SEO, and Google Ads built for home services companies. Find your city below.</p>
+
+    <section class="hero" style="padding-top: 8rem; padding-bottom: 4rem;">
+      <div class="hero-container" style="display: block; text-align: center;">
+        <div class="hero-badge" style="margin: 0 auto 1.5rem;">
+          Nationwide Service
         </div>
+        <h1 style="margin-bottom: 1.5rem;">
+          <span class="text-gradient">Digital Marketing for Contractors</span>
+        </h1>
+        <p style="max-width: 700px; margin: 0 auto; font-size: 1.25rem;">
+          Websites, SEO, and Google Ads built for home services companies. Find your city below.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-container" style="max-width: 800px;">
 
         <!-- Filters -->
-        <div class="mb-8">
-          <div class="mb-4">
-            <p class="text-gray-400 text-sm mb-2 font-semibold">Filter by City:</p>
-            <div class="flex flex-wrap gap-2">
+        <div style="margin-bottom: 2rem;">
+          <div style="margin-bottom: 1rem;">
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 600;">Filter by City:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
               <button class="filter-btn active" onclick="filterPages('all', 'city', this)">All</button>
               <button class="filter-btn" onclick="filterPages('Austin', 'city', this)">Austin</button>
               <button class="filter-btn" onclick="filterPages('Charlotte', 'city', this)">Charlotte</button>
@@ -125,9 +116,9 @@
               <button class="filter-btn" onclick="filterPages('Tampa', 'city', this)">Tampa</button>
             </div>
           </div>
-          <div class="mb-4">
-            <p class="text-gray-400 text-sm mb-2 font-semibold">Filter by Trade:</p>
-            <div class="flex flex-wrap gap-2">
+          <div style="margin-bottom: 1rem;">
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 600;">Filter by Trade:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
               <button class="filter-btn active" onclick="filterPages('all', 'trade', this)">All</button>
               <button class="filter-btn" onclick="filterPages('Electricians', 'trade', this)">Electricians</button>
               <button class="filter-btn" onclick="filterPages('HVAC Contractors', 'trade', this)">HVAC Contractors</button>
@@ -137,8 +128,8 @@
             </div>
           </div>
           <div>
-            <p class="text-gray-400 text-sm mb-2 font-semibold">Filter by Service:</p>
-            <div class="flex flex-wrap gap-2">
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 600;">Filter by Service:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
               <button class="filter-btn active" onclick="filterPages('all', 'service', this)">All</button>
               <button class="filter-btn" onclick="filterPages('Digital Marketing', 'service', this)">Digital Marketing</button>
               <button class="filter-btn" onclick="filterPages('Google Ads Management', 'service', this)">Google Ads Management</button>
@@ -149,115 +140,116 @@
         </div>
 
         <!-- Page Listing -->
-        <div id="page-list" class="space-y-4">
-          <a href="/services/digital-marketing-for-plumbers-in-phoenix-az.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Digital Marketing for Plumbers</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Phoenix, AZ</span>
+        <div id="page-list" style="display: flex; flex-direction: column; gap: 1rem;">
+          <a href="/services/digital-marketing-for-plumbers-in-phoenix-az.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Digital Marketing for Plumbers</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Phoenix, AZ</span>
             </div>
-            <p class="text-gray-400 text-sm">Custom websites, SEO, and Google Ads management for plumbing companies in Phoenix. Stop leaving money on the table with poor online visibility.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Custom websites, SEO, and Google Ads management for plumbing companies in Phoenix. Stop leaving money on the table with poor online visibility.</p>
           </a>
-          <a href="/services/seo-for-roofers-in-nashville-tn.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">SEO for Roofers</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Nashville, TN</span>
+          <a href="/services/seo-for-roofers-in-nashville-tn.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">SEO for Roofers</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Nashville, TN</span>
             </div>
-            <p class="text-gray-400 text-sm">Rank higher on Google for roofing searches in Nashville. Local SEO strategies built specifically for roofing contractors in Middle Tennessee.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Rank higher on Google for roofing searches in Nashville. Local SEO strategies built specifically for roofing contractors in Middle Tennessee.</p>
           </a>
-          <a href="/services/google-ads-management-for-hvac-contractors-in-charlotte-nc.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Google Ads Management for HVAC Contractors</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Charlotte, NC</span>
+          <a href="/services/google-ads-management-for-hvac-contractors-in-charlotte-nc.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Google Ads Management for HVAC Contractors</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Charlotte, NC</span>
             </div>
-            <p class="text-gray-400 text-sm">Get more HVAC service calls in Charlotte with expertly managed Google Ads campaigns. Stop wasting money on clicks that never convert.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Get more HVAC service calls in Charlotte with expertly managed Google Ads campaigns. Stop wasting money on clicks that never convert.</p>
           </a>
-          <a href="/services/website-design-for-electricians-in-tampa-fl.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Website Design for Electricians</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Tampa, FL</span>
+          <a href="/services/website-design-for-electricians-in-tampa-fl.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Website Design for Electricians</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Tampa, FL</span>
             </div>
-            <p class="text-gray-400 text-sm">Professional websites for electrical contractors in Tampa. Mobile-first design that converts visitors into service calls and estimate requests.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Professional websites for electrical contractors in Tampa. Mobile-first design that converts visitors into service calls and estimate requests.</p>
           </a>
-          <a href="/services/digital-marketing-for-masonry-companies-in-denver-co.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Digital Marketing for Masonry Companies</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Denver, CO</span>
+          <a href="/services/digital-marketing-for-masonry-companies-in-denver-co.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Digital Marketing for Masonry Companies</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Denver, CO</span>
             </div>
-            <p class="text-gray-400 text-sm">Grow your Denver masonry business with targeted digital marketing. Websites, SEO, and ad campaigns built for brick, stone, and concrete contractors.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Grow your Denver masonry business with targeted digital marketing. Websites, SEO, and ad campaigns built for brick, stone, and concrete contractors.</p>
           </a>
-          <a href="/services/seo-for-plumbers-in-columbus-oh.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">SEO for Plumbers</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Columbus, OH</span>
+          <a href="/services/seo-for-plumbers-in-columbus-oh.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">SEO for Plumbers</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Columbus, OH</span>
             </div>
-            <p class="text-gray-400 text-sm">Rank your Columbus plumbing company on page one of Google. Local SEO strategies that generate calls from homeowners who need a plumber now.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Rank your Columbus plumbing company on page one of Google. Local SEO strategies that generate calls from homeowners who need a plumber now.</p>
           </a>
-          <a href="/services/website-design-for-roofers-in-indianapolis-in.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Website Design for Roofers</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Indianapolis, IN</span>
+          <a href="/services/website-design-for-roofers-in-indianapolis-in.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Website Design for Roofers</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Indianapolis, IN</span>
             </div>
-            <p class="text-gray-400 text-sm">Custom websites for roofing companies in Indianapolis. Built to convert storm-damage searches into signed contracts and insurance restoration jobs.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Custom websites for roofing companies in Indianapolis. Built to convert storm-damage searches into signed contracts and insurance restoration jobs.</p>
           </a>
-          <a href="/services/digital-marketing-for-hvac-contractors-in-san-antonio-tx.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Digital Marketing for HVAC Contractors</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">San Antonio, TX</span>
+          <a href="/services/digital-marketing-for-hvac-contractors-in-san-antonio-tx.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Digital Marketing for HVAC Contractors</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">San Antonio, TX</span>
             </div>
-            <p class="text-gray-400 text-sm">Complete digital marketing for HVAC companies in San Antonio. Websites, SEO, and paid ads that keep your schedule full from Alamo Heights to Helotes.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Complete digital marketing for HVAC companies in San Antonio. Websites, SEO, and paid ads that keep your schedule full from Alamo Heights to Helotes.</p>
           </a>
-          <a href="/services/seo-for-electricians-in-raleigh-nc.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">SEO for Electricians</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Raleigh, NC</span>
+          <a href="/services/seo-for-electricians-in-raleigh-nc.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">SEO for Electricians</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Raleigh, NC</span>
             </div>
-            <p class="text-gray-400 text-sm">Get your Raleigh electrical company to the top of Google. Local SEO strategies designed for electricians serving the Triangle area.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Get your Raleigh electrical company to the top of Google. Local SEO strategies designed for electricians serving the Triangle area.</p>
           </a>
-          <a href="/services/google-ads-management-for-masonry-companies-in-jacksonville-fl.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Google Ads Management for Masonry Companies</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Jacksonville, FL</span>
+          <a href="/services/google-ads-management-for-masonry-companies-in-jacksonville-fl.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Google Ads Management for Masonry Companies</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Jacksonville, FL</span>
             </div>
-            <p class="text-gray-400 text-sm">Get more masonry leads in Jacksonville with expertly managed Google Ads. Targeted campaigns for brick, concrete, and stone contractors in Northeast Florida.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Get more masonry leads in Jacksonville with expertly managed Google Ads. Targeted campaigns for brick, concrete, and stone contractors in Northeast Florida.</p>
           </a>
-          <a href="/services/website-design-for-plumbers-in-austin-tx.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Website Design for Plumbers</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Austin, TX</span>
+          <a href="/services/website-design-for-plumbers-in-austin-tx.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Website Design for Plumbers</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Austin, TX</span>
             </div>
-            <p class="text-gray-400 text-sm">Professional website design for plumbing companies in Austin. Fast, mobile-first sites that convert visitors into service calls across the Austin metro.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Professional website design for plumbing companies in Austin. Fast, mobile-first sites that convert visitors into service calls across the Austin metro.</p>
           </a>
-          <a href="/services/google-ads-management-for-roofers-in-kansas-city-mo.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Google Ads Management for Roofers</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Kansas City, MO</span>
+          <a href="/services/google-ads-management-for-roofers-in-kansas-city-mo.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Google Ads Management for Roofers</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Kansas City, MO</span>
             </div>
-            <p class="text-gray-400 text-sm">Stop wasting money on roofing ads that do not convert. Expert Google Ads management for roofing companies across the Kansas City metro.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Stop wasting money on roofing ads that do not convert. Expert Google Ads management for roofing companies across the Kansas City metro.</p>
           </a>
-          <a href="/services/seo-for-hvac-contractors-in-milwaukee-wi.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">SEO for HVAC Contractors</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Milwaukee, WI</span>
+          <a href="/services/seo-for-hvac-contractors-in-milwaukee-wi.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">SEO for HVAC Contractors</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Milwaukee, WI</span>
             </div>
-            <p class="text-gray-400 text-sm">Rank higher on Google for HVAC searches in Milwaukee. SEO strategies built for heating and cooling companies serving Southeast Wisconsin.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Rank higher on Google for HVAC searches in Milwaukee. SEO strategies built for heating and cooling companies serving Southeast Wisconsin.</p>
           </a>
-          <a href="/services/digital-marketing-for-electricians-in-oklahoma-city-ok.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Digital Marketing for Electricians</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Oklahoma City, OK</span>
+          <a href="/services/digital-marketing-for-electricians-in-oklahoma-city-ok.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Digital Marketing for Electricians</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Oklahoma City, OK</span>
             </div>
-            <p class="text-gray-400 text-sm">Complete digital marketing for electrical contractors in Oklahoma City. Websites, SEO, and Google Ads that generate more service calls across the OKC metro.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Complete digital marketing for electrical contractors in Oklahoma City. Websites, SEO, and Google Ads that generate more service calls across the OKC metro.</p>
           </a>
-          <a href="/services/website-design-for-masonry-companies-in-louisville-ky.html" class="cyber-card block hover:border-cyan-400">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-bold text-cyan-400">Website Design for Masonry Companies</h3>
-              <span class="text-xs text-gray-500 whitespace-nowrap ml-4">Louisville, KY</span>
+          <a href="/services/website-design-for-masonry-companies-in-louisville-ky.html" class="service-card" style="display: block; text-decoration: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.125rem;">Website Design for Masonry Companies</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; margin-left: 1rem;">Louisville, KY</span>
             </div>
-            <p class="text-gray-400 text-sm">Professional websites for masonry contractors in Louisville. Showcase your brick, stone, and restoration work with a site that generates leads and builds trust.</p>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Professional websites for masonry contractors in Louisville. Showcase your brick, stone, and restoration work with a site that generates leads and builds trust.</p>
           </a>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -274,6 +266,7 @@
             <li><a href="/services.html">Website Design</a></li>
             <li><a href="/services.html#seo">SEO Services</a></li>
             <li><a href="/services.html">Hosting & Support</a></li>
+            <li><a href="/services/">Contractor Marketing</a></li>
           </ul>
         </div>
         <div>
@@ -314,10 +307,8 @@
 
     function filterPages(value, type, btn) {
       filters[type] = value;
-      // Update active button
       btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      // Filter cards
       const cards = document.querySelectorAll('#page-list > a');
       cards.forEach((card, i) => {
         const p = pageData[i];
