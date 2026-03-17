@@ -10,7 +10,14 @@
     { "source": "/hilton-head.html", "destination": "/", "statusCode": 301 },
     { "source": "/columbia.html", "destination": "/", "statusCode": 301 },
     { "source": "/savannah.html", "destination": "/", "statusCode": 301 },
-    { "source": "/trevin.html", "destination": "/team.html", "statusCode": 301 }
+    { "source": "/team.html", "destination": "/about.html", "statusCode": 301 },
+    { "source": "/josh.html", "destination": "/about.html", "statusCode": 301 },
+    { "source": "/kenley.html", "destination": "/about.html", "statusCode": 301 },
+    { "source": "/marqelle.html", "destination": "/about.html", "statusCode": 301 },
+    { "source": "/jake.html", "destination": "/about.html", "statusCode": 301 },
+    { "source": "/hayden.html", "destination": "/about.html", "statusCode": 301 },
+    { "source": "/emma.html", "destination": "/about.html", "statusCode": 301 },
+    { "source": "/trevin.html", "destination": "/about.html", "statusCode": 301 }
   ],
   "headers": [
     {
