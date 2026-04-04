@@ -1,15 +1,6 @@
-# Clean URLs for team pages
-/josh       /josh.html
-/emma       /get-started.html  301
-/trevin     /trevin.html
-/kenley     /kenley.html
-/marqelle   /marqelle.html
-
 # Clean URLs for city pages
+/cleveland    /cleveland.html
 /pittsburgh   /pittsburgh.html
-/hilton-head  /hilton-head.html
-/columbia     /columbia.html
-/savannah     /savannah.html
 /columbus     /columbus.html
 /findlay      /findlay.html
 /toledo       /toledo.html
