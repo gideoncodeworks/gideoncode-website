@@ -13,36 +13,69 @@
 
     /* Header */
     .header { background: #0f172a; border-bottom: 1px solid rgba(200,16,46,0.2); padding: 1.5rem 2rem; }
-    .header-inner { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { max-width: 820px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .header img { height: 32px; }
     .header .date { color: #94a3b8; font-size: 0.875rem; }
 
     /* Hero */
-    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 4rem 2rem; text-align: center; border-bottom: 1px solid rgba(200,16,46,0.15); }
-    .hero-label { color: #C8102E; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
-    .hero h1 { font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 0.75rem; line-height: 1.15; }
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid rgba(200,16,46,0.15); }
+    .hero-label { color: #C8102E; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+    .hero h1 { font-size: 2.25rem; font-weight: 800; color: white; margin-bottom: 0.75rem; line-height: 1.15; }
     .hero h1 span { color: #C8102E; }
-    .hero p { color: #94a3b8; font-size: 1.125rem; max-width: 500px; margin: 0 auto; }
+    .hero p { color: #94a3b8; font-size: 1.0625rem; max-width: 560px; margin: 0 auto; }
+    .hero-meta { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; font-size: 0.8125rem; color: #64748b; }
 
     /* Content */
-    .content { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+    .content { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
 
     /* Sections */
-    .section { padding: 3rem 0; border-bottom: 1px solid rgba(200,16,46,0.1); }
+    .section { padding: 2.5rem 0; border-bottom: 1px solid rgba(200,16,46,0.1); }
     .section:last-child { border-bottom: none; }
     .section-label { color: #C8102E; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .section h2 { font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 1rem; }
-    .section p { color: #cbd5e1; margin-bottom: 1rem; }
+    .section h2 { font-size: 1.375rem; font-weight: 700; color: white; margin-bottom: 1rem; }
+    .section h3 { font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 0.75rem; margin-top: 1.75rem; }
+    .section p { color: #cbd5e1; margin-bottom: 0.75rem; font-size: 0.9375rem; }
+
+    /* Scope table */
+    .scope-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .scope-table th { text-align: left; padding: 0.625rem 0.75rem; font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid rgba(200,16,46,0.2); }
+    .scope-table td { padding: 0.625rem 0.75rem; font-size: 0.9rem; color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; }
+    .scope-table td:last-child { color: #94a3b8; text-align: right; white-space: nowrap; }
+    .scope-table tr:last-child td { border-bottom: none; }
+    .scope-group { color: white !important; font-weight: 600; background: rgba(200,16,46,0.06); }
+    .scope-group td { border-bottom: 1px solid rgba(200,16,46,0.15) !important; padding-top: 0.875rem; }
+
+    /* Pricing table */
+    .pricing-table { width: 100%; border-collapse: collapse; margin: 1rem 0 0.5rem; }
+    .pricing-table th { text-align: left; padding: 0.625rem 0.75rem; font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid rgba(200,16,46,0.2); }
+    .pricing-table th:nth-child(2), .pricing-table th:nth-child(3) { text-align: right; }
+    .pricing-table td { padding: 0.75rem; font-size: 0.9375rem; color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .pricing-table td:nth-child(2) { text-align: right; color: #64748b; }
+    .pricing-table td:nth-child(3) { text-align: right; color: white; font-weight: 600; }
+    .pricing-table .total-row td { border-top: 2px solid rgba(200,16,46,0.3); border-bottom: none; font-weight: 700; padding-top: 1rem; }
+    .pricing-table .total-row td:nth-child(3) { color: #C8102E; font-size: 1.125rem; }
+    .retail-strike { text-decoration: line-through; color: #475569 !important; }
+
+    /* Pricing summary box */
+    .pricing-box { background: linear-gradient(135deg, rgba(200,16,46,0.08) 0%, rgba(200,16,46,0.03) 100%); border: 2px solid rgba(200,16,46,0.25); border-radius: 1rem; padding: 2rem; margin: 2rem 0; text-align: center; }
+    .pricing-box h3 { font-size: 1.125rem; color: white; margin-bottom: 1.25rem; }
+    .price-row { display: flex; justify-content: center; gap: 3rem; margin: 1rem 0; flex-wrap: wrap; }
+    .price-item { text-align: center; }
+    .price-item .label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
+    .price-item .amount { font-size: 2rem; font-weight: 800; color: white; }
+    .price-item .amount span { font-size: 0.875rem; color: #94a3b8; font-weight: 500; }
+    .price-note { color: #94a3b8; font-size: 0.8125rem; margin-top: 0.75rem; }
+    .savings-badge { display: inline-block; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); color: #22c55e; font-weight: 700; font-size: 0.8125rem; padding: 0.375rem 1rem; border-radius: 9999px; margin-top: 1rem; }
+
+    /* Check list */
+    .check-list { list-style: none; padding: 0; margin: 0.5rem 0; }
+    .check-list li { padding: 0.375rem 0 0.375rem 1.75rem; position: relative; color: #cbd5e1; font-size: 0.9375rem; }
+    .check-list li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
 
     /* Problem bullets */
     .problem-list { list-style: none; padding: 0; }
-    .problem-list li { padding: 0.75rem 0 0.75rem 2rem; position: relative; color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .problem-list li { padding: 0.5rem 0 0.5rem 1.75rem; position: relative; color: #cbd5e1; font-size: 0.9375rem; }
     .problem-list li::before { content: "✗"; position: absolute; left: 0; color: #C8102E; font-weight: 700; }
-
-    /* Check list */
-    .check-list { list-style: none; padding: 0; }
-    .check-list li { padding: 0.5rem 0 0.5rem 2rem; position: relative; color: #cbd5e1; }
-    .check-list li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
 
     /* Stats grid */
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
@@ -50,67 +83,63 @@
     .stat-num { font-size: 1.75rem; font-weight: 800; color: #C8102E; }
     .stat-label { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
 
-    /* Deliverables grid */
-    .deliverables { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1.5rem 0; }
-    .deliverable { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 0.5rem; padding: 0.875rem 1rem; font-size: 0.9rem; color: #cbd5e1; }
-    .deliverable strong { color: white; }
+    /* Demo link */
+    .demo-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.25rem; text-align: center; margin: 1.25rem 0; }
+    .demo-box a { color: #C8102E; font-weight: 700; font-size: 1rem; text-decoration: none; }
+    .demo-box a:hover { text-decoration: underline; }
+    .demo-box p { color: #64748b; font-size: 0.8125rem; margin-top: 0.375rem; }
 
-    /* Pricing box */
-    .pricing-box { background: linear-gradient(135deg, rgba(200,16,46,0.1) 0%, rgba(200,16,46,0.05) 100%); border: 2px solid rgba(200,16,46,0.3); border-radius: 1rem; padding: 2.5rem; margin: 2rem 0; text-align: center; }
-    .pricing-box h3 { font-size: 1.25rem; color: white; margin-bottom: 0.5rem; }
-    .pricing-box .price-row { display: flex; justify-content: center; gap: 3rem; margin: 1.5rem 0; flex-wrap: wrap; }
-    .price-item { text-align: center; }
-    .price-item .label { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
-    .price-item .amount { font-size: 2.25rem; font-weight: 800; color: white; }
-    .price-item .amount span { font-size: 1rem; color: #94a3b8; font-weight: 500; }
-    .price-note { color: #94a3b8; font-size: 0.875rem; margin-top: 0.5rem; }
+    /* Future pricing card */
+    .future-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 0.75rem; padding: 1.5rem; margin: 1rem 0; }
+    .future-card h4 { color: white; font-size: 1rem; margin-bottom: 0.5rem; }
 
-    /* Monthly includes */
-    .includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0; text-align: left; }
-    .includes-grid li { list-style: none; padding: 0.375rem 0 0.375rem 1.5rem; position: relative; color: #cbd5e1; font-size: 0.9rem; }
-    .includes-grid li::before { content: "✓"; position: absolute; left: 0; color: #C8102E; font-weight: 700; }
+    /* Terms */
+    .terms-list { list-style: none; padding: 0; counter-reset: terms; }
+    .terms-list li { padding: 0.5rem 0 0.5rem 2rem; position: relative; color: #cbd5e1; font-size: 0.9rem; }
+    .terms-list li::before { counter-increment: terms; content: counter(terms) "."; position: absolute; left: 0; color: #94a3b8; font-weight: 600; }
 
     /* CTA */
-    .cta-section { text-align: center; padding: 3rem 0 4rem; }
-    .cta-section h2 { font-size: 1.75rem; color: white; margin-bottom: 0.5rem; }
-    .cta-section p { color: #94a3b8; margin-bottom: 2rem; }
+    .cta-section { text-align: center; padding: 2.5rem 0 3.5rem; }
+    .cta-section h2 { font-size: 1.5rem; color: white; margin-bottom: 0.5rem; }
+    .cta-section p { color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.9375rem; }
     .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; border-radius: 0.5rem; font-weight: 700; text-decoration: none; font-size: 1rem; transition: all 0.2s; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; border-radius: 0.5rem; font-weight: 700; text-decoration: none; font-size: 0.9375rem; transition: all 0.2s; }
     .btn-primary { background: #C8102E; color: white; }
     .btn-primary:hover { background: #a00d24; }
     .btn-outline { border: 1px solid #475569; color: #cbd5e1; }
     .btn-outline:hover { border-color: #C8102E; color: white; }
 
-    /* Demo link */
-    .demo-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
-    .demo-box a { color: #C8102E; font-weight: 700; font-size: 1.125rem; text-decoration: none; }
-    .demo-box a:hover { text-decoration: underline; }
-    .demo-box p { color: #64748b; font-size: 0.875rem; margin-top: 0.5rem; }
-
     /* Footer */
-    .footer { border-top: 1px solid rgba(200,16,46,0.15); padding: 2rem; text-align: center; color: #64748b; font-size: 0.875rem; }
+    .footer { border-top: 1px solid rgba(200,16,46,0.15); padding: 2rem; text-align: center; color: #64748b; font-size: 0.8125rem; }
     .footer a { color: #C8102E; text-decoration: none; }
 
     /* Responsive */
     @media (max-width: 640px) {
       .hero h1 { font-size: 1.75rem; }
-      .hero { padding: 3rem 1.5rem; }
+      .hero { padding: 3rem 1.5rem 2rem; }
+      .hero-meta { flex-direction: column; gap: 0.25rem; }
       .stats { grid-template-columns: 1fr; }
-      .deliverables { grid-template-columns: 1fr; }
-      .includes-grid { grid-template-columns: 1fr; }
       .price-row { flex-direction: column; gap: 1.5rem !important; }
-      .content { padding: 0 1.5rem; }
+      .content { padding: 0 1.25rem; }
+      .pricing-table td:nth-child(2) { display: none; }
+      .pricing-table th:nth-child(2) { display: none; }
+      .scope-table td:last-child { font-size: 0.8rem; }
     }
 
     @media print {
-      body { background: white; color: #1e293b; }
+      body { background: white; color: #1e293b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .header { background: white; border-bottom: 2px solid #C8102E; }
       .hero { background: white; border-bottom: 2px solid #C8102E; }
       .hero h1 { color: #1e293b; }
-      .hero p, .section p, .check-list li, .problem-list li, .deliverable, .includes-grid li { color: #475569; }
-      .section h2 { color: #1e293b; }
+      .hero p, .section p, .check-list li, .problem-list li, .terms-list li { color: #475569; }
+      .section h2, .section h3 { color: #1e293b; }
       .stat { background: #fef2f2; }
       .pricing-box { background: #fef2f2; border-color: #C8102E; }
       .price-item .amount { color: #1e293b; }
+      .pricing-table td { color: #475569; }
+      .pricing-table td:nth-child(3) { color: #1e293b; }
+      .scope-table td { color: #475569; }
+      .future-card { background: #f8fafc; border-color: #e2e8f0; }
     }
   </style>
 </head>
@@ -120,43 +149,55 @@
   <div class="header">
     <div class="header-inner">
       <img src="/images/gcw-logo-horizontal.png" alt="Gideon Codeworks">
-      <span class="date">April 2026</span>
+      <span class="date">April 17, 2026</span>
     </div>
   </div>
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-label">Web &amp; SEO Proposal</div>
+    <div class="hero-label">Service Proposal</div>
     <h1>Lorenzo's Dog Training <span>Team</span></h1>
-    <p>A complete digital presence built to recruit trainers and attract clients nationwide.</p>
+    <p>Website design, hosting, SEO, and ongoing management to recruit trainers and attract clients nationwide.</p>
+    <div class="hero-meta">
+      <span>Prepared for: Lorenzo Miller</span>
+      <span>Prepared by: Josh Stone, Gideon Codeworks</span>
+    </div>
   </div>
 
   <div class="content">
 
-    <!-- The Problem -->
+    <!-- Executive Summary -->
     <div class="section">
-      <div class="section-label">The Problem</div>
-      <h2>Your Website Is Holding You Back</h2>
-      <p>You have one of the strongest reputations in the dog training industry. But your online presence doesn't reflect that.</p>
+      <div class="section-label">Executive Summary</div>
+      <h2>Overview</h2>
+      <p>Lorenzo's Dog Training Team is scaling from 39 to 100+ trainers nationwide. To support that growth, you need a website that does two things: recruit trainers in every major metro and attract dog owners looking for training in those same markets.</p>
+      <p>We've already built a 112+ page, SEO-optimized website with dedicated pages for every city and state you operate in. This proposal covers the full scope of that build, ongoing hosting and management, and SEO to get you ranking.</p>
+
+      <div class="demo-box">
+        <a href="https://lorenzos-dog-training.vercel.app" target="_blank">View the live demo &rarr;</a>
+        <p>lorenzos-dog-training.vercel.app &mdash; works on mobile</p>
+      </div>
+    </div>
+
+    <!-- Current Situation -->
+    <div class="section">
+      <div class="section-label">Current Situation</div>
+      <h2>What's Not Working</h2>
       <ul class="problem-list">
-        <li>641 Google reviews but not ranking for "dog training near me" in any market</li>
-        <li>Current Squarespace site is slow, not mobile-optimized, and not built for SEO</li>
-        <li>No dedicated pages targeting the cities where your trainers operate</li>
-        <li>No recruitment-focused content to attract new trainers</li>
+        <li>641 Google reviews but not ranking for local dog training searches in any market</li>
+        <li>Current Squarespace site is not optimized for SEO or mobile performance</li>
+        <li>No city-specific pages targeting the metros where your trainers operate</li>
+        <li>No recruitment-focused content to attract new trainers online</li>
+        <li>No AEO (Answer Engine Optimization) &mdash; invisible to AI search tools like ChatGPT and Google AI Overviews</li>
         <li>Competitors with fewer reviews and less experience are outranking you</li>
       </ul>
     </div>
 
-    <!-- What We Built -->
+    <!-- Scope of Work -->
     <div class="section">
-      <div class="section-label">The Solution</div>
-      <h2>We Already Built Your New Site</h2>
-      <p>This isn't a mockup or a pitch deck. Your new website is live and ready to deploy.</p>
-
-      <div class="demo-box">
-        <a href="https://lorenzos-dog-training.vercel.app" target="_blank">lorenzos-dog-training.vercel.app &rarr;</a>
-        <p>Live demo — check it on your phone too</p>
-      </div>
+      <div class="section-label">Scope of Work</div>
+      <h2>Phase 1: Website Build (Complete)</h2>
+      <p>The following has already been designed, developed, and is ready for deployment:</p>
 
       <div class="stats">
         <div class="stat">
@@ -168,80 +209,397 @@
           <div class="stat-label">City Pages</div>
         </div>
         <div class="stat">
-          <div class="stat-num">22</div>
-          <div class="stat-label">States &amp; Metros</div>
+          <div class="stat-num">11</div>
+          <div class="stat-label">State Pages</div>
         </div>
       </div>
 
-      <div class="deliverables">
-        <div class="deliverable"><strong>Custom Next.js build</strong> — not a template</div>
-        <div class="deliverable"><strong>SEO-optimized</strong> — every page, every city</div>
-        <div class="deliverable"><strong>45 city recruitment pages</strong> — one for every market</div>
-        <div class="deliverable"><strong>45 city client pages</strong> — local SEO for dog owners</div>
-        <div class="deliverable"><strong>6 service detail pages</strong> — with FAQ schema</div>
-        <div class="deliverable"><strong>Locations hub</strong> — browsable state &amp; city directory</div>
-        <div class="deliverable"><strong>AI chatbot</strong> — engages visitors 24/7</div>
-        <div class="deliverable"><strong>Mobile-first design</strong> — loads in under 2 seconds</div>
-        <div class="deliverable"><strong>AEO optimized</strong> — built for AI search engines</div>
-        <div class="deliverable"><strong>Blog system</strong> — content marketing ready</div>
-      </div>
-    </div>
+      <table class="scope-table">
+        <thead>
+          <tr>
+            <th>Deliverable</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="scope-group">
+            <td colspan="2">Website Design & Development</td>
+          </tr>
+          <tr>
+            <td>Custom-built website</td>
+            <td>Next.js &mdash; not a template</td>
+          </tr>
+          <tr>
+            <td>Mobile-first responsive design</td>
+            <td>Sub-2-second load times</td>
+          </tr>
+          <tr>
+            <td>22 core pages</td>
+            <td>Home, About, Services (7), Contact, Facilities, Careers, Blog, Chat, etc.</td>
+          </tr>
+          <tr>
+            <td>45 city recruitment pages</td>
+            <td>Trainer recruitment landing pages for each metro</td>
+          </tr>
+          <tr>
+            <td>45 city location pages</td>
+            <td>Client-facing local SEO pages for dog owners</td>
+          </tr>
+          <tr>
+            <td>11 state hub pages</td>
+            <td>OH, CA, TX, FL, GA, IN, KS, KY, MA, MI, NH</td>
+          </tr>
+          <tr>
+            <td>Locations directory</td>
+            <td>Browsable hub linking all states and cities</td>
+          </tr>
+          <tr>
+            <td>26 trainer profiles with photos</td>
+            <td>Pulled from current site, organized by state</td>
+          </tr>
+          <tr>
+            <td>Blog system</td>
+            <td>Content marketing ready</td>
+          </tr>
+          <tr>
+            <td>24/7 AI chatbot</td>
+            <td>Engages visitors, answers FAQs, captures leads</td>
+          </tr>
+          <tr class="scope-group">
+            <td colspan="2">SEO & AEO Foundation</td>
+          </tr>
+          <tr>
+            <td>On-page SEO for all 112+ pages</td>
+            <td>Title tags, meta descriptions, headers, internal linking</td>
+          </tr>
+          <tr>
+            <td>FAQ structured data (Schema.org)</td>
+            <td>Every service page, city page, and state page</td>
+          </tr>
+          <tr>
+            <td>AEO optimization</td>
+            <td>AI-readable content for ChatGPT, Google AI Overviews, Perplexity</td>
+          </tr>
+          <tr>
+            <td>Local SEO structure</td>
+            <td>City + state targeting for Google Maps and local pack</td>
+          </tr>
+          <tr>
+            <td>Sitemap &amp; robots.txt</td>
+            <td>Proper crawl configuration for 112+ pages</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- Monthly -->
-    <div class="section">
-      <div class="section-label">Ongoing Service</div>
-      <h2>What's Included Every Month</h2>
-      <p>This isn't a build-and-walk-away arrangement. Your site grows as you grow.</p>
-      <ul class="includes-grid">
-        <li>Hosting, SSL &amp; security</li>
-        <li>Site updates &amp; edits</li>
-        <li>New city pages as you expand</li>
-        <li>Trainer profile updates</li>
-        <li>Blog content for SEO authority</li>
-        <li>Google Business Profile optimization</li>
-        <li>SEO monitoring &amp; adjustments</li>
-        <li>Ongoing technical support</li>
-      </ul>
+      <h3>Phase 2: Enterprise Hosting & Management — $699/mo</h3>
+      <p>Ongoing hosting, support, and active site management as your team grows.</p>
+
+      <table class="scope-table">
+        <thead>
+          <tr>
+            <th>Deliverable</th>
+            <th>Scope</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="scope-group">
+            <td colspan="2">Hosting & Infrastructure</td>
+          </tr>
+          <tr>
+            <td>Managed hosting</td>
+            <td>Vercel edge network, SSL certificate, CDN, 99.9% uptime</td>
+          </tr>
+          <tr>
+            <td>Security monitoring</td>
+            <td>Dependency updates, vulnerability patches, uptime checks</td>
+          </tr>
+          <tr>
+            <td>Daily backups</td>
+            <td>Full site backups via version control (Git)</td>
+          </tr>
+          <tr class="scope-group">
+            <td colspan="2">Trainer & Content Management</td>
+          </tr>
+          <tr>
+            <td>Trainer profile adds</td>
+            <td>Up to 10 new trainer profiles per month (photo, bio, location, certifications)</td>
+          </tr>
+          <tr>
+            <td>Trainer profile updates & removals</td>
+            <td>Unlimited &mdash; update bios, swap photos, reassign states, remove departed trainers</td>
+          </tr>
+          <tr>
+            <td>New city pages</td>
+            <td>Up to 5 new city pages per month (recruitment + client page pair) as you expand into new markets</td>
+          </tr>
+          <tr>
+            <td>New state hub pages</td>
+            <td>Created when you enter a new state &mdash; includes trainer listings and city links</td>
+          </tr>
+          <tr>
+            <td>Content edits</td>
+            <td>Up to 10 content updates per month &mdash; copy changes, photos, service descriptions, page additions</td>
+          </tr>
+          <tr class="scope-group">
+            <td colspan="2">Support</td>
+          </tr>
+          <tr>
+            <td>Direct access</td>
+            <td>Call, text, or email &mdash; responses within 24 hours (same-day for urgent issues)</td>
+          </tr>
+          <tr>
+            <td>Bug fixes</td>
+            <td>Any site issues resolved within 48 hours</td>
+          </tr>
+          <tr>
+            <td>AI chatbot management</td>
+            <td>Update chatbot knowledge base as services, locations, and team change</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Phase 3: Enterprise SEO + AEO — $997/mo</h3>
+      <p>Multi-market search engine optimization to get you ranking in every city you operate in.</p>
+
+      <table class="scope-table">
+        <thead>
+          <tr>
+            <th>Deliverable</th>
+            <th>Scope</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="scope-group">
+            <td colspan="2">Search Performance Monitoring</td>
+          </tr>
+          <tr>
+            <td>Google Search Console</td>
+            <td>Set up, monitor, and optimize &mdash; track impressions, clicks, and keyword positions across all pages</td>
+          </tr>
+          <tr>
+            <td>Google Analytics</td>
+            <td>Set up and monitor &mdash; traffic sources, top pages, user behavior</td>
+          </tr>
+          <tr>
+            <td>Keyword rank tracking</td>
+            <td>Track target keywords across your active markets using dedicated rank tracking tools</td>
+          </tr>
+          <tr class="scope-group">
+            <td colspan="2">Google Business Profile</td>
+          </tr>
+          <tr>
+            <td>Profile optimization</td>
+            <td>Categories, attributes, service areas, business description, Q&A management</td>
+          </tr>
+          <tr>
+            <td>Google Posts</td>
+            <td>2 posts per month (promotions, updates, events)</td>
+          </tr>
+          <tr>
+            <td>Review strategy</td>
+            <td>Response templates and review generation guidance</td>
+          </tr>
+          <tr class="scope-group">
+            <td colspan="2">Content</td>
+          </tr>
+          <tr>
+            <td>Blog posts</td>
+            <td>2 SEO-optimized articles per month (500-1,000 words each)</td>
+          </tr>
+          <tr>
+            <td>On-page SEO updates</td>
+            <td>Title tags, meta descriptions, and headers adjusted based on Search Console data</td>
+          </tr>
+          <tr>
+            <td>Internal linking</td>
+            <td>Cross-linking between city, state, service, and blog pages as new content is added</td>
+          </tr>
+          <tr class="scope-group">
+            <td colspan="2">AEO (Answer Engine Optimization)</td>
+          </tr>
+          <tr>
+            <td>Schema markup maintenance</td>
+            <td>FAQ, LocalBusiness, and Service schema kept current across all pages</td>
+          </tr>
+          <tr>
+            <td>AI-friendly content</td>
+            <td>Structure all new pages for AI search visibility (ChatGPT, Google AI Overviews, Perplexity)</td>
+          </tr>
+          <tr class="scope-group">
+            <td colspan="2">Reporting</td>
+          </tr>
+          <tr>
+            <td>Monthly call</td>
+            <td>30-minute call to review Search Console data, traffic, rankings, and plan next steps</td>
+          </tr>
+          <tr>
+            <td>Quarterly strategy call</td>
+            <td>30-minute call to review overall performance and plan expansion priorities</td>
+          </tr>
+          <tr>
+            <td>Dashboard access</td>
+            <td>Shared Google Search Console and Analytics &mdash; view anytime</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- Pricing -->
     <div class="section">
       <div class="section-label">Investment</div>
-      <h2>Simple, Transparent Pricing</h2>
+      <h2>Pricing</h2>
+      <p>Below is the retail value of each service based on our <a href="https://gideoncode.com/services.html" target="_blank" style="color: #C8102E;">published pricing</a>, and what we're proposing for this engagement.</p>
+
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Retail Price</th>
+            <th>Your Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3" style="color: white; font-weight: 600; padding-top: 1rem; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid rgba(200,16,46,0.15);">One-Time Setup</td>
+          </tr>
+          <tr>
+            <td>Enterprise website build (112+ pages, custom)<br><span style="color: #64748b; font-size: 0.8125rem;">Custom Next.js build, 45 city pages, trainer directory, AI chatbot, locations hub</span></td>
+            <td class="retail-strike">$7,500+</td>
+            <td>$4,997</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="color: white; font-weight: 600; padding-top: 1rem; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid rgba(200,16,46,0.15);">Monthly (24-Month Agreement)</td>
+          </tr>
+          <tr>
+            <td>Enterprise WaaS<br><span style="color: #64748b; font-size: 0.8125rem;">Hosting, trainer management, new city pages, content updates, technical support</span></td>
+            <td>$699/mo</td>
+            <td>$699/mo</td>
+          </tr>
+          <tr>
+            <td>Enterprise SEO + AEO<br><span style="color: #64748b; font-size: 0.8125rem;">Multi-market keyword tracking, GBP optimization, blog content, monthly call, quarterly strategy call</span></td>
+            <td>$997/mo</td>
+            <td>$997/mo</td>
+          </tr>
+          <tr class="total-row">
+            <td>Monthly Total</td>
+            <td>$1,696/mo</td>
+            <td>$1,696/mo</td>
+          </tr>
+        </tbody>
+      </table>
 
       <div class="pricing-box">
-        <h3>Website + SEO + Ongoing Management</h3>
+        <h3>24-Month Agreement</h3>
         <div class="price-row">
           <div class="price-item">
             <div class="label">One-Time Setup</div>
-            <div class="amount">$997</div>
+            <div class="amount">$4,997</div>
           </div>
           <div class="price-item">
             <div class="label">Monthly</div>
-            <div class="amount">$596<span>/mo</span></div>
+            <div class="amount">$1,696<span>/mo</span></div>
+          </div>
+          <div class="price-item">
+            <div class="label">24-Month Total</div>
+            <div class="amount">$45,701</div>
           </div>
         </div>
-        <p class="price-note">24-month agreement &bull; No hidden fees &bull; Cancel anytime after term</p>
+        <p class="price-note">First payment: $4,997 setup + $1,696 first month = $6,693 due at signing</p>
+        <div class="savings-badge">You save $2,500+ on the build alone</div>
       </div>
-
-      <p style="color: #94a3b8; font-size: 0.9rem; text-align: center;">Includes: Domination website package ($299/mo) + SEO &amp; AEO management ($297/mo)</p>
     </div>
 
-    <!-- Why Now -->
+    <!-- Future Growth -->
     <div class="section">
-      <div class="section-label">Why Now</div>
-      <h2>Every Month Without This Is a Month You're Invisible</h2>
-      <p>You're trying to go from 39 to 100 trainers. That means being found in every major metro — by both dog owners who need training and people who want to become trainers.</p>
-      <p>Your current site isn't doing either. The new one is built, tested, and ready to go live this week.</p>
+      <div class="section-label">Future Growth</div>
+      <h2>Individual Trainer Websites</h2>
+      <p>As you scale toward 100+ trainers, each trainer can have their own professional website with hosting and support included. These are optional add-ons available at any time during the agreement.</p>
+
+      <div class="future-card">
+        <h4>Trainer Starter Site</h4>
+        <p style="margin-bottom: 0.5rem;">Up to 5 pages &mdash; bio, services, service area, contact form, booking link. Hosted and managed by Gideon Codeworks.</p>
+        <table class="pricing-table" style="margin: 0;">
+          <tbody>
+            <tr>
+              <td>Setup fee (per trainer site)</td>
+              <td>$497</td>
+              <td>$297</td>
+            </tr>
+            <tr>
+              <td>Monthly hosting & support</td>
+              <td>$212.50/mo</td>
+              <td>$149/mo</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="color: #64748b; font-size: 0.8125rem; margin-top: 0.75rem; margin-bottom: 0;">Discounted rate for Lorenzo's Dog Training Team trainers. Volume pricing available for 10+ sites.</p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="section">
+      <div class="section-label">Timeline</div>
+      <h2>Deployment Schedule</h2>
+      <table class="scope-table">
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Timeframe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Agreement signed & setup fee paid</td>
+            <td>Day 1</td>
+          </tr>
+          <tr>
+            <td>Domain pointed & site goes live</td>
+            <td>Within 48 hours</td>
+          </tr>
+          <tr>
+            <td>Google Search Console & Analytics configured</td>
+            <td>Week 1</td>
+          </tr>
+          <tr>
+            <td>Google Business Profile optimization begins</td>
+            <td>Week 1-2</td>
+          </tr>
+          <tr>
+            <td>First SEO ranking report delivered</td>
+            <td>Week 4</td>
+          </tr>
+          <tr>
+            <td>First Loom walkthrough</td>
+            <td>Month 1</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 0.75rem;">The site is already built. Once the agreement is signed, we can be live within 48 hours.</p>
+    </div>
+
+    <!-- Terms -->
+    <div class="section">
+      <div class="section-label">Terms</div>
+      <h2>Agreement Terms</h2>
+      <ol class="terms-list">
+        <li>This is a 24-month service agreement. Monthly billing begins on the date the site goes live.</li>
+        <li>Setup fee of $4,997 is due at signing and is non-refundable.</li>
+        <li>Monthly payments of $1,696 are billed on the same date each month via credit card or ACH.</li>
+        <li>The agreement auto-renews on a month-to-month basis after the 24-month term unless either party provides 30 days written notice.</li>
+        <li>Gideon Codeworks retains ownership of the codebase during the agreement term. Upon completion of the 24-month term, full ownership transfers to the client.</li>
+        <li>Individual trainer websites are billed separately and are not included in this agreement.</li>
+        <li>Google Ads management is available as a separate add-on ($297/mo + ad spend) at any time.</li>
+        <li>This proposal is valid for 30 days from the date above.</li>
+      </ol>
     </div>
 
     <!-- CTA -->
     <div class="cta-section">
-      <h2>Ready to move forward?</h2>
-      <p>Let's get this live and start getting you found.</p>
+      <h2>Ready to get started?</h2>
+      <p>The site is built and ready. Let's get it live and start getting you found.</p>
       <div class="cta-buttons">
         <a href="tel:2164632648" class="btn btn-primary">Call (216) 463-2648</a>
-        <a href="mailto:josh@gideoncode.com" class="btn btn-outline">Email Josh</a>
+        <a href="mailto:josh@gideoncode.com" class="btn btn-outline">Email josh@gideoncode.com</a>
       </div>
     </div>
 
@@ -250,6 +608,7 @@
   <!-- Footer -->
   <div class="footer">
     <p>Prepared by <a href="https://gideoncode.com" target="_blank">Gideon Codeworks</a> &bull; Cleveland, OH &bull; (216) 463-2648</p>
+    <p style="margin-top: 0.375rem;">This proposal is confidential and intended solely for the recipient.</p>
   </div>
 
 </body>
