@@ -126,20 +126,24 @@
       .scope-table td:last-child { font-size: 0.8rem; }
     }
 
+    @page { size: letter; margin: 0.5in 0.55in; }
     @media print {
-      body { background: white; color: #1e293b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .header { background: white; border-bottom: 2px solid #C8102E; }
-      .hero { background: white; border-bottom: 2px solid #C8102E; }
-      .hero h1 { color: #1e293b; }
-      .hero p, .section p, .check-list li, .problem-list li, .terms-list li { color: #475569; }
-      .section h2, .section h3 { color: #1e293b; }
-      .stat { background: #fef2f2; }
-      .pricing-box { background: #fef2f2; border-color: #C8102E; }
-      .price-item .amount { color: #1e293b; }
-      .pricing-table td { color: #475569; }
-      .pricing-table td:nth-child(3) { color: #1e293b; }
-      .scope-table td { color: #475569; }
-      .future-card { background: #f8fafc; border-color: #e2e8f0; }
+      html, body { background: white !important; color: #1e293b !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .header { background: white !important; border-bottom: 2px solid #C8102E !important; }
+      .hero { background: white !important; border-bottom: 2px solid #C8102E !important; }
+      .hero h1 { color: #1e293b !important; }
+      .hero p, .section p, .check-list li, .problem-list li, .terms-list li { color: #475569 !important; }
+      .section h2, .section h3 { color: #1e293b !important; }
+      .stat { background: #fef2f2 !important; }
+      .pricing-box { background: #fef2f2 !important; border-color: #C8102E !important; }
+      .price-item .amount { color: #1e293b !important; }
+      .pricing-table td { color: #475569 !important; }
+      .pricing-table td:nth-child(3) { color: #1e293b !important; }
+      .scope-table td { color: #475569 !important; }
+      .future-card { background: #f8fafc !important; border-color: #e2e8f0 !important; }
+      .content { padding: 0 !important; max-width: none !important; }
+      .pricing-box, .scope-table tr, .pricing-table tr, .stat, .future-card, .cta-section { page-break-inside: avoid; break-inside: avoid; }
+      .section h2 { page-break-after: avoid; break-after: avoid; }
     }
   </style>
 </head>
