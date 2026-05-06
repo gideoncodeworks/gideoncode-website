@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>About Gideon Codeworks — Brief</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: white; color: #1e293b; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { max-width: 7.5in; margin: 0 auto; padding: 0.5in 0.6in; }
+
+    /* Header */
+    .doc-header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 0.65rem; border-bottom: 2px solid #C8102E; margin-bottom: 1rem; }
+    .doc-header .left .doc-label { font-size: 0.65rem; font-weight: 700; color: #C8102E; letter-spacing: 0.18em; text-transform: uppercase; }
+    .doc-header .left h1 { font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-top: 0.15rem; letter-spacing: -0.01em; }
+    .doc-header .right { text-align: right; font-size: 0.72rem; color: #64748b; line-height: 1.55; }
+    .doc-header .right strong { color: #0f172a; }
+
+    h2.sec { font-size: 0.68rem; font-weight: 800; color: #C8102E; letter-spacing: 0.18em; text-transform: uppercase; margin: 1rem 0 0.4rem 0; padding-bottom: 0.18rem; border-bottom: 1px solid #fecaca; }
+
+    /* Lead */
+    .lead { background: #fef2f2; border-left: 4px solid #C8102E; padding: 0.85rem 1.1rem; border-radius: 0 0.45rem 0.45rem 0; margin-bottom: 1rem; }
+    .lead p { font-size: 0.95rem; color: #1e293b; line-height: 1.6; }
+
+    /* Two col */
+    .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    p { font-size: 0.88rem; color: #475569; margin-bottom: 0.5rem; }
+
+    /* What we do */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.55rem; margin-top: 0.3rem; }
+    .pillar { background: #f8fafc; border: 1px solid #e2e8f0; border-top: 3px solid #C8102E; border-radius: 0 0 0.4rem 0.4rem; padding: 0.65rem 0.75rem; }
+    .pillar .lbl { font-size: 0.6rem; font-weight: 800; color: #C8102E; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .pillar .title { font-size: 0.88rem; font-weight: 700; color: #0f172a; margin-bottom: 0.2rem; }
+    .pillar .desc { font-size: 0.76rem; color: #475569; line-height: 1.5; }
+
+    /* Stats strip */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0.55rem 0; }
+    .stat { background: #fef2f2; border: 1px solid #C8102E; border-radius: 0.5rem; padding: 0.6rem 0.7rem; text-align: center; }
+    .stat .num { font-size: 1.3rem; font-weight: 800; color: #C8102E; line-height: 1; }
+    .stat .lbl { font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; }
+
+    /* Bullets */
+    ul.tight { list-style: none; padding: 0; font-size: 0.85rem; color: #475569; }
+    ul.tight li { padding: 0.2rem 0 0.2rem 1.05rem; position: relative; }
+    ul.tight li::before { content: "→"; position: absolute; left: 0; color: #C8102E; font-weight: 700; }
+
+    /* Quote callout */
+    .quote { background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 0 0.45rem 0.45rem 0; padding: 0.85rem 1.1rem; margin-top: 0.6rem; }
+    .quote .q { font-size: 0.95rem; color: #0f172a; font-style: italic; line-height: 1.5; }
+    .quote .att { font-size: 0.72rem; color: #64748b; margin-top: 0.4rem; font-weight: 600; }
+
+    /* Contact strip */
+    .contact { margin-top: 1rem; padding: 0.85rem 1.1rem; background: #0f172a; color: white; border-radius: 0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .contact .name { font-size: 0.85rem; font-weight: 700; }
+    .contact .name span { color: #C8102E; }
+    .contact .info { font-size: 0.78rem; color: #cbd5e1; }
+    .contact .info a { color: white; text-decoration: none; font-weight: 600; }
+
+    /* Footer */
+    .footer { margin-top: 0.8rem; padding-top: 0.5rem; border-top: 1px solid #e2e8f0; font-size: 0.65rem; color: #94a3b8; text-align: center; }
+
+    @page { size: letter; margin: 0; }
+    @media print {
+      .page { padding: 0.4in 0.5in; }
+      .contact { background: #0f172a !important; color: white !important; }
+      .contact .info { color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <div class="doc-header">
+      <div class="left">
+        <div class="doc-label">About</div>
+        <h1>Gideon Codeworks</h1>
+      </div>
+      <div class="right">
+        <div><strong>Founded:</strong> 2024</div>
+        <div><strong>Based:</strong> Cleveland, Ohio</div>
+        <div><strong>Founder:</strong> Josh Stone</div>
+      </div>
+    </div>
+
+    <!-- Lead -->
+    <div class="lead">
+      <p>Gideon Codeworks is a Cleveland-based web studio that builds custom Next.js websites and 24/7 AI lead-capture systems for service businesses across the country. We combine technical SEO, content production, and ongoing site management into a single monthly fee — so you get an outcome, not an invoice for hours.</p>
+    </div>
+
+    <!-- What we do -->
+    <h2 class="sec">What We Do</h2>
+    <div class="grid-3">
+      <div class="pillar">
+        <div class="lbl">Build</div>
+        <div class="title">Custom Websites</div>
+        <div class="desc">Next.js sites built from scratch. Mobile-first, sub-2-second loads, SEO-ready out of the box. No templates.</div>
+      </div>
+      <div class="pillar">
+        <div class="lbl">Optimize</div>
+        <div class="title">Multi-Market SEO + AEO</div>
+        <div class="desc">Local SEO across every metro you serve, plus AEO (answer-engine optimization) for ChatGPT, Google AI Overviews, and Perplexity.</div>
+      </div>
+      <div class="pillar">
+        <div class="lbl">Convert</div>
+        <div class="title">AI Lead Engines</div>
+        <div class="desc">Custom-trained chatbots that capture leads 24/7 — name, phone, job type, urgency — directly from natural conversation.</div>
+      </div>
+    </div>
+
+    <!-- Two col: stats + clients -->
+    <div class="twocol">
+      <div>
+        <h2 class="sec">By the Numbers</h2>
+        <div class="stats">
+          <div class="stat"><div class="num">100%</div><div class="lbl">Custom-built</div></div>
+          <div class="stat"><div class="num">24/7</div><div class="lbl">AI lead capture</div></div>
+          <div class="stat"><div class="num">&lt;2s</div><div class="lbl">Page loads</div></div>
+          <div class="stat"><div class="num">1</div><div class="lbl">Monthly invoice</div></div>
+        </div>
+        <p style="margin-top: 0.4rem;">Every WaaS engagement bundles hosting, content management, multi-market SEO, GBP optimization, AI chatbot, and direct founder support into one predictable monthly cost.</p>
+      </div>
+
+      <div>
+        <h2 class="sec">Industries We Serve</h2>
+        <ul class="tight">
+          <li>Masonry &amp; restoration contractors</li>
+          <li>Caulking &amp; sealant specialists</li>
+          <li>Construction materials suppliers</li>
+          <li>Multi-location service businesses</li>
+          <li>Trainer &amp; coaching networks</li>
+          <li>Recruitment-driven service teams</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Why we're different -->
+    <h2 class="sec">Why We&rsquo;re Different</h2>
+    <ul class="tight">
+      <li><strong style="color: #0f172a;">Founder-led, not agency-staffed.</strong> Every client works directly with the founder. No junior account managers, no offshore teams.</li>
+      <li><strong style="color: #0f172a;">Build-on-spec model.</strong> For high-fit clients we build the site before charging — proves the work, eliminates risk on your side.</li>
+      <li><strong style="color: #0f172a;">One bundled monthly price.</strong> Hosting, content, SEO, chatbot, support — all included. No surprise invoices, no &ldquo;that&rsquo;s out of scope.&rdquo;</li>
+      <li><strong style="color: #0f172a;">Code ownership transfers.</strong> At the end of every long-term agreement, the codebase is yours — not held hostage by us.</li>
+      <li><strong style="color: #0f172a;">Real ongoing work, not a dashboard.</strong> Monthly performance reports show what we shipped, what moved, and what&rsquo;s next.</li>
+    </ul>
+
+    <!-- Quote -->
+    <div class="quote">
+      <div class="q">&ldquo;We went from 3-5 calls a week to 3-5 calls a day. Getting calls from areas we wanted to be in but never used to.&rdquo;</div>
+      <div class="att">Kyle Schmitz · Owner, KS Masonry Restoration</div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact">
+      <div>
+        <div class="name">Josh Stone <span>· Founder</span></div>
+        <div class="info" style="margin-top: 0.15rem;">Gideon Codeworks LLC · Cleveland, OH</div>
+      </div>
+      <div class="info">
+        <a href="tel:2164632648">(216) 463-2648</a> &nbsp;·&nbsp;
+        <a href="mailto:josh@gideoncode.com">josh@gideoncode.com</a> &nbsp;·&nbsp;
+        <a href="https://gideoncode.com">gideoncode.com</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Gideon Codeworks &middot; Custom Websites &amp; AI Lead Engines for Service Businesses
+    </div>
+
+  </div>
+</body>
+</html>

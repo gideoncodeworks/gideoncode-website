@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Meeting Agenda — Lorenzo's Dog Training Team | Gideon Codeworks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: white; color: #1e293b; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { max-width: 7.5in; margin: 0 auto; padding: 0.5in 0.6in; }
+
+    /* Header */
+    .doc-header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 0.6rem; border-bottom: 2px solid #C8102E; margin-bottom: 1rem; }
+    .doc-header .left .doc-label { font-size: 0.65rem; font-weight: 700; color: #C8102E; letter-spacing: 0.18em; text-transform: uppercase; }
+    .doc-header .left h1 { font-size: 1.4rem; font-weight: 800; color: #0f172a; margin-top: 0.15rem; }
+    .doc-header .right { text-align: right; font-size: 0.72rem; color: #64748b; line-height: 1.55; }
+    .doc-header .right strong { color: #0f172a; }
+
+    h2.sec { font-size: 0.7rem; font-weight: 800; color: #C8102E; letter-spacing: 0.16em; text-transform: uppercase; margin: 1rem 0 0.4rem 0; padding-bottom: 0.18rem; border-bottom: 1px solid #fecaca; }
+
+    /* Meta cards */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    .meta-card { background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #C8102E; border-radius: 0 0.4rem 0.4rem 0; padding: 0.65rem 0.85rem; }
+    .meta-card .lbl { font-size: 0.6rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    .meta-card .val { font-size: 0.85rem; color: #0f172a; font-weight: 600; margin-top: 0.18rem; line-height: 1.45; }
+    .meta-card ul { list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: #1e293b; }
+    .meta-card li { padding: 0.1rem 0; }
+
+    /* Agenda table */
+    .agenda { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+    .agenda th { text-align: left; padding: 0.4rem 0.5rem; font-size: 0.62rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid #fecaca; }
+    .agenda th.r { text-align: right; }
+    .agenda td { padding: 0.55rem 0.5rem; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+    .agenda td.t { color: #C8102E; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+    .agenda td.r { text-align: right; color: #94a3b8; font-size: 0.72rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .agenda .item-num { color: #C8102E; font-weight: 800; margin-right: 0.4rem; }
+    .agenda .item-title { color: #0f172a; font-weight: 700; font-size: 0.88rem; }
+    .agenda .item-desc { color: #475569; font-size: 0.78rem; line-height: 1.45; margin-top: 0.18rem; }
+
+    /* Outcomes / decisions */
+    ul.outcomes { list-style: none; padding: 0; font-size: 0.82rem; color: #475569; }
+    ul.outcomes li { padding: 0.22rem 0 0.22rem 1.05rem; position: relative; }
+    ul.outcomes li::before { content: "→"; position: absolute; left: 0; color: #C8102E; font-weight: 700; }
+
+    /* Footer */
+    .footer { margin-top: 1rem; padding-top: 0.5rem; border-top: 1px solid #e2e8f0; font-size: 0.65rem; color: #94a3b8; display: flex; justify-content: space-between; }
+
+    @page { size: letter; margin: 0; }
+    @media print {
+      .page { padding: 0.4in 0.5in; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <div class="doc-header">
+      <div class="left">
+        <div class="doc-label">Meeting Agenda</div>
+        <h1>Lorenzo's Dog Training Team — Proposal Review</h1>
+      </div>
+      <div class="right">
+        <div><strong>Date:</strong> May 6, 2026</div>
+        <div><strong>Time:</strong> 1:00 PM</div>
+        <div><strong>Hosted by:</strong> Josh Stone, Gideon Codeworks</div>
+      </div>
+    </div>
+
+    <!-- Meta -->
+    <div class="meta-grid">
+      <div class="meta-card">
+        <div class="lbl">Objective</div>
+        <div class="val">Review the Gideon Codeworks proposal, walk through the work already built, answer questions, and reach a decision on next steps.</div>
+      </div>
+      <div class="meta-card">
+        <div class="lbl">Attendees</div>
+        <ul>
+          <li>Lorenzo Miller — Owner</li>
+          <li>[CEO Name] — CEO</li>
+          <li>[CFO Name] — CFO</li>
+          <li>Josh Stone — Founder, Gideon Codeworks</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Agenda -->
+    <h2 class="sec">Agenda</h2>
+    <table class="agenda">
+      <thead>
+        <tr>
+          <th style="width: 12%;">Time</th>
+          <th>Topic</th>
+          <th class="r">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="t">1:00</td>
+          <td>
+            <span class="item-num">1.</span><span class="item-title">Welcome &amp; Objectives</span>
+            <div class="item-desc">Introductions, agenda overview, what we want to leave with today.</div>
+          </td>
+          <td class="r">2 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:02</td>
+          <td>
+            <span class="item-num">2.</span><span class="item-title">The Opportunity</span>
+            <div class="item-desc">Why the new website matters now: trainer recruitment scaling 39 → 100, multi-market client acquisition, AEO-ready foundation. Quick reference to current Squarespace site limitations.</div>
+          </td>
+          <td class="r">5 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:07</td>
+          <td>
+            <span class="item-num">3.</span><span class="item-title">Live Demo of the Built Site</span>
+            <div class="item-desc">Walkthrough of <strong>lorenzos-dog-training.vercel.app</strong> — homepage, recruitment funnel (city career page), client funnel (city location page), state hub, AI chatbot. Demonstrates the two-page-per-city design.</div>
+          </td>
+          <td class="r">7 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:14</td>
+          <td>
+            <span class="item-num">4.</span><span class="item-title">Proof Point — KS Masonry Case Study</span>
+            <div class="item-desc">Real client results: 3-5 calls/week → 3-5 calls/day, ranking #5 in Cleveland for "masonry contractor," site health audit 64 → 100, form submissions doubled month-over-month.</div>
+          </td>
+          <td class="r">3 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:17</td>
+          <td>
+            <span class="item-num">5.</span><span class="item-title">Investment &amp; Terms</span>
+            <div class="item-desc">$0 setup (waived), $1,000/mo bundled, 24-month agreement. Total $24,000 — 47.5% off published rate, $63K below comparable agency cost. One-page Investment Summary handed out for reference.</div>
+          </td>
+          <td class="r">5 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:22</td>
+          <td>
+            <span class="item-num">6.</span><span class="item-title">The Recurring Deliverable</span>
+            <div class="item-desc">Sample monthly performance report (KS Masonry, April 2026) — what your team receives every month: real metrics, work delivered, next-month focus.</div>
+          </td>
+          <td class="r">3 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:25</td>
+          <td>
+            <span class="item-num">7.</span><span class="item-title">Questions &amp; Discussion</span>
+            <div class="item-desc">Open floor — pricing, scope, timeline, exit terms, anything else. Josh available to answer in detail.</div>
+          </td>
+          <td class="r">10 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:35</td>
+          <td>
+            <span class="item-num">8.</span><span class="item-title">Decision &amp; Next Steps</span>
+            <div class="item-desc">Either sign today (live e-sign on the spot) or set a concrete decision date and follow-up call.</div>
+          </td>
+          <td class="r">5 min</td>
+        </tr>
+        <tr>
+          <td class="t">1:40</td>
+          <td>
+            <span class="item-num">9.</span><span class="item-title">Adjourn</span>
+            <div class="item-desc">Thanks &amp; close.</div>
+          </td>
+          <td class="r">—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Outcomes -->
+    <h2 class="sec">Decisions to Reach Today</h2>
+    <ul class="outcomes">
+      <li>Confirmation that scope, deliverables, and ongoing-service expectations match what your team needs</li>
+      <li>Agreement on pricing structure: $0 setup + $1,000/mo bundled, 24-month term</li>
+      <li>Either signed agreement on the spot, or a specific date + decision-maker for follow-up</li>
+      <li>Identification of any open items that need answering before signing</li>
+    </ul>
+
+    <!-- Reference materials -->
+    <h2 class="sec">Reference Materials Provided</h2>
+    <ul class="outcomes">
+      <li><strong>KS Masonry Case Study</strong> — proof point, real customer results</li>
+      <li><strong>Service Proposal</strong> — full scope of work, pricing, terms (24-page document)</li>
+      <li><strong>Investment Summary</strong> — one-page CFO reference</li>
+      <li><strong>Sample Monthly Report</strong> — example of recurring deliverable</li>
+      <li><strong>Gideon Codeworks Brief</strong> — about us, capabilities, contact</li>
+    </ul>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div>Gideon Codeworks · Cleveland, OH · josh@gideoncode.com · (216) 463-2648</div>
+      <div>Confidential — for meeting attendees only</div>
+    </div>
+
+  </div>
+</body>
+</html>
