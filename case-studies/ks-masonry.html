@@ -88,6 +88,48 @@
       .section h2 { font-size: 1.5rem; }
       .cta h2 { font-size: 1.5rem; }
     }
+
+    @page { size: letter; margin: 0.4in 0.5in; }
+    @media print {
+      html, body { background: white !important; color: #1e293b !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+      .site-header { display: none !important; }
+      .hero { background: white !important; padding: 1rem 0 1.25rem !important; border-bottom: 2px solid #C8102E !important; }
+      .hero-label { color: #C8102E !important; }
+      .hero h1 { color: #0f172a !important; font-size: 2.2rem !important; }
+      .hero h1 span { color: #C8102E !important; }
+      .hero-sub { color: #475569 !important; font-size: 1rem !important; }
+      .hero-meta { color: #64748b !important; font-size: 0.75rem !important; }
+      .hero-meta strong { color: #0f172a !important; }
+      .pullquote { background: #f0fdf4 !important; border-left: 4px solid #22c55e !important; margin: 1rem 0 !important; padding: 1.2rem 1.5rem !important; page-break-inside: avoid; }
+      .pullquote .q { color: #0f172a !important; font-size: 1.15rem !important; }
+      .pullquote .att { color: #64748b !important; }
+      .stats { margin: 1.25rem 0 !important; padding: 0 !important; }
+      .stats h2 { color: #0f172a !important; font-size: 1.2rem !important; margin-bottom: 0.85rem !important; }
+      .stats-grid { gap: 0.6rem !important; }
+      .stat-card { background: #fef2f2 !important; border-color: #C8102E !important; padding: 0.9rem !important; page-break-inside: avoid; }
+      .stat-card .num { color: #C8102E !important; font-size: 1.6rem !important; }
+      .stat-card .num.green { color: #15803d !important; }
+      .stat-card .lbl { color: #475569 !important; font-size: 0.78rem !important; }
+      .stat-card .sub { color: #94a3b8 !important; }
+      .content { padding: 0 !important; max-width: none !important; }
+      .section { padding: 1.1rem 0 !important; border-bottom-color: #fecaca !important; page-break-inside: avoid; }
+      .section-label { color: #C8102E !important; }
+      .section h2 { color: #0f172a !important; font-size: 1.35rem !important; }
+      .section h3 { color: #0f172a !important; font-size: 1.05rem !important; margin: 1rem 0 0.5rem !important; }
+      .section p { color: #475569 !important; font-size: 0.92rem !important; }
+      .section ul { color: #475569 !important; }
+      .section ul li { font-size: 0.92rem !important; padding: 0.25rem 0 0.25rem 1.5rem !important; }
+      .section ul li::before { color: #15803d !important; }
+      .inline-quote { background: #fef2f2 !important; border-left: 3px solid #C8102E !important; color: #0f172a !important; font-size: 0.95rem !important; padding: 0.9rem 1.1rem !important; }
+      .inline-quote .att { color: #64748b !important; }
+      .cta { background: #C8102E !important; padding: 1.5rem !important; margin-top: 1rem !important; page-break-inside: avoid; }
+      .cta h2 { color: white !important; font-size: 1.35rem !important; }
+      .cta p { color: rgba(255,255,255,0.95) !important; font-size: 0.9rem !important; }
+      .btn-white { background: white !important; color: #C8102E !important; }
+      .btn-outline { border-color: white !important; color: white !important; }
+      .footer { background: white !important; color: #94a3b8 !important; padding: 1rem !important; font-size: 0.7rem !important; border-top: 1px solid #e2e8f0; }
+      .footer a { color: #C8102E !important; }
+    }
   </style>
 </head>
 <body>
