@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study — KS Masonry Restoration | Gideon Codeworks</title>
+  <meta name="description" content="How KS Masonry Restoration went from 3-5 calls a week to 3-5 calls a day after partnering with Gideon Codeworks for site rebuild, SEO, and AI chatbot.">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0e1a; color: #e2e8f0; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: #C8102E; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .site-header { background: #0a0e1a; border-bottom: 1px solid rgba(200,16,46,0.18); padding: 1.5rem 2rem; }
+    .site-header-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .site-header img { height: 32px; }
+    .site-header nav { display: flex; gap: 2rem; font-size: 0.875rem; }
+    .site-header nav a { color: #94a3b8; }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #0a0e1a 0%, #1e293b 100%); padding: 5rem 2rem 4rem; text-align: center; border-bottom: 1px solid rgba(200,16,46,0.15); }
+    .hero-inner { max-width: 900px; margin: 0 auto; }
+    .hero-label { color: #C8102E; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.25rem; }
+    .hero h1 { font-size: 3rem; font-weight: 800; color: white; margin-bottom: 1rem; line-height: 1.1; letter-spacing: -0.01em; }
+    .hero-sub { color: #94a3b8; font-size: 1.125rem; max-width: 640px; margin: 0 auto 2rem; }
+    .hero-meta { display: flex; justify-content: center; gap: 2.5rem; font-size: 0.8125rem; color: #64748b; flex-wrap: wrap; }
+    .hero-meta strong { color: white; }
+
+    /* Pull quote — top */
+    .pullquote { background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(34,197,94,0.03)); border-left: 5px solid #22c55e; border-radius: 0 1rem 1rem 0; padding: 2rem 2.5rem; margin: 2rem auto; max-width: 820px; }
+    .pullquote .q { font-size: 1.5rem; color: white; font-style: italic; line-height: 1.5; font-weight: 500; }
+    .pullquote .att { font-size: 0.875rem; color: #94a3b8; margin-top: 1rem; font-weight: 600; }
+    .pullquote .att .role { color: #64748b; font-weight: 400; }
+
+    /* Stats */
+    .stats { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+    .stats h2 { color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+    .stat-card { background: rgba(200,16,46,0.07); border: 1px solid rgba(200,16,46,0.25); border-radius: 1rem; padding: 1.75rem; text-align: center; }
+    .stat-card .num { font-size: 2.4rem; font-weight: 800; color: #C8102E; line-height: 1; margin-bottom: 0.5rem; }
+    .stat-card .num.green { color: #22c55e; }
+    .stat-card .lbl { color: #cbd5e1; font-size: 0.875rem; line-height: 1.4; }
+    .stat-card .sub { color: #64748b; font-size: 0.75rem; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* Content sections */
+    .content { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 3rem 0; border-bottom: 1px solid rgba(200,16,46,0.1); }
+    .section:last-of-type { border-bottom: none; }
+    .section-label { color: #C8102E; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section h2 { color: white; font-size: 1.875rem; font-weight: 700; margin-bottom: 1.25rem; line-height: 1.2; }
+    .section h3 { color: white; font-size: 1.25rem; font-weight: 600; margin: 1.75rem 0 0.75rem; }
+    .section p { color: #cbd5e1; margin-bottom: 1rem; font-size: 1.0625rem; }
+    .section ul { color: #cbd5e1; padding-left: 0; list-style: none; }
+    .section ul li { padding: 0.4rem 0 0.4rem 1.75rem; position: relative; font-size: 1.0625rem; }
+    .section ul li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 800; font-size: 1.1rem; }
+
+    /* Inline quote */
+    .inline-quote { background: rgba(255,255,255,0.03); border-left: 3px solid #C8102E; border-radius: 0 0.5rem 0.5rem 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-style: italic; color: white; font-size: 1.05rem; }
+    .inline-quote .att { font-style: normal; color: #94a3b8; font-size: 0.8125rem; margin-top: 0.5rem; }
+
+    /* CTA */
+    .cta { background: linear-gradient(135deg, #C8102E 0%, #a00d24 100%); padding: 4rem 2rem; text-align: center; margin-top: 3rem; }
+    .cta h2 { color: white; font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .cta p { color: rgba(255,255,255,0.9); margin-bottom: 2rem; max-width: 540px; margin-left: auto; margin-right: auto; font-size: 1.0625rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: 0.5rem; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+    .btn-white { background: white; color: #C8102E; }
+    .btn-white:hover { background: #f8fafc; text-decoration: none; }
+    .btn-outline { border: 2px solid white; color: white; background: transparent; }
+    .btn-outline:hover { background: white; color: #C8102E; text-decoration: none; }
+
+    /* Footer */
+    .footer { padding: 2.5rem 2rem; text-align: center; color: #64748b; font-size: 0.875rem; background: #0a0e1a; }
+    .footer a { color: #C8102E; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 3.5rem 1.5rem 2.5rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero-sub { font-size: 1rem; }
+      .hero-meta { flex-direction: column; gap: 0.5rem; }
+      .pullquote { padding: 1.5rem; margin: 1.5rem 1rem; }
+      .pullquote .q { font-size: 1.15rem; }
+      .stat-card .num { font-size: 1.9rem; }
+      .section { padding: 2rem 0; }
+      .section h2 { font-size: 1.5rem; }
+      .cta h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site header -->
+  <div class="site-header">
+    <div class="site-header-inner">
+      <a href="/"><img src="/images/gcw-logo-horizontal.png" alt="Gideon Codeworks"></a>
+      <nav>
+        <a href="/case-studies">Case Studies</a>
+        <a href="/services.html">Services</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-label">Case Study</div>
+      <h1>From 3–5 calls a week to <span style="color: #C8102E;">3–5 a day</span></h1>
+      <p class="hero-sub">How KS Masonry Restoration went from invisible online to ranking #5 in the Cleveland local pack — and built an AI-powered lead engine that runs around the clock.</p>
+      <div class="hero-meta">
+        <span><strong>Client:</strong> KS Masonry Restoration</span>
+        <span><strong>Industry:</strong> Masonry Contractor</span>
+        <span><strong>Market:</strong> Cleveland, OH</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead pull quote -->
+  <div class="pullquote">
+    <div class="q">&ldquo;We went from 3–5 calls a week to 3–5 calls a day. Getting calls from areas we wanted to be in but never used to.&rdquo;</div>
+    <div class="att">Kyle Schmitz <span class="role">· Owner, KS Masonry Restoration</span></div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <h2>The Results</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="num">5–7×</div>
+        <div class="lbl">More inbound calls per week</div>
+        <div class="sub">3-5/wk → 3-5/day</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">2×</div>
+        <div class="lbl">Form submissions month-over-month</div>
+        <div class="sub">April 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="num green">100/100</div>
+        <div class="lbl">Site health score</div>
+        <div class="sub">up from 64/100</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">#5</div>
+        <div class="lbl">Local pack ranking for &ldquo;masonry contractor&rdquo; in Cleveland</div>
+        <div class="sub">highest-intent keyword</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- The challenge -->
+    <div class="section">
+      <div class="section-label">The Challenge</div>
+      <h2>A great masonry company nobody could find</h2>
+      <p>KS Masonry Restoration had been doing exceptional work in the Cleveland market for years — quality craftsmanship, happy customers, the kind of word-of-mouth reputation other contractors envy. The problem wasn&apos;t the work. The problem was visibility.</p>
+      <p>When homeowners searched &ldquo;masonry contractor cleveland&rdquo; or &ldquo;tuckpointing near me,&rdquo; KS wasn&apos;t showing up. The site itself was slow, missing schema markup, and had technical SEO issues across most pages. Visitors who did land on the site had no easy way to ask a question or get a quote outside of business hours.</p>
+      <p>Inbound calls were running 3–5 per week — and a number of those were the wrong kind of calls (out-of-area, wrong scope, tire-kickers).</p>
+    </div>
+
+    <!-- The work -->
+    <div class="section">
+      <div class="section-label">What We Did</div>
+      <h2>Foundation, content, and a 24/7 lead engine</h2>
+
+      <h3>1. Technical SEO foundation</h3>
+      <p>We started with a full audit. The baseline score was 64/100 — missing H1 tags, missing alt text on images, a handful of broken meta descriptions, and slow page loads from unoptimized images. Within two weeks we had every issue resolved and the score at 100/100.</p>
+      <ul>
+        <li>Compressed and re-encoded every image, fixed EXIF rotation issues</li>
+        <li>Added FAQ schema, LocalBusiness schema, and Service schema across the site</li>
+        <li>Cleaned up canonical URLs and the www/non-www redirect chain</li>
+        <li>Rewrote meta titles and descriptions targeting Cleveland-area masonry queries</li>
+      </ul>
+
+      <h3>2. Service area expansion</h3>
+      <p>Cleveland alone wasn&apos;t the whole market. Kyle wanted to attract jobs from Medina, Bay Village, Avon, and the broader West Side suburbs — areas with high homeownership rates and older masonry. We built dedicated service-area pages for each, optimized for local SEO.</p>
+
+      <h3>3. Content that ranks</h3>
+      <p>Two SEO-targeted blog posts covering seasonal homeowner research — &ldquo;Best Time of Year for Masonry Work in Ohio&rdquo; and &ldquo;Spring Masonry Checklist&rdquo; — designed to capture intent at the start of the masonry season.</p>
+
+      <h3>4. AI chatbot — the 24/7 lead engine</h3>
+      <p>Most contractor websites die at 5pm. We built KS Masonry an AI chatbot that runs on every page and captures leads around the clock. Not a basic Q&A bot — it asks the right questions, extracts contact info naturally from conversation, and routes urgent inquiries to Kyle directly.</p>
+      <ul>
+        <li>Captures visitor name, phone, email, job type, and urgency from conversation</li>
+        <li>Knows the service area and pricing approach — answers homeowner questions correctly without making promises</li>
+        <li>Recognizes when someone wants to talk to a human and escalates immediately</li>
+        <li>Persists visitor identity across visits so returning customers are recognized</li>
+      </ul>
+    </div>
+
+    <!-- Quote -->
+    <div class="section">
+      <div class="section-label">In Kyle&apos;s Words</div>
+      <div class="inline-quote">
+        &ldquo;Getting calls from areas we wanted to be in but never used to. The work Josh did paid for itself in the first couple weeks.&rdquo;
+        <div class="att">— Kyle Schmitz, Owner, KS Masonry Restoration</div>
+      </div>
+    </div>
+
+    <!-- Ongoing -->
+    <div class="section">
+      <div class="section-label">Ongoing Partnership</div>
+      <h2>What KS Masonry gets every month</h2>
+      <p>The site launch was the start, not the finish. KS Masonry stays on a Gideon Codeworks WaaS plan that includes hosting, ongoing SEO, content production, and continuous chatbot improvements.</p>
+      <ul>
+        <li>Monthly performance report — every metric that matters in one document</li>
+        <li>2 SEO-targeted blog posts per month</li>
+        <li>Google Business Profile optimization &amp; monthly posts</li>
+        <li>Keyword rank tracking and on-page SEO refinement</li>
+        <li>Chatbot knowledge base updates as services evolve</li>
+        <li>Direct support — call, text, or email any time</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Want results like Kyle&apos;s for your business?</h2>
+    <p>If you&apos;re running a service business and your website isn&apos;t delivering inbound leads, we should talk. We don&apos;t take every project — we take the ones we know we can win.</p>
+    <div class="cta-buttons">
+      <a href="tel:2164632648" class="btn btn-white">Call (216) 463-2648</a>
+      <a href="mailto:josh@gideoncode.com" class="btn btn-outline">Email Josh</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p><a href="https://gideoncode.com">Gideon Codeworks</a> · Cleveland, OH · (216) 463-2648 · <a href="mailto:josh@gideoncode.com">josh@gideoncode.com</a></p>
+  </div>
+
+</body>
+</html>
