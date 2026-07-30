@@ -76,6 +76,14 @@
       box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.4);
     }
   </style>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Custom CRM Demo — Sales Pipeline & Dashboard | Gideon Codeworks">
+  <meta property="og:description" content="Interactive demo of a custom CRM platform. See the sales pipeline, commission tracking, and team management in action. Built by Gideon Codeworks.">
+  <meta property="og:image" content="https://gideoncode.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://gideoncode.com/images/og-image.jpg">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
 
@@ -150,7 +158,7 @@
     <!-- Sidebar Navigation -->
     <aside class="w-72 glassmorphism fixed top-48 bottom-0 left-0 z-40 flex flex-col border-r border-white/10 overflow-y-auto">
       <div class="flex-shrink-0 border-b border-white/10 px-6 py-4">
-        <h1 class="text-xl font-semibold text-white">Revenue Command</h1>
+        <h2 class="text-xl font-semibold text-white">Revenue Command</h2>
       </div>
 
       <nav class="flex-1 space-y-1 px-4 py-6" id="main-nav">
@@ -633,7 +641,7 @@
       'lead-intake': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Lead Intake</h1>
+            <h2 class="text-3xl font-bold text-white">Lead Intake</h2>
             <p class="mt-2 text-slate-300">Rapid lead capture for fast follow-up</p>
           </div>
           <div class="rounded-3xl border border-white/10 bg-white/5 p-8 glassmorphism">
@@ -677,7 +685,7 @@
       'clients': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Client Management</h1>
+            <h2 class="text-3xl font-bold text-white">Client Management</h2>
             <p class="mt-2 text-slate-300">Track and manage your client relationships</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -729,7 +737,7 @@
       'calendar': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Calendar</h1>
+            <h2 class="text-3xl font-bold text-white">Calendar</h2>
             <p class="mt-2 text-slate-300">Schedule and track appointments</p>
           </div>
           <div class="rounded-3xl border border-white/10 bg-white/5 p-8 glassmorphism">
@@ -771,7 +779,7 @@
       'activity': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Activity Log</h1>
+            <h2 class="text-3xl font-bold text-white">Activity Log</h2>
             <p class="mt-2 text-slate-300">Track interactions and touchpoints</p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -836,7 +844,7 @@
       'commissions': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Commission Tracking</h1>
+            <h2 class="text-3xl font-bold text-white">Commission Tracking</h2>
             <p class="mt-2 text-slate-300">Breakdown of your earnings by commission type</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -908,7 +916,7 @@
       'sales': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Sales Pipeline</h1>
+            <h2 class="text-3xl font-bold text-white">Sales Pipeline</h2>
             <p class="mt-2 text-slate-300">Manage your sales funnel and track deals from lead to close</p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -961,7 +969,7 @@
       'tasks': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Tasks</h1>
+            <h2 class="text-3xl font-bold text-white">Tasks</h2>
             <p class="mt-2 text-slate-300">Manage your to-do list and workflow</p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -1017,7 +1025,7 @@
       'tickets': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Support Tickets</h1>
+            <h2 class="text-3xl font-bold text-white">Support Tickets</h2>
             <p class="mt-2 text-slate-300">Manage customer support requests</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -1062,7 +1070,7 @@
       'change-requests': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Change Requests</h1>
+            <h2 class="text-3xl font-bold text-white">Change Requests</h2>
             <p class="mt-2 text-slate-300">Track project modifications and updates</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1103,7 +1111,7 @@
       'team': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white" id="team-title">Team Management</h1>
+            <h2 class="text-3xl font-bold text-white" id="team-title">Team Management</h2>
             <p class="mt-2 text-slate-300" id="team-description">3-level MLM hierarchy with override percentages</p>
           </div>
           <div class="rounded-3xl border border-white/10 bg-white/5 p-6 glassmorphism">
@@ -1191,7 +1199,7 @@
       'payouts': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Payouts</h1>
+            <h2 class="text-3xl font-bold text-white">Payouts</h2>
             <p class="mt-2 text-slate-300">Manage commission payouts and disbursements</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1249,7 +1257,7 @@
       'documents': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Documents</h1>
+            <h2 class="text-3xl font-bold text-white">Documents</h2>
             <p class="mt-2 text-slate-300">Manage contracts, proposals, and files</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -1316,7 +1324,7 @@
       'settings': `
         <div class="space-y-6">
           <div>
-            <h1 class="text-3xl font-bold text-white">Settings</h1>
+            <h2 class="text-3xl font-bold text-white">Settings</h2>
             <p class="mt-2 text-slate-300">Configure system preferences and options</p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -1481,7 +1489,7 @@
           <div class="rounded-3xl border border-white/10 p-8 glassmorphism shadow-brand">
             <div class="space-y-4">
               <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Admin Overview</p>
-              <h1 class="text-3xl font-semibold text-white sm:text-4xl">Pipeline health is strong, James.</h1>
+              <h2 class="text-3xl font-semibold text-white sm:text-4xl">Pipeline health is strong, James.</h2>
               <p class="max-w-2xl text-sm text-slate-200/80">
                 Your organization is performing well. Monitor key metrics and take quick actions to keep momentum going.
               </p>
@@ -1553,7 +1561,7 @@
           <div class="rounded-3xl border border-white/10 p-8 glassmorphism shadow-brand">
             <div class="space-y-4">
               <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Analytics Dashboard</p>
-              <h1 class="text-3xl font-semibold text-white sm:text-4xl">Comprehensive Business Intelligence</h1>
+              <h2 class="text-3xl font-semibold text-white sm:text-4xl">Comprehensive Business Intelligence</h2>
               <p class="max-w-2xl text-sm text-slate-200/80">
                 Detailed analytics across all business metrics, team performance, and revenue trends.
               </p>
@@ -1704,7 +1712,7 @@
               <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                 <div class="space-y-4">
                   <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Personal Dashboard</p>
-                  <h1 class="text-3xl font-semibold text-white sm:text-4xl">Great work this month, Sarah.</h1>
+                  <h2 class="text-3xl font-semibold text-white sm:text-4xl">Great work this month, Sarah.</h2>
                   <p class="max-w-xl text-sm text-slate-200/80">
                     You're tracking ahead of target with 9 active clients. Keep the momentum going and focus on closing those pending deals in your pipeline.
                   </p>
@@ -1785,7 +1793,7 @@
           <div class="rounded-3xl border border-white/10 p-8 glassmorphism shadow-brand">
             <div class="space-y-4">
               <p class="text-xs uppercase tracking-[0.35em] text-accent-200">Pipeline Dashboard</p>
-              <h1 class="text-3xl font-semibold text-white sm:text-4xl">Your Full Sales Pipeline</h1>
+              <h2 class="text-3xl font-semibold text-white sm:text-4xl">Your Full Sales Pipeline</h2>
               <p class="max-w-2xl text-sm text-slate-200/80">
                 Track all your deals, tasks, and activities in one comprehensive view.
               </p>

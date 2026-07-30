@@ -71,6 +71,19 @@
   }
   </script>
   <link rel="stylesheet" href="css/chatbot.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Do you build websites for Toledo businesses?","acceptedAnswer":{"@type":"Answer","text":"Yes. Gideon Codeworks builds websites for small businesses across Toledo and the surrounding area. We handle design, copywriting, hosting, and ongoing updates — so business owners don't have to deal with tech."}},
+      {"@type":"Question","name":"How much does a website cost for a Toledo business?","acceptedAnswer":{"@type":"Answer","text":"We offer monthly service tiers starting at $212.50/mo (Starter, 12-month) and going up to $799/mo (Enterprise). Full pricing on the packages page."}},
+      {"@type":"Question","name":"What is included in Gideon Codeworks service?","acceptedAnswer":{"@type":"Answer","text":"Every tier includes custom design, professional copywriting, hosting, SSL, ongoing content updates, SEO, mobile responsiveness, and unlimited technical support. Higher tiers add more pages, ecommerce, and Google Ads management."}},
+      {"@type":"Question","name":"How long does it take to launch a new website?","acceptedAnswer":{"@type":"Answer","text":"Most sites launch within 2-4 weeks of signing. Timing depends on how quickly you can get content and photos to us — we handle everything else."}},
+      {"@type":"Question","name":"Do you offer ongoing support after launch?","acceptedAnswer":{"@type":"Answer","text":"Yes — that is the whole model. Every tier includes unlimited content updates, hosting, security, and technical support for as long as you are a client. No hourly fees."}}
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -270,24 +283,19 @@
   <section class="py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-12">
-        <span class="gradient-text">Your Local Representative</span>
+        <span class="gradient-text">Talk to the Owner</span>
       </h2>
 
       <div class="cyber-card p-8">
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="flex-shrink-0">
-            <img src="images/team/marqelle.png" alt="Marqelle Birchfield" class="w-32 h-32 rounded-full object-cover object-top border-4 border-cyan-500">
-          </div>
-          <div class="text-center md:text-left">
-            <h3 class="text-2xl font-bold text-white mb-2">Marqelle Birchfield</h3>
-            <p class="text-cyan-400 mb-4">Account Executive - Toledo & Northwest Ohio</p>
-            <p class="text-gray-300 mb-6">
-              Toledo local who believes in keeping things simple and straightforward. I'm here to help you build a professional website that actually brings in customers—no runaround, no tech jargon.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="mailto:marqelle@gideoncode.com" class="neon-button text-sm">Marqelle@gideoncode.com</a>
-              <a href="tel:+14197218612" class="neon-button neon-button-outline text-sm">419-721-8612</a>
-            </div>
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-white mb-2">Josh Stone</h3>
+          <p class="text-cyan-400 mb-4">Founder — Gideon Codeworks</p>
+          <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+            No account executives, no call centers, no runaround. When you contact Gideon Codeworks, you talk to the person who&rsquo;ll build your site. Straight answers, no tech jargon.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:josh@gideoncode.com" class="neon-button text-sm">josh@gideoncode.com</a>
+            <a href="tel:+12164632648" class="neon-button neon-button-outline text-sm">216-463-2648</a>
           </div>
         </div>
       </div>
@@ -308,7 +316,7 @@
 
       <div class="cyber-card border-2 border-cyan-500 p-8">
         <form name="toledo-contact" method="POST" action="/api/form-submit">
-          <input type="hidden" name="assigned-rep" value="Marqelle Birchfield">
+          <input type="hidden" name="assigned-rep" value="Josh Stone">
           <input type="hidden" name="territory" value="Toledo">
           <div class="hidden">
             <label>Don't fill this out if you're human: <input name="bot-field"></label>
@@ -346,7 +354,7 @@
         </form>
       </div>
 
-      <p class="text-gray-500 mt-6 text-center">Or call Marqelle directly: <a href="tel:+14197218612" class="text-cyan-400 hover:underline">419-721-8612</a></p>
+      <p class="text-gray-500 mt-6 text-center">Or call Josh directly: <a href="tel:+12164632648" class="text-cyan-400 hover:underline">216-463-2648</a></p>
     </div>
   </section>
 
