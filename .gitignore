@@ -29,3 +29,7 @@ yarn.lock
 # Local Netlify folder
 .netlify
 env.txt
+
+# Screenshots dropped in the root — sandbox can't rm them
+Screenshot 2026-*.png
+/tmp/

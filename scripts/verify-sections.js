@@ -11,10 +11,9 @@ const puppeteer = require("puppeteer");
   await page.goto("http://localhost:8765/index.html", { waitUntil: "networkidle2" });
   await new Promise((r) => setTimeout(r, 1500));
 
-  // Logo bar
-  await page.evaluate(() => document.querySelector(".client-logo-bar")?.scrollIntoView());
-  await new Promise((r) => setTimeout(r, 500));
-  await page.screenshot({ path: "/tmp/gcw-logos.png", clip: { x: 0, y: 0, width: 1440, height: 220 } });
+  // Logo bar — screenshot the element directly (like portfolio grid below)
+  const logoBar = await page.$(".client-logo-bar");
+  await logoBar.screenshot({ path: "/tmp/gcw-logos.png" });
 
   // Portfolio grid — capture the element directly
   const el = await page.$(".portfolio-grid");
