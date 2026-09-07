@@ -840,7 +840,19 @@
   </url>
   <url>
     <loc>https://gideoncode.com/case-studies/ks-masonry.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gideoncode.com/software-free.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gideoncode.com/blog/ks-masonry-3-5-a-day-case-study.html</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
