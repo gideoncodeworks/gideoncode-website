@@ -148,13 +148,7 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://gideoncode.com/blog/launching-ae-program.html</loc>
-    <lastmod>2025-10-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
+<url>
     <loc>https://gideoncode.com/blog/why-i-built-gideon.html</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>yearly</changefreq>
