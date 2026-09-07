@@ -3,12 +3,12 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Internal / non-public folders
+Disallow: /aedocs/
+Disallow: /proposals/
+Disallow: /mockups/
+Disallow: /templates/
+Disallow: /email-templates/
+
+# Sitemap
 Sitemap: https://gideoncode.com/sitemap.xml
-
-# Crawl-delay (optional, adjust if needed)
-# Crawl-delay: 10
-
-# Disallow admin or private directories (if any)
-# Disallow: /admin/
-# Disallow: /private/
