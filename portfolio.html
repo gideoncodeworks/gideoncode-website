@@ -47,41 +47,42 @@
   <!-- Professional Dark Theme -->
   <link rel="stylesheet" href="css/professional-dark.css">
 
-  <!-- Structured Data - ItemList Schema for Portfolio -->
+  <!-- Structured Data - ItemList Schema for Portfolio (matches rendered content) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Gideon Codeworks Portfolio",
-    "description": "Portfolio of websites and web applications",
+    "description": "Live client websites and full SaaS products built and maintained by Gideon Codeworks.",
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@type": "CreativeWork",
-          "name": "Gideon Codeworks Website",
-          "description": "Company website showcasing professional design with modern web technologies",
-          "creator": {
-            "@type": "Organization",
-            "name": "Gideon Codeworks"
-          },
-          "keywords": "HTML5, TailwindCSS, JavaScript, SEO"
+          "@type": "WebSite",
+          "name": "KS Masonry Restoration",
+          "url": "https://ksmasonryrestoration.com",
+          "description": "Cleveland masonry contractor. Full SEO/AEO rebuild — city pages, schema, AI chatbot, service catalog. 3-5 leads/week to 3-5 leads/day."
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "WebSite",
+          "name": "Infinity Caulking & Restoration",
+          "url": "https://infinitycaulking-resto.com",
+          "description": "Cleveland caulking, tuckpointing, and masonry restoration. Brand-new 2026 business — first job sold from the site within 2-3 months."
         }
       },
       {
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@type": "SoftwareApplication",
-          "name": "Custom CRM System",
-          "description": "Customer relationship management system with sales pipeline and analytics",
-          "creator": {
-            "@type": "Organization",
-            "name": "Gideon Codeworks"
-          },
-          "applicationCategory": "BusinessApplication",
-          "keywords": "Vue.js, Express, MongoDB, CRM"
+          "@type": "WebSite",
+          "name": "Designer Concrete",
+          "url": "https://designerconcretecle.com",
+          "description": "39-year Cleveland concrete pro. Case-study blog, service catalog, chatbot, structured data."
         }
       },
       {
@@ -89,14 +90,51 @@
         "position": 4,
         "item": {
           "@type": "WebSite",
-          "name": "Infinity Caulking & Masonry Restoration",
-          "url": "https://infinitycaulking-resto.com",
-          "description": "Cleveland tuckpointing, caulking, and masonry restoration services site with AI chatbot lead capture",
-          "creator": {
-            "@type": "Organization",
-            "name": "Gideon Codeworks"
-          },
-          "keywords": "tuckpointing, caulking, masonry restoration, brick repair, Cleveland contractor"
+          "name": "BuyGeogrid — Asphalt Fabrics & Supply",
+          "url": "https://buygeogrid.com",
+          "description": "Tensar & Solmax distributor for Northern Ohio contractors. Product catalog, lead flow, technical resource library."
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "WebSite",
+          "name": "GAC Roll Pullers",
+          "url": "https://rollpullers.com",
+          "description": "Family paving-equipment manufacturer since 1980. Patented product site with dual product lines, spec sheets, dealer contact flow."
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "WebApplication",
+          "name": "GoodCattery",
+          "url": "https://goodcattery.com",
+          "description": "Verified breeder marketplace with membership database, Stripe Connect payments, admin dashboard, AI content, community forum, scam database.",
+          "applicationCategory": "Marketplace"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "WebApplication",
+          "name": "The Modern Drive",
+          "url": "https://themoderndrive.com",
+          "description": "Vertical SaaS for contractor owner-operators. Estimating engine, proposal builder, invoicing, Stripe payments — from a phone at the jobsite.",
+          "applicationCategory": "BusinessApplication"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "WebApplication",
+          "name": "iTrackerAFS",
+          "description": "Real-time inventory tracking PWA for Asphalt Fabrics & Supply warehouse — take/return/reserve workflow, admin panel, user auth, Firebase → Supabase migration.",
+          "applicationCategory": "BusinessApplication"
         }
       }
     ]
@@ -432,7 +470,7 @@
           </div>
 
           <div style="text-align: center;">
-            <p style="color: var(--text-muted); font-size: 0.9375rem; margin-bottom: 1.5rem;">This is what $80-150K of development looks like — built by Gideon Codeworks.</p>
+            <p style="color: var(--text-muted); font-size: 0.9375rem; margin-bottom: 1.5rem;">Full-stack marketplace with membership, Stripe Connect, AI, admin ops — built and maintained by Gideon Codeworks.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
               <a href="https://goodcattery.com" target="_blank" rel="noopener" class="btn btn-outline">Visit GoodCattery.com</a>
               <a href="services.html#platforms" class="btn btn-primary">Build Something Like This</a>
@@ -498,7 +536,7 @@
     <section class="cta">
       <div style="max-width: 800px; margin: 0 auto;">
         <h2>Want to See Your Business Here?</h2>
-        <p>We're building our portfolio and looking for great businesses to work with. Get started with a free consultation.</p>
+        <p>Ready to be the next result on this page? Book a free 20-minute call — we'll look at your current site and tell you honestly whether we're a fit.</p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="get-started.html" class="btn btn-primary">Start Your Project</a>
           <a href="tel:+12164632648" class="btn btn-outline">
