@@ -1,0 +1,9 @@
+/*
+ * Tailwind input for the production build.
+ *
+ * Preflight (Tailwind's base reset) is DISABLED in tailwind.config.js
+ * because professional-dark.css already defines site-wide base styles.
+ * We bring in only components + utilities.
+ */
+@tailwind components;
+@tailwind utilities;
