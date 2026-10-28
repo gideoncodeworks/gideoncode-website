@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "screenshot": "node screenshot.js",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "validate:pricing": "node scripts/validate-pricing.mjs",
+    "test:pricing-consistency": "node scripts/pricing-consistency-test.mjs"
   },
   "keywords": [
     "website",

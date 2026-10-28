@@ -3,44 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marketing Bundles — Website + SEO + Social Media | Gideon Codeworks</title>
-  <meta name="description" content="Save up to $3,456 with bundled marketing packages. Website, SEO, social media management, and Google Ads — all managed for you. Starting at $459/mo.">
+  <title>Packages &amp; Pricing | Gideon Codeworks</title>
+  <meta name="description" content="Fully managed Website-as-a-Service or a one-time build you own outright. 5 WaaS tiers, 3 one-time build tiers, add-ons, and a package builder — all leading to a free proposal, no online checkout.">
   <link rel="canonical" href="https://gideoncode.com/packages.html">
   <link rel="apple-touch-icon" href="/images/gcw-g-icon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gideoncode.com/packages.html">
-  <meta property="og:title" content="Marketing Bundles — Website + SEO + Social Media | Gideon Codeworks">
-  <meta property="og:description" content="Save up to $3,456 with bundled marketing packages. Website, SEO, social media, and ads — all managed for you.">
+  <meta property="og:title" content="Packages &amp; Pricing | Gideon Codeworks">
+  <meta property="og:description" content="Managed WaaS or buy outright. 5 WaaS tiers, 3 one-time builds, add-ons, and a package builder — all request-a-proposal, no online checkout.">
   <meta property="og:image" content="https://gideoncode.com/images/og-image.jpg">
-
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/gcw-g-icon.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Marketing Bundles — Website + SEO + Social Media">
-  <meta name="twitter:description" content="Bundled marketing packages. Website, SEO, social, and ads — all managed for you.">
+  <meta name="twitter:title" content="Packages &amp; Pricing | Gideon Codeworks">
+  <meta name="twitter:description" content="Managed WaaS or buy outright. Free proposal, no online checkout.">
   <meta name="twitter:image" content="https://gideoncode.com/images/og-image.jpg">
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Gideon Codeworks Marketing Bundles",
-    "description": "Website + SEO + Social Media + Google Ads bundled monthly packages for small businesses. Starting at $459/mo.",
-    "brand": { "@type": "Brand", "name": "Gideon Codeworks" },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "459",
-      "highPrice": "1499",
-      "offerCount": "4"
-    }
-  }
-  </script>
+  <!--
+    Structured data (Product + AggregateOffer) intentionally omitted from
+    this redesign pending verification against current Google guidance.
+    The previous AggregateOffer described "Marketing Bundles" at
+    $459-$1,499, which does not accurately represent the restructured
+    managed vs outright offering below. Reintroduce only after confirming
+    the exact offer shape with Josh.
+  -->
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF9QHH6T3S"></script>
@@ -88,336 +77,238 @@
   </nav>
 
   <main>
-
-    <!-- Hero -->
-    <section class="hero" style="padding-bottom: 3rem;">
-      <div style="max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
-        <div style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--success)); color: white; font-weight: 700; font-size: 0.875rem; padding: 0.5rem 1.5rem; border-radius: 9999px; margin-bottom: 1rem;">
-          SAVE UP TO $3,456/YEAR
+    <!-- Hero + model selector -->
+    <section class="hero" style="padding-top: 8rem; padding-bottom: 2rem;">
+      <div class="hero-container" style="display: block; text-align: center;">
+        <div class="hero-badge" style="margin: 0 auto 1.5rem;">
+          Request a proposal &middot; no online checkout
         </div>
-        <h1 style="font-size: 2.75rem; margin-bottom: 1.5rem;">
-          Marketing <span class="text-gradient">Bundles</span>
-        </h1>
-        <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 1rem;">
-          Website + SEO + Social Media + Ads — bundled together at a discount.<br>
-          Everything managed. One invoice. One team.
+        <h1 style="margin-bottom: 1rem;">Your Website, Your Terms</h1>
+        <p style="max-width: 680px; margin: 0 auto 2rem; font-size: 1.125rem; color: var(--text-secondary);">
+          Pick the model that fits your business &mdash; fully managed with a monthly plan, or a one-time build you own outright. Both start with a free consultation, both end in a proposal, neither asks for a credit card.
         </p>
-        <p style="display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 auto 2rem; padding: 0.5rem 1rem; border-radius: 9999px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.875rem; color: #34d399;">
-          <span style="font-size: 1.1em;">🎁</span>
-          Every contractor client gets <a href="software-free.html" style="color: #34d399; font-weight: 700; text-decoration: underline; text-underline-offset: 3px;">The Modern Drive comped for life</a> (a $49/mo standalone value)
-        </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="get-started.html" class="btn btn-primary">Get a Free Consultation</a>
-          <a href="services.html" class="btn btn-outline">See Individual Pricing</a>
+
+        <!-- Model tabs -->
+        <div role="tablist" aria-label="Choose website model" style="display: inline-flex; gap: 0.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 9999px; padding: 0.25rem;">
+          <button role="tab" id="tab-managed" aria-selected="true" aria-controls="panel-managed" class="model-tab model-tab--active">
+            Fully Managed
+          </button>
+          <button role="tab" id="tab-outright" aria-selected="false" aria-controls="panel-outright" class="model-tab">
+            Buy Outright
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Bundle Cards -->
-    <section class="section">
-      <div class="section-container">
-
-        <!-- Term Toggle -->
-        <div style="text-align: center; margin-bottom: 3rem;">
-          <div style="display: inline-flex; background: var(--bg-card); border: 1px solid var(--border); border-radius: 9999px; padding: 4px;">
-            <button id="term-24" onclick="setTerm(24)" style="padding: 0.5rem 1.5rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; cursor: pointer; border: none; background: var(--primary); color: white; transition: all 0.2s;">24 Months</button>
-            <button id="term-12" onclick="setTerm(12)" style="padding: 0.5rem 1.5rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--text-muted); transition: all 0.2s;">12 Months</button>
+    <!-- Managed WaaS panel -->
+    <section class="section" id="managed" role="tabpanel" aria-labelledby="tab-managed" style="padding-top: 1rem;">
+      <div class="section-container" style="max-width: 1200px;">
+        <!-- Term toggle -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <div role="radiogroup" aria-label="Agreement length" style="display: inline-flex; gap: 0.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 9999px; padding: 0.25rem;">
+            <button role="radio" aria-checked="false" data-term="12" class="term-tab">12-Month</button>
+            <button role="radio" aria-checked="true" data-term="24" class="term-tab term-tab--active">
+              24-Month <span style="font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; background: #16a34a; color: #0f172a; padding: 0.12rem 0.45rem; border-radius: 9999px; margin-left: 0.4rem;">Best Value</span>
+            </button>
           </div>
-          <div style="margin-top: 0.5rem; font-size: 0.8125rem; color: var(--success);">24-month contracts save you more</div>
+          <p id="term-savings-callout" style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">24-month agreement selected &mdash; savings shown on each card.</p>
         </div>
 
-        <div class="services-grid" style="margin-bottom: 3rem;">
-
-          <!-- Starter Bundle -->
-          <div class="card">
-            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Starter Bundle</h3>
-            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Website + SEO for businesses ready to grow online</p>
-            <div style="margin-bottom: 1.5rem;">
-              <div style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary);">$497 setup</div>
-              <div style="border-top: 1px solid var(--border); margin: 1rem 0; padding-top: 1rem;">
-                <div class="bundle-price-24" style="font-size: 2rem; font-weight: 700; color: var(--success);">$459/mo</div>
-                <div class="bundle-price-12" style="font-size: 2rem; font-weight: 700; color: var(--success); display: none;">$499/mo</div>
-                <div style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.25rem;">
-                  <span style=" color: var(--text-muted);">$509.50/mo</span> a la carte
-                </div>
-                <div class="bundle-savings-24" style="font-size: 0.8125rem; color: var(--success); font-weight: 600; margin-top: 0.25rem;">Save $1,212 over 24 months</div>
-                <div class="bundle-savings-12" style="font-size: 0.8125rem; color: var(--success); font-weight: 600; margin-top: 0.25rem; display: none;">Save $126 over 12 months</div>
-              </div>
-            </div>
-
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">What's included</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.9375rem;">
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600;">Website (Starter)</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Up to 5 pages</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Hosting, updates & support</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; 24/7 AI Chatbot</li>
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600; margin-top: 0.5rem;">SEO + AEO Basic</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; 10 keywords tracked</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Google Business Profile optimization</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Monthly Loom walkthroughs</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; AEO schema markup</li>
-            </ul>
-
-            <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-bottom: 1.5rem;">
-              <div style="font-size: 0.8125rem; color: var(--text-muted); text-align: center;">
-                <span style="color: var(--text-secondary);">$212.50</span> website +
-                <span style="color: var(--text-secondary);">$297</span> SEO =
-                <span style="">$509.50</span> &rarr;
-                <span style="color: var(--success); font-weight: 700;" class="bundle-price-24-inline">$459</span>
-                <span style="color: var(--success); font-weight: 700; display: none;" class="bundle-price-12-inline">$499</span>
-              </div>
-            </div>
-
-            <a href="get-started.html" class="btn btn-secondary" style="width: 100%;">Free Consultation</a>
-          </div>
-
-          <!-- Growth Bundle (Featured) -->
-          <div class="card card-featured">
-            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--success); color: white; padding: 0.25rem 1rem; font-size: 0.75rem; font-weight: 600; border-radius: 9999px;">BEST VALUE</div>
-            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Growth Bundle</h3>
-            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Website + SEO + Social Media for full online presence</p>
-            <div style="margin-bottom: 1.5rem;">
-              <div style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary);">$697 setup</div>
-              <div style="border-top: 1px solid var(--border); margin: 1rem 0; padding-top: 1rem;">
-                <div class="bundle-price-24" style="font-size: 2rem; font-weight: 700; color: var(--success);">$999/mo</div>
-                <div class="bundle-price-12" style="font-size: 2rem; font-weight: 700; color: var(--success); display: none;">$1,099/mo</div>
-                <div style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.25rem;">
-                  <span style=" color: var(--text-muted);">$1,099.50/mo</span> a la carte
-                </div>
-                <div class="bundle-savings-24" style="font-size: 0.8125rem; color: var(--success); font-weight: 600; margin-top: 0.25rem;">Save $2,412 over 24 months</div>
-                <div class="bundle-savings-12" style="font-size: 0.8125rem; color: var(--success); font-weight: 600; margin-top: 0.25rem; display: none;">Save $6 over 12 months</div>
-              </div>
-            </div>
-
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">What's included</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.9375rem;">
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600;">Website (Growth)</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Up to 10 pages</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Blog + advanced forms</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Hosting, updates & priority support</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; 24/7 AI Chatbot</li>
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600; margin-top: 0.5rem;">SEO + AEO Pro</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; 20 keywords, daily rank checks</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Weekly AI summaries</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Full AI citation monitoring</li>
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600; margin-top: 0.5rem;">Social Media Management</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Content creation & posting</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Platform management</li>
-            </ul>
-
-            <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-bottom: 1.5rem;">
-              <div style="font-size: 0.8125rem; color: var(--text-muted); text-align: center;">
-                <span style="color: var(--text-secondary);">$252.50</span> website +
-                <span style="color: var(--text-secondary);">$597</span> SEO +
-                <span style="color: var(--text-secondary);">$250</span> social =
-                <span style="">$1,099.50</span> &rarr;
-                <span style="color: var(--success); font-weight: 700;" class="bundle-price-24-inline">$999</span>
-                <span style="color: var(--success); font-weight: 700; display: none;" class="bundle-price-12-inline">$1,099</span>
-              </div>
-            </div>
-
-            <a href="get-started.html" class="btn btn-primary" style="width: 100%;">Free Consultation</a>
-          </div>
-
-          <!-- Domination Bundle -->
-          <div class="card">
-            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Domination Bundle</h3>
-            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Website + SEO + Social + Ads — total market domination</p>
-            <div style="margin-bottom: 1.5rem;">
-              <div style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary);">$997 setup</div>
-              <div style="border-top: 1px solid var(--border); margin: 1rem 0; padding-top: 1rem;">
-                <div class="bundle-price-24" style="font-size: 2rem; font-weight: 700; color: var(--success);">$1,299/mo</div>
-                <div class="bundle-price-12" style="font-size: 2rem; font-weight: 700; color: var(--success); display: none;">$1,399/mo</div>
-                <div style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.25rem;">
-                  <span style=" color: var(--text-muted);">$1,443/mo</span> a la carte
-                </div>
-                <div class="bundle-savings-24" style="font-size: 0.8125rem; color: var(--success); font-weight: 600; margin-top: 0.25rem;">Save $3,456 over 24 months</div>
-                <div class="bundle-savings-12" style="font-size: 0.8125rem; color: var(--success); font-weight: 600; margin-top: 0.25rem; display: none;">Save $528 over 12 months</div>
-              </div>
-            </div>
-
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">What's included</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.9375rem;">
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600;">Website (Domination)</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Unlimited pages</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Custom features & e-commerce</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Hosting, updates & 24/7 support</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; 24/7 AI Chatbot</li>
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600; margin-top: 0.5rem;">SEO + AEO Pro</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; 20 keywords, daily rank checks</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Weekly AI summaries</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Full AI citation monitoring</li>
-              <li style="padding: 0.375rem 0; color: var(--text-secondary); font-weight: 600; margin-top: 0.5rem;">Social Media Management</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Content creation & posting</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Platform management</li>
-              <li style="padding: 0.375rem 0; color: var(--primary); font-weight: 600; margin-top: 0.5rem;">Google Ads Management</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Campaign setup & optimization</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem;">&#10003; Monthly reporting</li>
-              <li style="padding: 0.25rem 0 0.25rem 1rem; color: var(--text-muted); font-size: 0.875rem; font-style: italic;">Ad spend not included</li>
-            </ul>
-
-            <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-bottom: 1.5rem;">
-              <div style="font-size: 0.8125rem; color: var(--text-muted); text-align: center;">
-                <span style="color: var(--text-secondary);">$299</span> website +
-                <span style="color: var(--text-secondary);">$597</span> SEO +
-                <span style="color: var(--text-secondary);">$250</span> social +
-                <span style="color: var(--text-secondary);">$297</span> ads =
-                <span style="">$1,443</span> &rarr;
-                <span style="color: var(--success); font-weight: 700;" class="bundle-price-24-inline">$1,299</span>
-                <span style="color: var(--success); font-weight: 700; display: none;" class="bundle-price-12-inline">$1,399</span>
-              </div>
-            </div>
-
-            <a href="get-started.html" class="btn btn-secondary" style="width: 100%;">Free Consultation</a>
-          </div>
-
+        <!-- WaaS tier cards (rendered by pricing-page.js from data/pricing.json) -->
+        <div id="waas-tiers" class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+          <noscript>
+            <p style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--text-secondary);">
+              Enable JavaScript to view live pricing from the Gideon Codeworks pricing manifest, or <a href="get-started.html" style="color: var(--primary); font-weight: 600;">request a proposal directly</a>.
+            </p>
+          </noscript>
         </div>
 
-        <!-- How Much You Save -->
-        <div class="section-header" style="margin-top: 2rem;">
-          <h2>How Much You Save</h2>
-          <p>Here's the math — buying separately vs. bundling together</p>
-        </div>
-
-        <div class="services-grid">
-
-          <!-- Starter savings -->
-          <div class="card">
-            <h4 style="color: var(--primary); margin-bottom: 1.25rem;">Starter Bundle</h4>
-            <div style="font-size: 0.9375rem;">
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">Starter Website</span>
-                <span style="color: var(--text-muted);">$212.50/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">SEO + AEO Basic</span>
-                <span style="color: var(--text-muted);">$297/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-muted);">Separately</span>
-                <span style="color: var(--text-secondary);">$509.50/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
-                <span style="color: var(--success); font-weight: 700;">Bundle Price</span>
-                <span style="color: var(--success); font-weight: 700;">$459/mo</span>
-              </div>
-            </div>
-            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px; padding: 0.75rem; text-align: center; margin-top: 0.5rem;">
-              <span style="color: var(--success); font-weight: 700; font-size: 1.125rem;">You save $50.50/mo ($1,212 over 24 months)</span>
-            </div>
-          </div>
-
-          <!-- Growth savings -->
-          <div class="card" style="border-color: var(--success);">
-            <h4 style="color: var(--primary); margin-bottom: 1.25rem;">Growth Bundle</h4>
-            <div style="font-size: 0.9375rem;">
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">Growth Website</span>
-                <span style="color: var(--text-muted);">$252.50/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">SEO + AEO Pro</span>
-                <span style="color: var(--text-muted);">$597/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">Social Media Mgmt</span>
-                <span style="color: var(--text-muted);">$250/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-muted);">Separately</span>
-                <span style="color: var(--text-secondary);">$1,099.50/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
-                <span style="color: var(--success); font-weight: 700;">Bundle Price</span>
-                <span style="color: var(--success); font-weight: 700;">$999/mo</span>
-              </div>
-            </div>
-            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px; padding: 0.75rem; text-align: center; margin-top: 0.5rem;">
-              <span style="color: var(--success); font-weight: 700; font-size: 1.125rem;">You save $100.50/mo ($2,412 over 24 months)</span>
-            </div>
-          </div>
-
-          <!-- Domination savings -->
-          <div class="card">
-            <h4 style="color: var(--primary); margin-bottom: 1.25rem;">Domination Bundle</h4>
-            <div style="font-size: 0.9375rem;">
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">Domination Website</span>
-                <span style="color: var(--text-muted);">$299/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">SEO + AEO Pro</span>
-                <span style="color: var(--text-muted);">$597/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">Social Media Mgmt</span>
-                <span style="color: var(--text-muted);">$250/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-secondary);">Google Ads Mgmt</span>
-                <span style="color: var(--text-muted);">$297/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--text-muted);">Separately</span>
-                <span style="color: var(--text-secondary);">$1,443/mo</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
-                <span style="color: var(--success); font-weight: 700;">Bundle Price</span>
-                <span style="color: var(--success); font-weight: 700;">$1,299/mo</span>
-              </div>
-            </div>
-            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px; padding: 0.75rem; text-align: center; margin-top: 0.5rem;">
-              <span style="color: var(--success); font-weight: 700; font-size: 1.125rem;">You save $144/mo ($3,456 over 24 months)</span>
-            </div>
-          </div>
-
-        </div>
-
+        <p style="text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: var(--text-muted);">
+          All managed plans include hosting, SSL, content updates, ongoing maintenance, security monitoring, and an AI chatbot for lead capture.
+        </p>
       </div>
     </section>
 
-    <!-- Why Bundle -->
-    <section class="section section-alt">
-      <div class="section-container">
+    <!-- Outright one-time panel -->
+    <section class="section section-alt" id="outright" role="tabpanel" aria-labelledby="tab-outright" hidden style="padding-top: 1rem;">
+      <div class="section-container" style="max-width: 1100px;">
+        <!-- One-time tier cards (rendered by pricing-page.js) -->
+        <div id="outright-tiers" class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+          <noscript>
+            <p style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--text-secondary);">
+              Enable JavaScript to view live one-time build pricing from the Gideon Codeworks pricing manifest, or <a href="get-started.html" style="color: var(--primary); font-weight: 600;">request a proposal directly</a>.
+            </p>
+          </noscript>
+        </div>
+
+        <p id="hosting-note" style="text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: var(--text-muted);"></p>
+      </div>
+    </section>
+
+    <!-- Add-on services (fixed-price catalog) -->
+    <section class="section" id="add-ons">
+      <div class="section-container" style="max-width: 1100px;">
         <div class="section-header">
-          <h2>Why Bundle?</h2>
-          <p>More channels working together means better results at a lower cost</p>
+          <h2>Add-On Services</h2>
+          <p>Fixed-price add-ons from the dashboard catalog. Attach to any plan during the proposal.</p>
         </div>
-
-        <div class="services-grid">
-          <div class="card" style="text-align: center;">
-            <div style="width: 48px; height: 48px; background: rgba(59, 130, 246, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.25rem;">$</div>
-            <h3 style="color: var(--text-primary); font-size: 1.125rem; margin-bottom: 0.5rem;">Save Money</h3>
-            <p style="color: var(--text-muted); font-size: 0.9375rem;">Bundles are discounted vs. buying each service individually. The more you bundle, the more you save.</p>
-          </div>
-          <div class="card" style="text-align: center;">
-            <div style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.25rem;">&#8599;</div>
-            <h3 style="color: var(--text-primary); font-size: 1.125rem; margin-bottom: 0.5rem;">Compounding Results</h3>
-            <p style="color: var(--text-muted); font-size: 0.9375rem;">SEO drives organic traffic. Social builds awareness. Ads capture intent. Together they multiply each other.</p>
-          </div>
-          <div class="card" style="text-align: center;">
-            <div style="width: 48px; height: 48px; background: rgba(139, 92, 246, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.25rem;">&#9678;</div>
-            <h3 style="color: var(--text-primary); font-size: 1.125rem; margin-bottom: 0.5rem;">One Team, One Invoice</h3>
-            <p style="color: var(--text-muted); font-size: 0.9375rem;">No juggling multiple vendors. One team managing everything means consistent messaging and faster execution.</p>
-          </div>
+        <div id="add-ons-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          <noscript>
+            <p style="grid-column: 1/-1; text-align: center; padding: 1.5rem; color: var(--text-secondary);">
+              Add-on pricing loads from the manifest. <a href="get-started.html" style="color: var(--primary); font-weight: 600;">Request a proposal</a> to see current options.
+            </p>
+          </noscript>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section">
-      <div class="section-container" style="text-align: center;">
-        <h2 style="margin-bottom: 1rem;">Not Sure Which Bundle Fits?</h2>
-        <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem;">
-          Book a free 15-minute call. We'll look at your current setup and recommend the right package — no pressure.
-        </p>
+    <!-- Custom-quote services -->
+    <section class="section section-alt">
+      <div class="section-container" style="max-width: 1100px;">
+        <div class="section-header">
+          <h2>Services Quoted Per Project</h2>
+          <p>Scope-dependent services. Not on the fixed-price catalog &mdash; priced per project after a conversation.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          <a href="get-started.html?interest=custom-software" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+            <div class="service-icon">⚙️</div>
+            <h3>Custom Software</h3>
+            <p>Multi-tenant SaaS, client portals, CRM systems, dashboards, workflow automation. Portfolio: The Modern Drive, HarkDog, GoodCattery.</p>
+            <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary);">Request a custom quote &rarr;</p>
+          </a>
+          <a href="get-started.html?interest=mobile-app" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+            <div class="service-icon">📱</div>
+            <h3>Mobile Apps</h3>
+            <p>iOS and Android apps, native or Capacitor/PWA shell. Scope and timeline quoted after a discovery call.</p>
+            <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary);">Request a custom quote &rarr;</p>
+          </a>
+          <a href="get-started.html?interest=branding" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+            <div class="service-icon">🎨</div>
+            <h3>Branding</h3>
+            <p>Logo, type system, palette, brand guidelines. Delivered as a reusable system, not a one-off logo file.</p>
+            <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary);">Request a custom quote &rarr;</p>
+          </a>
+          <a href="get-started.html?interest=chatbot-advanced" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+            <div class="service-icon">🤖</div>
+            <h3>Advanced Chatbot &amp; AI Features</h3>
+            <p>Standard chatbot is included with every managed WaaS plan. Multi-flow / custom-trained / integrated chatbots are quoted per scope.</p>
+            <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary);">Request a custom quote &rarr;</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Package Builder -->
+    <section class="section" id="builder">
+      <div class="section-container" style="max-width: 940px;">
+        <div class="section-header">
+          <h2>Package Builder</h2>
+          <p>Configure a package and request a proposal. No online checkout &mdash; this submits your selections to Gideon's lead system and Josh follows up.</p>
+        </div>
+
+        <div id="builder-root" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 2rem;">
+          <noscript>
+            <p style="text-align: center; color: var(--text-secondary);">
+              The Package Builder needs JavaScript. <a href="get-started.html" style="color: var(--primary); font-weight: 600;">Request a proposal manually &rarr;</a>
+            </p>
+          </noscript>
+
+          <!-- Step 1: Model -->
+          <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+            <legend style="font-weight: 700; font-size: 1rem; color: var(--primary); margin-bottom: 0.75rem;">1. How do you want your website?</legend>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;">
+              <label class="builder-choice">
+                <input type="radio" name="builder-model" value="waas" checked>
+                <span class="builder-choice-title">Fully managed (WaaS)</span>
+                <span class="builder-choice-sub">Monthly plan with 12 or 24 month agreement. We host, maintain, update.</span>
+              </label>
+              <label class="builder-choice">
+                <input type="radio" name="builder-model" value="outright">
+                <span class="builder-choice-title">Buy outright</span>
+                <span class="builder-choice-sub">One-time build. You own it. 30 to 90-day post-launch support window.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Step 2: Tier (populated from manifest, filtered by model) -->
+          <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+            <legend style="font-weight: 700; font-size: 1rem; color: var(--primary); margin-bottom: 0.75rem;">2. Which package?</legend>
+            <div id="builder-tier-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem;"></div>
+          </fieldset>
+
+          <!-- Step 3: Term (managed only) -->
+          <fieldset id="builder-term-fieldset" style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+            <legend style="font-weight: 700; font-size: 1rem; color: var(--primary); margin-bottom: 0.75rem;">3. Agreement length</legend>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; max-width: 460px;">
+              <label class="builder-choice">
+                <input type="radio" name="builder-term" value="12">
+                <span class="builder-choice-title">12-Month</span>
+                <span class="builder-choice-sub">Standard monthly rate.</span>
+              </label>
+              <label class="builder-choice">
+                <input type="radio" name="builder-term" value="24" checked>
+                <span class="builder-choice-title">24-Month &middot; Best Value</span>
+                <span class="builder-choice-sub">Discounted monthly rate.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Step 4: Add-ons -->
+          <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+            <legend style="font-weight: 700; font-size: 1rem; color: var(--primary); margin-bottom: 0.75rem;">4. Add-ons (optional)</legend>
+            <div id="builder-addons" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem;"></div>
+          </fieldset>
+
+          <!-- Running summary -->
+          <div id="builder-summary" style="background: rgba(6, 182, 212, 0.07); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem;">
+            <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.75rem;">Your package</p>
+            <div id="builder-summary-body" style="color: var(--text-secondary); line-height: 1.65;">Choose a package above to see pricing.</div>
+          </div>
+
+          <!-- Contact + submit -->
+          <form id="builder-form" method="POST" action="/api/form-submit" novalidate>
+            <!-- Honeypot -->
+            <div style="display: none;" aria-hidden="true">
+              <label>Don't fill this out: <input name="bot-field"></label>
+            </div>
+
+            <!-- Hidden fields populated by builder on submit -->
+            <input type="hidden" name="product-interest" id="builder-product-interest" value="Website &amp; Digital Services">
+            <input type="hidden" name="project-details" id="builder-project-details" value="">
+            <input type="hidden" name="_redirect" value="/quote-success.html">
+
+            <legend style="font-weight: 700; font-size: 1rem; color: var(--primary); margin-bottom: 0.75rem;">5. Your contact info</legend>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <input type="text" name="name" placeholder="Your name *" required aria-label="Your name" style="background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
+              <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone number" style="background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
+            </div>
+            <input type="email" name="email" placeholder="Email *" required aria-label="Email" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary); margin-bottom: 0.75rem;">
+            <input type="text" name="company" placeholder="Business name (optional)" aria-label="Business name" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary); margin-bottom: 0.75rem;">
+            <textarea name="message" rows="3" placeholder="Anything specific about your business or project? (optional)" aria-label="Project notes" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary); margin-bottom: 1rem; resize: vertical;"></textarea>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1.0625rem;">
+              Request My Proposal
+            </button>
+            <p style="text-align: center; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+              No credit card. No contract until you've seen a proposal and agreed to terms.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA fallback -->
+    <section class="cta">
+      <div style="max-width: 720px; margin: 0 auto;">
+        <h2>Prefer to just talk?</h2>
+        <p>Skip the builder &mdash; book a 15-minute call. Faster than filling out a form.</p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="get-started.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">Book a Free Consultation</a>
-          <a href="tel:+12164632648" class="btn btn-outline" style="font-size: 1.125rem; padding: 1rem 2rem;">Call 216-463-2648</a>
+          <a href="get-started.html" class="btn btn-primary">Book a Free Consultation</a>
+          <a href="tel:+12164632648" class="btn btn-outline">Call: 216-463-2648</a>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
@@ -426,21 +317,20 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size: 1.25rem; font-weight: 700; color: #f1f5f9;">Gideon Codeworks</div>
-          <p>Professional websites for small businesses. Simple pricing, full service, real support.</p>
+          <p>Professional websites and custom software for small businesses. One developer, direct line.</p>
         </div>
         <div>
           <h4>Services</h4>
           <ul class="footer-links">
             <li><a href="services.html">Website Design</a></li>
             <li><a href="services.html#seo">SEO Services</a></li>
-            <li><a href="services.html">Hosting & Support</a></li>
-            <li><a href="services/">Contractor Marketing</a></li>
+            <li><a href="services.html">Hosting &amp; Support</a></li>
           </ul>
         </div>
         <div>
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="careers.html">Careers</a></li>
@@ -461,38 +351,110 @@
     </div>
   </footer>
 
-  <!-- Mobile Menu Script -->
+  <!-- Component styles -->
+  <style>
+    .model-tab, .term-tab {
+      border: none;
+      background: transparent;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+    .model-tab:hover, .term-tab:hover { color: var(--text-primary); }
+    .model-tab--active, .term-tab--active {
+      background: var(--primary);
+      color: #0f172a;
+    }
+    .builder-choice {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding: 0.9rem 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 150ms ease, background 150ms ease;
+    }
+    .builder-choice:hover { border-color: rgba(6, 182, 212, 0.4); }
+    .builder-choice:has(input:checked) {
+      border-color: var(--primary);
+      background: rgba(6, 182, 212, 0.08);
+    }
+    .builder-choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .builder-choice-title { font-weight: 700; color: var(--text-primary); }
+    .builder-choice-sub { font-size: 0.825rem; color: var(--text-muted); line-height: 1.4; }
+    .tier-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .tier-card--featured {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.25);
+    }
+    .tier-card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 0.75rem 0;
+    }
+    .tier-price { font-size: 1.9rem; font-weight: 800; color: var(--text-primary); line-height: 1; }
+    .tier-price-unit { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+    .tier-setup { font-size: 0.85rem; color: var(--text-muted); margin: 0.4rem 0 1rem 0; }
+    .tier-savings {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #16a34a;
+      background: rgba(22, 163, 74, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .tier-features { list-style: none; padding: 0; margin: 0.5rem 0 1.25rem 0; font-size: 0.9rem; color: var(--text-secondary); flex: 1; }
+    .tier-features li { padding: 0.3rem 0 0.3rem 1.25rem; position: relative; line-height: 1.4; }
+    .tier-features li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+    .addon-item {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .addon-item:has(input:checked) {
+      border-color: var(--primary);
+      background: rgba(6, 182, 212, 0.07);
+    }
+    .addon-item input { margin-top: 0.15rem; }
+    .addon-item-name { font-weight: 600; color: var(--text-primary); display: block; }
+    .addon-item-price { font-size: 0.8rem; color: var(--text-muted); }
+  </style>
+
+  <!-- Mobile menu + pricing-page logic -->
   <script>
-    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        menuBtn.classList.toggle('active');
-      });
-    }
+    const hamburger = mobileBtn.querySelector('.hamburger');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
   </script>
-
-  <!-- Term Toggle Script -->
-  <script>
-    function setTerm(months) {
-      const btn24 = document.getElementById('term-24');
-      const btn12 = document.getElementById('term-12');
-      const show24 = months === 24;
-
-      btn24.style.background = show24 ? 'var(--primary)' : 'transparent';
-      btn24.style.color = show24 ? 'white' : 'var(--text-muted)';
-      btn12.style.background = show24 ? 'transparent' : 'var(--primary)';
-      btn12.style.color = show24 ? 'var(--text-muted)' : 'white';
-
-      document.querySelectorAll('.bundle-price-24, .bundle-savings-24, .bundle-price-24-inline').forEach(el => {
-        el.style.display = show24 ? '' : 'none';
-      });
-      document.querySelectorAll('.bundle-price-12, .bundle-savings-12, .bundle-price-12-inline').forEach(el => {
-        el.style.display = show24 ? 'none' : '';
-      });
-    }
-  </script>
-
+  <script src="js/pricing-manifest.js"></script>
+  <script src="js/pricing-page.js"></script>
+  <script src="js/chatbot.js"></script>
 </body>
 </html>

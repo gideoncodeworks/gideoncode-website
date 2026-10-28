@@ -1,3 +1,17 @@
+/**
+ * DEPRECATED — Legacy Package Builder from pre-manifest era.
+ *
+ * This file is NOT loaded by any public HTML page. The current
+ * Package Builder lives in js/pricing-page.js and reads prices
+ * from data/pricing.json (the dashboard-authoritative manifest).
+ *
+ * Prices in this file are hardcoded and the final step redirects
+ * to a non-existent checkout.html — do not resurrect without
+ * reconciling against the manifest first.
+ *
+ * Kept in-tree for one cycle as a safety net for review and roll-
+ * back. Safe to delete after Phase 2 sign-off.
+ */
 // Gideon Package Builder - Guided Service Selection
 document.addEventListener('DOMContentLoaded', () => {
   const state = {

@@ -1,259 +1,90 @@
-# Gideon Codeworks - Pricing Reference
-**Last Updated:** November 7, 2024
-**Purpose:** Complete service catalog with pricing
+# Gideon Codeworks — Pricing Reference
+
+**Last Updated:** 2026-10-28
+**Source of truth:** `data/pricing.json` (generated from `gideon-dashboard/src/lib/pricing-tiers.ts` + `one-time-builds.ts`). See `docs/PRICING-SYNC.md` for the end-to-end sync architecture.
+**Important:** This document is a human-readable summary. If this file disagrees with `data/pricing.json`, the manifest wins. Keep this doc updated when pricing changes land.
 
 ---
 
-## 1. ONE-TIME WEBSITE BUILDS
-*Pay once. 1 year hosting included. No ongoing support after initial period.*
+## 1. One-time website builds
 
-### Starter - $2,497
-- Up to 5 pages
-- Mobile responsive
-- Contact form
-- Basic SEO setup
-- 30 days support
+Pay once, own the site. Fixed project price, defined post-launch support window.
 
-### Growth - $3,497
-- Up to 10 pages
-- Mobile responsive
-- Advanced forms
-- Enhanced SEO
-- Blog setup
-- 60 days support
+| Package | Price | Pages | Post-launch support |
+|---|---:|---|---|
+| Starter | $2,497 | 5 | 30 days |
+| Growth | $3,497 | 10 | 60 days |
+| Domination | $4,997 | Unlimited | 90 days |
 
-### Domination - $4,997
-- Unlimited pages
-- Mobile responsive
-- Custom features
-- Premium SEO
-- E-commerce ready
-- Blog + CMS
-- 90 days support
+**Hosting for one-time builds:** 3 months of hosting included after launch (no additional charge). After that, the code is handed off to the customer. The customer may self-host, OR optionally continue on Gideon hosting for **$50/mo**. Confirmed by Josh 2026-10-28.
 
----
+## 2. Website-as-a-Service (WaaS) — managed plans
 
-## 2. WEBSITE-AS-A-SERVICE (Monthly Management)
-*Lower setup fee + ongoing monthly management with updates and support.*
+Setup fee + monthly subscription. We host, maintain, update, support. Choose a 12-month or discounted 24-month agreement.
 
-### Starter
-- **Setup:** $497
-- **12-month:** $250/mo
-- **24-month:** $212.50/mo *(Save $900)*
-- Up to 5 pages, hosting, monthly updates, security monitoring, ongoing support
+| Package | Setup | 12-mo monthly | 24-mo monthly | Pages |
+|---|---:|---:|---:|---|
+| Landing Page | $199 | $49.99 | $49.99 | 1 |
+| Starter | $497 | $250 | $212.50 | 5 |
+| Growth | $697 | $297 | $252.50 | 10 |
+| Domination | $997 | $349 | $299 | Unlimited |
+| Enterprise | $4,997 | $799 | $699 | Unlimited + active management |
 
-### Growth
-- **Setup:** $697
-- **12-month:** $297/mo
-- **24-month:** $252.50/mo *(Save $1,068)*
-- Up to 10 pages, hosting, weekly updates, priority support, blog
+### 24-month savings (vs 24 months at the 12-month rate)
 
-### Domination
-- **Setup:** $997
-- **12-month:** $349/mo
-- **24-month:** $299/mo *(Save $1,200)*
-- Unlimited pages, hosting, daily monitoring, 24/7 support, e-commerce, CMS
+- Starter: $900
+- Growth: $1,068
+- Domination: $1,200
+- Enterprise: $2,400
+- Landing Page: no discount (flat rate at both terms)
 
----
+### What's included on every managed WaaS plan
 
-## 3. ADD-ON SERVICES
+- Managed hosting + SSL
+- Content updates (we do them for you)
+- Ongoing maintenance + security monitoring
+- Standard AI chatbot for lead capture
+- Technical support
+- Monthly performance report
 
-### Gideon AI Chatbot - Basic
-- **$99/mo + $497 setup**
-- 500 conversations/month
-- Lead capture + email handoff
-- Pre-built persona
+## 3. Add-on services (fixed catalog)
 
-### Gideon AI Chatbot - Pro
-- **$299/mo + $997 setup**
-- 2,000 conversations/month
-- Custom persona + dual-model routing
-- Calendar/CRM/form actions
-- Quarterly tuning
+Attachable to any managed WaaS plan during the proposal.
 
-### Social Media Management
-- **$250/mo**
-- 12 posts/month
-- Content creation + scheduling
-- Community engagement
-- Monthly analytics
+| Add-on | Monthly | One-time setup |
+|---|---:|---:|
+| E-commerce Platform | $50 | $500 |
+| Social Media Management | $250 | — |
+| Google Ads Management | $297 | — |
+| SEO + AEO Basic | $297 | — |
+| SEO + AEO Pro | $597 | — |
+| SEO + AEO Advanced | $997 | — |
+| SEO + AEO Enterprise | $997 | — |
 
-### Google SEO / Ads
-- **$297/mo**
-- Google Ads setup + management
-- Keyword targeting
-- Conversion-focused ad copy
-- ROI tracking
-- *Ad spend paid separately to Google*
+**Note on chatbots:** the standard AI chatbot is included in every WaaS plan. Advanced / custom-trained / multi-flow chatbots are quoted per project. Previously there was a $99/mo "Chatbot Basic" tier in the old builder — removed from the manifest because selling a feature that's already included would be double-charging. See `docs/PHASE-2-PENDING-DECISIONS.md` item #5.
 
-### SEO Starter
-- **$497/mo**
-- Keyword research + on-page optimization
-- Technical audit + speed fixes
-- Local SEO + schema markup
-- Monthly ranking reports
+## 4. Services quoted per project
 
-### SEO Growth
-- **$997/mo**
-- Everything in SEO Starter
-- Monthly content creation
-- Competitive analysis
-- Link-building campaigns
+Not on the fixed-price catalog. Scope-dependent — priced per project after a discovery call.
 
----
+- **Custom software** — multi-tenant SaaS, CRM systems, client portals, business dashboards, workflow automation. Portfolio reference: The Modern Drive, HarkDog, GoodCattery.
+- **Mobile apps** — iOS and Android, native or Capacitor/PWA shell.
+- **Branding** — logo, type system, palette, brand guidelines delivered as a reusable system.
+- **Advanced chatbot & AI features** — anything beyond the standard WaaS chatbot.
 
-## 4. BRANDING & DESIGN
+## 5. Not available
 
-### Logo Design - $497
-- 3 concepts + 2 revision rounds
-- PNG, SVG, PDF formats
-- Black, white, full-color versions
-- Brand consult call
+The following services are no longer offered. Any legacy references should be removed when encountered:
 
-### Brand Identity Kit - $1,297
-- Custom logo + color palette (5-7 colors)
-- Typography stack + style guide
-- Social media + business card templates
-- 3 revision rounds
+- Standalone "Gideon AI Chatbot Basic ($99/mo + $497 setup)" and "Pro ($299/mo + $997 setup)" tiers — superseded by the included-with-WaaS chatbot + custom-quote path (above).
+- "Marketing Bundles" packages at $459–$1,499 — the pricing UI now sells WaaS tiers + add-ons separately, which composes to the same thing with clearer pricing.
 
-### Complete Brand System - $2,497
-- Full brand guidelines
-- Sales decks, proposals, collateral
-- Email + presentation templates
-- Icon/graphic library
-- Unlimited revisions
+## 6. Where this gets consumed
 
-*All packages include asset ownership and lifetime file access*
+- `data/pricing.json` — authoritative manifest (synced from dashboard)
+- `js/pricing-manifest.js` — browser helper for reading the manifest
+- `js/pricing-page.js` — renderer for `packages.html` (tiers, add-ons, builder)
+- `packages.html` — the pricing page itself
+- `get-started.html` — reads `?model=…&tier=…&term=…` URL params to pre-fill the lead form with the selected package
 
----
-
-## 5. WEB APPLICATIONS
-
-### Starter App - $4,997
-- User authentication
-- Dashboard + basic reporting
-- ~3 week delivery
-- Connects to Airtable/Google Sheets
-- 60 days support
-
-### Professional SaaS - $9,997
-- Multi-role permissions + audit trails
-- Custom API + integrations
-- Advanced dashboards
-- Automated alerts + reports
-- 30-day delivery
-- 90 days support
-
-### Enterprise Platform - From $14,997
-- Full-stack architecture
-- Advanced security + access control
-- Custom API ecosystem
-- Enterprise analytics
-- Dedicated technical lead
-- 90 days priority support
-
-*Payment plans available for $5,000+ projects*
-
----
-
-## 6. MOBILE APPS
-
-### Basic App - $5,000
-- Launch in 21 days
-- Secure login
-- Up to 5 screens
-- Push notifications
-- Store submission
-- 60 days support
-
-### Pro App - $9,997
-- iOS + Android
-- Custom backend
-- In-app purchases
-- Analytics dashboard
-- Subscription-ready
-- 90 days support
-
-### Enterprise App - From $14,997
-- Advanced backend + admin console
-- Enterprise security
-- Unlimited screens
-- Dedicated project manager
-- Custom reporting + API integrations
-- 90 days support
-
-*Payment plans available*
-
----
-
-## 7. APP MAINTENANCE
-
-### Essential Maintenance - $297/mo
-- Bug fixes + performance tuning
-- Security patches
-- OS compliance updates
-- Backups + uptime checks
-- Email support
-
-### Growth & Feature Support - $697/mo
-- Everything in Essential
-- Monthly development time
-- Feature updates
-- Advanced analytics
-
----
-
-## 8. CRM PLATFORM
-*Production-grade multi-tenant CRM with 12 AI features, 31 industry templates*
-
-### Purchase - Custom Pricing
-- Full source code ownership
-- White-label ready
-- Custom domain setup
-- Deployment assistance
-- 30 days support
-
-### Monthly Rental - Custom Pricing
-- Hosted & managed
-- White-label customization
-- Automatic updates
-- Security + backups
-- Ongoing support
-
-**Includes:** Sales Pipeline, Commission Tracking, Team Management, Real-Time Analytics
-**Demo:** platform.gideoncode.com
-
----
-
-## PAYMENT TERMS
-
-**Methods Accepted:**
-- Credit cards
-- ACH transfers
-- Wire transfers
-
-**Deposit Requirements:**
-- One-time builds: 50% deposit, balance at launch
-- Web-as-a-Service: Setup fee upfront, monthly billing begins at launch
-- Apps/Custom projects: Payment plans available for $5,000+
-
-**Contracts:**
-- Web-as-a-Service: 12 or 24-month terms
-- Add-ons: Month-to-month, can cancel before next billing cycle
-- One-time builds: No ongoing commitment
-
----
-
-## MAINTENANCE NOTES
-
-**Update Order When Changing Pricing:**
-1. Update services.html (source of truth)
-2. Update this document
-3. Update faq.html
-4. Update package-builder.html
-
-**Consistency Rules:**
-- 24-month contracts always labeled "BEST VALUE"
-- Setup fees shown for all add-ons that have them
-- Savings calculations displayed for 24-month plans
-- Support periods clearly stated for all one-time projects
+Everything above reads prices from `data/pricing.json` at runtime. If a hardcoded $ amount shows up in a page that isn't on this list, treat it as drift — the `npm run test:pricing-consistency` script will surface it.

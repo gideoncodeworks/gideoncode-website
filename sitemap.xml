@@ -58,6 +58,12 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://gideoncode.com/locations.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://gideoncode.com/portfolio.html</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -548,6 +554,18 @@
   <url>
     <loc>https://gideoncode.com/blog/ks-masonry-3-5-a-day-case-study.html</loc>
     <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gideoncode.com/blog/bh-dog-training-brand-translated.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gideoncode.com/blog/harkdog-vertical-saas-launch.html</loc>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
