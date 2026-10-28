@@ -319,6 +319,69 @@
     });
   </script>
 
+  <!-- Pre-fill the quote-request form from URL params (set by packages.html tier CTAs) -->
+  <script src="js/pricing-manifest.js"></script>
+  <script>
+    (async function prefillFromParams() {
+      const params = new URLSearchParams(window.location.search);
+      const model = params.get('model');
+      const tier = params.get('tier');
+      const term = params.get('term');
+      const interest = params.get('interest');
+
+      // Scenario A: coming from a tier CTA on packages.html
+      if (model && tier) {
+        try {
+          const pricing = await GideonPricing.load();
+          const lines = ['[Pre-filled from packages.html]', ''];
+          if (model === 'waas') {
+            const t = pricing.getWaasTier(tier);
+            const termNum = parseInt(term, 10) === 12 ? 12 : 24;
+            const monthly = pricing.waasMonthly(tier, termNum);
+            lines.push(`Interested in: Website-as-a-Service (${t.name})`);
+            lines.push(`Term: ${termNum}-month agreement`);
+            lines.push(`Displayed monthly: ${pricing.formatMoney(monthly)}`);
+            lines.push(`Displayed setup: ${pricing.formatMoney(t.setupFee)}`);
+          } else if (model === 'outright') {
+            const b = pricing.getOneTimeBuild(tier);
+            lines.push(`Interested in: One-time website build (${b.name})`);
+            lines.push(`Displayed price: ${pricing.formatMoney(b.price)}`);
+            lines.push(`Support window: ${b.supportDays} days`);
+          }
+          lines.push('');
+          lines.push('(Anything specific about your business or project?)');
+          const details = document.getElementById('project-details');
+          if (details && !details.value) details.value = lines.join('\n');
+
+          // Preselect "Website & Digital Services" radio
+          const r = document.querySelector('input[name="product-interest"][value="Website & Digital Services"]');
+          if (r) r.checked = true;
+        } catch (err) {
+          console.warn('[get-started] could not pre-fill from manifest:', err.message);
+        }
+        return;
+      }
+
+      // Scenario B: ?interest=custom-software | mobile-app | branding | chatbot-advanced
+      if (interest) {
+        const map = {
+          'custom-software': { radio: 'Multiple Products / Not Sure', note: 'Interested in: Custom software (CRM / portal / SaaS / dashboards / automation). Scope and quote on request.' },
+          'mobile-app':      { radio: 'Multiple Products / Not Sure', note: 'Interested in: Mobile app development (iOS / Android). Scope and quote on request.' },
+          'branding':        { radio: 'Website & Digital Services', note: 'Interested in: Branding (logo + brand system). Quote on request.' },
+          'chatbot-advanced':{ radio: 'Website & Digital Services', note: 'Interested in: Advanced chatbot / AI features beyond the standard WaaS chatbot. Quote on request.' },
+          'waas':            { radio: 'Website & Digital Services', note: 'Interested in: Website-as-a-Service managed plan.' },
+          'onetime':         { radio: 'Website & Digital Services', note: 'Interested in: One-time website build.' },
+        };
+        const m = map[interest];
+        if (m) {
+          const r = document.querySelector(`input[name="product-interest"][value="${m.radio}"]`);
+          if (r) r.checked = true;
+          const details = document.getElementById('project-details');
+          if (details && !details.value) details.value = m.note + '\n\n(Anything specific about your business or project?)';
+        }
+      }
+    })();
+  </script>
   <script src="js/chatbot.js"></script>
 </body>
 </html>
