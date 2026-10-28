@@ -1,0 +1,119 @@
+{
+  "manifestVersion": 1,
+  "generatedAt": "2026-10-28T19:26:37.868Z",
+  "sourceCommit": "3b772d8bae6b550237abed64315b84e3b1e9c42f",
+  "sourceRepo": "gideoncodeworks/gideon-dashboard",
+  "waasTiers": [
+    {
+      "slug": "landing_page",
+      "name": "Landing Page",
+      "setupFee": 199,
+      "monthly12": 49.99,
+      "monthly24": 49.99,
+      "pages": 1
+    },
+    {
+      "slug": "starter",
+      "name": "Starter",
+      "setupFee": 497,
+      "monthly12": 250,
+      "monthly24": 212.5,
+      "pages": 5
+    },
+    {
+      "slug": "growth",
+      "name": "Growth",
+      "setupFee": 697,
+      "monthly12": 297,
+      "monthly24": 252.5,
+      "pages": 10
+    },
+    {
+      "slug": "domination",
+      "name": "Domination",
+      "setupFee": 997,
+      "monthly12": 349,
+      "monthly24": 299,
+      "pages": "Unlimited"
+    },
+    {
+      "slug": "enterprise",
+      "name": "Enterprise",
+      "setupFee": 4997,
+      "monthly12": 799,
+      "monthly24": 699,
+      "pages": "Unlimited + Active Management"
+    }
+  ],
+  "oneTimeBuilds": [
+    {
+      "slug": "starter",
+      "name": "Starter",
+      "price": 2497,
+      "supportDays": 30,
+      "pages": 5
+    },
+    {
+      "slug": "growth",
+      "name": "Growth",
+      "price": 3497,
+      "supportDays": 60,
+      "pages": 10
+    },
+    {
+      "slug": "domination",
+      "name": "Domination",
+      "price": 4997,
+      "supportDays": 90,
+      "pages": "Unlimited"
+    }
+  ],
+  "addOns": [
+    {
+      "slug": "ecommerce",
+      "name": "E-commerce Platform",
+      "monthly": 50,
+      "setup": 500
+    },
+    {
+      "slug": "social_media",
+      "name": "Social Media Management",
+      "monthly": 250,
+      "setup": 0
+    },
+    {
+      "slug": "google_ads",
+      "name": "Google Ads Management",
+      "monthly": 297,
+      "setup": 0
+    },
+    {
+      "slug": "seo_basic",
+      "name": "SEO + AEO Basic",
+      "monthly": 297,
+      "setup": 0
+    },
+    {
+      "slug": "seo_pro",
+      "name": "SEO + AEO Pro",
+      "monthly": 597,
+      "setup": 0
+    },
+    {
+      "slug": "seo_advanced",
+      "name": "SEO + AEO Advanced",
+      "monthly": 997,
+      "setup": 0
+    },
+    {
+      "slug": "seo_enterprise",
+      "name": "SEO + AEO Enterprise",
+      "monthly": 997,
+      "setup": 0
+    }
+  ],
+  "hostingPolicy": {
+    "oneTime": "pending",
+    "note": "See docs/PRICING-SYNC.md — awaiting business decision on 1-year included vs billed-separately vs customer-managed."
+  }
+}
