@@ -32,31 +32,21 @@ site. Claim restored on both the homepage portfolio card and the
 portfolio.html card + JSON-LD description with the exact combined wording.
 No further action needed.
 
-## 3. Legacy `js/package-builder.js`
+## 3. Legacy `js/package-builder.js` — RESOLVED 2026-10-28
 
-**Status:** Marked deprecated with a header comment at the top of the file.
-Not loaded by any HTML page as of this commit. Dead code.
+**Deleted.** Replaced by `js/pricing-page.js`, which is the manifest-driven
+Package Builder in use on `packages.html`. Historical implementation log
+preserved in `docs/PACKAGE-BUILDER-IMPLEMENTATION.md`.
 
-**Decision needed:** delete after Phase 2 sign-off, or keep as a reference.
-The replacement is `js/pricing-page.js`, which is the manifest-driven
-Package Builder actually in use on `packages.html`.
+## 4. Packages page JSON-LD — RESOLVED 2026-10-28 (left removed)
 
-## 4. Packages page JSON-LD removed
-
-**Status:** The previous Product + AggregateOffer schema on `packages.html`
-described "Marketing Bundles" at `lowPrice: $459 / highPrice: $1,499`.
-After restructuring the page around WaaS tiers + outright builds, that
-schema no longer accurately represents the offer.
-
-Per direction #9 ("Do not change structured-data prices without verifying
-current Google guidance"), the schema was removed in the Phase 2 commit
-instead of silently updated. An HTML comment on `packages.html` near the
-head notes this.
-
-**Decision needed:** reintroduce structured data when the right offer shape
-is confirmed. Options: a Service schema per WaaS tier, a Product schema per
-one-time build, or an aggregated OfferCatalog. Depends on which Google
-rich-result surface you want to target.
+**Decision:** schema stays removed. The previous "Marketing Bundles"
+AggregateOffer doesn't match the restructured page. Reintroducing it
+would require schema that drifts the moment prices change in the
+manifest. A future improvement could generate schema from the manifest
+at build time; for now, no structured-data pricing on `packages.html`
+is better than inaccurate structured-data pricing. The HTML comment on
+`packages.html` near the head documents the removal reasoning.
 
 ## 5. Chatbot double-charging
 
