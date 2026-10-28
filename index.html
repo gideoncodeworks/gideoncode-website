@@ -107,40 +107,37 @@
 
   <main>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-container">
+    <!-- Hero Section — Stage 1 rebuild -->
+    <section class="hero" style="padding-top: 7.5rem; padding-bottom: 5rem;">
+      <div class="hero-container" style="align-items: center; gap: 3rem;">
         <div class="hero-content">
-          <div class="hero-badge">
-            Cleveland-owned. One developer. Direct line.
-          </div>
-          <h1>
-            Websites That Bring In Business. <span class="text-gradient">Software That Helps You Run It.</span>
+          <div class="eyebrow" style="margin-bottom: 1.25rem;">Cleveland-based &middot; One developer &middot; Direct line</div>
+          <h1 class="display-xl" style="margin: 0 0 1.5rem 0;">
+            Websites that bring in business.<br>
+            <span class="text-gradient">Software that helps you run it.</span>
           </h1>
-          <p>
-            Custom websites, SEO, and business software built by a Cleveland developer who understands how small businesses operate. No agency runaround. Just practical solutions that work.
+          <p class="body-lead" style="max-width: 540px; margin: 0 0 2rem 0;">
+            Custom websites, SEO, and business software built by a Cleveland developer who understands how small businesses actually operate. No agency runaround. No account executives. The person on the first call writes the code.
           </p>
-          <div class="hero-buttons">
-            <a href="portfolio.html" class="btn btn-primary">See Our Work</a>
-            <a href="get-started.html" class="btn btn-outline">Book a Free Consultation</a>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="hero-stat-value">8+</div>
-              <div class="hero-stat-label">Live client sites producing leads</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-value">2</div>
-              <div class="hero-stat-label">Vertical SaaS products shipped</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-value">Cleveland</div>
-              <div class="hero-stat-label">Real person, real phone</div>
-            </div>
+          <div class="hero-buttons" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="portfolio.html" class="btn btn-primary" style="padding: 0.95rem 1.75rem; font-size: 1rem;">See the work &rarr;</a>
+            <a href="get-started.html" class="btn btn-outline" style="padding: 0.95rem 1.75rem; font-size: 1rem;">Book a free call</a>
           </div>
         </div>
-        <div class="hero-image">
-          <img src="images/portfolio/ks-masonry.jpg" alt="KS Masonry Restoration — a Gideon Codeworks client website producing 3–5 leads/day">
+
+        <!-- Composed project visual — real client site, no fabrication -->
+        <div class="hero-image" style="position: relative;">
+          <div class="project-frame">
+            <img src="images/portfolio/ks-masonry.jpg" alt="KS Masonry Restoration — Cleveland masonry contractor website built by Gideon Codeworks">
+          </div>
+          <div class="project-frame project-frame--mobile" aria-hidden="true">
+            <img src="images/portfolio/ks-masonry-mobile.jpg" alt="">
+          </div>
+          <p style="margin: 1rem 0 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: left;">
+            <span class="eyebrow eyebrow--muted" style="margin-right: 0.5rem;">Live</span>
+            <a href="https://ksmasonryrestoration.com" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">ksmasonryrestoration.com</a>
+            &middot; 3&ndash;5 leads/week &rarr; 3&ndash;5 leads/<strong style="color: var(--text-primary);">day</strong> after launch
+          </p>
         </div>
       </div>
     </section>
@@ -227,25 +224,31 @@
         </div>
 
         <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-          <a href="packages.html" class="service-card" style="text-decoration: none; color: inherit; display: block;">
-            <div class="service-icon">🌐</div>
-            <h3>Websites &amp; Design</h3>
-            <p>Professional sites for small businesses, contractors, and service providers. Available as a fully managed Website-as-a-Service plan or as a one-time build you own outright.</p>
-            <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary);">See packages &rarr;</p>
+          <a href="packages.html" class="service-card" style="text-decoration: none; color: inherit; display: block; text-align: left;">
+            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 10px; margin-bottom: 1rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="3" y="4" width="18" height="13" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><circle cx="6" cy="6.5" r="0.5" fill="currentColor"></circle><circle cx="8" cy="6.5" r="0.5" fill="currentColor"></circle><line x1="8" y1="20" x2="16" y2="20"></line><line x1="12" y1="17" x2="12" y2="20"></line></svg>
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; margin: 0 0 0.5rem 0;">Websites &amp; Design</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">Professional sites for small businesses, contractors, and service providers. Available as a fully managed Website-as-a-Service plan or as a one-time build you own outright.</p>
+            <p style="margin-top: 0.9rem; font-weight: 600; color: var(--primary); font-size: 0.9rem;">See packages &rarr;</p>
           </a>
 
-          <a href="services.html#seo" class="service-card" style="text-decoration: none; color: inherit; display: block;">
-            <div class="service-icon">🎯</div>
-            <h3>SEO, AEO &amp; Digital Marketing</h3>
-            <p>Technical SEO, local visibility, AI-answer-engine optimization, Google Business Profile, content, and lead generation. The playbook that took KS Masonry from 3–5 leads/week to 3–5 leads/day.</p>
-            <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary);">Learn more &rarr;</p>
+          <a href="services.html#aeo" class="service-card" style="text-decoration: none; color: inherit; display: block; text-align: left;">
+            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 10px; margin-bottom: 1rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M3 20V12"></path><path d="M9 20V8"></path><path d="M15 20v-6"></path><path d="M21 20V4"></path><circle cx="9" cy="8" r="1.3" fill="currentColor"></circle><circle cx="15" cy="14" r="1.3" fill="currentColor"></circle><circle cx="21" cy="4" r="1.3" fill="currentColor"></circle></svg>
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; margin: 0 0 0.5rem 0;">SEO, AEO &amp; Digital Marketing</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">Technical SEO, local visibility, AI-answer-engine optimization, Google Business Profile, content, and lead generation. The playbook that took KS Masonry from 3&ndash;5 leads/week to 3&ndash;5 leads/day.</p>
+            <p style="margin-top: 0.9rem; font-weight: 600; color: var(--primary); font-size: 0.9rem;">Learn more &rarr;</p>
           </a>
 
-          <a href="get-started.html?interest=custom-software" class="service-card" style="text-decoration: none; color: inherit; display: block;">
-            <div class="service-icon">⚙️</div>
-            <h3>Custom Software &amp; Automation</h3>
-            <p>CRM systems, client portals, business dashboards, SaaS products, and workflow automation. Two vertical SaaS products shipped this year — The Modern Drive and HarkDog.</p>
-            <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary);">Request a quote &rarr;</p>
+          <a href="get-started.html?interest=custom-software" class="service-card" style="text-decoration: none; color: inherit; display: block; text-align: left;">
+            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 10px; margin-bottom: 1rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="2.5" y="4" width="7" height="7" rx="1.5"></rect><rect x="14.5" y="4" width="7" height="7" rx="1.5"></rect><rect x="2.5" y="14" width="7" height="7" rx="1.5"></rect><rect x="14.5" y="14" width="7" height="7" rx="1.5"></rect><line x1="9.5" y1="7.5" x2="14.5" y2="7.5"></line><line x1="9.5" y1="17.5" x2="14.5" y2="17.5"></line><line x1="6" y1="11" x2="6" y2="14"></line><line x1="18" y1="11" x2="18" y2="14"></line></svg>
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; margin: 0 0 0.5rem 0;">Custom Software &amp; Automation</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">CRM systems, client portals, business dashboards, SaaS products, and workflow automation. Portfolio: The Modern Drive (paving-contractor SaaS), HarkDog (dog-trainer SaaS), GoodCattery marketplace.</p>
+            <p style="margin-top: 0.9rem; font-weight: 600; color: var(--primary); font-size: 0.9rem;">Request a quote &rarr;</p>
           </a>
         </div>
       </div>
@@ -253,141 +256,187 @@
 
     <!-- Featured Portfolio (moved higher per site redesign) -->
     <section class="section section-alt" id="portfolio">
-      <div class="section-container">
+      <div class="section-container" style="max-width: 1180px;">
         <div class="section-header">
-          <h2>Recent Work</h2>
-          <p>Real client sites and shipped products. Click any card to see the live build.</p>
+          <div class="eyebrow eyebrow--muted" style="margin-bottom: 0.75rem;">Featured work</div>
+          <h2 class="heading-section" style="margin: 0 0 0.75rem 0;">A couple of the ones we're proud of.</h2>
+          <p class="body-lead" style="max-width: 620px; margin: 0 auto;">
+            Full case-study treatment on two; the rest sit below. Every card links to a real, live site or product &mdash; no mockups.
+          </p>
         </div>
 
-        <div class="portfolio-grid">
-          <!-- KS Masonry Restoration -->
-          <a href="https://ksmasonryrestoration.com" target="_blank" rel="noopener" class="portfolio-card">
-            <div class="portfolio-image">
-              <img src="images/portfolio/ks-masonry.jpg" alt="KS Masonry Restoration website" loading="lazy">
+        <!-- Featured 1: KS Masonry (verified outcome) -->
+        <a href="https://ksmasonryrestoration.com" target="_blank" rel="noopener" class="featured-card" style="display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 2rem; margin-bottom: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; text-decoration: none; color: inherit; transition: border-color 180ms ease, transform 180ms ease;">
+          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 2.5rem; align-items: center;">
+            <div class="project-frame">
+              <img src="images/portfolio/ks-masonry.jpg" alt="KS Masonry Restoration — Cleveland masonry contractor website" loading="lazy">
             </div>
-            <div class="portfolio-content">
-              <span class="portfolio-tag">Contractor &middot; Cleveland</span>
-              <h3>KS Masonry Restoration</h3>
-              <p>Full SEO + AEO rebuild for a Cleveland masonry contractor &mdash; city pages, schema, chatbot lead capture, real project photography.</p>
-              <div class="portfolio-result">
-                <span class="portfolio-result-label">Result</span>
-                <span class="portfolio-result-body">3&ndash;5 leads/week &rarr; 3&ndash;5 leads/<strong>day</strong> <em style="color: var(--text-muted); font-style: normal; font-size: 0.8rem;">(per Kyle Schmitz, owner)</em></span>
+            <div>
+              <div class="eyebrow" style="margin-bottom: 0.75rem;">Contractor &middot; Cleveland</div>
+              <h3 class="display-lg" style="margin: 0 0 1rem 0; font-size: clamp(1.5rem, 2.6vw, 2rem);">KS Masonry Restoration</h3>
+              <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0 0 1.25rem 0;">
+                Full rebuild for a 20-year Cleveland masonry contractor. City pages, schema, FAQ-driven AEO content, AI chatbot for after-hours lead capture, real project photography. Replaced a template Google Site that wasn't producing calls.
+              </p>
+              <div style="display: inline-flex; align-items: baseline; gap: 0.65rem; padding: 0.6rem 1rem; background: rgba(22, 163, 74, 0.1); border: 1px solid rgba(22, 163, 74, 0.3); border-radius: 10px;">
+                <span class="stat-caption" style="color: #22c55e;">Result</span>
+                <span style="color: var(--text-primary); font-weight: 600; font-size: 0.95rem;">3&ndash;5 leads/week &rarr; 3&ndash;5 leads/<strong>day</strong></span>
               </div>
+              <p style="margin: 1rem 0 0 0; font-size: 0.8rem; color: var(--text-muted);">
+                ksmasonryrestoration.com &middot; verified by owner Kyle Schmitz
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Featured 2: HarkDog (software capability) -->
+        <a href="https://hark.dog" target="_blank" rel="noopener" class="featured-card" style="display: block; padding: 2rem; margin-bottom: 2.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; text-decoration: none; color: inherit; transition: border-color 180ms ease, transform 180ms ease;">
+          <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2.5rem; align-items: center;">
+            <div>
+              <div class="eyebrow" style="margin-bottom: 0.75rem;">SaaS &middot; Vertical &middot; In production</div>
+              <h3 class="display-lg" style="margin: 0 0 1rem 0; font-size: clamp(1.5rem, 2.6vw, 2rem);">HarkDog</h3>
+              <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0 0 1.25rem 0;">
+                HoneyBook-style CRM for professional dog trainers. Trainer dashboard, installable client PWA with push notifications, Stripe Connect pass-through billing, public trainer profiles on wildcard subdomains, pathway templates with milestones. Shipped to a first production tenant this quarter.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+                <span class="pill-tech">Next.js</span>
+                <span class="pill-tech">Prisma</span>
+                <span class="pill-tech">Neon Postgres</span>
+                <span class="pill-tech">Stripe Connect</span>
+                <span class="pill-tech">Web Push (VAPID)</span>
+                <span class="pill-tech">Turborepo monorepo</span>
+              </div>
+              <p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">
+                hark.dog &middot; app.harkdog.com &middot; marketing + dashboard + client PWA
+              </p>
+            </div>
+            <div class="project-frame">
+              <img src="images/portfolio/harkdog-app-dashboard.png" alt="HarkDog trainer dashboard — real app interface showing clients, calendar, finance, setup checklist" loading="lazy">
+            </div>
+          </div>
+        </a>
+
+        <!-- Supporting grid: 4 more -->
+        <div class="supporting-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          <a href="https://infinitycaulking-resto.com" target="_blank" rel="noopener" class="support-card">
+            <div class="support-card-img"><img src="images/portfolio/infinity-caulking.jpg" alt="Infinity Caulking &amp; Restoration website" loading="lazy"></div>
+            <div class="support-card-body">
+              <span class="eyebrow eyebrow--muted">Contractor &middot; Cleveland</span>
+              <h4>Infinity Caulking &amp; Restoration</h4>
+              <p>First inbound call within 2&ndash;3 months &mdash; and his first job sold from the site.</p>
             </div>
           </a>
 
-          <!-- Infinity Caulking -->
-          <a href="https://infinitycaulking-resto.com" target="_blank" rel="noopener" class="portfolio-card">
-            <div class="portfolio-image">
-              <img src="images/portfolio/infinity-caulking.jpg" alt="Infinity Caulking &amp; Restoration website" loading="lazy">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-tag">Contractor &middot; Cleveland</span>
-              <h3>Infinity Caulking &amp; Restoration</h3>
-              <p>Brand-new 2026 business. Full Next.js site build, Google Business Profile setup, AI chatbot, multi-service SEO pages.</p>
-              <div class="portfolio-result">
-                <span class="portfolio-result-label">Result</span>
-                <span class="portfolio-result-body">First inbound call within 2&ndash;3 months &mdash; <strong>and his first job sold from the site.</strong></span>
-              </div>
+          <a href="https://designerconcretecle.com" target="_blank" rel="noopener" class="support-card">
+            <div class="support-card-img"><img src="images/portfolio/designer-concrete.jpg" alt="Designer Concrete website" loading="lazy"></div>
+            <div class="support-card-body">
+              <span class="eyebrow eyebrow--muted">Contractor &middot; Cleveland</span>
+              <h4>Designer Concrete</h4>
+              <p>39-year Cleveland concrete pro. Case-study-driven blog, service catalog, chatbot, structured data.</p>
             </div>
           </a>
 
-          <!-- Designer Concrete -->
-          <a href="https://designerconcretecle.com" target="_blank" rel="noopener" class="portfolio-card">
-            <div class="portfolio-image">
-              <img src="images/portfolio/designer-concrete.jpg" alt="Designer Concrete website" loading="lazy">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-tag">Contractor &middot; Cleveland</span>
-              <h3>Designer Concrete</h3>
-              <p>39-year Cleveland concrete pro. Case-study-driven blog, full service catalog, chatbot, structured data.</p>
-              <div class="portfolio-result">
-                <span class="portfolio-result-label">Result</span>
-                <span class="portfolio-result-body">Calls flowing in <strong>before GBP wired up</strong></span>
-              </div>
+          <a href="https://goodcattery.com" target="_blank" rel="noopener" class="support-card">
+            <div class="support-card-img"><img src="images/portfolio/good-cattery.jpg" alt="GoodCattery &mdash; verified breeder marketplace" loading="lazy"></div>
+            <div class="support-card-body">
+              <span class="eyebrow eyebrow--muted">SaaS &middot; Marketplace</span>
+              <h4>GoodCattery</h4>
+              <p>Verified cat-breeder marketplace. Members, Stripe Connect, admin dashboard, scam database.</p>
             </div>
           </a>
 
-          <!-- GoodCattery -->
-          <a href="https://goodcattery.com" target="_blank" rel="noopener" class="portfolio-card">
-            <div class="portfolio-image">
-              <img src="images/portfolio/good-cattery.jpg" alt="GoodCattery &mdash; verified breeder marketplace" loading="lazy">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-tag">SaaS &middot; Marketplace</span>
-              <h3>GoodCattery</h3>
-              <p>Verified cat-breeder marketplace. Member database, Stripe Connect payments, admin dashboard, AI-generated content, community forum, scam database.</p>
-              <div class="portfolio-result">
-                <span class="portfolio-result-label">Scope</span>
-                <span class="portfolio-result-body">400+ verified breeders &middot; 45 states</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- The Modern Drive -->
-          <a href="https://themoderndrive.com" target="_blank" rel="noopener" class="portfolio-card">
-            <div class="portfolio-image">
-              <img src="images/portfolio/modern-drive.jpg" alt="The Modern Drive &mdash; contractor SaaS" loading="lazy">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-tag">SaaS &middot; Vertical</span>
-              <h3>The Modern Drive</h3>
-              <p>Vertical SaaS for driveway and paving contractors. Mobile-first estimating engine, proposal builder, invoicing, and Stripe payments from the jobsite.</p>
-              <div class="portfolio-result">
-                <span class="portfolio-result-label">Scope</span>
-                <span class="portfolio-result-body">Multi-tenant &middot; auth &middot; Stripe &middot; mobile-first</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- HarkDog -->
-          <a href="https://hark.dog" target="_blank" rel="noopener" class="portfolio-card">
-            <div class="portfolio-image">
-              <img src="images/portfolio/hark.jpg" alt="HarkDog &mdash; SaaS CRM for professional dog trainers" loading="lazy">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-tag">SaaS &middot; Vertical</span>
-              <h3>HarkDog</h3>
-              <p>HoneyBook-style CRM for professional dog trainers. Trainer dashboard, client PWA, Stripe Connect pass-through, public trainer profiles on wildcard subdomains.</p>
-              <div class="portfolio-result">
-                <span class="portfolio-result-label">Scope</span>
-                <span class="portfolio-result-body">Trainer dashboard &middot; client PWA &middot; Stripe</span>
-              </div>
+          <a href="https://themoderndrive.com" target="_blank" rel="noopener" class="support-card">
+            <div class="support-card-img"><img src="images/portfolio/modern-drive.jpg" alt="The Modern Drive &mdash; paving-contractor SaaS" loading="lazy"></div>
+            <div class="support-card-body">
+              <span class="eyebrow eyebrow--muted">SaaS &middot; Vertical</span>
+              <h4>The Modern Drive</h4>
+              <p>Vertical SaaS for paving contractors. Mobile-first estimating, proposals, invoicing, Stripe payments from the jobsite.</p>
             </div>
           </a>
         </div>
 
         <div class="text-center mt-2" style="margin-top: 2.5rem;">
-          <a href="portfolio.html" class="btn btn-outline">View all projects &rarr;</a>
+          <a href="portfolio.html" class="btn btn-outline">View the full portfolio &rarr;</a>
         </div>
       </div>
 
       <style>
-        .portfolio-result {
-          margin-top: 1rem;
-          padding-top: 1rem;
-          border-top: 1px dashed rgba(0,0,0,0.12);
+        .featured-card:hover { border-color: rgba(6, 182, 212, 0.4) !important; transform: translateY(-2px); }
+        .pill-tech {
+          display: inline-block;
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.02em;
+          color: var(--text-secondary);
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.1);
+          padding: 0.3rem 0.65rem;
+          border-radius: 9999px;
+        }
+        .support-card {
           display: flex;
-          align-items: baseline;
-          gap: 0.5rem;
-          flex-wrap: wrap;
+          flex-direction: column;
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 12px;
+          overflow: hidden;
+          text-decoration: none;
+          color: inherit;
+          transition: border-color 180ms ease, transform 180ms ease;
         }
-        .portfolio-result-label {
-          font-size: 0.65rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #16a34a;
-          background: rgba(22, 163, 74, 0.08);
-          padding: 0.2rem 0.5rem;
-          border-radius: 4px;
+        .support-card:hover { border-color: rgba(6, 182, 212, 0.4); transform: translateY(-2px); }
+        .support-card-img { aspect-ratio: 16 / 10; overflow: hidden; background: #0b1220; }
+        .support-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+        .support-card-body { padding: 1.1rem 1.25rem 1.25rem; }
+        .support-card-body h4 { font-size: 1.0625rem; font-weight: 700; margin: 0.4rem 0 0.5rem 0; color: var(--text-primary); }
+        .support-card-body p { font-size: 0.875rem; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+        @media (max-width: 820px) {
+          .featured-card > div { grid-template-columns: 1fr !important; }
         }
-        .portfolio-result-body {
-          font-size: 0.9rem;
-          color: var(--text-secondary, #4b5563);
-          line-height: 1.4;
+        @media (prefers-reduced-motion: reduce) {
+          .featured-card:hover, .support-card:hover { transform: none; }
         }
       </style>
+    </section>
+
+    <!-- Software showcase — Stage 1 addition -->
+    <section class="section" style="padding-top: 4rem;">
+      <div class="section-container" style="max-width: 1180px;">
+        <div class="section-header">
+          <div class="eyebrow eyebrow--muted" style="margin-bottom: 0.75rem;">Not just websites</div>
+          <h2 class="heading-section" style="margin: 0 0 0.75rem 0;">We build real business software, too.</h2>
+          <p class="body-lead" style="max-width: 640px; margin: 0 auto;">
+            Three vertical SaaS products shipped from this one-person shop. If your business runs on spreadsheets or a generic tool that doesn't fit, we build the thing that does.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; max-width: 1180px; margin: 0 auto;">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 0.75rem;">Case &middot; HarkDog trainer dashboard</div>
+            <h3 class="display-lg" style="margin: 0 0 1rem 0; font-size: clamp(1.5rem, 2.4vw, 1.9rem);">What a real Gideon-built SaaS looks like on day one of a trial.</h3>
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0 0 1.25rem 0;">
+              Live screenshot (demo tenant, not customer data) from <a href="https://app.harkdog.com" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">app.harkdog.com</a>. Setup checklist with real progress state, dashboard-level metrics, quick actions, upcoming sessions pulled from the calendar &mdash; and a full nav for clients, programs, pathways, finance, templates, automations. Multi-tenant, Stripe Connect, push-notification PWA.
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0 0 1.5rem 0;">
+              Same engineering shop that builds your website can build the software that runs the back of your business.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="get-started.html?interest=custom-software" class="btn btn-primary" style="padding: 0.9rem 1.5rem; font-size: 0.95rem;">Discuss custom software</a>
+              <a href="https://hark.dog" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.9rem 1.5rem; font-size: 0.95rem;">See HarkDog &rarr;</a>
+            </div>
+          </div>
+          <div class="project-frame" style="aspect-ratio: 16 / 10;">
+            <img src="images/portfolio/harkdog-app-dashboard.png" alt="HarkDog trainer dashboard — demo tenant, showing setup checklist, stats cards, and upcoming sessions" loading="lazy">
+          </div>
+        </div>
+
+        <style>
+          @media (max-width: 820px) {
+            .section:has(.project-frame) [style*="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)"] {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        </style>
+      </div>
     </section>
 
     <!-- WaaS vs One-Time Comparison -->
@@ -399,7 +448,7 @@
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 980px; margin: 0 auto;">
-          <a href="packages.html#managed" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+          <a href="packages.html#managed" class="service-card" style="text-decoration: none; color: inherit; display: block; text-align: left;">
             <div style="display: inline-block; background: rgba(22, 163, 74, 0.12); color: #16a34a; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 9999px; margin-bottom: 0.75rem;">Fully Managed</div>
             <h3>Website-as-a-Service</h3>
             <p>Setup fee + monthly. We handle hosting, updates, support, and ongoing improvements. Choose a 12-month or discounted 24-month agreement.</p>
@@ -411,7 +460,7 @@
             <p style="margin-top: 1.25rem; font-weight: 600; color: var(--primary);">See managed pricing &rarr;</p>
           </a>
 
-          <a href="packages.html#outright" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+          <a href="packages.html#outright" class="service-card" style="text-decoration: none; color: inherit; display: block; text-align: left;">
             <div style="display: inline-block; background: rgba(6, 182, 212, 0.12); color: #06b6d4; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 9999px; margin-bottom: 0.75rem;">Buy Outright</div>
             <h3>One-Time Website Build</h3>
             <p>Pay once, own the site. Starter, Growth, or Domination package with defined scope and a dedicated post-launch support window.</p>
@@ -554,6 +603,12 @@
     </section>
 
   </main>
+
+  <!-- Mobile sticky CTA (hidden >768px via CSS) — Stage 1 -->
+  <div class="mobile-cta-bar" role="region" aria-label="Contact Gideon Codeworks">
+    <a href="tel:+12164632648" class="btn-outline">Call 216&#8209;463&#8209;2648</a>
+    <a href="get-started.html" class="btn-primary">Book a free call</a>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
