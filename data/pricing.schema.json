@@ -96,10 +96,18 @@
       "properties": {
         "oneTime": {
           "type": "string",
-          "enum": ["pending", "included-1yr", "billed-separately", "customer-managed"]
+          "enum": ["pending", "included-1yr", "billed-separately", "customer-managed", "included-then-optional"]
         },
+        "includedMonths": { "type": "integer", "exclusiveMinimum": 0 },
+        "continuationMonthly": { "type": "number", "minimum": 0 },
         "note": { "type": "string" }
-      }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "oneTime": { "const": "included-then-optional" } } },
+          "then": { "required": ["includedMonths", "continuationMonthly"] }
+        }
+      ]
     }
   }
 }

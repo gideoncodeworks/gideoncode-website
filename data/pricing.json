@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
-  "generatedAt": "2026-10-28T19:26:37.868Z",
-  "sourceCommit": "3b772d8bae6b550237abed64315b84e3b1e9c42f",
+  "generatedAt": "2026-10-28T22:15:25.290Z",
+  "sourceCommit": "24b382716069f27dd2e5b8c53a18a2cedfccfccd",
   "sourceRepo": "gideoncodeworks/gideon-dashboard",
   "waasTiers": [
     {
@@ -113,7 +113,9 @@
     }
   ],
   "hostingPolicy": {
-    "oneTime": "pending",
-    "note": "See docs/PRICING-SYNC.md — awaiting business decision on 1-year included vs billed-separately vs customer-managed."
+    "oneTime": "included-then-optional",
+    "includedMonths": 3,
+    "continuationMonthly": 50,
+    "note": "3 months of hosting included after launch. After that, the code is handed off — host it yourself, or stay on Gideon hosting for $50/mo."
   }
 }

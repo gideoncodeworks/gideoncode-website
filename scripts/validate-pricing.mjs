@@ -102,9 +102,17 @@ for (const a of manifest.addOns) {
 if (typeof manifest.hostingPolicy !== 'object' || manifest.hostingPolicy === null) {
   fail('hostingPolicy must be an object')
 }
-const validHostingValues = ['pending', 'included-1yr', 'billed-separately', 'customer-managed']
+const validHostingValues = ['pending', 'included-1yr', 'billed-separately', 'customer-managed', 'included-then-optional']
 if (!validHostingValues.includes(manifest.hostingPolicy.oneTime)) {
   fail(`hostingPolicy.oneTime must be one of: ${validHostingValues.join(', ')} (got "${manifest.hostingPolicy.oneTime}")`)
+}
+if (manifest.hostingPolicy.oneTime === 'included-then-optional') {
+  if (typeof manifest.hostingPolicy.includedMonths !== 'number' || manifest.hostingPolicy.includedMonths <= 0) {
+    fail('hostingPolicy.includedMonths must be a positive number when policy is "included-then-optional"')
+  }
+  if (typeof manifest.hostingPolicy.continuationMonthly !== 'number' || manifest.hostingPolicy.continuationMonthly < 0) {
+    fail('hostingPolicy.continuationMonthly must be a non-negative number when policy is "included-then-optional"')
+  }
 }
 
 ok(`manifest valid — ${manifest.waasTiers.length} WaaS tiers, ${manifest.oneTimeBuilds.length} one-time builds, ${manifest.addOns.length} add-ons`)

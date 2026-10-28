@@ -16,7 +16,7 @@ Pay once, own the site. Fixed project price, defined post-launch support window.
 | Growth | $3,497 | 10 | 60 days |
 | Domination | $4,997 | Unlimited | 90 days |
 
-**Hosting:** policy pending — see `docs/PHASE-2-PENDING-DECISIONS.md` item #1. Current website renders a safe placeholder ("Hosting arrangements covered in your proposal") until the business decision is confirmed.
+**Hosting for one-time builds:** 3 months of hosting included after launch (no additional charge). After that, the code is handed off to the customer. The customer may self-host, OR optionally continue on Gideon hosting for **$50/mo**. Confirmed by Josh 2026-10-28.
 
 ## 2. Website-as-a-Service (WaaS) — managed plans
 

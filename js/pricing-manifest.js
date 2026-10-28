@@ -106,10 +106,17 @@ window.GideonPricing = (function () {
     }
 
     function hostingPolicyLabel() {
-      switch (m.hostingPolicy.oneTime) {
+      const hp = m.hostingPolicy
+      switch (hp.oneTime) {
         case 'included-1yr': return '1 year of hosting included'
         case 'billed-separately': return 'Hosting billed separately'
         case 'customer-managed': return 'You manage hosting post-launch'
+        case 'included-then-optional': {
+          const months = hp.includedMonths || 3
+          const monthly = hp.continuationMonthly || 0
+          const monthlyFmt = monthly > 0 ? formatMoneyRounded(monthly) : ''
+          return `${months} months of hosting included · then host it yourself, or stay on Gideon hosting for ${monthlyFmt}/mo`
+        }
         case 'pending':
         default: return 'Hosting arrangements covered in your proposal'
       }

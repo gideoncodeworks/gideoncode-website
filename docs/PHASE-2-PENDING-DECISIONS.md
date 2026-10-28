@@ -5,36 +5,24 @@ require your call. Nothing in this list blocks the current branches. Each
 item lists the exact file + line references so a one-line edit can
 complete the fix once you've decided.
 
-## 1. One-time hosting policy
+## 1. One-time hosting policy — RESOLVED 2026-10-28
 
-**Status:** The pricing manifest exports `hostingPolicy.oneTime: "pending"`.
-The website currently shows a safe placeholder ("Hosting arrangements
-covered in your proposal") on the Buy Outright pricing panel.
+**Policy:** 3 months of hosting included after launch. After that, the code
+is handed off; the customer may self-host OR stay on Gideon hosting for
+$50/mo.
 
-**Three documented options** are already wired into the manifest schema:
+**Changes shipped in this phase:**
 
-- `included-1yr` — "1 year of hosting included" (needs a renewal rate too)
-- `billed-separately` — hosting is a line item from day one (needs the rate)
-- `customer-managed` — customer self-hosts the delivered site
+- `gideon-dashboard/src/lib/one-time-builds.ts` — new `HOSTING_POLICY_ONE_TIME` constant with `policy: "included-then-optional"`, `includedMonths: 3`, `continuationMonthly: 50`
+- `gideon-dashboard/scripts/export-pricing-manifest.ts` — emits the policy into the manifest
+- `data/pricing.json` — regenerated; `hostingPolicy` block now contains the real values
+- `data/pricing.schema.json` + `scripts/validate-pricing.mjs` — accept the new `included-then-optional` value and enforce the two numeric fields when it's active
+- `js/pricing-manifest.js` — `hostingPolicyLabel()` renders the full "3 months included · then host it yourself, or stay on Gideon hosting for $50/mo" line
+- `faq.html` lines 64, 216, 251 — all three rewritten with the new policy, replacing the old "1 year of hosting included" claim
+- `services.html` line 328 — rewritten to match
+- `docs/PRICING-REFERENCE.md` — updated
 
-**Lines on the website that currently claim or contradict a policy:**
-
-| File | Line | Current claim |
-|---|---|---|
-| `faq.html` | 64 | JSON-LD FAQPage: "1 year of hosting included" (with price range `$212-$297/month` that misses the `$212.50` decimal and omits Domination `$299`) |
-| `faq.html` | 216 | Visible FAQ body: same "1 year of hosting included" claim |
-| `faq.html` | 251 | Visible FAQ body: "For one-time builds: you get 1 year of hosting and basic support." |
-| `services.html` | 328 | Contradicts the above — "Pay once, own your website. You handle hosting and updates after launch." |
-
-**Suggested fix sequence once you've decided:**
-
-1. Update `src/lib/one-time-builds.ts` in the dashboard with a `HOSTING_POLICY` constant
-2. Update `scripts/export-pricing-manifest.ts` to emit it into `hostingPolicy.oneTime`
-3. The next GitHub-Action-opened PR to the website carries the new manifest
-4. Rewrite the four lines above sitewide once, so the FAQ and services page stop disagreeing
-
-**Do NOT fix these piecemeal** — the problem is coordination. Fixing one
-without the others reintroduces the contradiction in a new place.
+No further action needed.
 
 ## 2. Infinity Caulking "First call + first job sold" claim — VERIFIED 2026-10-28
 
