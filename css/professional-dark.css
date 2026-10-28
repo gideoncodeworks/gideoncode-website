@@ -41,6 +41,112 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+
+  /* Typography scale — Stage 1 additions. Fluid clamp() values give
+     editorial scale on wide screens without exploding on mobile.
+     Only Inter is loaded; variation comes from size + weight + tracking. */
+  --display-xl:      clamp(2.5rem, 5.5vw, 4.75rem);   /* Hero H1 */
+  --display-lg:      clamp(2rem, 4vw, 3.25rem);        /* Featured project headlines */
+  --display-stat:    clamp(2.25rem, 4vw, 3.5rem);      /* Oversized numbers */
+  --heading-section: clamp(1.75rem, 3vw, 2.5rem);      /* Section <h2> */
+  --body-lead:       clamp(1.0625rem, 1.4vw, 1.1875rem); /* Hero + lead paragraphs */
+  --eyebrow-size:    0.72rem;
+
+  --tracking-tight:  -0.025em;   /* Display */
+  --tracking-tighter: -0.035em;  /* XL display */
+  --tracking-wide:   0.14em;     /* Eyebrows + stat captions */
+}
+
+/* --- Stage 1 typography utilities (opt-in; existing elements unchanged) --- */
+.display-xl    { font-size: var(--display-xl);  font-weight: 800; letter-spacing: var(--tracking-tighter); line-height: 1.02; }
+.display-lg    { font-size: var(--display-lg);  font-weight: 800; letter-spacing: var(--tracking-tight); line-height: 1.08; }
+.display-stat  { font-size: var(--display-stat); font-weight: 800; letter-spacing: var(--tracking-tight); line-height: 1; }
+.heading-section { font-size: var(--heading-section); font-weight: 700; letter-spacing: var(--tracking-tight); line-height: 1.15; }
+.body-lead     { font-size: var(--body-lead); line-height: 1.65; color: var(--text-secondary); }
+.eyebrow {
+  display: inline-block;
+  font-size: var(--eyebrow-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--primary);
+}
+.eyebrow--muted { color: var(--text-muted); }
+.stat-caption {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* --- Mobile sticky bottom CTA — Stage 1 --- */
+.mobile-cta-bar { display: none; }
+@media (max-width: 768px) {
+  .mobile-cta-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.65rem 0.85rem calc(0.65rem + env(safe-area-inset-bottom));
+    background: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 50;
+  }
+  .mobile-cta-bar a {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  .mobile-cta-bar a.btn-primary { background: var(--success); color: #0f172a; }
+  .mobile-cta-bar a.btn-outline { background: transparent; color: var(--text-primary); border: 1px solid var(--border-light); }
+  /* Keep page content clear of the sticky bar */
+  main { padding-bottom: 70px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-cta-bar { backdrop-filter: none; }
+}
+
+/* Keep the chatbot toggle clear of the mobile sticky CTA bar */
+@media (max-width: 768px) {
+  .chatbot-toggle { bottom: 86px !important; }
+  .chatbot-window { bottom: 162px !important; }
+}
+
+/* --- Framed project visual (hero + featured portfolio) — Stage 1 --- */
+.project-frame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #0b1220;
+  aspect-ratio: 16 / 10;
+}
+.project-frame img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top center; }
+.project-frame--mobile {
+  position: absolute;
+  bottom: 10%;
+  right: -4%;
+  width: 24%;
+  min-width: 110px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #0b1220;
+  box-shadow: 0 20px 40px -8px rgba(0,0,0,0.75);
+  aspect-ratio: 9 / 19.5;
+  background: #0b1220;
+}
+.project-frame--mobile img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top center; }
+@media (max-width: 640px) {
+  .project-frame--mobile { right: 4%; width: 30%; }
 }
 
 /* Global Styles */
