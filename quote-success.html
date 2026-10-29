@@ -2,18 +2,38 @@
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="iNLOfAUD-SpV-McgX3bLDUMPkUKaXrbN5YLc8vPrUnA">
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) + GA4 lead conversion event -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF9QHH6T3S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-DF9QHH6T3S');
+
+    // Fire generate_lead ONCE per browser session on confirmed landing here.
+    // Dedupe via sessionStorage so refreshing the thank-you page doesn't
+    // double-count. We fire on page view (not on form click) because the
+    // user only reaches /quote-success.html AFTER /api/form-submit returns
+    // its 302 redirect — i.e., after the webhook to the dashboard succeeded.
+    try {
+      var key = 'gcw_lead_fired_v1';
+      if (!sessionStorage.getItem(key)) {
+        var params = new URLSearchParams(window.location.search);
+        gtag('event', 'generate_lead', {
+          'event_category': 'engagement',
+          'event_label': params.get('source') || 'quote-request',
+          'form_name': 'quote-request'
+        });
+        sessionStorage.setItem(key, '1');
+      }
+    } catch (e) { /* storage unavailable — safe to skip event */ }
   </script>
-  
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quote Received — Gideon Codeworks</title>
+  <!-- Don't let search engines index the thank-you page -->
+  <meta name="robots" content="noindex, follow">
+  <title>Request received — Gideon Codeworks</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="css/professional-dark.css">
@@ -64,48 +84,57 @@
 
   <main class="px-4 pt-24 pb-16">
     <!-- Confirmation -->
-    <div class="max-w-2xl mx-auto text-center space-y-6 mb-16">
-      <p class="text-sm uppercase tracking-[0.4em] text-cyan-300">Quote Request Received</p>
-      <h1 class="text-4xl sm:text-5xl font-bold gradient-text">Thanks! We'll Be In Touch Soon</h1>
-      <p class="text-gray-300 text-lg">
-        Your quote request has been received. A specialist will contact you within 24 hours to discuss your project.
+    <div class="max-w-2xl mx-auto text-center space-y-6 mb-14">
+      <p class="eyebrow">Request received</p>
+      <h1 style="font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin: 0;" class="text-gradient">Thanks &mdash; it&rsquo;s in Josh&rsquo;s inbox.</h1>
+      <p style="font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.65;">
+        Your request landed in the Gideon Codeworks lead system a moment ago. Josh checks it personally, usually within a few hours during the day. You&rsquo;ll hear back within <strong style="color: var(--text-primary);">24 hours</strong>.
       </p>
     </div>
 
-    <!-- What Happens Next -->
-    <section class="max-w-4xl mx-auto mb-16">
-      <div class="cyber-card border-2 border-cyan-500">
-        <h2 class="text-3xl font-bold gradient-text mb-8 text-center">What Happens Next</h2>
+    <!-- What Happens Next — Stage 4: real expectations, no sales fluff -->
+    <section class="max-w-3xl mx-auto mb-16" style="padding: 0 1rem;">
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem;">
+        <h2 class="heading-section" style="margin: 0 0 1.5rem 0; text-align: left;">What happens next</h2>
 
-        <div class="space-y-6">
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--primary); color: #0f172a; font-weight: 800; display: flex; align-items: center; justify-content: center;">1</div>
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">We Review Your Request (Within 24 Hours)</h3>
-              <p class="text-gray-300">One of our specialists will review your project details and prepare a custom quote based on your needs.</p>
+              <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">Josh reads what you sent (same day, usually within a few hours)</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">He&rsquo;s the person who&rsquo;ll build your project. The first read is his, not an assistant&rsquo;s.</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-magenta-500 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--primary); color: #0f172a; font-weight: 800; display: flex; align-items: center; justify-content: center;">2</div>
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">We Contact You</h3>
-              <p class="text-gray-300">We'll reach out via phone or email to discuss your project, answer questions, and provide a detailed quote with pricing and timeline.</p>
+              <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">You get a reply within 24 hours</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">Either a scoped proposal (if your project is a fit for one of the standard packages), or a short email with a few questions and a time to hop on a 15&ndash;20 minute call. No one else in between.</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-magenta-500 to-magenta-600 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--primary); color: #0f172a; font-weight: 800; display: flex; align-items: center; justify-content: center;">3</div>
             <div>
-              <h3 class="text-xl font-bold text-cyan-400 mb-2">Get Started (If You're Ready)</h3>
-              <p class="text-gray-300">If you like the quote and want to move forward, we'll start your project right away. No pressure—take your time to decide.</p>
+              <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">If a package fits, you get a proposal within a day or two</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">Price, scope, timeline, terms &mdash; the full thing, by email. No signatures required until you&rsquo;ve read it and decided.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--primary); color: #0f172a; font-weight: 800; display: flex; align-items: center; justify-content: center;">4</div>
+            <div>
+              <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.3rem 0;">If it&rsquo;s not a fit, you still get an honest answer</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">And often a pointer to who&rsquo;d be the right call instead. No ghost; no auto-drip sequence.</p>
             </div>
           </div>
         </div>
 
-        <div class="mt-8 bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-6 text-center">
-          <p class="text-cyan-300 mb-2">Want to see the full process?</p>
-          <a href="aedocs/onboarding.html" class="text-white underline hover:text-cyan-300 font-semibold">View our complete onboarding guide →</a>
+        <div style="margin-top: 1.75rem; padding: 1rem 1.25rem; background: rgba(6, 182, 212, 0.07); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 10px;">
+          <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary);">
+            Can&rsquo;t wait? Call Josh directly at <a href="tel:+12164632648" style="color: var(--primary); font-weight: 700;">216-463-2648</a> or email <a href="mailto:josh@gideoncode.com" style="color: var(--primary); font-weight: 700;">josh@gideoncode.com</a>.
+          </p>
         </div>
       </div>
     </section>
@@ -205,6 +234,7 @@
     });
   </script>
 
+  <script src="js/gcw-events.js" defer></script>
   <script src="js/chatbot.js"></script>
 </body>
 </html>
