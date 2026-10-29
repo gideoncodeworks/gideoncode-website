@@ -170,31 +170,31 @@
                 </div>
               </div>
 
-              <!-- Contact Info -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                <div>
-                  <label for="name" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Name *</label>
-                  <input type="text" id="name" name="name" required style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
-                </div>
-                <div>
-                  <label for="phone" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Phone *</label>
-                  <input type="tel" id="phone" name="phone" required style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
-                </div>
+              <!-- Contact Info — Stage 4: only name + email required; phone + company optional -->
+              <div style="margin-bottom: 1rem;">
+                <label for="name" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Name *</label>
+                <input type="text" id="name" name="name" required autocomplete="name" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
               </div>
 
               <div style="margin-bottom: 1rem;">
                 <label for="email" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Email *</label>
-                <input type="email" id="email" name="email" required style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
+                <input type="email" id="email" name="email" required autocomplete="email" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
               </div>
 
-              <div style="margin-bottom: 1rem;">
-                <label for="company" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Company Name</label>
-                <input type="text" id="company" name="company" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label for="phone" style="display: block; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5rem;">Phone <span style="font-weight: 400; color: var(--text-muted); font-size: 0.85rem;">(optional)</span></label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
+                </div>
+                <div>
+                  <label for="company" style="display: block; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5rem;">Business name <span style="font-weight: 400; color: var(--text-muted); font-size: 0.85rem;">(optional)</span></label>
+                  <input type="text" id="company" name="company" autocomplete="organization" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary);">
+                </div>
               </div>
 
               <div style="margin-bottom: 1.5rem;">
-                <label for="project-details" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Tell us about your project *</label>
-                <textarea id="project-details" name="project-details" rows="5" required placeholder="What are you looking to build or improve?" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary); resize: vertical;"></textarea>
+                <label for="project-details" style="display: block; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">What are you trying to build? *</label>
+                <textarea id="project-details" name="project-details" rows="4" required placeholder="Rough sketch is fine — what the business does, what you want from the site or software, anything you've already tried." style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--text-primary); resize: vertical;"></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.125rem;">
@@ -393,6 +393,7 @@
       }
     })();
   </script>
+  <script src="js/gcw-events.js" defer></script>
   <script src="js/chatbot.js"></script>
 </body>
 </html>
