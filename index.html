@@ -131,11 +131,11 @@
   </script>
 
   <!-- Tailwind CSS CDN -->
-  <link rel="stylesheet" href="css/tailwind.min.css">
+  <link rel="stylesheet" href="css/tailwind.min.css?v=20261029">
 
   <!-- Professional Dark Theme -->
-  <link rel="stylesheet" href="css/professional-dark.css">
-  <link rel="stylesheet" href="css/chatbot.css">
+  <link rel="stylesheet" href="css/professional-dark.css?v=20261029">
+  <link rel="stylesheet" href="css/chatbot.css?v=20261029">
 </head>
 <body>
 
@@ -181,8 +181,11 @@
 
   <main>
 
-    <!-- Hero Section — Stage 1 rebuild -->
-    <section class="hero" style="padding-top: 7.5rem; padding-bottom: 5rem;">
+    <!-- Hero Section — Simplified for the fix. Dropped the mobile overlay
+         composition because it was both fragile across viewports and
+         caching, and visually busier than the pre-Stage-1 version Josh
+         preferred. Keeps the stronger typography + eyebrow + CTAs. -->
+    <section class="hero" style="padding-top: 7.5rem; padding-bottom: 4rem;">
       <div class="hero-container" style="align-items: center; gap: 3rem;">
         <div class="hero-content">
           <div class="eyebrow" style="margin-bottom: 1.25rem;">Cleveland-based &middot; One developer &middot; Direct line</div>
@@ -193,19 +196,32 @@
           <p class="body-lead" style="max-width: 540px; margin: 0 0 2rem 0;">
             Custom websites, SEO, and business software built by a Cleveland developer who understands how small businesses actually operate. No agency runaround. No account executives. The person on the first call writes the code.
           </p>
-          <div class="hero-buttons" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <div class="hero-buttons" style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
             <a href="portfolio.html" class="btn btn-primary" style="padding: 0.95rem 1.75rem; font-size: 1rem;">See the work &rarr;</a>
             <a href="get-started.html" class="btn btn-outline" style="padding: 0.95rem 1.75rem; font-size: 1rem;">Book a free call</a>
           </div>
+
+          <!-- Verified stats — only facts I can count from live projects -->
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-value">9</div>
+              <div class="hero-stat-label">Live production projects</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value">3</div>
+              <div class="hero-stat-label">Vertical SaaS products shipped</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value">Cleveland</div>
+              <div class="hero-stat-label">Real person, real phone</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Composed project visual — real client site, no fabrication -->
-        <div class="hero-image" style="position: relative;">
+        <!-- Single clean project visual — KS Masonry, verified result in caption -->
+        <div class="hero-image">
           <div class="project-frame">
             <img src="images/portfolio/ks-masonry.jpg" alt="KS Masonry Restoration — Cleveland masonry contractor website built by Gideon Codeworks">
-          </div>
-          <div class="project-frame project-frame--mobile" aria-hidden="true">
-            <img src="images/portfolio/ks-masonry-mobile.jpg" alt="">
           </div>
           <p style="margin: 1rem 0 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: left;">
             <span class="eyebrow eyebrow--muted" style="margin-right: 0.5rem;">Live</span>
