@@ -266,8 +266,10 @@ h4 { font-size: 1.25rem; }
 }
 
 .card-featured {
-  border-color: var(--success);
-  box-shadow: var(--shadow-glow-green);
+  /* Strong 2px border is the entire "featured" signal — no shadow.
+     Previously had a glow box-shadow that bled into sibling cards
+     across the grid gap. */
+  border: 2px solid var(--success);
 }
 
 /* Navigation */
@@ -706,7 +708,6 @@ h4 { font-size: 1.25rem; }
 .pricing-card.featured {
   border: 2px solid var(--success);
   position: relative;
-  box-shadow: var(--shadow-glow-green);
 }
 
 .pricing-badge {
