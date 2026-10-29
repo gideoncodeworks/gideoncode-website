@@ -218,10 +218,15 @@
           </div>
         </div>
 
-        <!-- Single clean project visual — KS Masonry, verified result in caption -->
-        <div class="hero-image">
+        <!-- Composed project visual — desktop + mobile overlay. Safe to use
+             now that CSS cache is busted so .project-frame--mobile rules
+             are guaranteed in every browser. -->
+        <div class="hero-image" style="position: relative;">
           <div class="project-frame">
             <img src="images/portfolio/ks-masonry.jpg" alt="KS Masonry Restoration — Cleveland masonry contractor website built by Gideon Codeworks">
+          </div>
+          <div class="project-frame project-frame--mobile" aria-hidden="true">
+            <img src="images/portfolio/ks-masonry-mobile.jpg" alt="">
           </div>
           <p style="margin: 1rem 0 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: left;">
             <span class="eyebrow eyebrow--muted" style="margin-right: 0.5rem;">Live</span>
