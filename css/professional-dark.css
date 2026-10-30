@@ -266,10 +266,12 @@ h4 { font-size: 1.25rem; }
 }
 
 .card-featured {
-  /* Strong 2px border is the entire "featured" signal — no shadow.
-     Previously had a glow box-shadow that bled into sibling cards
-     across the grid gap. */
-  border: 2px solid var(--success);
+  /* Subtle green tint background + matched 1px border. Previously had
+     a bright 2px border which created a visual "line connecting the
+     cards across the row" because the eye reads matching Y-position
+     horizontal elements as connected. Tint is the "featured" signal. */
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.09), rgba(16, 185, 129, 0.02) 65%, var(--bg-card));
+  border: 1px solid var(--border);
 }
 
 /* Navigation */
